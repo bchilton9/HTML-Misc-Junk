@@ -1,0 +1,14 @@
+   <P>
+ <CENTER>
+ <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>
+ <tr class=header>
+ <td width=60% BGCOLOR=#c0c0c0>Forum Name</td>
+ <td width=30% BGCOLOR=#c0c0c0>Last Post</td>
+ <td width=10% BGCOLOR=#c0c0c0><CENTER>Posts</td>
+ </tr>
+ !!threads!!
+ </table>
+
+
+
+

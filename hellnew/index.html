@@ -1,0 +1,69 @@
+<HTML><HEAD><TITLE>Deeper Than Hell</TITLE></HEAD><BODY BGCOLOR="#000000"><CENTER>
+<TABLE CELLPADDING="0" ALIGN="Center" WIDTH="700">
+    <TR>
+      <TD VALIGN="Top"><P ALIGN=Center>
+	<IMG SRC="dth.jpg"><BR>
+<SMALL><SMALL><A HREF=http://www.erenetwork.com/hell/cgi-bin/add.cgi target=nwindow>Add Something</A> <A HREF=http://www.erenetwork.com/hell/New/main.html target=nwindow>New Entrys</A> <A HREF=http://www.erenetwork.com/hell/Ratings/main.html target=nwindow>Top Rated</A> <A HREF=http://www.erenetwork.com/hell/cgi-bin/search.cgi  target=nwindow>Search</A></SMALL></SMALL>
+
+<!--IMG SRC="flames3.jpg" WIDTH="700" HEIGHT="38"-->
+</TD>
+    </TR>
+    <TR>
+      <TD><P ALIGN=Center>
+	<iframe name="nwindow" style="border:0px" width=700 height=420 src="main.html"
+	frameborder="0"></iframe></TD>
+    </TR>
+  </TABLE>
+</CENTER>
+<P>
+<script language=JavaScript>
+<!--
+var message="";
+function clickIE() {if (document.all) {(message);return false;}}
+function clickNS(e) {if 
+(document.layers||(document.getElementById&&!document.all)) {
+if (e.which==2||e.which==3) {(message);return false;}}}
+if (document.layers) 
+{document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+document.oncontextmenu=new Function("return false")
+// --> 
+</script>
+<script language="JavaScript1.2">
+<!--
+function scrollBar(line,face,arow)
+{
+if (!line||!face||!arow)
+{
+line=null;
+face=null;
+arow=null;
+}
+with(document.body.style)
+{
+scrollbarDarkShadowColor=line;
+scrollbar3dLightColor=line;
+scrollbarArrowColor=arow;
+scrollbarBaseColor=face;
+scrollbarFaceColor=face;
+scrollbarHighlightColor=face;
+scrollbarShadowColor=face;
+scrollbarTrackColor="#000000";
+}
+}
+function colorBar(){
+var w = document.body.clientWidth;
+var h = document.body.clientHeight;
+var x = event.clientX;
+var y = event.clientY;
+if(x>w) scrollBar('#ffffff','#0000aa','#ffffff');
+else  scrollBar('#000000','#ffffff','#000000');
+}
+if (document.all){
+ scrollBar('#ffffff','0000aa','#ffffff');
+document.onmousemove=colorBar;
+}
+//-->
+</script>
+
+</BODY></HTML>

@@ -1,0 +1,66 @@
+<!--#include file="preferences.pl"-->
+<HTML>
+<HEAD>
+	<TITLE><%=$_PAGE_TITLE%></TITLE>
+<META HTTP-EQUIV="expires" CONTENT="now">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<!--#include file="styles.css"-->
+<SCRIPT LANGUAGE="JavaScript">
+function checkform(theform) {
+	if (theform.username.value=="") {
+		alert("Please enter a username");
+		theform.username.focus();
+		return false;
+		}
+	return true;
+	}
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="<%=$_BGCOLOR%>" LINK="<%=$_LINK%>" ALINK="<%=$_ALINK%>" VLINK="<%=$_VLINK%>" onLoad="document.forms['mainform'].username.focus();">
+
+<CENTER>
+
+<FORM NAME="mainform" ACTION="<%= $CGI_URL %>" METHOD="POST" onSubmit="return checkform(this)">
+<INPUT TYPE="hidden" NAME="fromTemplate" VALUE="login.html">
+<INPUT TYPE="hidden" NAME="template" VALUE="default.html">
+<INPUT TYPE="hidden" NAME="view" VALUE="Month">
+<INPUT TYPE="hidden" NAME="command" VALUE="login">
+<INPUT TYPE="hidden" NAME="calendar" VALUE="<%CALENDAR KEY%>">
+
+<TABLE CLASS="thinborder" BORDER="0" CELLPADDING=2 CELLSPACING=0>
+
+<TR><TD COLSPAN="2" ALIGN="center">
+	<SPAN CLASS="text">
+	<FONT <%=$_HEADER_SIZE%>>Login</FONT>
+	<% unless ($AdminConfig->get("require_login")) { %>
+	<BR>
+	<A CLASS="text" HREF="<%=$CGI_URL%>?calendar=<%=$CALENDAR_KEY%>">Return to Calendar</A>
+	<% } %>
+	</SPAN>
+</TD></TR>
+
+<% if ($userMessage ne "") { %>
+<TR>
+	<TD COLSPAN="2" ALIGN="left" VALIGN="top"><SPAN CLASS="messagetext"><%= $userMessage %></TD>
+</TR>
+<% } %>
+
+<TR>
+	<TD ALIGN="right"><SPAN CLASS="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Username:</B></SPAN></TD>
+	<TD><INPUT TYPE="text" NAME="username" SIZE="15" VALUE="<%= $main::in{username} %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR>
+	<TD ALIGN="right"><SPAN CLASS="text"><B>Password:</B></SPAN></TD>
+	<TD><INPUT TYPE="password" NAME="password" SIZE="15" VALUE=""></TD>
+</TR>
+<TR>
+	<TD COLSPAN="2" ALIGN="center"><INPUT CLASS="button" TYPE="submit" VALUE="Login"></TD>
+</TR>
+</TABLE>
+
+</FORM>
+
+</CENTER>
+
+</BODY>
+</HTML>

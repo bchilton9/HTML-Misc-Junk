@@ -1,0 +1,114 @@
+<html>
+<link rel="stylesheet" href="Style.css">
+<head>
+  <title>-=-= Create A Database With A FurBot =-=-</title>
+   
+</head>
+<body>
+<font class="tText">
+FurBot Member Database
+<font class="bText">
+<p>
+<font class="Numeral">[1]</font> Add an Action to your bot and name it 'Create DB'. Change the If Statement 
+to look like the following: 
+<blockquote>
+If * Whispers me CreateDB
+</blockquote>
+Add a statement to the Then box and select: 
+<blockquote>
+$DATABASE: Create Table #1 to database #2
+</blockquote>
+ :from the pulldown menu. In the first small textbox type 'Members' and in the second 
+textbox type '1'. Click Update, click update again.
+<p>
+
+<font class="Numeral">[2]</font> Add another Action. Name it 'Add Member'. Change the If statement to look like the following: 
+<blockquote>
+If * Whispers me join
+</blockquote>
+This action will be triggered when any furre whispers the bot 'join'. 
+Add a statement to the And box, select: 
+<blockquote>
+$DATABASE: if there is not a record in table # in database # where id is #
+</blockquote>
+ :from the pulldown menu, type 'Members' in the first textbox, '1' in the second textbox, and
+ '[player]' in the third textbox, and click Update. Add a statement to the 
+Then box and select: 
+<blockquote>
+$DATABASE: Add record where #1 value is #2 to table #3 database #4
+</blockquote>
+ :from the pulldown menu. Type 'ID' in the first textbox, '[player]' 
+in the second textbox, 'Members' in the third textbox, and '1' in the fourth 
+textbox. Click Update, click Update again, and add another statement to the 
+Then box. Select 'Whisper back #1' from the pulldown menu and type 'You are 
+now a member.' in the small textbox. Click Update, click Update again.
+
+<p>
+<font class="Numeral">[3]</font> Add another Action. Add a Trigger and name it 'OpenDB'. Leave "When Connection establishes" 
+as it is. Add a statement to the Then box. Select: 
+<blockquote>
+$DATABASE: Open database #1 to ID #2 (1-4)
+</blockquote>
+ :from the pulldown menu. Type member.mdb in the first text box and 1 in the second text box. 
+Click the Update button.  </p>
+
+<p>
+<font class="Numeral">[4]</font>Add another trigger and name it 'Close DB'. Select: 
+<blockquote>
+Connection closes
+</blockquote>
+ :from the pulldown menu. Add a statment to the Then box and select: 
+<blockquote>
+$DATABASE: Close database #1
+</blockquote>
+ :from the pulldown menu. In the small text box type '1'.
+ Click Update, click Update again, Close, and Save.  </p>
+
+<p>
+<font class="Numeral">[5]</font>Name this action 'Remove Member'. Change the If statement to look like
+ the following: 
+<blockquote>
+If * Whispers me retire
+</blockquote>
+Add a statement to the And box and select: 
+<blockquote>
+$DATABASE: if there is a record in table # in database # where ID is #
+</blockquote>
+ :from the pulldown menu. Type 'Members' in the first textbox, '1'
+in the second textbox, and '[player]' in the third textbox. Click Update,
+and add a statement to the Then box.  </p>
+
+<p>
+<font class="Numeral">[6]</font>Select: 
+<blockquote>
+$DATABASE: Remove record from database #1 table #2 where ID is #3
+</blockquote>
+ :from the pulldown menu. Type '1' in the first textbox, 'Members' in the 
+second textbox, and '[player]' in the third textbox. Click Update and add 
+another statement to the Then box. Select: 
+<blockquote>
+Whisper back #1
+</blockquote>
+ :from the pulldown menu and type 'You are no longer a member.' in the small 
+textbox. Click Update, click Update again, and Close.  </p>
+
+<p>
+<font class="Numeral">[7]</font>
+This next Action is optional but useful. Add an Action and name it 'List
+ Members'. Change the If statement to look like the following: 
+<blockquote>
+If * Whispers me list members
+</blockquote>
+Add a statment to the Then box and select: 
+<blockquote>
+$DATABASE: List all IDs from database #1 table #2 which start with #3 to variable #4
+</blockquote>
+Type '1' in the first textbox, 'Members' in the second textbox, the third
+textbos can stay empty, and '[tmpList]' in the fourth textbox. Click Update,
+click Update again, Close, and Save. Now you have a member database. Members
+can join by whispering the bot 'join', quit by whispering the bot 'retire',
+or anyfurre can get a current list of members by whispering the bot 'list
+members'.  <br>
+ &nbsp; </p>
+</body>
+</html>

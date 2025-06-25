@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+  <TITLE>D0TT.com! - Cartoons</TITLE>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#ffffff" LINK="#ff0000" VLINK="#ff0000">
+<TABLE BORDER=0 CELLPADDING="2" WIDTH="100%">
+  <TR WIDTH=10%>
+    <TD ROWSPAN=2 ALIGN=right><IMG WIDTH="116" HEIGHT="146" SRC="http://d0tt.erenetwork.com/littlelogo.gif"></TD>
+    <TD><CENTER><SCRIPT LANGUAGE="JavaScript" SRC="http://www.erenetwork.com/ban/banners.js"></SCRIPT></CENTER></TD>
+  </TR>
+  <TR>
+    <TD><P ALIGN=Center>
+      <B><BIG>DØTT.com!!</BIG></B><BR>
+      The Good, The Bad, The Funny!!
+</TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><CENTER>
+<!-- start java -->
+<style>
+body{
+overflow-x:hidden;
+overflow-y:scroll;
+}
+</style>
+
+<script language="JavaScript1.2">
+
+//configure path for left and right arrows
+var goleftimage='pointer2.gif'
+var gorightimage='pointer.gif'
+//configure menu width
+var menuwidth=300
+//configure scroll speed (1-10), where larger is faster
+var scrollspeed=6
+//specify menu content
+var menucontents='<nobr><SMALL>| <A HREF=http://d0tt.erenetwork.com/index.html>Home</A> | <A HREF=http://d0tt.erenetwork.com/cgi-bin/add.cgi>Add Something</A> | <A HREF=http://d0tt.erenetwork.com/New>New Stuff</A> | <A HREF=http://d0tt.erenetwork.com/Ratings>Top Rated</A> | <A HREF=http://d0tt.erenetwork.com/cgi-bin/search.cgi>Search</A> | <A HREF=http://d0tt.erenetwork.com/>Help</A> | <A HREF=mailto:webmaster@d0tt.com>E-Mail Me</A></SMALL></nobr>'
+
+
+////NO NEED TO EDIT BELOW THIS LINE////////////
+
+var actualwidth=''
+var ns_scroll
+function fillup(){
+if (document.all){
+test2.innerHTML=menucontents
+actualwidth=test2.offsetWidth
+}
+else if (document.layers){
+ns_scroll=document.ns_scrollmenu.document.ns_scrollmenu2
+ns_scroll.document.write(menucontents)
+ns_scroll.document.close()
+actualwidth=ns_scroll.document.width
+}
+}
+window.onload=fillup
+
+function moveleft(){
+if (document.all&&test2.style.pixelLeft>(menuwidth-actualwidth))
+test2.style.pixelLeft-=scrollspeed
+else if (document.layers&&ns_scroll.left>(menuwidth-actualwidth))
+ns_scroll.left-=scrollspeed
+lefttime=setTimeout("moveleft()",50)
+}
+
+function moveright(){
+if (document.all&&test2.style.pixelLeft<0)
+test2.style.pixelLeft+=scrollspeed
+else if (document.layers&&ns_scroll.left<0)
+ns_scroll.left+=scrollspeed
+righttime=setTimeout("moveright()",50)
+}
+
+if (document.all||document.layers){
+with (document){
+write('<table border="1" cellspacing="2" cellpadding="2" BORDERCOLOR="blue">')
+write('<td valign="middle"><small><</small> <a href=#" onMouseover="moveright()" onMouseout="clearTimeout(righttime)"><SMALL>More</SMALL></a> </td>')
+write('<td valign="top">')
+if (document.all){
+write('<span style="position:relative;width:'+menuwidth+';">')
+write('<span style="position:absolute;width:'+menuwidth+';clip:rect(0 '+menuwidth+' auto 0)">')
+write('<span id="test2" style="position:absolute;left:0;top:0">')
+write('</span></span></span>')
+}
+else if (document.layers){
+write('<ilayer width='+menuwidth+' name="ns_scrollmenu">')
+write('<layer name="ns_scrollmenu2" left=0 top=0></layer></ilayer>')
+}
+write('</td>')
+write('<td valign="middle"> <a href="#" onMouseover="moveleft()" onMouseout="clearTimeout(lefttime)">')
+write('<SMALL>More</SMALL></a> <small>></small>')
+write('</td></table><!-- <img src="'+goleftimage+'"border=0><img src="'+gorightimage+'"border=0> -->')
+}
+}
+</script>
+<!-- End Java -->
+</small></p></CENTER>
+</TD>
+  </TR>
+<TR><TD><TABLE BORDER CELLPADDING="2" BORDERCOLOR=blue>
+  <TR>
+    <TD><A HREF="http://d0tt.erenetwork.com">DØTT.com</a>: Cartoons</TD>
+  </TR>
+</TABLE></TD></TR>
+  <TR>
+    <TD COLSPAN=2><CENTER>
+<BR>
+<P>
+
+
+    <!-- Subcategories-->
+        Sub Categories:
+        <div class="margin"><table width="80%" border="0" cellspacing="0" cellpadding="0"><tr><td class="catlist" valign="top">
+<dl><dt><strong><a class="link" href="http://64.21.147.159/d0tt/Cartoons/Adult/">Adult</a></strong> <small class="numlinks">(1)</small> </dt><dd><span class="descript">X Rated Cartoons! Must be 18, or wate tell your parents arnt home!! </span></dd></dl><dl><dt><strong><a class="link" href="http://64.21.147.159/d0tt/Cartoons/Computer/">Computer</a></strong> <small class="numlinks">(1)</small> </dt><dd><span class="descript">Computer Related Cartoons. </span></dd></dl></td><td class="catlist" valign="top">
+<dl><dt><strong><a class="link" href="http://64.21.147.159/d0tt/Cartoons/Outher/">Outher</a></strong> <small class="numlinks">(4)</small> </dt><dd><span class="descript">Cartoons that dident fit in the outher places! </span></dd></dl></td></tr></table></div>
+
+
+    <!-- Links in this category. -->
+
+    <!-- Next/Previous links if spanning pages. -->
+    <p align=center>
+    </p>
+    
+    <!-- Related Categories -->
+</CENTER>
+</TD>
+  </TR>
+<TR>
+    <TD COLSPAN=2>
+<CENTER><form action="http://64.21.147.159/d0tt/cgi-bin/search.cgi" method="GET">
+        <h2>Search</h2>
+            <div class="margin">
+                <table border="0" cellspacing="0" cellpadding="0">
+                <tr><td><strong class="search">Looking for something in particular?</strong></td></tr>
+                <tr><td><input type="text" size=15 name="query"> <input type=submit value="Search!"></td></tr>
+                <tr><td><small class="more"><a href="http://64.21.147.159/d0tt/cgi-bin/search.cgi">More search options</a></small></td></tr>
+                </table>
+        </div>
+    </form></CENTER>
+</TD>
+  </TR>
+<TR><TD COLSPAN=2>
+<CENTER><small><FONT COLOR=gray>Pages Updated On: 2-Dec-2001 - 13:25:15
+</TD></TR>
+</TABLE>
+</BODY></HTML>

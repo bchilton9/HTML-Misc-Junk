@@ -1,0 +1,114 @@
+</HEAD>
+<BODY BGCOLOR=ffffff TEXT=000000 LINK=000000 VLINK=000000>
+<TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+<TR>
+<TD><TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+<TR>
+<TD><IMG SRC=http://www.d0tt.com/logo.jpg WIDTH=237 HEIGHT=65></TD>
+  <TD ALIGN=right WIDTH=100%>
+<A HREF="http://www.d0tt.com/cgi-bin/wn/ads.pl?member=keny;banner=NonSSI;page=05"><IMG
+    SRC="http://www.d0tt.com/cgi-bin/wn/ads.pl?member=keny;page=05" WIDTH="468"
+    HEIGHT="60" ALT="WetNap Banner Exchange" ISMAP USEMAP></A>
+</TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD><TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+	  <TD><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% BGCOLOR=808080>
+	      <TR>
+		<TD><IMG SRC=http://www.d0tt.com/blueleft.gif WIDTH=16 HEIGHT=25></TD>
+		<TD WIDTH=100%><P ALIGN=Right>
+		  <B>
+DØTT.com: Search</B></TD>
+		<TD><IMG SRC=http://www.d0tt.com/blueright.gif WIDTH=16 HEIGHT=25></TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+	<TR>
+	  <TD><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	      <TR>
+		<TD WIDTH=120><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% BGCOLOR=c0c0c0>
+		    <TR>
+		      <TD><IMG SRC=http://www.d0tt.com/redleft.gif WIDTH=16 HEIGHT=25></TD>
+		      <TD Width=100%><Center><B>
+Search<B></TD><TD><IMG SRC=http://www.d0tt.com/redright.gif WIDTH=16 HEIGHT=25></TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+		<TD><CENTER>
+		    <B>Search D0TT.com!!</B>
+		  </CENTER>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD VALIGN=Top><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+	  <TD width=140 VALIGN=Top><BR>
+	    <TABLE BORDER=2 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	      <TR>
+		<TD VALIGN=Top><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=2 WIDTH=100%>
+<TR>
+		      <TD VALIGN=Top BGCOLOR=808080><SMALL><B>D0TT.com</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR=afafaf><SMALL><A HREF=mailto:webmaster@d0tt.com>E-Mail
+			Me!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/cgi-bin/post/postcard.cgi>Postcards!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/funny.shtml>Funny
+			Stuff!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/jokes.shtml>Jokes!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/perl.shtml>Perl!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/cgi-bin/guest/guestbook.cgi>View
+			Guestbook!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/cgi-bin/guest/guestbook.cgi?sign>Sign
+			Guestbook!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/wav.shtml>Wavs!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/tee.shtml>Tee Shirts!</A></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR=808080><SMALL><B>Sub Domains</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR=afafaf><SMALL><A HREF=http://www.d0tt.com/domain.shtml#reg>Register
+			for a domain!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/domain.shtml#edit>Edit existing
+			domain!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/domain.shtml#Lost>Lost your
+			password?</A></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR=808080><SMALL><B>Links</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR=afafaf><A href=http://bushido49.virtualave.net>Bushido</A><BR>
+			<A href=http://dynamicdrive.com><SMALL>Dynamic Drive</SMALL></A><BR>
+			<A href=http://thefreesite.com><SMALL>The Free Site</SMALL></A><BR>
+			<A href=http://www.webgfx.ch><SMALL>Web GFX</SMALL></A><BR>
+			<A href=http://loves289.virtualave.net><SMALL>Shellees page</SMALL></A><BR>
+			<A href=http://www.darkserene.com><SMALL>DarkSereneOnline</SMALL></A><BR>
+			<A href=http://www.d0tt.com/ssp><SMALL>Super South Park</SMALL></A><BR>
+			<A href=http://www.d0tt.com/furry><SMALL>Furcadias Top
+			Sites</SMALL></A><BR>
+			<A href=http://www.d0tt.com/pokedex><SMALL>PokeDex</SMALL></A></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR=808080>
+<!--#exec cgi="/cgi-bin/midi/midi.cgi" -->
+</TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	  <TD VALIGN=Top><Center>

@@ -1,0 +1,8 @@
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+function killEntry(entry) { if (window.confirm("Are you sure you want to Delete this Entry?")) 
+{ window.location.href = "http://www.erenetwork.com/cgi-bin/members.cgi?a=edit_gb_com&user=ERE&pass=0519a&nmb=" + entry + "" } }
+  </Script>
+</HEAD>
+
+<a href="javascript:killEntry('$nmb')">Delete</a>

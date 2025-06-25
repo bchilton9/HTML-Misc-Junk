@@ -1,0 +1,1018 @@
+DSPK V01.00 Furcadia
+
+START
+(0:9)
+	(3:2) at position (92,117) on the map,
+	(5:4) place object type 353.
+ (5:15) (14,15)
+	(5:12) play sound 64 to everyone on the map.
+(0:0)
+ (3:2) (76,97)
+ (5:4) 309
+ (3:2) (132,17)
+ (5:4) 309
+(0:19) When somebody uses object type 0,
+(1:19) and they (moved from/are standing at) position (16,13),
+ (5:14) (36,62)
+(0:19) 0
+(1:19) (14,14)
+ (5:14) (52,48)
+(0:19) 0
+(1:19) (12,16)
+ (5:14) (46,151)
+(0:19) 0
+(1:19) (12,14)
+ (5:14) (82,107)
+(0:19) 0
+(1:19) (14,16)
+ (5:14) (58,31)
+(0:19) When somebody uses object type 0,
+(1:19) and they (moved from/are standing at) position (16,13),
+	(5:14) move the furre to (36,62) if there's nobody already there.
+
+FOOD
+(0:7) When somebody moves into position (130,121),
+(1:3) and they move into object type 163,
+	(4:1) only where the floor is type 157,
+	(5:6) swap object types 61 and 191.
+	(3:2) at position (130,121) on the map,
+	(5:4) place object type 164.
+(0:7) When somebody moves into position (130,121),
+(1:3) and they move into object type 164,
+	(4:1) only where the floor is type 157,
+	(5:6) swap object types 191 and 61.
+	(3:2) at position (130,121) on the map,
+	(5:4) place object type 163.
+
+PENNAS ROOM
+(0:3) 177
+(1:19) (92,16)
+ (5:14) (52,48)
+(0:3) 177
+(1:19) (52,48)
+ (5:14) (92,16)
+
+DREME CLOSED
+(0:7) (92,12)
+(1:3) 163
+ (3:2) (92,12)
+ (5:4) 164
+ (3:2) (16,18)
+ (5:4) 271
+(0:7) (92,12)
+(1:3) 164
+ (3:2) (92,12)
+ (5:4) 163
+ (3:2) (16,18)
+ (5:4) 0
+
+OBJECT REMOVER
+(0:100) 600 0
+ (4:2) 178
+ (5:5) 41 0
+ (4:2) 180
+ (5:5) 33 0
+ (4:2) 181
+ (5:5) 35 0
+ (4:2) 183
+ (5:5) 47 0
+ (4:2) 184
+ (5:5) 50 0
+ (4:2) 185
+ (5:5) 51 0
+ (4:2) 186
+ (5:5) 53 0
+
+DOORWAY TO HALL
+(0:7) (100,65)
+(1:19) (98,66)
+ (5:14) (100,65)
+(0:7) (98,66)
+(1:19) (100,65)
+ (5:14) (98,66)
+
+SIGNS
+(0:3) 271
+ (5:12) 28
+(0:3) 272
+ (5:12) 28
+
+STARES
+(0:3) 265
+(1:19) (46,49)
+ (5:14) (16,18)
+(0:7) (18,19)
+(1:19) (16,18)
+ (5:14) (46,49)
+(0:3) 265
+(1:19) (60,66)
+ (5:14) (58,60)
+(0:7) (60,61)
+ (5:14) (60,66)
+(0:3) 266
+(1:19) (88,81)
+ (5:14) (90,75)
+(0:7) (88,76)
+ (5:14) (88,81)
+(0:7) (116,61)
+ (5:14) (114,66)
+(0:3) 266
+(1:19) (114,66)
+ (5:14) (116,60)
+
+BOTTEM DOOR
+(0:7) (68,54)
+ (5:14) (64,49)
+(0:7) (64,49)
+(1:19) (62,48)
+ (5:14) (70,55)
+(0:7) (78,75)
+ (5:14) (70,68)
+(0:7) (72,69)
+(1:19) (70,68)
+ (5:14) (78,76)
+
+SIGNS
+(0:3) 271
+ (5:12) 28
+
+STORE
+(0:18) 41
+(1:19) (68,93)
+ (3:2) (68,93)
+ (5:4) 33
+(0:18) 41
+(1:19) (68,94)
+ (3:2) (68,94)
+ (5:4) 35
+(0:18) 41
+(1:19) (70,95)
+ (3:2) (70,95)
+ (5:4) 47
+(0:18) 41
+(1:19) (70,96)
+ (3:2) (70,96)
+ (5:4) 50
+(0:18) 41
+(1:19) (72,97)
+ (3:2) (72,97)
+ (5:4) 51
+(0:18) 41
+(1:19) (72,98)
+ (3:2) (72,98)
+ (5:4) 53
+
+POWLLOW MAKER
+(0:1)
+(1:1014) (38,76) 1
+ (3:2) (38,76)
+ (5:4) 1
+(0:7) (38,76)
+(1:1002) 1
+ (3:2) (38,76)
+ (5:4) 0
+
+BAINK
+(0:3) 163
+(1:19) (82,107)
+ (3:2) (82,106)
+ (5:4) 164
+ (3:2) (84,109)
+ (5:4) 41
+ (3:2) (82,106)
+ (5:4) 163
+(0:18) 41
+(1:19) (84,109)
+ (5:12) 28
+ (3:2) (84,109)
+ (5:4) 0
+
+STORES
+(0:2) 175
+(1:19) (98,86)
+ (5:14) (98,85)
+(0:2) 175
+(1:19) (98,85)
+(1:1013) (96,83) 109
+ (5:14) (98,86)
+(0:7) (94,13)
+(1:3) 163
+ (3:2) (94,13)
+ (5:4) 164
+ (3:2) (96,83)
+ (5:4) 109
+(0:7) (94,13)
+(1:3) 164
+ (3:2) (94,13)
+ (5:4) 163
+ (3:2) (96,83)
+ (5:4) 111
+
+ILAND
+(0:7) (174,21)
+(1:3) 265
+ (5:14) (172,17)
+(0:7) (172,18)
+ (5:14) (174,22)
+(0:7) (172,22)
+(1:3) 265
+ (5:14) (170,18)
+(0:7) (172,19)
+ (5:14) (174,23)
+(0:7) (186,29)
+ (5:15) (22,21)
+(0:7) (24,21)
+ (5:15) (186,29)
+(0:3) 163
+(1:19) (90,12)
+ (3:2) (24,21)
+ (5:4) 155
+ (3:2) (92,11)
+ (5:4) 164
+ (3:2) (186,27)
+ (5:4) 0
+(0:3) 164
+(1:19) (90,12)
+(1:1013) (24,21) 155
+ (3:2) (24,21)
+ (5:4) 284
+ (3:2) (92,11)
+ (5:4) 163
+ (3:2) (186,27)
+ (5:4) 65
+(0:7) When somebody moves into position (166,15),
+(1:3) and they move into object type 244,
+	(3:2) at position (166,15) on the map,
+	(5:6) swap object types 244 and 7.
+(0:7) When somebody moves into position (166,15),
+(1:3) and they move into object type 7,
+	(3:2) at position (166,15) on the map,
+	(5:6) swap object types 244 and 7.
+(0:7) When somebody moves into position (164,16),
+(1:3) and they move into object type 244,
+	(3:2) at position (164,16) on the map,
+	(5:6) swap object types 244 and 7.
+(0:7) When somebody moves into position (164,16),
+(1:3) and they move into object type 7,
+	(3:2) at position (164,16) on the map,
+	(5:6) swap object types 244 and 7.
+
+LIGHTS
+(0:7) (102,50)
+(1:3) 186
+ (5:3) 175 171
+
+MAZE
+(0:7) (138,19)
+(1:19) (138,20)
+ (5:14) (138,19)
+(0:18) 51
+(1:19) (134,19)
+ (3:2) (134,19)
+ (5:4) 41
+(0:3) 177
+(1:19) (134,14)
+ (5:15) (88,114)
+
+BALL
+(0:3) 34
+ (5:12) 39
+(0:3) 265
+(1:19) (134,78)
+ (5:14) (132,72)
+(0:7) (134,73)
+ (5:14) (134,78)
+
+WATER ROOM
+(0:3) 177
+(1:19) (74,17)
+ (5:14) (66,34)
+(0:7) (68,33)
+ (5:14) (74,17)
+(0:3) 246
+(1:19) (74,13)
+ (5:14) (12,187)
+(0:3) 293
+(1:19) (12,187)
+ (5:14) (74,13)
+
+SLOTS
+(0:7) (100,72)
+(1:3) 161
+ (3:2) (100,72)
+ (5:4) 162
+ (3:2) (100,72)
+ (5:4) 161
+(0:7) (100,72)
+(1:3) 161
+	(3:2) at position (100,72) on the map,
+	(5:4) place object type 162.
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,69)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (102,70)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 1
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 5
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 7
+(0:7) (100,72)
+(1:3) 161
+(1:1000) (25)
+ (3:2) (104,71)
+ (5:4) 15
+(0:7) (100,72)
+(1:3) 161
+(1:1013) (102,69) 1
+(1:1013) (102,70) 1
+(1:1013) (104,71) 1
+ (3:2) (100,73)
+ (5:4) 41
+ (3:2) (102,70)
+ (5:4) 65
+(0:7) (100,72)
+(1:3) 161
+(1:1013) (102,69) 5
+(1:1013) (102,70) 5
+(1:1013) (104,71) 5
+ (3:2) (100,73)
+ (5:4) 41
+ (3:2) (102,70)
+ (5:4) 65
+(0:7) (100,72)
+(1:3) 161
+(1:1013) (102,69) 7
+(1:1013) (102,70) 7
+(1:1013) (104,71) 7
+ (3:2) (100,73)
+ (5:4) 41
+ (3:2) (102,70)
+ (5:4) 65
+(0:7) (100,72)
+(1:3) 161
+(1:1013) (102,69) 15
+(1:1013) (102,70) 15
+(1:1013) (104,71) 15
+ (3:2) (100,73)
+ (5:4) 41
+ (3:2) (102,70)
+ (5:4) 65
+(0:7) (100,72)
+(1:3) 161
+	(3:2) at position (100,72) on the map,
+	(5:4) place object type 161.
+
+STEAM ROOM
+(0:7) When somebody moves into position (14,58),
+(1:3) and they move into object type 162,
+	(3:2) at position (14,58) on the map,
+	(5:4) place object type 161.
+	(3:2) at position (12,63) on the map,
+	(5:4) place object type 627.
+	(3:2) at position (16,67) on the map,
+	(5:4) place object type 627.
+	(3:2) at position (18,64) on the map,
+	(5:4) place object type 627.
+(0:7) When somebody moves into position (14,58),
+(1:3) and they move into object type 161,
+	(3:2) at position (14,58) on the map,
+	(5:4) place object type 162.
+	(3:2) at position (12,63) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (16,67) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (18,64) on the map,
+	(5:4) place object type 0.
+(0:3) When somebody moves into object type 266,
+(1:19) and they (moved from/are standing at) position (12,60),
+	(5:14) move the furre to (68,56) if there's nobody already there.
+(0:7) When somebody moves into position (68,57),
+(1:19) and they (moved from/are standing at) position (68,56),
+	(5:14) move the furre to (12,60) if there's nobody already there.
+
+FIGHT
+(0:7) When somebody moves into position (44,153),
+(1:19) and they (moved from/are standing at) position (44,154),
+	(5:14) move the furre to (44,154) if there's nobody already there.
+(0:7) When somebody moves into position (44,153),
+(1:19) and they (moved from/are standing at) position (42,152),
+	(5:14) move the furre to (42,152) if there's nobody already there.
+(0:7) When somebody moves into position (44,154),
+	(3:2) at position (46,155) on the map,
+	(5:4) place object type 66.
+(0:7) When somebody moves into position (42,152),
+	(3:2) at position (42,151) on the map,
+	(5:4) place object type 66.
+(0:7) When somebody moves into position (42,151),
+(1:3) and they move into object type 66,
+	(3:2) at position (42,151) on the map,
+	(5:4) place object type 0.
+(0:7) When somebody moves into position (46,155),
+(1:3) and they move into object type 66,
+	(3:2) at position (46,155) on the map,
+	(5:4) place object type 0.
+
+DS FIGHT
+(0:7) When somebody moves into position (18,156),
+	(5:14) move the furre to (20,157) if there's nobody already there.
+(0:0) When everything is starting up,
+	(3:2) at position (18,156) on the map,
+	(5:4) place object type 333.
+(0:7) When somebody moves into position (20,158),
+(1:3) and they move into object type 66,
+	(3:2) at position (20,158) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 0.
+(0:7) When somebody moves into position (20,157),
+	(3:2) at position (18,156) on the map,
+	(5:4) place object type 333.
+	(3:2) at position (20,158) on the map,
+	(5:4) place object type 66.
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 461.
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 461.
+
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 461.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 461.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 461.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 461.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 460.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 460.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 460.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 460.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 459.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 459.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 459.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 459.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 458.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 458.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 458.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 458.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 457.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 457.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 457.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 457.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 456.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 456.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 456.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 456.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 455.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 455.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 455.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 455.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 454.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 454.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 454.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 454.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 453.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 453.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 453.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (50 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 453.
+
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (70 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 452.
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (20,158) on the map,
+	(5:4) place object type 0.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (70 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 452.
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (20,158) on the map,
+	(5:4) place object type 41.
+	(3:2) at position (18,156) on the map,
+	(5:4) place object type 345.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (70 percent of the time),
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 452.
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (20,158) on the map,
+	(5:4) place object type 0.
+(0:7) When somebody moves into position (20,157),
+(1:1000) and a random dice roll comes up (70 percent of the time),
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 452.
+	(3:2) at position (16,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (22,156) on the map,
+	(5:4) place object type 0.
+	(3:2) at position (20,158) on the map,
+	(5:4) place object type 41.
+	(3:2) at position (18,156) on the map,
+	(5:4) place object type 345.
+
+PWAN
+(0:18) When somebody drops object type 53,
+(1:19) and they (moved from/are standing at) position (94,119),
+	(3:2) at position (94,119) on the map,
+	(5:4) place object type 41.
+(0:18) When somebody drops object type 51,
+(1:19) and they (moved from/are standing at) position (94,119),
+	(3:2) at position (94,119) on the map,
+	(5:4) place object type 41.
+(0:18) When somebody drops object type 50,
+(1:19) and they (moved from/are standing at) position (94,119),
+	(3:2) at position (94,119) on the map,
+	(5:4) place object type 41.
+(0:18) When somebody drops object type 47,
+(1:19) and they (moved from/are standing at) position (94,119),
+	(3:2) at position (94,119) on the map,
+	(5:4) place object type 41.
+(0:18) When somebody drops object type 35,
+(1:19) and they (moved from/are standing at) position (94,119),
+	(3:2) at position (94,119) on the map,
+	(5:4) place object type 41.
+(0:18) When somebody drops object type 33,
+(1:19) and they (moved from/are standing at) position (94,119),
+	(3:2) at position (94,119) on the map,
+	(5:4) place object type 41.
+
+CRAPS
+(0:2) When somebody moves into floor type 157,
+(1:19) and they (moved from/are standing at) position (94,71),
+	(5:12) play sound 28 to everyone on the map.
+(0:7) When somebody moves into position (94,71),
+	(5:12) play sound 28 to everyone on the map.
+(0:19) When somebody uses object type 0,
+(1:19) and they (moved from/are standing at) position (12,13),
+	(5:14) move the furre to (92,69) if there's nobody already there.
+(0:7) When somebody moves into position (92,68),
+(1:3) and they move into object type 163,
+	(3:2) at position (92,68) on the map,
+	(5:4) place object type 164.
+	(3:2) at position (94,71) on the map,
+	(5:4) place object type 41.
+	(3:2) at position (92,68) on the map,
+	(5:4) place object type 163.
+*Endtriggers* 8888 *Endtriggers*

@@ -1,0 +1,29 @@
+Chat Mod for WebAPP.
+
+This is a simple chat script, there is no server and no set-up. 
+
+*** It does require a working version of the showhtml mod *** OR launch it into a new window
+
+Installation will work if you have the standard WebAPP set-up, 
+it may work anyway as it reads the WebAPP variables to find everything.
+
+Upload the chat folder into your mods directory.
+
+Chmod the chat folder to 755
+
+Chmod everything except the .cgi files to 777
+
+Chmod the .cgi files to 755
+
+Copy the html file to your root directory (or html directory) it should end up being 
+at http://www.yourdomain.com/chat.list.html
+
+To add a link to the chat script add 
+http://www.yourdomain.com/cgi-bin/mods/showhtml/showhtml.pl?url=www.yourdomain.com/cgi-bin/mods/chat/index.cgi
+as a link.
+
+Nothing else is needed but if you want to change anything start in chat.pl and then chat.cgi
+I have commented what configures what.
+
+If need more information or would like assistance you can email me at web@4132.co.uk or
+of course leave a message on my WebAPP site at http://www.simonj.co.uk

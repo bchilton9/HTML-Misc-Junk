@@ -1,0 +1,6 @@
+start file:
+[headline] Welcome to the ERE Network! Chatroom!
+[headline] WebMasters! Need money? Shure you do! OnResponse.com! Make up to $25 per lead! Click now!
+[url] http://www.onresponse.com/onR_Referral.asp?a=d0tt
+[target] infochat
+:end of file

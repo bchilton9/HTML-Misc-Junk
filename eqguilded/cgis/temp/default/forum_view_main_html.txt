@@ -1,0 +1,15 @@
+   	<tr class=field>
+            <td BGCOLOR=#cbfacd>
+               <a href="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</a><BR>
+ 	      <SMALL>!!description!!</SMALL>
+            </td>
+ 	   <td BGCOLOR=#cbfacd>
+ 	      !!lastpostname!!<BR>
+               <SMALL>!!lastpostdate!!</SMALL>
+ 	   </td>
+ 	   <td BGCOLOR=#cbfacd>
+ 	      <CENTER>
+ 	      !!count!!
+ 	   </td>
+ 	</tr>
+

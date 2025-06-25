@@ -1,0 +1,35 @@
+d0tt.com
+http://www.d0tt.com/
+yes
+nohide
+<!-- Additional HTML code could go here. -->
+D0TT.com
+<BODY BGCOLOR="white" LINK="black" ALINK="black" VLINK="black">
+<FONT COLOR="black">
+1
+http://www.d0tt.com/v3/
+################################################################
+## DO NOT REMOVE THE FOLLOWING LINES - INSTRUCTIONS FOR ABOVE ##
+################################################################
+
+# Line 1: Change to your domain name.  (Do NOT include the 'WWW')
+#
+# Line 2: Change to the location of your error page.
+#
+# Line 3: Specify default banner display switch 'yes/no'.
+#
+# Line 4: Specify default URL cloaking 'hide/nohide'.
+#
+# Line 5: Extra HTML location.  If you do not understand, leave alone.
+#
+# Line 6: Name of your website. (ie: Joe's Homepage).
+#
+# Line 7: Background & Link color settings for record create/modify.
+#
+# Line 8: Font color settings for record create/modify.
+#
+# Line 9: Total number of banners to randomly display.  
+#
+# Line10: True location of all banners. (Must have trailing /)
+#
+

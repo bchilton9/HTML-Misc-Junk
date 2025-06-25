@@ -1,0 +1,127 @@
+<HTML>
+<HEAD>
+  <!-- Created with AOLpress/2.0 -->
+  <TITLE>8-Ball</TITLE>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#ffffff" LINK="#ffffff" VLINK="#ffffff">
+<CENTER>
+  <P>
+  <CENTER>
+    <TABLE BORDER CELLSPACING="0" CELLPADDING="0" ALIGN="Center" BORDERCOLOR="blue">
+      <TR>
+	<TD BGCOLOR=#0000ff><P ALIGN=Center>
+	  <BIG>8-Ball</BIG></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Center>
+	  Make your bot give a random response.
+	  <P ALIGN=Center>
+	  If you want someone&nbsp;to say Q: question? and the bot answers with a random
+	  answer
+	  <P ALIGN=Center>
+	  the bot will see
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">(Mys': Q: question?</FONT>
+	  <P ALIGN=Center>
+	  By now you should be able to decode this but here&nbsp;it is anyhow
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">{(}*: Q: *</FONT>
+	  <P ALIGN=Center>
+	  <FONT COLOR="#ffffff">This is your pattern</FONT>
+	  <P ALIGN=Center>
+	  In the command you need to make a random number
+	  <P ALIGN=Center>
+	  you will have to use a variable for this to make&nbsp;it random use the following
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">8ball=%random(1,11)</FONT>
+	  <P ALIGN=Center>
+	  This will&nbsp;make the variable 8ball a random number between 1 and 10
+	  <P ALIGN=Center>
+	  the (1,11) is your 1 through 10 the second number has&nbsp;to be 1 higher
+	  then&nbsp;you want it
+	  <P ALIGN=Center>
+	  to make the response we need to check the variable to what number response
+	  it is
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">#if (8ball=1) 'response 1';</FONT>
+	  <P ALIGN=Center>
+	  this checks if the variable 8ball is 1 if it is it prints response 1 if not
+	  it dose nothing
+	  <P ALIGN=Center>
+	  <CENTER>
+	    <TABLE BORDER CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>If you&nbsp;use<BR>
+		  <FONT COLOR="#008000">#if (var=1) 'yes'&nbsp;'no';</FONT><BR>
+		  if var =1 it prints&nbsp;yes if it dose not =&nbsp;1 it&nbsp;prints no</TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	  <P ALIGN=Center>
+	  now we need 10 responses
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">#if (8ball=1) 'response 1';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=2) 'response 2';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=3) 'response 3';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=4) 'response 4';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=5) 'response 5';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=6) 'response 6';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=7) 'response 7';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=8) 'response 8';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=9) 'response 9';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=10) 'response 10';</FONT>
+	  <P ALIGN=Center>
+	  and you must add the random number for 8ball
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">8ball=%random(1,11);</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=1) 'response 1';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=2) 'response 2';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=3) 'response 3';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=4) 'response 4';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=5) 'response 5';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=6) 'response 6';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=7) 'response 7';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=8) 'response 8';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=9) 'response 9';</FONT><BR>
+	  <FONT COLOR="#008000">#if (8ball=10) 'response 10';</FONT>
+	  <P ALIGN=Center>
+	  This is your command
+	  <P ALIGN=Center>
+	  NOTE: i left out the " to make the bot talk to make it easer to see make
+	  sure you put it back in<BR>
+	  <FONT COLOR="#ff0000"><FONT COLOR="#008000">#if (8ball=1)
+	  '</FONT>"</FONT><FONT COLOR="#008000">response 1';</FONT>
+	  <P ALIGN=Center>
+	  <CENTER>
+	    <TABLE BORDER CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>Pattern:</TD>
+		<TD><FONT COLOR="#ffffff">{(}*: Q: *</FONT></TD>
+	      </TR>
+	      <TR>
+		<TD>Command:</TD>
+		<TD><FONT COLOR="#ffffff">8ball=%random(1,11);<BR>
+		  #if (8ball=1) '"response 1';<BR>
+		  #if (8ball=2) '"response 2';<BR>
+		  #if (8ball=3) '"response 3';<BR>
+		  #if (8ball=4) '"response 4';<BR>
+		  #if (8ball=5) '"response 5';<BR>
+		  #if (8ball=6) '"response 6';<BR>
+		  #if (8ball=7) '"response 7';<BR>
+		  #if (8ball=8) '"response 8';<BR>
+		  #if (8ball=9) '"response 9';<BR>
+		  #if (8ball=10) '"response 10';</FONT></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	  <P>
+	</TD>
+      </TR>
+      <TR>
+	<TD BGCOLOR="blue"><P ALIGN=Center>
+	  Created By Mys'</TD>
+      </TR>
+    </TABLE>
+  </CENTER>
+</CENTER>
+</BODY></HTML>

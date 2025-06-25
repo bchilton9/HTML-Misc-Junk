@@ -1,0 +1,7 @@
+$allowaction = "3";
+$maxperpage = "8";
+$shownewalbum = "1";
+$shownewpicture = "1";
+$showhotpicture = "50";
+$approvalaccess = "1";
+1;

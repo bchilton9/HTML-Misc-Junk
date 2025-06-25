@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<STYLE>
+.load
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    BORDER-LEFT: medium none;
+    BORDER-BOTTOM: medium none;
+    BACKGROUND-COLOR: #6C6C6C
+}
+</STYLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+var start=new Date();
+	start=Date.parse(start)/1000;
+	var counts=5;
+	function CountDown(){
+		var now=new Date();
+		now=Date.parse(now)/1000;
+		var x=parseInt(counts-(now-start),10);
+		if(document.form1){document.form1.clock.value = x;}
+		if(x>0){
+			timerID=setTimeout("CountDown()", 100)
+		}else{
+			location.href="http://www.erenetwork.com/dc/cgi/index.cgi"
+		}
+	}
+//  End -->
+</script>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+window.setTimeout('CountDown()',100);
+-->
+</script>
+  <TITLE>Dark Circles</TITLE>
+</HEAD>
+<BODY BGCOLOR="#000000" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+<CENTER>
+<TABLE BORDER=0 CELLSPACING="0" CELLPADDING="0" width=100% Height=100%>
+	  <TR><TD Height=50%>
+A
+</TD></TR>
+<TR>
+	    <TD BACKGROUND="backB.gif"><P ALIGN=Center>
+	      <A HREF="http://www.erenetwork.com/dc/cgi/index.cgi"><IMG SRC="dc.gif" BORDER="0"></A><BR>
+</TD>
+	  </TR>
+	  <TR BGCOLOR="#6C6C6C"><TD Height=50%>
+<center>
+<FORM NAME="form1">
+You are being redirected in 
+<INPUT TYPE="text" NAME="clock" SIZE="1" VALUE="5" class=load> 
+seconds.
+</FORM>
+</center>
+<FONT COLOR="#6C6C6C">A</FONT>
+</TD></TR>
+	</TABLE>
+
+</CENTER>
+</BODY></HTML>

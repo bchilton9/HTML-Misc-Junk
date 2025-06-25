@@ -1,0 +1,5 @@
+1|http://www.destinyeq2.com/cgi-bin/index.cgi|$nav{'002'}|-public-||
+2|http://www.destinyeq2.com/cgi-bin/index.cgi?action=topics|News|-public-||
+3|http://www.destinyeq2.com/cgi-bin/index.cgi?action=forum&board=|$nav{'003'}|-public-||
+4|http://www.destinyeq2.com/cgi-bin/index.cgi?action=links|$nav{'005'}|-public-||
+5|http://www.destinyeq2.com/cgi-bin/mods/calendar/index.cgi?vsSD=1|Calendar|-public-||

@@ -1,0 +1,11 @@
+1|editprofile&username=$username|$nav{'016'}|-member-||$themesurl/$usertheme/images/dot.gif
+2|im|Messages|-public-||$themesurl/$usertheme/images/dot.gif
+3|http://www.eqguilded.com/freefire/cgi-bin/mods/office/journal.cgi|Journal|-member-||$themesurl/$usertheme/images/dot.gif
+4|$scripturl/mods/menuman/admin/useradmin.cgi|Edit My Menu|-member-||$themesurl/$usertheme/images/dot.gif
+7|memberlist|$nav{'019'}|-member-||$themesurl/$usertheme/images/dot.gif
+8|admin&op=siteadmin|$nav{'042'}|-admin-||$themesurl/$usertheme/images/dot.gif
+9|http://www.eqguilded.com/freefire/cgi-bin/mods/wadbm/wadbm.cgi?vsFILE=loot|Loot Database|-admin-||$themesurl/$usertheme/images/dot.gif
+10|stats|Statistics|-admin-,Guild Leader,Officer||$themesurl/$usertheme/images/dot.gif
+11|postnews|Write News|-admin-,Guild Leader,Officer||$themesurl/$usertheme/images/dot.gif
+12|http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=admin&op=userapproval|Aprove Users|-admin-,Guild Leader||$themesurl/$usertheme/images/dot.gif
+13|logout|$nav{'034'}|-member-||$themesurl/$usertheme/images/dot.gif

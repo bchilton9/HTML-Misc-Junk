@@ -1,0 +1,218 @@
+#wrapper
+{
+    WIDTH: 697px
+}
+#heading
+{
+    BACKGROUND-POSITION: left center;
+    BACKGROUND-IMAGE: url(logo.gif);
+    BACKGROUND-REPEAT: no-repeat;
+    TOP: 25pt;
+    HEIGHT: 110pt;
+    TEXT-ALIGN: right;
+    BACKGROUND-: url(http://www.erenetwork.com/dotguild/style/Defalt/defaltbg.gif)
+}
+#loged
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#message
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#raidpoints
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#vist
+{
+    BORDER-RIGHT: 0px;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: smaller;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    BORDER-LEFT: 0px;
+    WIDTH: 100%;
+    COLOR: white;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: 0px;
+    BACKGROUND-COLOR: crimson;
+    TEXT-ALIGN: left
+}
+#links
+{
+    BORDER-RIGHT: yellow double;
+    BORDER-TOP: yellow double;
+    BORDER-LEFT: yellow double;
+    WIDTH: 100%;
+    COLOR: crimson;
+    BORDER-BOTTOM: yellow double;
+    HEIGHT: 20px;
+    BACKGROUND-COLOR: crimson
+}
+#news
+{
+    COLOR: white;
+    TEXT-ALIGN: center
+}
+#newstext
+{
+    BORDER-RIGHT: yellow double;
+    BORDER-TOP: yellow double;
+    BORDER-LEFT: yellow double;
+    WIDTH: 300pt;
+    COLOR: crimson;
+    BORDER-BOTTOM: yellow double;
+    HEIGHT: 150pt;
+    BACKGROUND-COLOR: transparent
+}
+#admin
+{
+    MARGIN-TOP: 10px;
+    TEXT-ALIGN: center
+}
+BODY
+{
+    BACKGROUND: url(http://www.erenetwork.com/style/Dawn/dawn.jpg) black fixed no-repeat center center;
+    TEXT-ALIGN: center
+}
+A#editlog
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+A#sendmessage
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+A#visitlist
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#visitlist:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+#adminhr
+{
+    WIDTH: 75%;
+    COLOR: yellow
+}
+#aprovetable
+{
+    BORDER-RIGHT: yellow double;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: yellow double;
+    PADDING-LEFT: 1px;
+    PADDING-BOTTOM: 1px;
+    MARGIN: 1px;
+    BORDER-LEFT: yellow double;
+    COLOR: white;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: yellow double
+}
+#adminhead
+{
+    FONT-SIZE: larger;
+    COLOR: white
+}
+#adminlinks
+{
+    BORDER-RIGHT: khaki;
+    BORDER-TOP: khaki;
+    BORDER-LEFT: khaki;
+    COLOR: white;
+    BORDER-BOTTOM: khaki
+}
+A#adminlink
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#adminlink:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+A#link
+{
+    FONT-SIZE: larger;
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#link:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+#text1
+{
+    FONT-SIZE: larger;
+    COLOR: red;
+    TEXT-ALIGN: center
+}
+#text2
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white
+}
+#text3
+{
+    COLOR: white
+}
+#text4
+{
+    COLOR: white;
+    TEXT-ALIGN: center
+}
+#input
+{
+    COLOR: crimson;
+    BACKGROUND-COLOR: yellow
+}
+#table
+{
+    BORDER-RIGHT: yellow double;
+    BORDER-TOP: yellow double;
+    BORDER-LEFT: yellow double;
+    COLOR: yellow;
+    BORDER-BOTTOM: yellow double
+}
+#content
+{
+    TEXT-ALIGN: center
+}
+#pages
+{
+    FONT-SIZE: smaller;
+    COLOR: white;
+    TEXT-ALIGN: left
+}
+A#pageslink
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#pageslink:hover
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+#pagelist
+{
+    TEXT-ALIGN: center
+}

@@ -1,0 +1,53 @@
+<HTML>
+              <HEAD>
+   
+       <TITLE>Dark Circles</TITLE>
+                <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.erenetwork.com/dcguild/stylesheet.css">
+              </HEAD>
+              <BODY topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+              <P>
+              <TABLE width=100% BORDER=0 CELLSPACING="0" CELLPADDING="0" BACKGROUND="http://www.erenetwork.com/dcguild/back.gif">
+                <TR>
+                  <TD><IMG WIDTH="400" HEIGHT="120" SRC="http://www.erenetwork.com/dcguild/logo.gif"></TD>
+                <TD></td>
+                </tr>
+              </table>
+              <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>
+                <TR>
+                  <TD BGCOLOR="#ffffff"><IMG SRC="blank.gif" WIDTH="1" HEIGHT="1"></td>
+                </tr>
+                <TR>
+                  <TD BGCOLOR="#008080"><CENTER><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#008080">
+              	<TR>
+              	  <TD width=125><P ALIGN=Center>
+              	    <A HREF="http://www.erenetwork.com/dcguild" class="menu">Home</a></td>
+              	  <TD width=125><P ALIGN=Center>
+              	    <A HREF="http://www.erenetwork.com/dcguild/index.cgi?page=charter&a=page" class="menu">Charter</a></td>
+              	  <TD width=125><P ALIGN=Center>
+              	    <A HREF="http://www.erenetwork.com/dcguild/memlist.cgi" class="menu">Roster</a></td>
+            	  <TD width=125><P ALIGN=Center>
+            	    <A HREF="http://www.erenetwork.com/dcguild/stats.cgi" class="menu">Guild Stats</a></td>  
+            	  <TD width=125><P ALIGN=Center>
+            	    <A HREF="http://www.erenetwork.com/dcguild/index.cgi?a=page&page=raid" class="menu">Raid Info</a></td>
+                    </TR><TR>
+              	  <TD width=125><P ALIGN=Center>
+              	    <A HREF="http://www.calsnet.com/darkcircles" class="menu" TARGET=_new">Happenings</a></td>
+              	  <TD width=125><P ALIGN=Center>
+              	    <A HREF="http://pub27.ezboard.com/bdarkcircles" class="menu" TARGET=_new">Boards</a></td>
+              	  <TD width=125><P ALIGN=Center>
+              	    <A HREF="http://www.erenetwork.com/dcguild/album.cgi" class="menu">Photo Album</a></td>
+              	  <!-- <TD width=125><P ALIGN=Center>
+              	    <A HREF="http://www.erenetwork.com/dcguild/index.cgi?a=page&page=wed" class="menu">Weddings</a></td>	-->
+              	  <TD width=125><P ALIGN=Center>
+              	    <A HREF="http://www.erenetwork.com/dcguild/index.cgi?a=page&page=fun" class="menu">Fun Stuff</a></td>	
+        
+        </tr>
+                    </table>
+                  </td>
+                </tr>
+                <TR>
+                  <TD BGCOLOR="#ffffff"><IMG SRC="blank.gif" WIDTH="1" HEIGHT="1"></td>
+                </tr>
+              </table>
+              <P>
+             <CENTER>

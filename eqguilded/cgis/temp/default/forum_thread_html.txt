@@ -1,0 +1,2 @@
+  <tr><td BGCOLOR=#cbfacd><IMG SRC=!!image!!>  <a href="forum.cgi?do=view_topic&forum=!!forum!!&topic=!!topic!!" class=menu>!!topic!!</a></td>
+ <td BGCOLOR=#cbfacd>!!name!!</td><td BGCOLOR=#cbfacd>!!date!!</td><td BGCOLOR=#cbfacd>!!count!!</td></tr>

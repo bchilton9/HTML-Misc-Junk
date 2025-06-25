@@ -1,0 +1,11 @@
+$htmldb = "demo_html";
+$newsdb = "demo_news";
+$albumdb = "demo_album";
+$photodb = "demo_photo";
+$userdb = "demo_user";
+$pagesdb = "demo_pages";
+$rankdb = "demo_ranks";
+$linkdb = "demo_links";
+$postsdb = "demo_posts";
+$formsdb = "demo_forums";
+$guild = "demo";

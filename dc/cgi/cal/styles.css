@@ -1,0 +1,20 @@
+<STYLE>
+A { text-decoration:none; }
+A:hover { text-decoration:underline; }
+.thinborder { border-color:#666666; border-style:solid; border-width:1px; }
+.columnheader { color:<%=$_COLUMN_HEADER_TEXT_COLOR%>; }
+.navigationtext { color:<%=$_NAVIGATION_TEXT_COLOR%>; }
+.navigationselectedtext { color:<%=$_NAVIGATION_SELECTED_TEXT_COLOR%>; }
+.commandtext { color:<%=$_COMMAND_OPTION_TEXT_COLOR%>; font-weight:bold; }
+.selectedcommandtext { color:<%=$_COMMAND_OPTION_SELECTED_TEXT_COLOR%>; font-weight:bold; }
+.gridtext { color:<%=$_GRID_CELL_TEXT_COLOR%>; font-family:<%=$_GRID_CELL_TEXT_FONT%>; }
+.griddatetext { color:<%=$_GRID_DATE_TEXT_COLOR%>; background-color:<%=$_GRID_DATE_BGCOLOR%>; font-weight:bold; }
+.footertext { color:<%=$_FOOTER_TEXT_COLOR%>; }
+.text { color:<%=$_TEXT_COLOR%>; }
+
+.messagetext { color: red; }
+.headertext { }
+
+
+<% if ($_FONT) { %>BODY { font-family:"<%=$_FONT%>" }<% } %>
+</STYLE>

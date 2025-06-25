@@ -1,0 +1,30 @@
+
+A:link {
+	color: #003399;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+	text-decoration: none;
+font-family: arial, helvetica, geneva;
+}
+A:visited {
+	color: #003399;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+	text-decoration: none
+font-family: arial, helvetica, geneva;
+}
+A:active {
+	color: #003399;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+	text-decoration: none
+font-family: arial, helvetica, geneva;
+}
+A:hover {
+	color: #003399;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+	text-decoration: underline overline;
+font-family: arial, helvetica, geneva;
+}
+

@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#ffffff" LINK="#ffffff" VLINK="#ffffff" BACKGROUND="http://www.erenetwork.com/hell/flames.jpg">
+<P>
+<SCRIPT language="JavaScript1.2">
+if (document.all||document.getElementById)
+document.body.style.background="url('http://www.erenetwork.com/hell/flames.jpg') black center no-repeat fixed"
+</SCRIPT>
+<B><SMALL><SMALL><A onClick="history.go(-1)"><span style="cursor:pointer;cursor:hand"><U>Back</U></span></A> <A HREF=http://www.erenetwork.com/hell/main.html>Home</A></SMALL></SMALL></B><BR>
+<CENTER>
+
+
+http://www.erenetwork.com/hell/cgi-bin/add.cgi
+http://www.erenetwork.com/hell/New
+http://www.erenetwork.com/hell/Ratings
+http://www.erenetwork.com/hell/cgi-bin/search.cgi
+
+
+
+</CENTER>
+<script language=JavaScript>
+<!--
+var message="";
+function clickIE() {if (document.all) {(message);return false;}}
+function clickNS(e) {if 
+(document.layers||(document.getElementById&&!document.all)) {
+if (e.which==2||e.which==3) {(message);return false;}}}
+if (document.layers) 
+{document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+document.oncontextmenu=new Function("return false")
+// --> 
+</script>
+<script language="JavaScript1.2">
+<!--
+function scrollBar(line,face,arow)
+{
+if (!line||!face||!arow)
+{
+line=null;
+face=null;
+arow=null;
+}
+with(document.body.style)
+{
+scrollbarDarkShadowColor=line;
+scrollbar3dLightColor=line;
+scrollbarArrowColor=arow;
+scrollbarBaseColor=face;
+scrollbarFaceColor=face;
+scrollbarHighlightColor=face;
+scrollbarShadowColor=face;
+scrollbarTrackColor="#000000";
+}
+}
+function colorBar(){
+var w = document.body.clientWidth;
+var h = document.body.clientHeight;
+var x = event.clientX;
+var y = event.clientY;
+if(x>w) scrollBar('#ffffff','#0000aa','#ffffff');
+else  scrollBar('#000000','#ffffff','#000000');
+}
+if (document.all){
+ scrollBar('#ffffff','0000aa','#ffffff');
+document.onmousemove=colorBar;
+}
+//-->
+</script>
+</BODY></HTML>

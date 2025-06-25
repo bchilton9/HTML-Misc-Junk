@@ -1,0 +1,242 @@
+#wrapper
+{
+    BORDER-RIGHT: black double;
+    PADDING-RIGHT: 2px;
+    BORDER-TOP: black double;
+    PADDING-LEFT: 2px;
+    BACKGROUND-IMAGE: url(metelbg.gif);
+    PADDING-BOTTOM: 2px;
+    BORDER-LEFT: black double;
+    WIDTH: 697px;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: black double;
+    BACKGROUND-REPEAT: repeat-y
+}
+#heading
+{
+    PADDING-RIGHT: 5px;
+    BACKGROUND-IMAGE: url(logo.gif);
+    BACKGROUND-REPEAT: no-repeat;
+    HEIGHT: 110pt;
+    TEXT-ALIGN: right;
+    BACKGROUND-: url(http://www.erenetwork.com/dotguild/style/Defalt/defaltbg.gif)
+}
+#loged
+{
+    FONT-SIZE: smaller;
+    COLOR: white;
+    PADDING-TOP: 25px
+}
+#message
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#raidpoints
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#vist
+{
+    BORDER-RIGHT: 0px;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: smaller;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    BORDER-LEFT: 0px;
+    WIDTH: 100%;
+    COLOR: white;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: 0px;
+    BACKGROUND-COLOR: black;
+    TEXT-ALIGN: left
+}
+#links
+{
+    BACKGROUND-IMAGE: url(http://www.erenetwork.com/dotguild/style/Metel/nutbolt.gif);
+    WIDTH: 100%;
+    BACKGROUND-REPEAT: repeat-x;
+    TOP: 9pt;
+    HEIGHT: 40px
+}
+#news
+{
+    COLOR: white;
+    TEXT-ALIGN: center
+}
+#newstext
+{
+    BORDER-RIGHT: black double;
+    BORDER-TOP: black double;
+    BACKGROUND-IMAGE: url(metl_t04.jpg);
+    BORDER-LEFT: black double;
+    WIDTH: 300pt;
+    COLOR: white;
+    BORDER-BOTTOM: black double;
+    HEIGHT: 150pt;
+    BACKGROUND-COLOR: gray
+}
+#admin
+{
+    MARGIN-TOP: 10px;
+    TEXT-ALIGN: center
+}
+BODY
+{
+    BACKGROUND-IMAGE: url(metl_t04.jpg);
+    BACKGROUND-COLOR: gray;
+    TEXT-ALIGN: center
+}
+A#editlog
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+A#sendmessage
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+A#visitlist
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+A#visitlist:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: blue;
+    TEXT-DECORATION: underline overline
+}
+#adminhr
+{
+    WIDTH: 100%;
+    COLOR: black
+}
+#aprovetable
+{
+    BORDER-RIGHT: black double;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: black double;
+    PADDING-LEFT: 1px;
+    BACKGROUND-IMAGE: url(metl_t04.jpg);
+    PADDING-BOTTOM: 1px;
+    MARGIN: 1px;
+    BORDER-LEFT: black double;
+    COLOR: white;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: black double;
+    BACKGROUND-COLOR: gray
+}
+#adminhead
+{
+    BORDER-RIGHT: black double;
+    BORDER-TOP: black double;
+    FONT-SIZE: larger;
+    BACKGROUND-IMAGE: url(metl_t04.jpg);
+    BORDER-LEFT: black double;
+    WIDTH: 50%;
+    COLOR: white;
+    BORDER-BOTTOM: black double;
+    TEXT-DECORATION: none
+}
+#adminlinks
+{
+    BORDER-RIGHT: khaki;
+    BORDER-TOP: khaki;
+    BORDER-LEFT: khaki;
+    BORDER-BOTTOM: khaki
+}
+A#adminlink
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+A#adminlink:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: blue;
+    TEXT-DECORATION: underline overline
+}
+A#link
+{
+    FONT-SIZE: larger;
+    COLOR: white;
+    POSITION: relative;
+    TOP: 9pt;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+A#link:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: blue;
+    TEXT-DECORATION: underline overline
+}
+#text1
+{
+    FONT-SIZE: larger;
+    COLOR: red;
+    TEXT-ALIGN: center
+}
+#text2
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white
+}
+#text3
+{
+    COLOR: white
+}
+#text4
+{
+    COLOR: white;
+    TEXT-ALIGN: center
+}
+#input
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black
+}
+#table
+{
+    BORDER-RIGHT: black double;
+    BORDER-TOP: black double;
+    BACKGROUND-IMAGE: url(metl_t04.jpg);
+    BORDER-LEFT: black double;
+    COLOR: white;
+    BORDER-BOTTOM: black double;
+    BACKGROUND-COLOR: gray
+}
+#content
+{
+    TEXT-ALIGN: center
+}
+#pages
+{
+    FONT-SIZE: smaller;
+    COLOR: white;
+    TEXT-ALIGN: left
+}
+A#pageslink
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#pageslink:hover
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    BACKGROUND-COLOR: blue;
+    TEXT-DECORATION: underline overline
+}
+#pagelist
+{
+    TEXT-ALIGN: center
+}

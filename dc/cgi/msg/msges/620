@@ -1,0 +1,53 @@
+<FORM METHOD=POST><CENTER>
+<TABLE CLASS=table BORDER=0 WIDTH=40% CELLPADDING=2 ALIGN=Center>
+<TR><TD><P ALIGN=Center>
+From:</TD><TD>
+<INPUT TYPE=hidden VALUE=616 NAME=msgnum>
+keny<INPUT TYPE=hidden VALUE=keny NAME=sender>
+<INPUT TYPE=hidden VALUE=Liluvdar NAME=name>
+</TD></TR><TR><TD COLSPAN=2>
+</TD></TR>
+</TD></TR><TR><TD COLSPAN=2>
+
+I did not know all this would happen from the points page i did put on the top of the page that it was not offichel yet
+the point system is not to discurage or piss anyone off it is a reward system
+you help out by doing something for/with the guild you get something in return
+you go to a raid you get points you take your points and spend them on items for your char
+
+the system i came up with is ment to be fair
+for example
+Lil gos on a raid to a lvl 50 zone  he gets 50 points (zone lvl of 50 divited by zone rateing of 1 = 50)
+
+the next raid an item drops that he wants he may bit points on the item and if he is the highest bidder he gets the item i take the points off his card
+
+points may also be given as prizes example the turky hunt all the people who get all 10 turkeys would get X number of points
+
+if we have a tuornament, race ect.. points may be gives at prizes
+example
+first place on the naked gnome race is 100points
+2nd 50points
+3rd 25points
+10 points for all that attend
+
+problems with the roll for loot is
+Klassy never shows up for a raid
+Keny is at every raid ever held
+klassy rolls a random number and comes up with 89
+keny rolls a random number and comes up with 6
+klassy gets the item even tho this is the first raid shes been on and keny gets screwed
+
+problems with the master list
+(im goina use keny and klassy agine)
+keny has been in the guild from day one but never attends a raid
+klassy joined 4 months after but goes to all the raids
+keny decides to go to a raid and item comes up
+keny gets it because hes higher on the list then klassy even tho he hasent gone to any raids
+klassy gets screwed
+
+i am willing to rewrite this point system 100 times if thats what it takes but i think to be fair to the members that have been more active in the guild we need it
+
+</TD></TR><TR><TD><P ALIGN=Center>
+<INPUT TYPE=submit VALUE=Reply NAME=a></TD>
+<TD><P ALIGN=Center>
+<INPUT TYPE=submit VALUE=Delete NAME=a></TD></TR>
+</TABLE></CENTER></FORM>

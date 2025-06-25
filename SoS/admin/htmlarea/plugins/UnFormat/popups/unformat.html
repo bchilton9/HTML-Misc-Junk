@@ -1,0 +1,124 @@
+<html>
+
+<head>
+  <title>Page Cleaner</title>
+
+<script type="text/javascript" src="../../../popups/popup.js"></script>
+<script type="text/javascript">
+
+
+
+UnFormat = window.opener.UnFormat; 
+window.resizeTo(300, 100);
+
+var x = opener.screenX + (opener.outerWidth - window.outerWidth) / 2;
+var y = opener.screenY + (opener.outerHeight - window.outerHeight) / 2;
+window.moveTo(x, y);
+
+
+	function Init() {
+		__dlg_translate(UnFormat.I18N);
+		__dlg_init();
+	};
+
+	function onOK() {
+		
+		var param = new Object();
+
+		if (document.getElementById('clean_selection').checked)	{
+			param["cleaning_area"] = "selection";
+		} else {
+			param["cleaning_area"] = "all";
+		}
+
+		var fields = ["formatting", "html_all"];
+
+		for (var i in fields) {
+			var id = fields[i];
+			var el = document.getElementById(id);
+			if (el.checked)	{param[id] = true;}
+		}
+
+		__dlg_close(param);
+		return false;
+	};
+
+	function onCancel() {
+		__dlg_close(null);
+		return false;
+	};
+
+</script>
+
+<style type="text/css">
+html, body {
+  background: ButtonFace;
+  color: ButtonText;
+  font: 11px Tahoma,Verdana,sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+body { padding: 5px; }
+table {
+  font: 11px Tahoma,Verdana,sans-serif;
+}
+form p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.fl { width: 9em; float: left; padding: 2px 5px; text-align: right; }
+.fr { width: 7em; float: left; padding: 2px 5px; text-align: right; }
+fieldset { padding: 0px 10px 5px 5px; }
+select, input, button { font: 11px Tahoma,Verdana,sans-serif; }
+button { width: 70px; }
+.space { padding: 2px; }
+
+.title { background: #ddf; color: #000; font-weight: bold; font-size: 120%; padding: 3px 10px; margin-bottom: 10px;
+border-bottom: 1px solid black; letter-spacing: 2px;
+}
+form { padding: 0px; margin: 0px; }
+</style>
+
+</head>
+
+<body onload="Init();self.focus();">
+
+<div class="title">Page Cleaner</div>
+
+<form action="" method="get">
+	<fieldset>
+		<legend><span>Cleaning Area</span></legend><br>
+			<span>Selection</span><input type="radio" name="cleaning_area" id="clean_selection" value="selection" checked="checked" />
+			<span>All</span><input type="radio" name="cleaning_area" id="clean_page" value="page" />
+	</fieldset>
+<br>
+	<fieldset>
+
+		<legend><span>Cleaning options</span></legend>
+		<table border="0" style="padding: 0px; margin: 0px">
+			<tbody>
+		
+			<tr>
+				<td style="width: 8em; text-align: right">Formatting:</td>
+				<td><input type="checkbox" id="formatting" value="" /></td>
+			</tr>
+			<tr>
+				<td style="width: 8em; text-align: right">All HTML:</td>
+				<td><input type="checkbox" id="html_all" value="" /></td>
+			</tr>
+			</tbody>
+		</table>
+	</fieldset>
+<center>
+	<br><br><p><span>Select which types of formatting you would like to remove.</span></p>
+</center>
+
+	<div style="margin-top: 85px; border-top: 1px solid #999; padding: 2px; text-align: right;">
+		<button type="button" name="ok" onclick="return onOK();">OK</button>
+		<button type="button" name="cancel" onclick="return onCancel();">Cancel</button>
+	</div>
+
+</form>
+
+</body>
+</html>

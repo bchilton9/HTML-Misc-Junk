@@ -1,0 +1,18 @@
+<P ALIGN=RIGHT><FONT COLOR=#ffffff size=-1><B>Loged in as: !!username!!</B></FONT>
+</div> 
+</div> 
+<div id="pagecell1"> 
+  <!--pagecell1--> 
+
+  <div id="pageNav"> 
+    <div id="sectionLinks"> 
+      <a href="?">Home</a>
+	  <a href="?do=page&page=counters">Counter's</a>
+	  <a href="?do=page&page=help">Help</a>
+	  <a href="?do=page&page=contact">Contact</a>
+	  <a href="?do=cp">Control Panel</a>
+	  <a href="login.cgi?logout">Logout</a>
+    </div> 
+  </div> 
+  <div id="content">
+    <div class="story">

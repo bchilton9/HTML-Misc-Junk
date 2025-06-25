@@ -1,0 +1,9 @@
+$config_vers = ".4";
+$mod_name = "chat";
+$mod_vers = "0.9.7";
+$mod_desc = "chat Mod";
+$mod_admin = "0";
+$admin_name = "admin.cgi";
+$lang_support = "0";
+$mod_lang = "english.dat";
+1;

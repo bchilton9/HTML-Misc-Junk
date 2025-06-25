@@ -1,0 +1,63 @@
+<STYLE>
+#news
+{
+    COLOR: white;
+    TEXT-ALIGN: center
+}
+#newstext
+{
+    BORDER-RIGHT: green double;
+    BORDER-TOP: green double;
+    BORDER-LEFT: green double;
+    WIDTH: 300pt;
+    COLOR: white;
+    BORDER-BOTTOM: green double;
+    HEIGHT: 150pt;
+    BACKGROUND-COLOR: green
+}
+BODY
+{
+    BACKGROUND: url(http://www.erenetwork.com/style/Fantasy/bg.jpg) darkgreen fixed no-repeat center top;
+    TEXT-ALIGN: center
+}
+A#link
+{
+    FONT-SIZE: larger;
+    COLOR: white;
+    BACKGROUND-COLOR: green;
+    TEXT-DECORATION: none
+}
+A#link:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+
+</STYLE>
+</HEAD>
+<BODY>
+<CENTER>
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center" WIDTH="750">
+    <TR>
+      <TD BGCOLOR=#008000><IMG SRC="http://www.erenetwork.com/style/Fantasy/logo.gif"
+	    WIDTH="300" HEIGHT="148"></TD>
+      <TD BGCOLOR=#008000>!!logbox!!</TD>
+    </TR>
+    <TR>
+      <TD COLSPAN=2><CENTER>
+	  <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center" WIDTH="100%">
+	    <TR>
+	      <TD VALIGN="Top"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR=#008000 width=100>
+		  <TR>
+		    <TD><CENTER>!!links!!</TD>
+		  </TR>
+		</TABLE>
+	      </TD>
+	      <TD width=180%><P ALIGN=Center>
+		<IMG src=http://www.erenetwork.com/dotguild/groupphoto.gif><BR>
+		<A HREF=http://www.erenetwork.com/dotguild/index.cgi?a=page&amp;page=makeing
+		    id=link>Makeing of the GroupPhoto</A><BR>
+		<A HREF=HTTP://www.erenetwork.com/dotguild/groupphotobig.gif id=link target=_new>GroupPhoto
+		Full Size</A>
+		<P ALIGN=Center>

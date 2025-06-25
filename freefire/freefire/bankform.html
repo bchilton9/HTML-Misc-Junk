@@ -1,0 +1,400 @@
+<HTML>
+<HEAD>
+  <TITLE>Add Item Form</TITLE>
+</HEAD>
+<BODY>
+<FORM>
+  <CENTER>
+    <TABLE BORDER CELLSPACING="1" CELLPADDING="2" ALIGN="Center">
+      <TR>
+	<TD><P ALIGN=Right>
+	  Name:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="name"></TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><CENTER>
+	    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>Lore:</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="lore" VALUE="on"></TD>
+		<TD>Magic:</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="magic" VALUE="on"></TD>
+		<TD>No Drop:</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="nodrop" VALUE="on"></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	</TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Type:</TD>
+	<TD>
+	  <SELECT NAME="type"> 
+	  <OPTION>Armor 
+	  <OPTION>Spell 
+	  <OPTION>1hs 
+	  <OPTION>2hs 
+	  <OPTION>1hb 
+	  <OPTION>2hb 
+	  <OPTION>Pierceing 
+	  <OPTION>2hp 
+	  <OPTION>H2H 
+	  <OPTION>Archery 
+	  <OPTION>Throwing 
+	  <OPTION>Other </SELECT></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Slot:</TD>
+	<TD>
+	  <SELECT NAME="slot"> 
+	  <OPTION value="Arms">Arms 
+	  <OPTION value="Back">Back 
+	  <OPTION value="Charm">Charm 
+	  <OPTION value="Chest">Chest 
+	  <OPTION value="Ear">Ear 
+	  <OPTION value="Face">Face 
+	  <OPTION value="Finger">Finger 
+	  <OPTION value="Feet">Feet 
+	  <OPTION value="Hands">Hands 
+	  <OPTION value="Head">Head 
+	  <OPTION value="Legs">Legs 
+	  <OPTION value="Neck">Neck 
+	  <OPTION value="Shoulders">Shoulders 
+	  <OPTION value="Waist">Waist 
+	  <OPTION value="Wrist">Wrist 
+	  <OPTION value="Primary">Primary 
+	  <OPTION value="Secondary">Secondary 
+	  <OPTION value="Range">Range 
+	  <OPTION value="Ammo">Ammo 
+	  <OPTION value="Inventory">Inventory </SELECT></TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><CENTER>
+	    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>DMG:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="dmg" SIZE="3"></TD>
+		<TD>DLY:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="dly" SIZE="3"></TD>
+		<TD>DMG Bonus:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="dmgbonus" SIZE="3"></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	</TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  AC:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="ac" SIZE="3"></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Effect:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="Effect"></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Bane:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="bane"></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Skill Mod:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="skillmod"></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Focus:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="focus"></TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><CENTER>
+	    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>DEX:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="dex" SIZE="3"></TD>
+		<TD>STA:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="sta" SIZE="3"></TD>
+		<TD>STR:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="str" SIZE="3"></TD>
+		<TD>CHA:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="cha" SIZE="3"></TD>
+	      </TR>
+	      <TR>
+		<TD>AGI:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="agi" SIZE="3"></TD>
+		<TD>INT:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="int" SIZE="3"></TD>
+		<TD>WIS:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="wis" SIZE="3"></TD>
+		<TD></TD>
+		<TD></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	</TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><CENTER>
+	    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>HP:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="hp" SIZE="3"></TD>
+		<TD>MANA:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="mana" SIZE="3"></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	</TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><CENTER>
+	    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>SV FIRE:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="svfire" SIZE="3"></TD>
+		<TD>SV DISEASE:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="svdisease" SIZE="3"></TD>
+		<TD>SV COLD:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="svcold" SIZE="3"></TD>
+	      </TR>
+	      <TR>
+		<TD>SV MAGIC:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="svmagic" SIZE="3"></TD>
+		<TD>SV POISON:</TD>
+		<TD>
+		  <INPUT TYPE="text" NAME="svpoison" SIZE="3"></TD>
+		<TD></TD>
+		<TD></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	</TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Weight:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="weight" SIZE="3"></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Size:</TD>
+	<TD>
+	  <SELECT NAME="size"> 
+	  <OPTION SELECTED>Small 
+	  <OPTION>Medium 
+	  <OPTION>Large 
+	  <OPTION>Giant</SELECT></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Required Level:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="reqlevel" SIZE="3" MAXLENGTH="2"></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Recamended Level:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="reclevel" SIZE="3" MAXLENGTH="2"></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Right>
+	  Deity:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="deity"></TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><CENTER>
+	    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>ALL</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="raceall" VALUE="on"></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+	      </TR>
+	      <TR>
+		<TD>BAR</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="bar" VALUE="on"></TD>
+		<TD>DEF</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="def" VALUE="on"></TD>
+		<TD>DWF</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="dwf" VALUE="on"></TD>
+		<TD>ERU</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="eru" VALUE="on"></TD>
+		<TD>FRG</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="frg" VALUE="on"></TD>
+	      </TR>
+	      <TR>
+		<TD>GNM</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="gnm" VALUE="on"></TD>
+		<TD>HFL</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="hfl" VALUE="on"></TD>
+		<TD>HEF</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="hef" VALUE="on"></TD>
+		<TD>HIE</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="hie" VALUE="on"></TD>
+		<TD>HUM</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="hum" VALUE="on"></TD>
+	      </TR>
+	      <TR>
+		<TD>IKS</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="isk" VALUE="on"></TD>
+		<TD>OGR</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="ogr" VALUE="on"></TD>
+		<TD>TRL</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="trl" VALUE="on"></TD>
+		<TD>ELF</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="elf" VALUE="on"></TD>
+		<TD>VAH</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="vah" VALUE="on"></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	</TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><CENTER>
+	    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>ALL</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="classall" VALUE="on"></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+	      </TR>
+	      <TR>
+		<TD>BRD</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="brd" VALUE="on"></TD>
+		<TD>BST</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="bst" VALUE="on"></TD>
+		<TD>BER</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="ber" VALUE="on"></TD>
+		<TD>CLR</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="clr" VALUE="on"></TD>
+		<TD>DRU</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="dru" VALUE="on"></TD>
+	      </TR>
+	      <TR>
+		<TD>ENC</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="enc" VALUE="on"></TD>
+		<TD>MAG</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="mag" VALUE="on"></TD>
+		<TD>MNK</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="mnk" VALUE="on"></TD>
+		<TD>NEC</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="nec" VALUE="on"></TD>
+		<TD>PAL</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="pal" VALUE="on"></TD>
+	      </TR>
+	      <TR>
+		<TD>RNG</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="rng" VALUE="on"></TD>
+		<TD>ROG</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="rog" VALUE="on"></TD>
+		<TD>SHD</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="shd" VALUE="on"></TD>
+		<TD>SHM</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="shm" VALUE="on"></TD>
+		<TD>WAR</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="war" VALUE="on"></TD>
+	      </TR>
+	      <TR>
+		<TD>WIZ</TD>
+		<TD>
+		  <INPUT TYPE="checkbox" NAME="wiz" VALUE="on"></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+		<TD></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	</TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><P ALIGN=Center>
+	  <INPUT TYPE=submit VALUE="Add Item"> &nbsp; &nbsp;
+	  <INPUT TYPE=reset VALUE="Reset Form"></TD>
+      </TR>
+    </TABLE>
+  </CENTER>
+</FORM>
+<P>
+</BODY></HTML>

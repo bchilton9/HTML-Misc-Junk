@@ -1,0 +1,753 @@
+$SIG{'__DIE__'} = sub
+{
+	&error('Fatal error: '.join(undef,@_));
+};
+
+use Socket;
+
+eval
+{
+	require DBI;
+	require DBD::mysql;
+};
+
+&error('The required modules aren\'t installed: '.$@) if ($@);
+
+sub go
+{
+	my ($cgi,%config) = @_;
+	my $buttons_class = ($ENV{'HTTP_USER_AGENT'} !~ /mozilla\/4/i || $ENV{'HTTP_USER_AGENT'} =~ /compatible/i) ? ' class="buttons"' : '';
+
+	if ($ENV{'REQUEST_METHOD'} eq 'POST')
+	{
+		if ($cgi->param('command') eq 'paths')
+		{
+			&error('The root directory field is required') if (!$cgi->param('root_dir'));
+			&error('The root directory you entered wasn\'t found on the hard drive') if (!-e $cgi->param('root_dir'));
+
+			&error('The root url field is required') if (!$cgi->param('root_url'));
+			&error('The root url field must be a full url') if ($cgi->param('root_url') !~ /http\:\/\/|https\:\/\//i);
+
+			&error('The system directory field is required') if (!$cgi->param('system_dir'));
+			&error('The system directory you entered wasn\'t found on the hard drive') if (!-e $cgi->param('system_dir'));
+
+			&error('The system url field is required') if (!$cgi->param('system_url'));
+			&error('The system url field must be a full url') if ($cgi->param('system_url') !~ /http\:\/\/|https\:\/\//i);
+		
+			foreach ('root_dir','root_url','system_dir','system_url')
+			{
+				$config{$_} = $cgi->param($_) if (length $cgi->param($_) > 0);
+			}
+
+			open(FILE,'>'.($0 =~ /(.+)\./)[0].'.conf');
+			foreach (sort { lc($a) cmp lc($b) } keys %config)
+			{
+				print FILE "$_=$config{$_}\n";
+			}
+			close(FILE);
+
+			&redirect('database');
+		}
+		elsif ($cgi->param('command') eq 'database')
+		{
+			&error('The database hostname is required, if you are using a database on the same machine, use localhost as the hostname') if (length($cgi->param('db_hostname')) == 0);
+			&error('The database name is required') if (length($cgi->param('db_database')) == 0);
+
+			foreach ('db_hostname','db_database','db_username','db_password')
+			{
+				$config{$_} = $cgi->param($_) if (length $cgi->param($_) > 0);
+			}
+
+			open(FILE,'>'.($0 =~ /(.+)\./)[0].'.conf');
+			foreach (sort { lc($a) cmp lc($b) } keys %config)
+			{
+				print FILE "$_=$config{$_}\n";
+			}
+			close(FILE);
+
+			my $db = DBI->connect('dbi:mysql:dbname='.$config{'db_database'}.':host='.$config{'db_hostname'},$config{'db_username'},$config{'db_password'}) || &error("Can't connect to database: $DBI::errstr");
+
+			$db->do('DROP TABLE config');
+			$db->do('DROP TABLE users');
+			$db->do('DROP TABLE logins');
+
+			$db->do('CREATE TABLE config (name VARCHAR(20) NOT NULL,value text,PRIMARY KEY (name))');
+			$db->do('CREATE TABLE users (id INT UNSIGNED NOT NULL AUTO_INCREMENT,name VARCHAR(100) NOT NULL,password VARCHAR(100) NOT NULL,email VARCHAR(100) NOT NULL,date_created DATETIME NOT NULL,date_online DATETIME NOT NULL,PRIMARY KEY (id),UNIQUE (name),INDEX (email))');
+			$db->do('CREATE TABLE logins (id char(15) NOT NULL,user_id int UNSIGNED NOT NULL DEFAULT 0,ip varchar(15) NOT NULL,directory varchar(100) DEFAULT \'/\',date_online datetime NOT NULL,PRIMARY KEY (id),INDEX (user_id),INDEX (date_online))');
+
+			$db->disconnect;
+			&redirect('password');
+		}
+		elsif ($cgi->param('command') eq 'password')
+		{
+			&error('The password field is required') if (!$cgi->param('password'));
+			&error('The passwords you entered don\'t match') if ($cgi->param('password') ne $cgi->param('password2'));
+
+			&error('The title field is required') if (length($cgi->param('title')) == 0);
+			&error('The e-mail address field is required') if (length($cgi->param('email')) == 0);
+			&error('The e-mail address contains invalid characters') if ($cgi->param('email') !~ /^.+\@[\w\-\.]{4,}$/);
+
+			&error('The color scheme field is required') if (length($cgi->param('color')) == 0);
+
+			my $db = DBI->connect('dbi:mysql:dbname='.$config{'db_database'}.':host='.$config{'db_hostname'},$config{'db_username'},$config{'db_password'}) || &error("Can't connect to database: $DBI::errstr");
+
+			my $insert = $db->prepare('REPLACE INTO config VALUES (?,?)');
+
+			$insert->execute('password',$cgi->param('password'));
+			$insert->execute('email',$cgi->param('email'));
+			$insert->execute('title',$cgi->param('title'));
+			$insert->execute('header','<font size="4">'.$cgi->param('title').'</font>');
+			$insert->execute('color',$cgi->param('color'));
+
+			$insert->execute('mheader_height',50);
+			$insert->execute('mheader_bgcolor','white');
+			$insert->execute('upload_fields',5);
+
+			$insert->finish;
+
+			$db->disconnect;
+			&redirect('license');
+		}
+		elsif ($cgi->param('command') eq 'license')
+		{
+			&sock_connect('client.cyberscript.net',81);
+			&sock_send('GET /update_free/ HTTP/1.1');
+			&sock_send('host: client.cyberscript.net');
+			&sock_send('script: '.$config{'script_url'}."\r\n");
+
+			my %files_remote = ();
+
+			my $text = &sock_recv(0);
+			$text =~ s/^.+?(\n{2}|\r\n\r\n)//s if (substr($text,0,5) eq 'HTTP/');
+
+			foreach (split(/\n/,$text))
+			{
+				my @line = split(/\:/,$_,2);
+				$files_remote{$line[0]} = $line[1];
+			}
+
+			&sock_disconnect;
+
+			&error('EasyHost wasn\'t able to fetch a list of files from the update server, please try again') if (scalar keys %files_remote == 0);
+
+			open(LOG,'>'.$config{'system_dir'}.'update.log');
+
+			my @newfiles = ();
+
+			foreach my $file (sort { lc($a) cmp lc($b) } keys %files_remote)
+			{
+				if ($file =~ /\/$/)
+				{
+					mkdir($config{'system_dir'}.$file,0755);
+					print LOG $file.':'.(stat($config{'system_dir'}.$file))[9]."\n";
+					utime($files_remote{$file},$files_remote{$file},$config{'system_dir'}.$file);
+				}
+				else
+				{
+					print LOG $file.':'.$files_remote{$file}."\n";
+					push(@newfiles,$file);
+				}
+			}
+
+			close(LOG);
+
+			my $server_login = undef;
+			my @idset = ('0'..'9','a'..'z','A'..'Z');
+
+			srand(time);
+
+	                for (my $i = 1; $i <= 15; $i++)      
+			{
+				$server_login .= $idset[int(rand($#idset + 1))];
+			}
+
+			my $maxfiles = ($config{'update_files'} > 0) ? $config{'update_files'} : 50;
+
+			while ($#newfiles >= 0)
+			{
+				my @temp = ();
+				my $amount = ($#newfiles >= $maxfiles) ? $maxfiles : $#newfiles + 1;
+
+				for (my $i = 0; $i < $amount; $i++)
+				{
+					push @temp,shift(@newfiles);
+				}
+
+				&sock_connect('client.cyberscript.net',81);
+				&sock_send('GET /update_free/ HTTP/1.1');
+				&sock_send('host: client.cyberscript.net');
+				&sock_send('encode: base64');
+				&sock_send('code: '.$server_login);
+				&sock_send('filename: '.join(',',@temp)."\r\n");
+
+				my $text = &sock_recv(0);
+				$text =~ s/^.+?(\n{2}|\r\n\r\n)//s if (substr($text,0,5) eq 'HTTP/');
+
+				my @all = split /\#$server_login\#/,$text;
+
+				for (my $i = 0; $i < $amount; $i++)
+				{
+					my $file = shift(@temp);
+
+					if (length $all[$i] > 0)
+					{
+						open(FILE,'>'.$config{'system_dir'}.$file);
+						print FILE &decode($all[$i]);
+						close(FILE);
+
+						utime($files_remote{$file},$files_remote{$file},$config{'system_dir'}.$file);
+					}
+				}
+			}
+
+			&sock_disconnect;
+			&redirect('finish');
+		}
+		else
+		{
+			if (length $cgi->param('script_url') > 0)
+			{
+				$config{'script_url'} = $cgi->param('script_url');
+
+				open(FILE,'>'.($0 =~ /(.+)\./)[0].'.conf');
+				foreach (sort { lc($a) cmp lc($b) } keys %config)
+				{
+					print FILE "$_=$config{$_}\n";
+				}
+				close(FILE);
+			}
+
+			&redirect('paths');
+		}
+	}
+
+	my $text = undef;
+
+	if ($cgi->param('command') eq 'database')
+	{
+		$text = qq~
+<input type="hidden" name="command" value="database" />
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td bgcolor="#5582d2">
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" bgcolor="#2259c2" background="http://client.cyberscript.net/styles/titlebg.gif">
+							<tr>
+								<td><font color="#ffffff"><b>&nbsp; Step 4 of 6</b></font></td>
+							</tr>
+						</table>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td><b>MySQL Database Information</b></td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td width="100">Hostname:</td>
+											<td><input type="text" name="db_hostname" size="40" value="localhost" /></td>
+										</tr>
+										<tr>
+											<td width="100">Database:</td>
+											<td><input type="text" name="db_database" size="20" /></td>
+										</tr>
+										<tr>
+											<td width="100">Username:</td>
+											<td><input type="text" name="db_username" size="20" /></td>
+										</tr>
+										<tr>
+											<td width="100">Password:</td>
+											<td><input type="text" name="db_password" size="20" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#c7d8fa">
+							<tr>
+								<td$buttons_class><input type="submit" value="Next" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+~;
+	}
+	elsif ($cgi->param('command') eq 'password')
+	{
+		$text = qq~
+<input type="hidden" name="command" value="password" />
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td bgcolor="#5582d2">
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" bgcolor="#2259c2" background="http://client.cyberscript.net/styles/titlebg.gif">
+							<tr>
+								<td><font color="#ffffff"><b>&nbsp; Step 5 of 6</b></font></td>
+							</tr>
+						</table>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td><b>Password</b></td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td>Enter a password to be used when logging in to the admin section.</td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td width="100">Password:</td>
+											<td><input type="password" name="password" size="20" /></td>
+										</tr>
+										<tr>
+											<td width="100">Re-type password:</td>
+											<td><input type="password" name="password2" size="20" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td><b>Details</b></td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td width="100">Title:</td>
+											<td><input type="text" name="title" size="40" /></td>
+										</tr>
+										<tr>
+											<td width="100">E-mail:</td>
+											<td><input type="text" name="email" size="40" value="$ENV{'SERVER_ADMIN'}" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td><b>Color Scheme</b></td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td><input type="radio" name="color" value="blue" checked="checked" />Blue</td>
+											<td><input type="radio" name="color" value="green" />Green</td>
+											<td><input type="radio" name="color" value="red" />Red</td>
+										</tr>
+										<tr>
+											<td><img src="http://client.cyberscript.net/images/preview_blue.gif" width="100" height="60" alt="preview" /></td>
+											<td><img src="http://client.cyberscript.net/images/preview_green.gif" width="100" height="60" alt="preview" /></td>
+											<td><img src="http://client.cyberscript.net/images/preview_red.gif" width="100" height="60" alt="preview" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#c7d8fa">
+							<tr>
+								<td$buttons_class><input type="submit" value="Next" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+~;
+	}
+	elsif ($cgi->param('command') eq 'license')
+	{
+		$text = qq~
+<input type="hidden" name="command" value="license" />
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td bgcolor="#5582d2">
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" bgcolor="#2259c2" background="http://client.cyberscript.net/styles/titlebg.gif">
+							<tr>
+								<td><font color="#ffffff"><b>&nbsp; Step 6 of 6</b></font></td>
+							</tr>
+						</table>
+						<table border="0" cellspacing="20" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>EasyHost is now configured, clicking 'Next' will download and install the latest system files which can take several minutes.</td>
+							</tr>
+						</table>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#c7d8fa">
+							<tr>
+								<td$buttons_class><input type="submit" value="Next" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<p><b>Note:</b> Please only press the 'Next' button once.</p>
+~;
+	}
+	elsif ($cgi->param('command') eq 'finish')
+	{
+		open(FILE,'>'.($0 =~ /(.+)\./)[0].'.conf');
+		foreach (sort { lc($a) cmp lc($b) } keys %config)
+		{
+			print FILE "$_=$config{$_}\n" if ($_ ne 'setup');
+		}
+		close(FILE);
+
+
+		$text = qq~
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td bgcolor="#5582d2">
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" bgcolor="#2259c2" background="http://client.cyberscript.net/styles/titlebg.gif">
+							<tr>
+								<td><font color="#ffffff"><b>&nbsp; Setup is Complete</b></font></td>
+							</tr>
+						</table>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td>EasyHost 2.0 is now installed on your system.</td>
+										</tr>
+										<tr>
+											<td>You can access the admin section at:</td>
+										</tr>
+										<tr>
+											<td><a href="$config{'script_url'}?command=admin" target="_blank">$config{'script_url'}?command=admin</a></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+~;
+	}
+	else
+	{
+		if (length $cgi->param('script_url') > 0)
+		{
+			$config{'script_url'} = $cgi->param('script_url');
+
+			open(FILE,'>'.($0 =~ /(.+)\./)[0].'.conf');
+			foreach (sort { lc($a) cmp lc($b) } keys %config)
+			{
+				print FILE "$_=$config{$_}\n";
+			}
+			close(FILE);
+		}
+
+
+		if (length $config{'script_url'} > 0)
+		{
+			$text = qq~
+<input type="hidden" name="command" value="paths" />
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td bgcolor="#5582d2">
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" bgcolor="#2259c2" background="http://client.cyberscript.net/styles/titlebg.gif">
+							<tr>
+								<td><font color="#ffffff"><b>&nbsp; Step 3 of 6</b></font></td>
+							</tr>
+						</table>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td>The following fields allow you to specify the directories and/or URLs used by EasyHost. Setup has guessed the paths and they must end with a slash.</td>
+										</tr>
+										<tr>
+											<td><b>Note:</b> You must create these directories on your server before submitting this form.</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td><b>Root</b></td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td>The main folder where all accounts will be created (CHMOD 777)</td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td width="100">Directory:</td>
+											<td><input type="text" name="root_dir" size="60" value="$ENV{'DOCUMENT_ROOT'}/" /></td>
+										</tr>
+										<tr>
+											<td width="100">URL:</td>
+											<td><input type="text" name="root_url" size="60" value="http://$ENV{'HTTP_HOST'}/" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td><b>System</b></td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td>The folder where all system files will be stored (CHMOD 777)</td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td width="100">Directory:</td>
+											<td><input type="text" name="system_dir" size="60" value="$ENV{'DOCUMENT_ROOT'}/system/" /></td>
+										</tr>
+										<tr>
+											<td width="100">URL:</td>
+											<td><input type="text" name="system_url" size="60" value="http://$ENV{'HTTP_HOST'}/system/" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#c7d8fa">
+							<tr>
+								<td$buttons_class><input type="submit" value="Next" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+~;
+		}
+		else
+		{
+			$text = qq~
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td bgcolor="#5582d2">
+			<table border="0" cellspacing="1" cellpadding="0" width="100%">
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" bgcolor="#2259c2" background="http://client.cyberscript.net/styles/titlebg.gif">
+							<tr>
+								<td><font color="#ffffff"><b>&nbsp; Step 2 of 6</b></font></td>
+							</tr>
+						</table>
+						<table border="0" cellspacing="10" cellpadding="0" width="100%" bgcolor="#edf2fc">
+							<tr>
+								<td>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td>Simply enter in the URL to easyhost.cgi on your server. (Example: http://www.domain.com/cgi-bin/easyhost.cgi)</td>
+										</tr>
+									</table>
+									<table border="0" cellspacing="10" cellpadding="0">
+										<tr>
+											<td width="100">Script URL:</td>
+											<td><input type="text" name="script_url" size="60" value="http://$ENV{'HTTP_HOST'}$ENV{'SCRIPT_NAME'}" /></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#c7d8fa">
+							<tr>
+								<td$buttons_class><input type="submit" value="Next" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+~;
+		}
+	}
+
+	print "Content-type: text/html\n\n";
+	print qq~<html><head><link rel="stylesheet" type="text/css" href="http://client.cyberscript.net/styles/default.css" /><title>EasyHost Setup</title></head><body marginwidth="10" marginheight="10" topmargin="10" leftmargin="10" rightmargin="10" bottommargin="10" bgcolor="#ffffff"><form method="post" action="$ENV{'SCRIPT_NAME'}">$text</form></body></html>~;
+	exit;
+}
+
+sub redirect
+{
+	my $name = shift;
+	print "Location: $ENV{'SCRIPT_NAME'}?command=$name\n\n";
+	exit;
+}
+
+sub error
+{
+	my $error = shift;
+	my $buttons_class = ($ENV{'HTTP_USER_AGENT'} !~ /mozilla\/4/i || $ENV{'HTTP_USER_AGENT'} =~ /compatible/i) ? ' class="buttons"' : '';
+
+	print "Content-type: text/html\n\n";
+	print qq~<html><head><link rel="stylesheet" type="text/css" href="http://client.cyberscript.net/styles/default.css" /><title>EasyHost Setup</title></head><body marginwidth="10" marginheight="10" topmargin="10" leftmargin="10" rightmargin="10" bottommargin="10" bgcolor="#ffffff"><form>
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td bgcolor="#5582d2"><table border="0" cellspacing="1" cellpadding="0" width="100%"><tr><td>
+<table border="0" cellspacing="0" cellpadding="0" width="100%" height="25" bgcolor="#2259c2" background="http://client.cyberscript.net/styles/titlebg.gif"><tr><td><font color="#ffffff"><b>&nbsp; An Error has Occured</b></font></td></tr></table>
+<table border="0" cellspacing="20" cellpadding="0" width="100%" bgcolor="#edf2fc"><tr><td>$error</td></tr></table>
+</td></tr><tr><td><table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#c7d8fa"><tr><td$buttons_class><input type="button" value="Back" onclick="history.go(-1)" /></td></tr></table></td></tr>
+</table></td></tr></table></form></body></html>~;
+	exit;
+}
+
+sub sock_connect
+{
+	my ($them,$port) = @_;
+
+	if (!<S>)
+	{
+		socket(S,AF_INET,SOCK_STREAM,getprotobyname('tcp')) || &error('Create socket failed: '.$!);
+		connect(S,pack('S n a4 x8',AF_INET,($port < 1)?(getservbyname($port,'tcp'))[2]:$port,(gethostbyname($them))[4])) || &error('Connect failed: '.$!);
+
+		select(S);
+		$| = 1;
+		select(STDOUT);
+	}
+}
+
+sub sock_send
+{
+	print S shift()."\r\n";
+}
+
+sub sock_recv
+{
+	my $length = shift;
+	my $text = undef;
+
+	if ($length > 0)
+	{
+		recv(S,$text,$length,0);
+	}
+	else
+	{
+		while (<S>)
+		{
+			$text .= $_;
+		}
+	}
+
+	return $text;
+}
+
+sub sock_disconnect
+{
+	close S;
+}
+
+sub decode
+{
+	my $str = shift;
+
+	$str =~ tr|A-Za-z0-9+=/||cd;
+
+	return undef if (length($str) % 4);
+
+	$str =~ s/=+$//;
+	$str =~ tr|A-Za-z0-9+/| -_|;
+
+	return undef unless length $str;
+
+	my ($uustr,$i,$l);
+
+	$l = length($str) - 60;
+
+	for ($i = 0; $i <= $l; $i += 60)
+	{
+		$uustr .= 'M'.substr($str,$i,60);
+	}
+
+	$str = substr($str,$i);
+
+	$uustr .= chr(32 + length($str) * 3 / 4).$str if (length $str > 0);
+
+	return unpack('u',$uustr);
+}
+
+1;

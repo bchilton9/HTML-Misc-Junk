@@ -1,0 +1,22 @@
+  <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>
+ <tr>
+ <td BGCOLOR=#c0c0c0 WIDTH=20%>
+     
+ </td>
+ <td BGCOLOR=#c0c0c0>
+ <A HREF=forum.cgi class=menu>Forums</A> > !!forum!!
+ </td>
+ </tr>
+ </TABLE>
+ 
+ <table width=100%  BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>
+ <tr class=header><td BGCOLOR=#c0c0c0>Topic</a></td>
+ <td BGCOLOR=#c0c0c0>Created by</td><td BGCOLOR=#c0c0c0>Date Created</td><td BGCOLOR=#c0c0c0>Number of Replies</td></tr>
+ 
+ !!topics!!
+ 
+ </table>
+ <A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=1" class=menu>New Thered</A>
+
+
+

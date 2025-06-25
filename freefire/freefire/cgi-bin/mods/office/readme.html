@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>WebOFFICE for WebAPP v0.9.6</title>
+</head>
+
+<body bgcolor="#EBE1C8" text="#800000" link="#000080" vlink="#000000" alink="#008000">
+<font size="+2"><img src="images/office_big.gif" width=40 height=43 border=0 align="absmiddle" alt="WebOFFICE for WebAPP">WebOFFICE for WebAPP</font>
+<BR>
+<font size="+1">v0.9.6</font><BR><BR>
+<font face="Arial, Helvetica, sans-serif" size="2">
+A mod for WebAPP v0.9.6 by Brad (<a href="mailto:webmaster@indie-central.ca">webmaster@indie-central.ca</a>)
+<p><hr width="75%" noshade><p>
+<font color="red"><b>Really Big Important Message:</b></font><BR>
+Access to a users's WebOFFICE database files is authenticated by the username currently logged into WebAPP -- no additional password is necessary. All database files for the Office will be stored within the "/mods/office/db" directory.  As each member starts to use WebOFFICE, a subdirectory will be created for them, named after their username.  For example, your files will be stored in "/mods/office/db/admin", and a member named "Brad" will have his files stored in "/mods/office/db/Brad".  Therefore, it is imperative that if you delete an existing user account (or a user decides to leave your membership and deletes their account), <U>you should remove all associated WebOFFICE database files for this username</U>.  If you do not, and a new user joins with the same username, they will instantly have access to the WebOFFICE database files for the previous owner of that username.<p>Since by definition Mods do not interact with the main WebAPP scripts or database files, <u>it is up to you to keep track of your membership and delete the Office database files as needed</u>.  It was not deemed necessary for this initial version to include a second stage of authentication, but depending on the interest, it may be included in a future version.
+<p><hr width="75%" noshade><p>
+This Mod may be freely distributed or modified under the terms of the GNU General Public License.  
+However, if you improve and/or redistribute it, please notify me so I know how the script is being used and improved! 
+<br>
+<br>
+<b>OVERVIEW</b>
+<br>
+This Mod adds an &quot;office&quot; suite for each member, which includes their own private:
+<dl>
+<dt><img src="images/calendar_small.gif" width=25 height=27 border=0 align="absmiddle" alt=""> <b><a href="#calendar">Calendar</a></b>
+<dd>- a perpetual calendar where the user can supply any number of events
+<dt><img src="images/task_small.gif" width=25 height=27 border=0 align="absmiddle" alt=""> <b><a href="#task">Task List</a></b>
+<dd>- a typical task list which indicates the status of a task, who it is assigned to, etc.
+<dt><img src="images/contact_small.gif" width=25 height=27 border=0 align="absmiddle" alt=""> <b><a href="#contact">Contacts Manager</a></b>
+<dd>- users can keep detailed records of their contacts, as well as notes pertaining to them
+<dt><img src="images/journal_small.gif" width=25 height=27 border=0 align="absmiddle" alt=""> <b><a href="#journal">Journal</a></b>
+<dd>- includes an auto-generated table of contents to make accessing each entry a breeze
+<dt><img src="images/office_small.gif" width=25 height=27 border=0 align="absmiddle" alt=""> <b><a href="#office">Office</a></b>
+<dd>- the entrance, which summarizes and leads to each section
+
+</dl>
+<BR>
+WebOFFICE also includes a replacement for &quot;showcal.pl&quot;, and in conjunction with this, you can implement a group-wide calendar of events to which each member can access and contribute.  <a href="#groupcal">See below for more details</a>.
+<p><hr width="75%" noshade><p>
+<b>INSTALLATION INSTRUCTIONS</b>
+<br>
+If you are familiar with perl and have installed mods before, then use the following simple instructions -- <a href="#detailed">detailed instructions follow</a>.
+<OL>
+<LI>modify the perl path in all .cgi files in the &quot;/mods/office&quot; directory (set to <font color="green" face="courier" size="1">#!/usr/bin/perl</font> in this distribution)
+<LI>upload all files (except graphics) as ASCII into the office mods directory structure, based on the subdirectories in the .zip file
+<LI>chmod all .cgi files (755)
+<LI>chmod the db directory to 777; chmod all files in this db directory to 644
+<LI>add a link to the office script (&quot;/cgi-bin/mods/office/index.cgi&quot;)
+<LI>create an &quot;office&quot; images directory in your WebAPP's main images directory (&quot;/images/office&quot;)
+<LI>upload all office images as BINARY into this new directory
+<p>
+<b>If you wish to implement the group calendar:</b>
+<p>
+<LI>back up your current showcal.pl file (found in your site's &quot;/cgi-bin/cgi-lib&quot; directory)
+<LI>upload showcal.pl (found in the /extras directory) into your site's &quot;/cgi-bin/cgi-lib&quot; directory
+<LI>modify the perl path in groupcal.cgi (found in the /extras directory)
+<LI>upload groupcal.cgi into the &quot;/mods/office&quot; directory
+<LI>chmod groupcal.cgi to 755
+<LI>upload vsDB.pm and vsLock.pm as ASCII (found in the /extras folder) into your WebAPP's "/cgi-bin" directory
+</OL>
+That's all there is to it! Now, log into your site as admin, and run the index.cgi file.  You'll notice at the bottom of this page are some user options, followed by the administrative (office) options.  <a href="#office">These are explained below</a>.
+<p><hr width="75%" noshade><p>
+<b><a name="detailed">DETAILED INSTALLATION INSTRUCTIONS</a></b>
+<br>
+These are step-by-step instructions for installing this mod.
+<OL>
+<LI>Each .cgi file in the main Office directory (calendar.cgi, contacts.cgi, index.cgi, journal.cgi and tasks.cgi) must have the perl path set to match your server -- use the same path that is found on the top of WebAPP's "index.cgi" file (found in your site's /cgi-bin directory).  This is the first line in each of these scripts (eg. <font color="green" face="courier" size="1">#!/usr/bin/perl</font>)
+<LI>FTP to your website, and under the "/cgi-bin/mods/" directory, create the following subdirectories:
+<p><font color="green" face="courier" size="1">
+office<BR>
+office/db<BR>
+office/language<BR></font><p>
+So the actual paths will be:<p><font color="green" face="courier" size="1">
+/path/to/your/cgi-bin/mods/office<BR>
+/path/to/your/cgi-bin/mods/office/db<BR>
+/path/to/your/cgi-bin/mods/office/language<BR></font>
+<P><B>Note: as part of your WebAPP installation, you should already have a "mods" directory in place.</B><P>
+<LI>Upload the .cgi files as ASCII into the main Office directory ("/path/to/your/cgi-bin/mods/office")
+<LI>Using your FTP program (or via Telnet), <B>chmod</B> each of the .cgi files to 755
+<LI>Upload the config.dat file (found along with the .cgi files) as ASCII into the main Office directory
+<LI>Chmod config.dat to 644
+<LI>Upload vsDB.pm and vsLock.pm files (found along with the .cgi files) as ASCII into the main Office directory
+<LI>Chmod vsDB.pm and vsLock.pm to 644
+<LI>Upload all the files in the /db directory (.htaccess, office.pl, calendar.tab, tasks.tab, contacts.tab, index.html and office.cfg) as ASCII into the Office database directory ("/path/to/your/cgi-bin/mods/office/db")
+<LI>Chmod the db directory to 777
+<LI>Chmod these files to 644
+<LI>Upload the english.dat file (found in the /language directory) as ASCII into the Office language directory ("/path/to/your/cgi-bin/mods/office/language")
+<LI>Chmod english.dat files to 644
+<LI>Next, you must create a directory to hold the Office graphics, which must be outside your site's cgi-bin directory; therefore, create this directory within WebAPP's images directory:
+<p><font color="green" face="courier" size="1">
+/images/office</font><p>
+So the actual path will be:<p><font color="green" face="courier" size="1">
+/path/to/your/images/office</font><p>
+<LI>Upload all files in the "/office/images" directory as BINARY into the Office images directory ("/path/to/your/images/office")
+<p>
+WebOFFICE also comes with the option of replacing the existing WebAPP calendar, and as such implementing a group-wide calendar where all your users can view and contribute to your site's shared calendar. To do this, follow these instructions:
+<p>
+<LI>Modify the perl path in "groupcal.cgi", which is found in the /extras directory.
+<LI>Upload groupcal.cgi as ASCII into the main Office directory (where all the other .cgi files are stored)
+<LI>Chmod groupcal.cgi to 755
+<LI>Ensure that you have a backup copy of the existing showcal.pl file in your WebAPP distribution.
+<LI>Upload showcal.pl (also in the /extras directory) as ASCII into your site's /cgi-bin/cgi-lib directory.  You will be prompted to over write the existing file -- do so (you do have a backup copy, right?)
+<LI>Chmod showcal.pl to 644
+<LI>Upload vsDB.pm and vsLock.pm (in the /extras directory) as ASCII into your site's cgi-bin directory.
+<LI>Add a link to the main Office script (&quot;/cgi-bin/mods/office/index.cgi&quot;)
+</OL>
+That's it! You can now run this index.cgi file and use the Office.  The following section explains each of the tools available in the WebOFFICE package.
+
+<p><hr width="75%" noshade><p>
+
+<!-- calendar info -->
+
+<img src="images/calendar_small.gif" width=25 height=27 border=0 align="absmiddle" alt="">
+<b><a name="calendar">Calendar</a></b><P>
+There are actually two calendars packaged with WebOFFICE, and depending on how you set up your configuration, you will either use one or both of them.  The file "calendar.cgi" is the interface for each Member's private calendar, and if you implement the group calendar, it uses groupcal.cgi.
+<P>
+The database file for the member's calendar will be stored as "username.calendar", which will be found in "/mods/office/db/username/username.calendar" -- so if the user is "Brad", his data will be stored in "/mods/office/db/Brad/Brad.calendar".
+<P>
+This data file is initally based on a template, calendar.tab, which is found in /mods/office/db; <u>it is imperative that this template file is not edited in any way</u>!  Although the info contained within it is in English, these fields are linked up to their equivalent in the english.dat file, so if you want to change the language, you should only edit the english.dat file.  If you edit the calendar.tab file, this section of WebOFFICE will no longer work properly!
+<P>
+When looking at the Calendar, you will notice that parts of it are formatted differently.  A date with a <font color="blue" face="courier" size="1">*</font> [star] next to it indicates the current day based on the server hosting your site.  Also, the block for one date will be highlighted -- this indicates that you are viewing that day's data.  Therefore, if you are viewing today's data, the date will have a <font color="blue" face="courier" size="1">*</font> next to it, and the block surrounding it will be highlighted.  However, if you are viewing another day, it's block will be highlighted -- but it won't have a star next to it.  Finally, each date which contains event information will be underlined.
+<P>
+If you implement the group calendar, there are three basic views, based on the status of the user.  If a guest is viewing the group calendar, any details regarding an event will be formatted into a table.  Same goes for the regular member, except that they will see an additional form for submitting an event.  Finally, the admin or other person assigned as the calendar editor will have all event information formatted into a form, so they can easily update or delete the event.
+<p><hr width="75%" noshade><p>
+
+<!-- task info -->
+
+<img src="images/task_small.gif" width=25 height=27 border=0 align="absmiddle" alt="">
+<b><a name="task">Task List</a></b><P>
+The task list (tasks.cgi) is a means for a user to keep track of their tasks, or any tasks they assign to someone else.  By default, all tasks shown are those that are incomplete; once you indicate that a task is complete, it will be hidden, unless you "show completed".
+<P>
+The database file for the member's task list will be stored as "username.tasks", which will be found in "/mods/office/db/username/username.tasks" -- so if the user is "Brad", his data will be stored in "/mods/office/db/Brad/Brad.tasks".
+<P>
+This data file is initally based on a template, tasks.tab, which is found in /mods/office/db; <u>it is imperative that this template file is not edited in any way</u>!  Although the info contained within it is in English, these fields are linked up to their equivalent in the english.dat file, so if you want to change the language, you should only edit the english.dat file.  If you edit the tasks.tab file, this section of WebOFFICE will no longer work properly!
+
+<p><hr width="75%" noshade><p>
+
+<!-- contacts info -->
+
+<img src="images/contact_small.gif" width=25 height=27 border=0 align="absmiddle" alt="">
+<b><a name="contact">Contacts Manager</a></b><P>
+The contacts manager (contacts.cgi) allows a user to keep detailed records (home/work mailing addresses, phone numbers, email addresses, etc.) of their associates, as well as a related note section for each.  Each user has the option of viewing their contacts in "standard" or "detailed" mode; standard will display each contact in list form, limited to following data: First Name, Last Name, Company, Work Phone and Primary Email Address (however, each will be linked to the full record).  In detailed mode, each entry is in a card format, where all information for that contact is displayed (including the notes section).
+<P>
+The database file for the member's contacts will be stored as "username.contacts", which will be found in "/mods/office/db/username/username.contacts" -- so if the user is "Brad", his data will be stored in "/mods/office/db/Brad/Brad.contacts".
+<P>
+This data file is initally based on a template, contacts.tab, which is found in /mods/office/db; <u>it is imperative that this template file is not edited in any way</u>!  Although the info contained within it is in English, these fields are linked up to their equivalent in the english.dat file, so if you want to change the language, you should only edit the english.dat file.  If you edit the contacts.tab file, this section of WebOFFICE will no longer work properly!
+<P>
+Finally, the user has the option of indicating which contacts to display on the main Office page; this option is presented whenever a new contact is created, or an existing one is modified.  This information is contained within a separate database file, "contacts.show", stored alongside the user's other database files.
+
+<p><hr width="75%" noshade><p>
+
+<!-- journal info -->
+
+<img src="images/journal_small.gif" width=25 height=27 border=0 align="absmiddle" alt="">
+<b><a name="journal">Journal</a></b><P>
+The journal (journal.cgi) provides each user with a means to write notes or create entries of any length.  A user has the option of easily editing or deleting an entry; they may also generate a "printer-friendly" version of it, or email it to whomever they specify!
+<P>
+Once a journal entry is created, the current date is linked to it, and it is also automatically placed into a table of contents.  As it is edited, the edited date is also linked to it, and a backup copy is created (but only one backup is created per entry, so it is constantly replaced).  Also, like WebAPP's articles and forums, both UBB Codes and Smilies are available for use in the Journal -- but only if you have enabled these within your WebAPP setup.
+<P>
+The database file for the member's journal are two-fold; all related journal database files will be stored in a "journal" subdirectory located in the user's Office database directory.  The table of contents is based on a "username.idx" file, which keeps track of each entry (this file is automatically generated by the Journal).  So if the user name is "Brad", this index file will be found in "/mods/office/db/Brad/journal/Brad.idx".  The actual journal entry is stored in a separate text file and numbered sequentially.  So this user's first journal entry will be stored in "/mods/office/db/Brad/journal/1.txt".
+
+<p><hr width="75%" noshade><p>
+
+<!-- office info -->
+
+<img src="images/office_small.gif" width=25 height=27 border=0 align="absmiddle" alt="">
+<b><a name="office">Office</a></b><P>
+The "Office" is the entrance way to each section (index.cgi), and also provides a brief look into each of them.  The following sections are displayed on the Office index:
+<UL>
+<LI>the current month's calendar, linked to all dates and any associated events
+<LI>a linked list of the most recent journal entries
+<LI>a linked list of the current incomplete tasks
+<LI>a user-selectable list of contacts
+<LI>details of the most recent journal entry (if selected by the user)
+<LI>a section of User options
+<LI>a message from the admin (if activated by the admin)
+<LI>a section of Office options (only viewable by the admin)
+</UL>
+Both the User and Office options are self-explanatory -- see the index page for details.  The admin message is stored in the admin's database directory, and is called "admin.notes".
+
+<p><hr width="75%" noshade><p>
+
+<!-- groupcal info -->
+
+<img src="images/calendar_small.gif" width=25 height=27 border=0 align="absmiddle" alt="">
+<b><a name="groupcal">Group Calendar</a></b><P>
+The group calendar (groupcal.cgi) is presented more or less like each users's calendar, except it has its own data file, "group.calendar", which is stored in the admin's Office database directory.  These are shared events, meaning that each member (or any guest visiting your site) can view this calendar, and any associated event details.
+<P>
+If a member wishes to add an event to the calendar, they do so via Instant Message from within the group calendar interface. By default, the user who keeps track of the group calendar requests is the admin, however, you have a choice of assigning another member to be the "editor" of the calendar.  The Editor will then receive these IM requests, and as such, is automatically given the necessary permission to add, modify or delete any data associated with the group calendar (note that even if you assign an Editor, you as admin still retain the ability to add, modify or delete any associated data).  You also have the option of obtaining a copy of the requests via IM, and this switch is found within the Office options.
+<P>
+Once a member submits a request, an IM is sent to the Editor (or to the admin, if no editor is specified).  This IM includes all the event details, as well as a direct link to that date in the group calendar, in order to facilitate the inclusion of the event.  This IM is auto-generated by the member, so once the event is added, all the Editor needs to do is reply to the IM to notify the user that their event has been added (or explain why it was not).
+<P>
+In conjunction with this, once a member submits a request, they also receive notification via IM, so they have a record of the information they submitted -- this IM is auto-generated by the Editor, so the user can reply to it if they wish to change the information they submitted.
+<P>
+In order to implement the group calendar, you must also replace WebAPP's existing "showcal.pl" with the equivalent file found in the WebOFFICE /extras directory.  This version of showcal.pl is linked to the group calendar database.
+
+<p><hr width="75%" noshade><p>
+
+Questions or comments about this Mod may be directed to Brad (webmaster@indie-central.ca).<BR>
+I hope you enjoy it! 
+
+<p><hr width="75%" noshade><p>
+
+########################################<br>
+Breakdown of files within this package<br>
+########################################<br>
+<font size="3">
+<pre>
+/office/config.dat		Config file for the Mod Manager
+/office/contacts.cgi		Contacts module
+/office/index.cgi		Office index
+/office/tasks.cgi		Task module
+/office/journal.cgi		Journal module
+/office/calendar.cgi		Calendar module
+/office/vsDB.pm		Source file
+/office/vsLock.pm		Source file
+/office/readme.html		This file
+/office/db/.htaccess		Restricts access to viewing db files
+/office/db/office.pl		Common Office subroutines (header/footer)
+/office/db/calendar.tab		Source data template for all calendars
+/office/db/tasks.tab		Source data template for all tasks
+/office/db/contacts.tab		Source data template for all contacts
+/office/db/index.html		Redundant file to prevent viewing db files
+/office/db/office.cfg		Admin option storage
+/office/extras/showcal.pl		Replacement for existing WebAPP file
+/office/extras/groupcal.cgi		Group calendar module
+/office/extras/vsLock.pm		Source file
+/office/extras/vsDB.pm		Source file
+/office/images		All associatd images stored here
+/office/language	All language file(s) stored here
+/office/language/english.dat		Default english language file
+</pre>
+</font>
+<P>
+Calendar.cgi, Contacts.cgi and Tasks.cgi<br>
+Based in part on code from the &quot;Organizer&quot; Suite by Jason M. Hinkle.<br>
+http://www.verysimple.com/scripts/<br>
+<br>
+Admin.cgi, Index.cgi and Journal.cgi<br>
+Based in part on code from WebAPP v0.9.6 by Carter (carter@mcarterbrown.com) <br>
+<br>
+</font>
+</body>
+</html>

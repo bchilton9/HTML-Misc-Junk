@@ -1,0 +1,2 @@
+admin|Re: from nukes|05/12/04 - 00:43:19|your not stupid. im a gfx designer and hardcore programer. i know computers inside and out the stuff i do is not easy.|1084340530|aicon2|1|1
+admin|Welcome To Freefire!!|04/30/04 - 04:41:54|Welcome to Freefire. Please feel free to look around, Use the forms and messaging system. As of right now your account is set as friend. Once you are verified a a member of Freefire your account will be changed.||1|1

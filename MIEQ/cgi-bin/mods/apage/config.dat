@@ -1,0 +1,9 @@
+$config_vers = ".4";
+$mod_name = "APage";
+$mod_vers = "0.4.0b";
+$mod_desc = "APage Mod allows the creation and editing of html and txt files.";
+$mod_admin = "1";
+$admin_name = "../apage.cgi";
+$lang_support = "1";
+$mod_lang = "english.dat";
+1;

@@ -1,0 +1,10 @@
+18::Potion of Light Healing::inven::::::::::::0.4::::::::::::::::::::::::::Light Healing Charges: 1::::ALL::ALL::::true::::
+14::Potion of Invisibillty::inven::magic::::::::::0.4::::::::::::::::::::::::::Invisibility (Charges: 1)::::ALL::ALL::::true::::
+13::Spell: Disinfecting Aura::inven::magic::Alteration::::::::0.1::::::::::::::::::::::::::::::SHM::ALL::::true::::
+13::Spell: Spirit of Eagle::inven::magic::Alteration::::::::0.1::::::::::::::::::::::::::::::RNG DRU::ALL::::true::::
+13::Spell: Ro's Fiery Sundering::inven::magic::Evocation::::::::::::::::::::::::::::::::::Surrounds your target in dancing flames, lowering there fire resistance and armor class.::::DRU::ALL::::true::::
+13::Spell: Tumultuous Strength::inven::magic::Alteration::::::::::::::::::::::::::::::::::Fills your target's body with tumultuous power, increasing their strength for a period of ):46:00::::SHM::ALL::::true::::
+13::Spell: Thrall of Bones::inven::magic::Alteration::::::::::::::::::::::::::::::::::Commands an undead creature to do your bidding, temporarity bending them to your will.::::NEC::ALL::::true::::
+13::Spell: Turning of the Unnatural::inven::magic::Evocation::::::::::::::::::::::::::::::::::Strikes your target with holy light, causing 25 damage to undead every 6 seconds for 0:01:36.::::CLR::ALL::::true::::
+39::Glove of Rallos Zek::inven::::::::::::0.1::::::::::::::::::::::::::::::ALL::ALL::::true::::
+35::Crystalline Silk Net::inven::magic::::::::::0.1::::::::::::::::::::::::::Ensnaring Roots. Charges: 2::::ALL::ALL::::true::::

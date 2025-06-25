@@ -1,0 +1,997 @@
+BODY
+{
+
+    BACKGROUND-COLOR: #000000;
+    BACKGROUND-IMAGE: url(http://www.sanctuaryeq2.com/themes/standard/images/dragon.gif);
+    background-repeat: no-repeat
+}
+.pagetable
+{
+    WIDTH: 100%;
+}
+.myheadertable
+{
+    BORDER-RIGHT: #666666 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    WIDTH: 100%;
+    BORDER-BOTTOM: #666666 1px solid;
+    BACKGROUND-COLOR: #5b5b5b
+}
+.searchbutton
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #dddddd
+}
+A.helps:link
+{
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.helps:visited
+{
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.helps:active
+{
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.helps:hover
+{
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.navbar
+{
+    BORDER-RIGHT: #114477 1px solid;
+    BORDER-TOP: #5588bb 1px solid;
+    BACKGROUND-IMAGE: url(http://207.36.208.139/freefire.us/themes/standard/images/text.jpg);
+    BORDER-LEFT: #5588bb 1px solid;
+    BORDER-BOTTOM: #114477 1px solid;
+    BACKGROUND-COLOR: gray
+}
+A.nav:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.nav:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.nav:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #990000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.nav:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #990000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+.bannertable
+{
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #444444 1px solid;
+    BORDER-LEFT: #444444 1px solid;
+    WIDTH: 100%;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BACKGROUND-COLOR: #666666
+}
+.bannertext
+{
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.bannertexttitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+A.bannerlink:link
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.bannerlink:visited
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.bannerlink:active
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.bannerlink:hover
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.menutable
+{
+    BORDER-RIGHT: #114477 1px solid;
+    BORDER-TOP: #5588bb 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    BACKGROUND-IMAGE: url(http://207.36.208.139/freefire.us/themes/standard/images/text.jpg);
+    BORDER-LEFT: #5588bb 1px solid;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #114477 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: gray
+}
+.menubordercolor
+{
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #666666 1px solid;
+    BORDER-LEFT: #666666 1px solid;
+    BORDER-BOTTOM: #ffffff 1px solid
+}
+.menubackcolor
+{
+    BORDER-RIGHT: #eeeeee 1px solid;
+    BORDER-TOP: #999999 1px solid;
+    BORDER-LEFT: #999999 1px solid;
+    BORDER-BOTTOM: #eeeeee 1px solid;
+    BACKGROUND-COLOR: #dddddd
+}
+A.whomenu:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline
+}
+A.whomenu:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline
+}
+A.whomenu:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline
+}
+A.whomenu:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.whocat
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+.poll
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+.votebutton
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #dddddd
+}
+A.polllink:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.polllink:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.polllink:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.polllink:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.calhead
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.calbody
+{
+    FONT-SIZE: 8pt;
+    COLOR: #666666;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.calhigh
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #009900;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.caltoday
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.cat
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+.newsletterbutton
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #dddddd
+}
+.newstextsmall
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.newstexttitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.fullnewstitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.newssubtitle
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.newstextnormal
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.newsfootertext
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.articlecattitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.articlecatempty
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #888888;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.articlecatnormal
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.commentbordercolor
+{
+    BORDER-RIGHT: #444444 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    BORDER-BOTTOM: #444444 1px solid
+}
+.commentbackcolor
+{
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #444444 1px solid;
+    BORDER-LEFT: #444444 1px solid;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BACKGROUND-COLOR: #5588bb
+}
+.newsfootertable
+{
+    BORDER-RIGHT: #114477 1px solid;
+    BORDER-TOP: #5588cc 1px solid;
+    BORDER-LEFT: #5588cc 1px solid;
+    WIDTH: 100%;
+    BORDER-BOTTOM: #114477 1px solid;
+    BACKGROUND-COLOR: #5588bb
+}
+A.smallnewslink:link
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.smallnewslink:visited
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.smallnewslink:active
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.smallnewslink:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+A.newslink:link
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.newslink:visited
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.newslink:active
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.newslink:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.commenttitleback
+{
+    BORDER-RIGHT: #666666 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #ffffff 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #666666 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #ddddee
+}
+.commentsubtitleback
+{
+    BORDER-RIGHT: #666666 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: #ffffff 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #666666 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #ccccdd
+}
+A.commentlink:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.commentlink:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.commentlink:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.commentlink:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.forumtext
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.forumtextbold
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.forumtitlebackcolor
+{
+    BORDER-RIGHT: #444444 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    BORDER-BOTTOM: #444444 1px solid;
+    BACKGROUND-COLOR: #ffffff
+}
+.boardtitle
+{
+    BORDER-RIGHT: #666666 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #ffffff 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #666666 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #dddddd
+}
+.forumwindow1
+{
+    BORDER-RIGHT: #336699 1px solid;
+    BORDER-TOP: #ccccff 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #ccccff 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #336699 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #88bbee
+}
+.forumwindow2
+{
+    BORDER-RIGHT: #996666 1px solid;
+    BORDER-TOP: #eebbbb 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #eebbbb 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #996666 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #ddcccc
+}
+.forumwindow3
+{
+    BORDER-RIGHT: #666699 1px solid;
+    BORDER-TOP: #eeeeee 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #eeeeee 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #666699 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #ccccdd
+}
+A.forumlink:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.forumlink:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.forumlink:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.forumlink:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+A.forumnav:link
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.forumnav:visited
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.forumnav:active
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.forumnav:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+A:link
+{
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    COLOR: #003399;
+    TEXT-DECORATION: none
+}
+A:active
+{
+    COLOR: #003399;
+    TEXT-DECORATION: underline
+}
+A:hover
+{
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.text
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.textsmall
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.texttitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.time
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.mycontenttable
+{
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    BORDER-LEFT: #ffffff 1px solid;
+    WIDTH: 100%;
+    BORDER-BOTTOM: #ffffff 1px solid;
+    BACKGROUND-COLOR: #dddddd
+}
+.mycontenttext
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.mycontenttexttitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+A.mycontentlink:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.mycontentlink:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.mycontentlink:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.mycontentlink:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.helpsnavtable
+{
+    BORDER-RIGHT: #114477 1px solid;
+    BORDER-TOP: #5588bb 1px solid;
+    BORDER-LEFT: #5588bb 1px solid;
+    WIDTH: 100%;
+    BORDER-BOTTOM: #114477 1px solid;
+    BACKGROUND-COLOR: #dddddd
+}
+.helpsnavtext
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.helpsnavtexttitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+A.helpsnavlink:link
+{
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.helpsnavlink:visited
+{
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.helpsnavlink:active
+{
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.helpsnavlink:hover
+{
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.webapptext
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+A.webapplink:link
+{
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.webapplink:visited
+{
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.webapplink:active
+{
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.webapplink:hover
+{
+    FONT-SIZE: 8pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+.formstexttitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.formstextnormal
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.formstext
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.formstextsmall
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.statstextbold
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.statstext
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.imtitle
+{
+    BORDER-RIGHT: #114477 1px solid;
+    BORDER-TOP: #5588bb 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #5588bb 1px solid;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #114477 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #336699
+}
+.imselected
+{
+    BORDER-RIGHT: #336699 1px solid;
+    BORDER-TOP: #ccccff 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #ccccff 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #336699 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #88bbee
+}
+.imwindow1
+{
+    BORDER-RIGHT: #996666 1px solid;
+    BORDER-TOP: #eebbbb 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #eebbbb 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #996666 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #ddcccc
+}
+.imwindow2
+{
+    BORDER-RIGHT: #666699 1px solid;
+    BORDER-TOP: #eeeeee 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #eeeeee 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #666699 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #ccccdd
+}
+A.newimlink:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.newimlink:visited
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.newimlink:active
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.newimlink:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+A.oldimlink:link
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.oldimlink:visited
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.oldimlink:active
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+A.oldimlink:hover
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: underline overline
+}
+TD
+{
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+P
+{
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.button2
+{
+    BORDER-RIGHT: navy thin solid;
+    BACKGROUND-POSITION: center center;
+    BORDER-TOP: navy thin solid;
+    BACKGROUND-IMAGE: url(http://207.36.208.139/freefire.us/themes/standard/images/button.gif);
+    BORDER-LEFT: navy thin solid;
+    COLOR: white;
+    BORDER-BOTTOM: navy thin solid;
+    BACKGROUND-REPEAT: repeat-x;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: navy
+}

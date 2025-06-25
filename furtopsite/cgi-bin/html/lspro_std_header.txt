@@ -1,0 +1,25 @@
+<CENTER>
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+    <TR>
+      <TD COLSPAN=3><IMG WIDTH="492" HEIGHT="146" SRC="http://www.erenetwork.com/furctopsite/images/top.gif"></TD>
+    </TR>
+    <TR>
+      <TD BACKGROUND="http://www.erenetwork.com/furctopsite/images/left.gif"><IMG SRC="http://www.erenetwork.com/furctopsite/images/left.gif" WIDTH="10" HEIGHT="18"></TD>
+      <TD BGCOLOR=#009933><CENTER>
+	<IMG SRC="http://www.erenetwork.com/furctopsite/images/spacer.gif" WIDTH="472" HEIGHT="8"><BR>
+	<A HREF="http://www.erenetwork.com/furctopsite"><FONT SIZE="2" FACE="Arial"
+	    COLOR="#ffffff">Home</FONT></A>&nbsp;
+	<A HREF="http://www.erenetwork.com/furctopsite/cgi-bin/lspro.cgi?request=new"><FONT
+	    SIZE="2" FACE="Arial" COLOR="#ffffff">Add your
+	link</FONT></A>&nbsp;<A HREF="http://www.erenetwork.com/furctopsite/cgi-bin/lspro.cgi?request=login_manager"><FONT
+	    SIZE="2" FACE="Arial" COLOR="#ffffff">Edit your account</FONT></A>
+	<A HREF="mailto:webmaster@erenetwork.com"><FONT SIZE="2" FACE="Arial" COLOR="#ffffff">E-Mail
+	Me</FONT></A></TD>
+      <TD BACKGROUND="http://www.erenetwork.com/furctopsite/images/right.gif"><IMG SRC="http://www.erenetwork.com/furctopsite/images/right.gif" WIDTH="10"
+	    HEIGHT="18"></TD>
+    </TR>
+    <TR>
+      <TD COLSPAN=3><IMG SRC="http://www.erenetwork.com/furctopsite/images/bottom.gif" WIDTH="492" HEIGHT="12"></TD>
+    </TR>
+  </TABLE>
+</CENTER>

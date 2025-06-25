@@ -1,0 +1,16 @@
+ <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH=100%>
+<TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>
+<TR><TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">
+<TR><TD>  !!date!!</TD>
+</TR></TABLE>
+<TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+<TR>
+<TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%" class="menubackcolor">
+<TR><TD class="cat">
+<CENTER>
+!!news!!
+</CENTER>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>

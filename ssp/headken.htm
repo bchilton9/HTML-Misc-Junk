@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+  <SCRIPT>
+document.onMouseDown=mm
+function mm(ev) {
+x = ev.pageX-70
+y = ev.pageY
+
+document.mylayer.moveToAbsolute(x,y)
+}
+
+</SCRIPT>
+  <TITLE>move kenny</TITLE>
+</HEAD>
+<BODY TEXT="#ffffff" LINK="#0000ff" BACKGROUND="mainback.gif">
+<TABLE CELLSPACING="4" CELLPADDING="4" WIDTH="430">
+  <TR>
+    <TD><P ALIGN=Center>
+      <FONT COLOR="#ff0000"><IMG WIDTH="32" HEIGHT="32" SRC="head.gif"><BIG><BIG><B>Move
+      Kenny</B></BIG></BIG></FONT><IMG WIDTH="32" HEIGHT="32" SRC="head.gif"><BR>
+	<HR>
+    </TD>
+  </TR>
+  <TR>
+    <TD>Click aneywhear to move kenny.<BR>
+      <layer bgcolor="black" name="mylayer">
+      <IMG SRC="head.gif" WIDTH="32" HEIGHT="32"><FONT COLOR="#ffffff">Click aneywhear
+      to move kenny</FONT><IMG SRC="head.gif" WIDTH="32" HEIGHT="32"></layer></TD>
+  </TR>
+</TABLE>
+<P>
+<IMG SRC="http://www.remotelyhosted.com/cgibin/count.cgi?kenny&amp;movekenny"
+    BORDER="0" WIDTH="1" HEIGHT="1">
+</BODY></HTML>

@@ -1,0 +1,1195 @@
+############################################################## 
+## MOD Title: Profile Control Panel - upgrade from 1.0.2 to v 1.0.3
+## MOD Author: Ptirhiik < ptirhiik@clanmckeen.com > (Pierre) http://rpgnet.clanmckeen.com
+## MOD Description:
+##		This is the upgrade description from beta 1.0.2 to beta 1.0.3
+## MOD Version: 1.0.3-2
+## 
+## Installation Level: Easy
+## Installation Time: 20 Minutes
+## Files To Edit:
+##		viewtopic.php
+##
+##		includes/functions.php
+##
+##		language/lang_english/lang_admin.php
+##		language/lang_english/lang_main.php
+##
+##		templates/subSilver/privmsgs_read_body.tpl
+##		templates/subSilver/subSilver.cfg
+##		templates/subSilver/viewtopic_body.tpl
+##
+## Included Files:
+##		includes/mods_settings/mod_profile_control_panel.php
+##
+##		mod-mods_settings/lang_extend_mods_settings.php
+##		language/lang_english/lang_extend_profile_control_panel.php
+##
+##		profilcp/functions_profile.php
+##		profilcp/profilcp_buddy.php
+##		profilcp/profilcp_privmsg.php
+##		profilcp/profilcp_profil_avatar.php
+##		profilcp/profilcp_public_base.php
+##		profilcp/profilcp_public_groups.php
+##		profilcp/profilcp_register.php
+##		profilcp/profilcp_sendpassword.php
+##
+##		profilcp/def/def_userfields.php
+##		profilcp/def/def_userfuncs.php
+##		profilcp/def/def_userfuncs_std.php
+##		profilcp/def/def_userfuncs_vlist.php
+##		profilcp/def/def_usermaps.php
+##
+##		templates/subSilver/profilcp/public_base_body.tpl
+##		templates/subSilver/profilcp/public_groups_body.tpl
+##
+##		templates/subSilver/images/profilcp/gmt_*.gif
+##
+############################################################## 
+## For Security Purposes, Please Check: http://www.phpbb.com/mods/ for the 
+## latest version of this MOD. Downloading this MOD from other sites could cause malicious code 
+## to enter into your phpBB Forum. As such, phpBB will not offer support for MOD's not offered 
+## in our MOD-Database, located at: http://www.phpbb.com/mods/ 
+############################################################## 
+## Author Notes: 
+##
+##	This files have to be removed from your board before installing the new version :
+## 
+##	delete profilcp/profilcp_buddy_fields.php
+##	delete includes/mods_settings/mod_profile_control_panel_admin.php 
+##	delete includes/mods_settings/mod_profile_control_panel_home_buddy.php 
+##	delete includes/mods_settings/mod_profile_control_panel_home_privmsgs.php 
+##	delete includes/mods_settings/mod_profile_control_panel_home_wtopics.php 
+##	delete includes/mods_settings/mod_profile_control_panel_international.php 
+##	delete includes/mods_settings/mod_profile_control_panel_notification.php 
+##	delete includes/mods_settings/mod_profile_control_panel_posting.php 
+##	delete includes/mods_settings/mod_profile_control_panel_privacy.php 
+##	delete includes/mods_settings/mod_profile_control_panel_public_contact.php 
+##	delete includes/mods_settings/mod_profile_control_panel_public_messengers.php 
+##	delete includes/mods_settings/mod_profile_control_panel_public_real.php 
+##	delete includes/mods_settings/mod_profile_control_panel_public_web.php 
+##	delete includes/mods_settings/mod_profile_control_panel_reading.php 
+##	delete includes/mods_settings/mod_profile_control_panel_system.php 
+##
+############################################################## 
+## MOD History: 
+## 
+##   2003-10-07 - Version 1.0.3
+##      - introduce the map managing
+##	- introduce the lang extend mod
+##	- fix delete and update user (sql error)
+##	- map managing in the mods_settings
+##
+############################################################## 
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+##############################################################
+#
+#-----[ SQL ]-------------------------------------------------
+#
+ALTER TABLE phpbb_users CHANGE user_list_option user_list_option VARCHAR(255);
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy includes/mods_settings/mod_profile_control_panel.php to includes/mods_settings/mod_profile_control_panel.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy mod-mods_settings/lang_extend_mods_settings.php to language/lang_english/lang_extend_mods_settings.php
+copy language/lang_english/lang_extend_profile_control_panel.php to language/lang_english/lang_extend_profile_control_panel.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy profilcp/functions_profile.php to profilcp/functions_profile.php
+copy profilcp/profilcp_buddy.php to profilcp/profilcp_buddy.php
+copy profilcp/profilcp_privmsg.php to profilcp/profilcp_privmsg.php
+copy profilcp/profilcp_profil_avatar.php to profilcp/profilcp_profil_avatar.php
+copy profilcp/profilcp_public_base.php to profilcp/profilcp_public_base.php
+copy profilcp/profilcp_public_groups.php to profilcp/profilcp_public_groups.php
+copy profilcp/profilcp_register.php to profilcp/profilcp_register.php
+copy profilcp/profilcp_sendpassword.php to profilcp/profilcp_sendpassword.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy profilcp/def/def_userfields.php to profilcp/def/def_userfields.php
+copy profilcp/def/def_userfuncs.php to profilcp/def/def_userfuncs.php
+copy profilcp/def/def_userfuncs_std.php to profilcp/def/def_userfuncs_std.php
+copy profilcp/def/def_userfuncs_vlist.php to profilcp/def/def_userfuncs_vlist.php
+copy profilcp/def/def_usermaps.php to profilcp/def/def_usermaps.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy templates/subSilver/profilcp/public_base_body.tpl to templates/subSilver/profilcp/public_base_body.tpl
+copy templates/subSilver/profilcp/public_groups_body.tpl to templates/subSilver/profilcp/public_groups_body.tpl
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy templates/subSilver/images/profilcp/*.* to templates/subSilver/images/profilcp/*.*
+#
+#-----[ OPEN ]------------------------------------------------
+#
+viewtopic.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$buddys[ $row['buddy_id'] ]['buddy_ignore'] = $row['buddy_ignore'];
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+		$buddys[ $row['buddy_id'] ]['buddy_my_ignore'] = $row['buddy_ignore'];
+#
+#-----[ FIND ]------------------------------------------------
+#
+		if ( !isset($buddys[ $row['user_id'] ]) ) $buddys[ $row['user_id'] ]['buddy_ignore'] = false;
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+		if ( !isset($buddys[ $row['user_id'] ]) ) $buddys[ $row['user_id'] ]['buddy_my_ignore'] = false;
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$poster_id = $postrow[$i]['user_id'];
+	$poster = ( $poster_id == ANONYMOUS ) ? $lang['Guest'] : $postrow[$i]['username'];
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	$poster = '<span class="' . get_user_level_class($postrow[$i]['user_level'], 'name', $postrow[$i]) . '">' . $poster . '</span>';
+	$post_id = $postrow[$i]['post_id'];
+
+	$user_id = $userdata['user_id'];
+	$is_admin = is_admin($userdata);
+	$view_user_id = $postrow[$i]['user_id'];
+	$view_is_admin = is_admin($postrow[$i]);
+	$is_online = ( $postrow[$i]['user_session_time'] >= (time()-300) );
+
+	// get user relational status
+	$view_ignore  = $buddys[$view_user_id]['buddy_ignore'];
+	$view_friend  = $buddys[$view_user_id]['buddy_friend'];
+	$always_visible = $buddys[$view_user_id]['buddy_visible'];
+	$view_my_friend = $buddys[$view_user_id]['buddy_my_friend'];
+
+	// get the status of each info
+	$online_display		= ( ($postrow[$i]['user_allow_viewonline'] == YES) || $always_visible || ( ($postrow[$i]['user_allow_viewonline'] == FRIEND_ONLY) && $view_friend ) );
+	$email_display		= ( $userdata['user_allow_email'] && $postrow[$i]['user_allow_email'] && ( ($postrow[$i]['user_viewemail'] == YES) || ( ($postrow[$i]['user_viewemail'] == FRIEND_ONLY) && $view_friend ) ) );
+	$pm_display			= ( $userdata['user_allow_pm'] && $postrow[$i]['user_allow_pm'] && ( ($postrow[$i]['user_viewpm'] == YES) || ( ($postrow[$i]['user_viewpm'] == FRIEND_ONLY) && $view_friend ) ) );
+	$www_display		= ( $userdata['user_allow_website'] && $postrow[$i]['user_allow_website'] && ( ($postrow[$i]['user_viewwebsite'] == YES) || ( ($postrow[$i]['user_viewwebsite'] == FRIEND_ONLY) && $view_friend ) ) );
+	$messanger_display	= ( $userdata['user_allow_messanger'] && $postrow[$i]['user_allow_messanger'] && ( ($postrow[$i]['user_viewmessanger'] == YES) || ( ($postrow[$i]['user_viewmessanger'] == FRIEND_ONLY) && $view_friend ) ) );
+	$real_display		= ( $userdata['user_allow_real'] && $postrow[$i]['user_allow_real'] && ( ($postrow[$i]['user_viewreal'] == YES) || ( ($postrow[$i]['user_viewreal'] == FRIEND_ONLY) && $view_friend ) ) );
+
+	$avatar_display		= ( $userdata['user_viewavatar'] && $postrow[$i]['user_allowavatar'] );
+	$sig_display		= ( $userdata['user_viewsig'] && $postrow[$i]['user_allow_sig'] && $board_config['allow_sig']);
+	$img_display		= ( $userdata['user_viewimg'] );
+
+	// take care of ignore/admin status
+	if ($view_ignore) 
+	{
+		$online_display		= false;
+		$email_display		= false;
+		$pm_display			= false;
+		$www_display		= false;
+		$messanger_display	= false;
+		$real_display		= false;
+	}
+
+	if ($view_user_id == ANONYMOUS)
+	{
+		$email_display		= false;
+		$pm_display			= false;
+		$www_display		= false;
+		$messanger_display	= false;
+		$real_display		= false;
+
+		$avatar_display		= false;
+		$sig_display		= false;
+	}
+
+	if ($user_id == ANONYMOUS)
+	{
+		$pm_display			= false;
+	}
+
+	if ( is_admin($userdata) || ($view_user_id == $user_id) )
+	{
+		$online_display		= true;
+		$email_display		= true;
+		$pm_display			= true;
+		$www_display		= true;
+		$messanger_display	= true;
+		$real_display		= true;
+	}
+
+	// online/offline/hidden icon
+	$img = 'offline';
+	if ($online_display && $is_online)
+	{
+		$img = 'hidden';
+		if ($postrow[$i]['user_allow_viewonline'] == YES) $img = 'online';
+	}
+	switch ($img)
+	{
+		case 'offline':
+			$online_img = '<img src="' . $images['icon_offline'] . '" border="0" align="absbottom" alt="' . $lang['Offline'] . '" title="' . $lang['Offline'] . '">';
+			break;
+		case 'online':
+			$online_img = '<img src="' . $images['icon_online'] . '" border="0" align="absbottom" alt="' . $lang['Online'] . '" title="' . $lang['Online'] . '">';
+			break;
+		case 'hidden':
+			$online_img = '<img src="' . $images['icon_hidden'] . '" border="0" align="absbottom" alt="' . $lang['Hidden'] . '" title="' . $lang['Hidden'] . '">';
+			break;
+	}
+
+	// ignore button
+	$ignore_img = '';
+	$ignore = '';
+	if ( ($view_user_id != $user_id) && ($user_id != ANONYMOUS) && ($view_user_id != ANONYMOUS) )
+	{
+		if ($view_ignore)
+		{
+			$temp_url = append_sid("profile.$phpEx?mode=buddy&sub=ignore&b=$view_user_id&set=remove&from=topic&" . POST_POST_URL . "=$post_id");
+			$ignore_img = '<a href="' . $temp_url . '"><img src="' . $images['icon_ignore_remove'] . '" alt="' . $lang['Remove_from_ignore_list'] . '" title="' . $lang['Remove_from_ignore_list'] . '" border="0"></a>';
+			$ignore = $lang['Remove_from_ignore_list'];
+		}
+		else if ( !$is_admin && !$view_is_admin && !$view_my_friend )
+		{
+			$temp_url = append_sid("profile.$phpEx?mode=buddy&sub=ignore&b=$view_user_id&set=add&from=topic&" . POST_POST_URL . "=$post_id");
+			$ignore_img = '<a href="' . $temp_url . '"><img src="' . $images['icon_ignore_add'] . '" alt="' . $lang['Add_to_ignore_list'] . '" title="' . $lang['Add_to_ignore_list'] . '" border="0"></a>';
+			$ignore = $lang['Add_to_ignore_list'];
+		}
+	}
+
+	// friend button
+	$friend_img = '';
+	$friend  = '';
+	if ( ($view_user_id != $user_id) && ($user_id != ANONYMOUS) && ($view_user_id != ANONYMOUS) )
+	{
+		if ($view_my_friend)
+		{
+			$temp_url = append_sid("profile.$phpEx?mode=buddy&sub=friend&b=$view_user_id&set=remove&from=topic&" . POST_POST_URL . "=$post_id");
+			$friend_img = '<a href="' . $temp_url . '"><img src="' . $images['icon_friend_remove'] . '" alt="' . $lang['Remove_from_friend_list'] . '" title="' . $lang['Remove_from_friend_list'] . '" border="0"></a>';
+			$friend = $lang['Remove_from_friend_list'];
+		}
+		else if (!$view_ignore)
+		{
+			$temp_url = append_sid("profile.$phpEx?mode=buddy&sub=friend&b=$view_user_id&set=add&from=topic&" . POST_POST_URL . "=$post_id");
+			$friend_img = '<a href="' . $temp_url . '"><img src="' . $images['icon_friend_add'] . '" alt="' . $lang['Add_to_friend_list'] . '" title="' . $lang['Add_to_friend_list'] . '" border="0"></a>';
+			$friend = $lang['Add_to_friend_list'];
+		}
+	}
+
+	// real info
+	$poster_age = '';
+	$poster_gender = '';
+	if ($real_display && ($view_user_id != ANONYMOUS))
+	{
+		// birthday
+		$temp_url = append_sid("privmsg.$phpEx?mode=post&amp;" . POST_USERS_URL . "=$poster_id");
+		$birthday_img = ( intval(substr($postrow[$i]['user_birthday'], 4, 4)) == date('md', time()) ) ? '<a href="' . $temp_url . '"><img src="' . $images['icon_birthday'] . '" border="0" alt="' . $lang['Happy_birthday'] . '" title="' . $lang['Happy_birthday'] . '"></a>' : '';
+		if (intval($postrow[$i]['user_birthday']) != 0)
+		{
+			$poster_age = date("Y", time()) - intval(substr($postrow[$i]['user_birthday'], 0, 4));
+			if ( intval(substr($postrow[$i]['user_birthday'], 4, 4)) > date('md', time()) ) $poster_age--;
+			if ($poster_age <= 0) $poster_age = 0;
+			if ($poster_age > 0) $poster_age = '<br />' . $lang['Age'] . ': ' . $poster_age;
+		}
+
+		// gender		
+		switch ($postrow[$i]['user_gender'])
+		{
+			case 1 : $poster_gender = $lang['Male']; break;
+			case 2 : $poster_gender = $lang['Female']; break;
+			default : $poster_gender = $lang['No_gender_specify']; break;
+		}
+		$poster_gender = '<br />' . $lang['Gender'] . ': ' . $poster_gender;
+	}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+
+	$post_date = create_date($board_config['default_dateformat'], $postrow[$i]['post_time'], $board_config['board_timezone']);
+
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	$poster_posts = '';
+	$poster_from = '';
+	$poster_joined = '';
+	if ($online_display)
+	{
+//-- fin mod : profile cp --------------------------------------------------------------------------
+	$poster_posts = ( $postrow[$i]['user_id'] != ANONYMOUS ) ? $lang['Posts'] . ': ' . $postrow[$i]['user_posts'] : '';
+
+	$poster_from = ( $postrow[$i]['user_from'] && $postrow[$i]['user_id'] != ANONYMOUS ) ? $lang['Location'] . ': ' . $postrow[$i]['user_from'] : '';
+
+	$poster_joined = ( $postrow[$i]['user_id'] != ANONYMOUS ) ? $lang['Joined'] . ': ' . create_date($lang['DATE_FORMAT'], $postrow[$i]['user_regdate'], $board_config['board_timezone']) : '';
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+
+	$poster_avatar = '';
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//	if ( $postrow[$i]['user_avatar_type'] && $poster_id != ANONYMOUS && $postrow[$i]['user_allowavatar'] )
+//-- add
+	if ( $avatar_display && $postrow[$i]['user_avatar_type'] )
+//-- fin mod : profile cp --------------------------------------------------------------------------
+	{
+		switch( $postrow[$i]['user_avatar_type'] )
+		{
+			case USER_AVATAR_UPLOAD:
+				$poster_avatar = ( $board_config['allow_avatar_upload'] ) ? '<img src="' . $board_config['avatar_path'] . '/' . $postrow[$i]['user_avatar'] . '" alt="" border="0" />' : '';
+				break;
+			case USER_AVATAR_REMOTE:
+				$poster_avatar = ( $board_config['allow_avatar_remote'] ) ? '<img src="' . $postrow[$i]['user_avatar'] . '" alt="" border="0" />' : '';
+				break;
+			case USER_AVATAR_GALLERY:
+				$poster_avatar = ( $board_config['allow_avatar_local'] ) ? '<img src="' . $board_config['avatar_gallery_path'] . '/' . $postrow[$i]['user_avatar'] . '" alt="" border="0" />' : '';
+				break;
+		}
+	}
+
+	//
+	// Define the little post icon
+	//
+	if ( $userdata['session_logged_in'] && $postrow[$i]['post_time'] > $userdata['user_lastvisit'] && $postrow[$i]['post_time'] > $topic_last_read )
+	{
+		$mini_post_img = $images['icon_minipost_new'];
+		$mini_post_alt = $lang['New_post'];
+	}
+	else
+	{
+		$mini_post_img = $images['icon_minipost'];
+		$mini_post_alt = $lang['Post'];
+	}
+
+	$mini_post_url = append_sid("viewtopic.$phpEx?" . POST_POST_URL . '=' . $postrow[$i]['post_id']) . '#' . $postrow[$i]['post_id'];
+
+	//
+	// Generate ranks, set them to empty string initially.
+	//
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//	$poster_rank = '';
+//	$rank_image = '';
+//	if ( $postrow[$i]['user_id'] == ANONYMOUS )
+//	{
+//	}
+//	else if ( $postrow[$i]['user_rank'] )
+//	{
+//		for($j = 0; $j < count($ranksrow); $j++)
+//		{
+//			if ( $postrow[$i]['user_rank'] == $ranksrow[$j]['rank_id'] && $ranksrow[$j]['rank_special'] )
+//			{
+//				$poster_rank = $ranksrow[$j]['rank_title'];
+//				$rank_image = ( $ranksrow[$j]['rank_image'] ) ? '<img src="' . $ranksrow[$j]['rank_image'] . '" alt="' . $poster_rank . '" title="' . $poster_rank . '" border="0" /><br />' : '';
+//			}
+//		}
+//	}
+//	else
+//	{
+//		for($j = 0; $j < count($ranksrow); $j++)
+//		{
+//			if ( $postrow[$i]['user_posts'] >= $ranksrow[$j]['rank_min'] && !$ranksrow[$j]['rank_special'] )
+//			{
+//				$poster_rank = $ranksrow[$j]['rank_title'];
+//				$rank_image = ( $ranksrow[$j]['rank_image'] ) ? '<img src="' . $ranksrow[$j]['rank_image'] . '" alt="' . $poster_rank . '" title="' . $poster_rank . '" border="0" /><br />' : '';
+//			}
+//		}
+//	}
+//-- add
+	$rank_data = array();
+	$rank_data = get_user_rank($postrow[$i]);
+	$poster_rank = '';
+	$rank_image = '';
+	if ($www_display)
+	{
+		$poster_rank = $rank_data['rank_title'];
+		$rank_image = ($rank_data['rank_image'] != '') ? $rank_data['rank_image'] . '<br />' : '';
+	}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+
+	//
+	// Handle anon users posting with usernames
+	//
+	if ( $poster_id == ANONYMOUS && $postrow[$i]['post_username'] != '' )
+	{
+		$poster = $postrow[$i]['post_username'];
+		$poster_rank = $lang['Guest'];
+	}
+
+	$temp_url = '';
+
+	if ( $poster_id != ANONYMOUS )
+	{
+		$temp_url = append_sid("profile.$phpEx?mode=viewprofile&amp;" . POST_USERS_URL . "=$poster_id");
+		$profile_img = '<a href="' . $temp_url . '"><img src="' . $images['icon_profile'] . '" alt="' . $lang['Read_profile'] . '" title="' . $lang['Read_profile'] . '" border="0" /></a>';
+		$profile = '<a href="' . $temp_url . '">' . $lang['Read_profile'] . '</a>';
+
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		$pm_img = '';
+		$pm = '';
+		if ( $pm_display )
+		{
+//-- fin mod : profile cp --------------------------------------------------------------------------
+		$temp_url = append_sid("privmsg.$phpEx?mode=post&amp;" . POST_USERS_URL . "=$poster_id");
+		$pm_img = '<a href="' . $temp_url . '"><img src="' . $images['icon_pm'] . '" alt="' . $lang['Send_private_message'] . '" title="' . $lang['Send_private_message'] . '" border="0" /></a>';
+		$pm = '<a href="' . $temp_url . '">' . $lang['Send_private_message'] . '</a>';
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//		if ( !empty($postrow[$i]['user_viewemail']) || $is_auth['auth_mod'] )
+//-- add
+		if ( $email_display )
+//-- fin mod : profile cp --------------------------------------------------------------------------
+		{
+			$email_uri = ( $board_config['board_email_form'] ) ? append_sid("profile.$phpEx?mode=email&amp;" . POST_USERS_URL .'=' . $poster_id) : 'mailto:' . $postrow[$i]['user_email'];
+
+			$email_img = '<a href="' . $email_uri . '"><img src="' . $images['icon_email'] . '" alt="' . $lang['Send_email'] . '" title="' . $lang['Send_email'] . '" border="0" /></a>';
+			$email = '<a href="' . $email_uri . '">' . $lang['Send_email'] . '</a>';
+		}
+		else
+		{
+			$email_img = '';
+			$email = '';
+		}
+
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		$www_img = '';
+		$www = '';
+		if ( $www_display )
+		{
+//-- fin mod : profile cp --------------------------------------------------------------------------
+		$www_img = ( $postrow[$i]['user_website'] ) ? '<a href="' . $postrow[$i]['user_website'] . '" target="_userwww"><img src="' . $images['icon_www'] . '" alt="' . $lang['Visit_website'] . '" title="' . $lang['Visit_website'] . '" border="0" /></a>' : '';
+		$www = ( $postrow[$i]['user_website'] ) ? '<a href="' . $postrow[$i]['user_website'] . '" target="_userwww">' . $lang['Visit_website'] . '</a>' : '';
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		$icq_status_img = '';
+		$icq_img = '';
+		$icq = '';
+
+		$aim_img = '';
+		$aim = '';
+
+		$msn_img = '';
+		$msn = '';
+
+		$yim_img = '';
+		$yim = '';
+		if ( $messanger_display )
+		{
+//-- fin mod : profile cp --------------------------------------------------------------------------
+		if ( !empty($postrow[$i]['user_icq']) )
+		{
+			$icq_status_img = '<a href="http://wwp.icq.com/' . $postrow[$i]['user_icq'] . '#pager"><img src="http://web.icq.com/whitepages/online?icq=' . $postrow[$i]['user_icq'] . '&img=5" width="18" height="18" border="0" /></a>';
+			$icq_img = '<a href="http://wwp.icq.com/scripts/search.dll?to=' . $postrow[$i]['user_icq'] . '"><img src="' . $images['icon_icq'] . '" alt="' . $lang['ICQ'] . '" title="' . $lang['ICQ'] . '" border="0" /></a>';
+			$icq =  '<a href="http://wwp.icq.com/scripts/search.dll?to=' . $postrow[$i]['user_icq'] . '">' . $lang['ICQ'] . '</a>';
+		}
+		else
+		{
+			$icq_status_img = '';
+			$icq_img = '';
+			$icq = '';
+		}
+
+		$aim_img = ( $postrow[$i]['user_aim'] ) ? '<a href="aim:goim?screenname=' . $postrow[$i]['user_aim'] . '&amp;message=Hello+Are+you+there?"><img src="' . $images['icon_aim'] . '" alt="' . $lang['AIM'] . '" title="' . $lang['AIM'] . '" border="0" /></a>' : '';
+		$aim = ( $postrow[$i]['user_aim'] ) ? '<a href="aim:goim?screenname=' . $postrow[$i]['user_aim'] . '&amp;message=Hello+Are+you+there?">' . $lang['AIM'] . '</a>' : '';
+
+		$temp_url = append_sid("profile.$phpEx?mode=viewprofile&amp;" . POST_USERS_URL . "=$poster_id");
+		$msn_img = ( $postrow[$i]['user_msnm'] ) ? '<a href="' . $temp_url . '"><img src="' . $images['icon_msnm'] . '" alt="' . $lang['MSNM'] . '" title="' . $lang['MSNM'] . '" border="0" /></a>' : '';
+		$msn = ( $postrow[$i]['user_msnm'] ) ? '<a href="' . $temp_url . '">' . $lang['MSNM'] . '</a>' : '';
+
+		$yim_img = ( $postrow[$i]['user_yim'] ) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $postrow[$i]['user_yim'] . '&amp;.src=pg"><img src="' . $images['icon_yim'] . '" alt="' . $lang['YIM'] . '" title="' . $lang['YIM'] . '" border="0" /></a>' : '';
+		$yim = ( $postrow[$i]['user_yim'] ) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $postrow[$i]['user_yim'] . '&amp;.src=pg">' . $lang['YIM'] . '</a>' : '';
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+	}
+	else
+	{
+		$profile_img = '';
+		$profile = '';
+		$pm_img = '';
+		$pm = '';
+		$email_img = '';
+		$email = '';
+		$www_img = '';
+		$www = '';
+		$icq_status_img = '';
+		$icq_img = '';
+		$icq = '';
+		$aim_img = '';
+		$aim = '';
+		$msn_img = '';
+		$msn = '';
+		$yim_img = '';
+		$yim = '';
+	}
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	$author_panel = '';
+	$postrow[$i]['user_friend']		= $buddys[ $postrow[$i]['user_id'] ]['buddy_friend'];
+	$postrow[$i]['user_visible']	= $buddys[ $postrow[$i]['user_id'] ]['buddy_visible'];
+	$postrow[$i]['user_my_friend']	= $buddys[ $postrow[$i]['user_id'] ]['buddy_my_friend'];
+	$postrow[$i]['user_my_ignore']	= $buddys[ $postrow[$i]['user_id'] ]['buddy_my_ignore'];
+	$postrow[$i]['user_online']		= ( $postrow[$i]['user_session_time'] >= (time()-300) );
+
+	// sig
+	if (!$userdata['user_viewsig'] || !$postrow[$i]['user_allow_sig'])
+	{
+		$postrow[$i]['user_sig'] = '';
+	}
+
+	// get the panels
+	$author_panel	= pcp_output_panel('PHPBB.viewtopic.left', $postrow[$i]);
+	$buttons_panel	= pcp_output_panel('PHPBB.viewtopic.buttons', $postrow[$i]);
+	$ignore_panel	= pcp_output_panel('PHPBB.viewtopic.left.ignore', $postrow[$i]);
+	$ignore_buttons	= pcp_output_panel('PHPBB.viewtopic.buttons.ignore', $postrow[$i]);
+//-- fin mod : profile cp --------------------------------------------------------------------------
+	$poster_id = $postrow[$i]['user_id'];
+	$poster = ( $poster_id == ANONYMOUS ) ? $lang['Guest'] : $postrow[$i]['username'];
+
+	$post_date = create_date($board_config['default_dateformat'], $postrow[$i]['post_time'], $board_config['board_timezone']);
+
+	//
+	// Define the little post icon
+	//
+	if ( $userdata['session_logged_in'] && $postrow[$i]['post_time'] > $userdata['user_lastvisit'] && $postrow[$i]['post_time'] > $topic_last_read )
+	{
+		$mini_post_img = $images['icon_minipost_new'];
+		$mini_post_alt = $lang['New_post'];
+	}
+	else
+	{
+		$mini_post_img = $images['icon_minipost'];
+		$mini_post_alt = $lang['Post'];
+	}
+
+	$mini_post_url = append_sid("viewtopic.$phpEx?" . POST_POST_URL . '=' . $postrow[$i]['post_id']) . '#' . $postrow[$i]['post_id'];
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//	$user_sig = ( $postrow[$i]['enable_sig'] && $postrow[$i]['user_sig'] != '' && $board_config['allow_sig'] ) ? $postrow[$i]['user_sig'] : '';
+//-- add
+	$user_sig = ( $sig_display && $postrow[$i]['enable_sig'] && $postrow[$i]['user_sig'] != '' ) ? $postrow[$i]['user_sig'] : '';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+	$user_sig = ( $postrow[$i]['enable_sig'] && $postrow[$i]['user_sig'] != '' && $board_config['allow_sig'] ) ? $postrow[$i]['user_sig'] : '';
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		'POST_ID' => $postrow[$i]['post_id'],
+		'ONLINE_IMG' => $online_img,
+		'FRIEND_IMG' => $friend_img,
+		'FRIEND' => $friend,
+		'IGNORE_IMG' => $ignore_img,
+		'IGNORE' => $ignore,
+		'BIRTHDAY_IMG' => $birthday_img,
+		'POSTER_AGE' => $poster_age,
+		'POSTER_GENDER' => $poster_gender,
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		'POST_ID' => $postrow[$i]['post_id'],
+		'AUTHOR_PANEL'	=> $postrow[$i]['user_my_ignore'] ? $ignore_panel : $author_panel,
+		'BUTTONS_PANEL'	=> $buttons_panel,
+		'IGNORE_IMG'	=> $ignore_buttons,
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+		'ROW_CLASS' => $row_class,
+		'POSTER_NAME' => $poster,
+		'POSTER_RANK' => $poster_rank,
+		'RANK_IMAGE' => $rank_image,
+		'POSTER_JOINED' => $poster_joined,
+		'POSTER_POSTS' => $poster_posts,
+		'POSTER_FROM' => $poster_from,
+		'POSTER_AVATAR' => $poster_avatar,
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+		'ROW_CLASS' => $row_class,
+#
+#-----[ FIND ]------------------------------------------------
+#
+		'MINI_POST_IMG' => $mini_post_img,
+		'PROFILE_IMG' => $profile_img,
+		'PROFILE' => $profile,
+		'SEARCH_IMG' => $search_img,
+		'SEARCH' => $search,
+		'PM_IMG' => $pm_img,
+		'PM' => $pm,
+		'EMAIL_IMG' => $email_img,
+		'EMAIL' => $email,
+		'WWW_IMG' => $www_img,
+		'WWW' => $www,
+		'ICQ_STATUS_IMG' => $icq_status_img,
+		'ICQ_IMG' => $icq_img,
+		'ICQ' => $icq,
+		'AIM_IMG' => $aim_img,
+		'AIM' => $aim,
+		'MSN_IMG' => $msn_img,
+		'MSN' => $msn,
+		'YIM_IMG' => $yim_img,
+		'YIM' => $yim,
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+		'MINI_POST_IMG' => $mini_post_img,
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	if ($view_ignore)
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	if ($postrow[$i]['user_my_ignore'])
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/functions.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : language settings -----------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- mod : mods settings ---------------------------------------------------------------------------
+//-- add
+	global $db, $mods, $list_yes_no, $userdata;
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	global $admin_level, $level_prior, $level_desc;
+	global $values_list, $tables_linked, $classes_fields, $user_maps, $user_fields;
+	global $list_yes_no;
+
+	include_once( $phpbb_root_path . './profilcp/functions_profile.' . $phpEx);
+//-- fin mod : profile cp --------------------------------------------------------------------------
+//-- mod : mods settings ---------------------------------------------------------------------------
+//-- add
+	global $db, $mods, $userdata;
+#
+#-----[ FIND ]------------------------------------------------
+#
+	//
+	// Set up style
+	//
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- add
+	// check for admin part
+	$lang_extend_admin = defined('IN_ADMIN');
+
+	// get the english settings
+	if ( ($board_config['default_lang'] != 'english') && !defined('LANG_EXTEND_DONE') )
+	{
+		$dir = @opendir($phpbb_root_path . 'language/lang_english');
+		while( $file = @readdir($dir) )
+		{
+			if( preg_match("/^lang_extend_.*?\." . $phpEx . "$/", $file) )
+			{
+				include_once($phpbb_root_path . 'language/lang_english/' . $file);
+			}
+		}
+		// include the personalisations
+		@include_once($phpbb_root_path . 'language/lang_english/lang_extend.' . $phpEx);
+		@closedir($dir);
+	}
+
+	// get the user settings
+	if ( !empty($board_config['default_lang']) && !defined('LANG_EXTEND_DONE') )
+	{
+		$dir = @opendir($phpbb_root_path . 'language/lang_' . $board_config['default_lang']);
+		while( $file = @readdir($dir) )
+		{
+			if( preg_match("/^lang_extend_.*?\." . $phpEx . "$/", $file) )
+			{
+				include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/' . $file);
+			}
+		}
+		// include the personalisations
+		@include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/lang_extend.' . $phpEx);
+		@closedir($dir);
+	}
+	define('LANG_EXTEND_DONE', true);
+//-- fin mod : language settings -------------------------------------------------------------------
+
+#
+#-----[ FIND ]------------------------------------------------
+#
+		}
+
+		if ( empty($template) )
+		{
+			$template = new Template($phpbb_root_path . 'templates/' . $board_config['board_template']);
+		}
+		if ( empty($theme) )
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- add
+			// check for admin part
+			$lang_extend_admin = defined('IN_ADMIN');
+
+			// get the english settings
+			if ( ($board_config['default_lang'] != 'english') && !defined('LANG_EXTEND_DONE') )
+			{
+				$dir = @opendir($phpbb_root_path . 'language/lang_english');
+				while( $file = @readdir($dir) )
+				{
+					if( preg_match("/^lang_extend_.*?\." . $phpEx . "$/", $file) )
+					{
+						include_once($phpbb_root_path . 'language/lang_english/' . $file);
+					}
+				}
+				// include the personalisations
+				@include_once($phpbb_root_path . 'language/lang_english/lang_extend.' . $phpEx);
+				@closedir($dir);
+			}
+
+			// get the user settings
+			if ( !empty($board_config['default_lang']) && !defined('LANG_EXTEND_DONE') )
+			{
+				$dir = @opendir($phpbb_root_path . 'language/lang_' . $board_config['default_lang']);
+				while( $file = @readdir($dir) )
+				{
+					if( preg_match("/^lang_extend_.*?\." . $phpEx . "$/", $file) )
+					{
+						include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/' . $file);
+					}
+				}
+				// include the personalisations
+				@include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/lang_extend.' . $phpEx);
+				@closedir($dir);
+			}
+			define('LANG_EXTEND_DONE', true);
+//-- fin mod : language settings -------------------------------------------------------------------
+
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# here we clean up the previous added lines
+#
+language/lang_english/lang_admin.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+//-- mod : mods settings ---------------------------------------------------------------------------
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+<?php
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- mod : mods settings ---------------------------------------------------------------------------
+//-- add
+$lang['Configuration_extend']	= 'Configuration +';
+$lang['Override_user_choices']	= 'Override user choices';
+//-- end of mod : mods settings --------------------------------------------------------------------
+?>
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+?>
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# here we clean up the previous added lines
+#
+language/lang_english/lang_main.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+<?php
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+// who's online
+$lang['Admin_founder_online_color']			= '%sBoard Founder%s';
+$lang['User_online_color']					= '%sUser%s';
+
+// topic or privmsg display
+$lang['Add_to_friend_list']					= 'Add to your friend list';
+$lang['Remove_from_friend_list']			= 'Remove from your friend list';
+$lang['Add_to_ignore_list']					= 'Add to your ignore list';
+$lang['Remove_from_ignore_list']			= 'Remove from your ignore list';
+$lang['Happy_birthday']						= 'Happy Birthday !';
+$lang['Ignore_choosed']						= 'You have choosen to ignore this user';
+$lang['Online']								= 'Online';
+$lang['Offline']							= 'Offline';
+$lang['Hidden']								= 'Hidden';
+$lang['Gender']								= 'Gender';
+$lang['Male']								= 'Male';
+$lang['Female']								= 'Female';
+$lang['No_gender_specify']					= 'Unknown';
+$lang['Age']								= 'Age';
+$lang['Do_not_allow_pm']					= 'This user doesn\'t accept private messages';
+
+// main entry (profile.php)
+$lang['Click_return_profilcp']				= 'Click %sHere%s to return to the profile';
+
+// birthday popup (profile_birthday.php)
+$lang['Birthday']							= 'Birthday';
+$lang['birthday_msg']						= 'Hi %s, <br /><br /><br /> %s is glad to whish you an Happy Birthday !';
+
+// home panel (profilcp_home.php)
+$lang['profilcp_index_shortcut']			= 'Home';
+$lang['profilcp_index_pagetitle']			= 'Private Profile home';
+
+// home panel : mini buddy list (functions_profile.php)
+$lang['Friend_list']						= 'Friend list';
+$lang['Friend_list_of']						= 'Friend of';
+$lang['Ignore_list']						= 'Ignore list';
+$lang['Ignore_list_of']						= 'Ignored by';
+$lang['Nobody']								= 'Nobody';
+$lang['Always_visible']						= 'Always visible to this user';
+$lang['Not_always_visible']					= 'This user won\'t see you online when you\'ll be in hidden mode';
+
+// home panel : watched topics (functions_profile.php)
+$lang['Stop_watching_selected_topics']		= 'Stop watching the selected topics';
+$lang['New_subscribed_topic']				= 'Subscribed Topics';
+$lang['Submit_period']						= 'See topics since';
+
+// buddy list (profilcp_buddy.php)
+$lang['profilcp_buddy_shortcut']			= 'Buddy list';
+$lang['profilcp_buddy_pagetitle']			= 'Buddy list';
+$lang['profilcp_buddy_friend_shortcut']		= 'Friend list';
+$lang['profilcp_buddy_friend_pagetitle']	= 'Edit your Friend list';
+$lang['profilcp_buddy_ignore_shortcut']		= 'Ignore list';
+$lang['profilcp_buddy_ignore_pagetitle']	= 'Edit your Ignore list';
+$lang['profilcp_buddy_list_shortcut']		= 'All the members';
+$lang['profilcp_buddy_list_pagetitle']		= 'Member list';
+$lang['Click_return_privmsg']				= 'Click %sHere%s to return to the private message';
+$lang['profilcp_buddy_could_not_add_user']	= 'The user you selected does not exist.';
+$lang['profilcp_buddy_could_not_anon_user']	= 'You cannot make Anonymous a buddy member.';
+$lang['profilcp_buddy_add_yourself']		= 'You can\'t add yourself to your buddy lists';
+$lang['profilcp_buddy_already']				= 'User is already in the buddy list';
+$lang['profilcp_buddy_ignore']				= 'Addition impossible : this user ignores you';
+$lang['profilcp_buddy_you_admin']			= 'Being an admin or moderator, you can\'t ignore people';
+$lang['profilcp_buddy_admin']				= 'You can\'t ignore admins or moderators';
+$lang['User_fields']						= 'User fields list';
+$lang['Friend']								= 'Friend';
+$lang['Comp_LE']							= 'is less than';
+$lang['Comp_EQ']							= 'is equal to';
+$lang['Comp_NE']							= 'is different from';
+$lang['Comp_GE']							= 'is greater than';
+$lang['Comp_IN']							= 'includes';
+$lang['Comp_NI']							= 'doesn\'t include';
+$lang['Sort_none']							= 'Unsorted';
+$lang['date_entry']							= 'YYYYMMDD';
+
+// update profile (profilcp_profil.php)
+$lang['profilcp_profil_shortcut']			= 'Profile';
+$lang['profilcp_profil_pagetitle']			= 'Profile Edition';
+$lang['profilcp_prefer_shortcut']			= 'Your profile';
+$lang['profilcp_prefer_pagetitle']			= 'Your profile preferences';
+$lang['profilcp_signature_shortcut']		= 'Signature';
+$lang['profilcp_signature_pagetitle']		= 'Signature';
+$lang['profilcp_avatar_shortcut']			= 'Avatar';
+$lang['profilcp_avatar_pagetitle']			= 'Avatar';
+
+// update profile : preferences - functions (mod_profile_control_panel.php)
+$lang['Other']								= 'Other...';
+$lang['Friend_only']						= 'Only friends';
+
+// update profile : public informations : web info (mod_profile_control_public_web.php)
+$lang['profilcp_profil_base_shortcut']		= 'Public information';
+$lang['Web_info']							= 'Web informations';
+
+// update profile : public informations : real info (mod_profile_control_public_real.php)
+$lang['Real_info']							= 'Personal informations';
+$lang['Realname']							= 'Real name';
+$lang['Date_error']							= 'day %d, month %d, year %d is not a valid date';
+
+// update profile : public informations : messengers info (mod_profile_control_public_messengers.php)
+$lang['Messangers']							= 'Messengers';
+
+// update profile : public informations : contact info (mod_profile_control_public_contact.php)
+$lang['Home_phone']							= 'Home phone';
+$lang['Home_fax']							= 'Home fax';
+$lang['Work_phone']							= 'Work phone';
+$lang['Work_fax']							= 'Work fax';
+$lang['Cellular']							= 'Cellular';
+$lang['Pager']								= 'Pager';
+
+// update profile : preferences - preferences panel ("Your profile")
+$lang['Profile_control_panel']				= 'Profile Settings';
+
+// update profile : preferences - i18n panel (mod_profile_control_panel_international.php)
+$lang['Profile_control_panel_i18n']			= 'Internationalization';
+$lang['summer_time']						= 'Are you in a daylight saving zone ?';
+
+// update profile : preferences - notification panel (mod_profile_control_panel_notification.php)
+$lang['Profile_control_panel_notification']	= 'Notification';
+
+// update profile : preferences - posting panel (mod_profile_control_panel_posting.php)
+$lang['Profile_control_panel_posting']		= 'Posting';
+
+// update profile : preferences - privacy panel (mod_profile_control_panel_privacy.php)
+$lang['Profile_control_panel_privacy']		= 'Privacy';
+$lang['View_user']							= 'Show me online';
+$lang['Public_view_pm']						= 'Accept private message';
+$lang['Public_view_website']				= 'Display my web informations';
+$lang['Public_view_messengers']				= 'Display my messengers references';
+$lang['Public_view_real_info']				= 'Display my personnal informations';
+
+// update profile : preferences - reading panel (mod_profile_control_panel_reading.php)
+$lang['Profile_control_panel_reading']		= 'Reading';
+$lang['Public_view_avatar']					= 'Display avatars';
+$lang['Public_view_sig']					= 'Display signatures';
+$lang['Public_view_img']					= 'Display images';
+
+// update profile : preferences - profile preferences
+$lang['profile_prefer']						= 'Profile options';
+
+// update profile : preferences - system panel (mod_profile_control_panel_system.php)
+$lang['Profile_control_panel_system']		= 'System';
+$lang['summer_time_set']					= 'Is it summer time ? (add +1 hour to local time)';
+$lang['Forum_rules']						= 'Forum rules topic id';
+
+// update profile : preferences - admin part (mod_profile_control_panel_admin.php)
+$lang['profilcp_admin_shortcut']			= 'Administration';
+$lang['User_deleted']						= 'User was successfully deleted.';
+$lang['User_special']						= 'Special admin-only fields';
+$lang['User_special_explain']				= 'These fields are not able to be modified by the users.  Here you can set their status and other options that are not given to users.';
+$lang['User_status']						= 'User is active';
+$lang['User_allow_email']					= 'Can send emails';
+$lang['User_allow_pm']						= 'Can send Private Messages';
+$lang['User_allow_website']					= 'Can show his web info';
+$lang['User_allow_messanger']				= 'Can share his messengers adresses';
+$lang['User_allow_real']					= 'Can show his personal informations';
+$lang['User_allowavatar']					= 'Can display avatar';
+$lang['User_allow_sig']						= 'Can display his signature';
+$lang['Rank_title']							= 'Rank Title';
+$lang['User_delete']						= 'Delete this user';
+$lang['User_delete_explain']				= 'Click here to delete this user; this cannot be undone.';
+$lang['No_assigned_rank']					= 'No special rank assigned';
+$lang['User_self_delete']					= 'You can delete your account being a board administrator';
+
+// update profile : signature (profilcp_profile_signature.php)
+$lang['profilcp_sig_preview']				= 'Signature preview';
+
+// display profile (profilcp_public.php)
+$lang['profilcp_public_shortcut']			= 'Public';
+$lang['profilcp_public_pagetitle']			= 'Public display';
+$lang['profilcp_public_base_shortcut']		= 'Base info';
+$lang['profilcp_public_base_pagetitle']		= 'Profile base informations';
+$lang['profilcp_public_groups_shortcut']	= 'Groups';
+$lang['profilcp_public_groups_pagetitle']	= 'Groups this user belong to';
+
+// update profile : preferences - home panel (mod_profile_control_panel_home.php)
+$lang['Profile_control_panel_home']			= 'Profile Home panel';
+$lang['Profile_control_panel_home_buddy']	= 'Buddy lists';
+$lang['Buddy_friend_display']				= 'Display my friend list on home panel';
+$lang['Buddy_ignore_display']				= 'Display my ignore list on home panel';
+$lang['Buddy_friend_of_display']			= 'Display "Friend of" list on home panel';
+$lang['Buddy_ignored_by_display']			= 'Display "Ignored by" list on home panel';
+
+$lang['Profile_control_panel_home_privmsg']	= 'Private messages';
+$lang['Privmsgs_per_page']					= 'Number of private messages displayed per page on home panel';
+
+$lang['Profile_control_panel_home_wtopics']	= 'Watched topics';
+$lang['Watched_topics_per_page']			= 'Number of topics watched displayed per page on home panel';
+
+// display profile : base info (profilcp_public_base.php)
+$lang['Unavailable']						= 'Unavailable';
+$lang['Last_visit']							= 'Last visit time';
+$lang['User_posts']							= 'User posts';
+$lang['User_post_stats']					= '%s posts, %.2f%% of total, %.2f posts per day';
+$lang['Most_active_topic']					= 'Most active topic';
+$lang['Most_active_topic_stat']				= '%s posts, %.2f%% of the topic, %.2f%% of the forum';
+$lang['Most_active_forum']					= 'Most active forum';
+$lang['Most_active_forum_stat']				= '%s posts, %.2f%% of the forum, %.2f%% of total';
+
+// register (profilcp_register.php)
+$lang['profilcp_register_shortcut']			= 'Registering';
+$lang['profilcp_register_pagetitle']		= 'Registration informations';
+$lang['profilcp_email_title']				= 'Email address';
+$lang['profilcp_email_confirm']				= 'Confirm your Email address';
+$lang['anti_robotic']						= 'Control picture';
+$lang['anti_robotic_explain']				= 'This control is designed to prevent the flooding by the register robots';
+$lang['profilcp_password_explain']			= 'You must confirm your current password if you wish to change it';
+$lang['Agree_rules']						= 'By checking this box, you declare having taken knowledge of the terms, and agree with them';
+$lang['profilcp_username_missing']			= 'Username missing';
+$lang['profilcp_email_not_matching']		= 'Emails doesn\'t match';
+$lang['Robot_flood_control']				= 'The control image doesn\'t match what you\'ve typed in';
+$lang['Disagree_rules']						= 'You have declared you disagree with the rules used on this board, so you won\'t be able to register.';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+?>
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+?>
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/privmsgs_read_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full line is longer
+#
+{MESSAGE_FROM} {ONLINE_IMG}
+#
+#-----[ IN-LINE FIND ]---------------------------------------- 
+#
+{MESSAGE_FROM} {ONLINE_IMG}
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{AUTHOR_PANEL}
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full line is longer
+#
+{MESSAGE_TO}
+#
+#-----[ IN-LINE FIND ]---------------------------------------- 
+#
+{MESSAGE_TO}
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{DEST_PANEL}
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full lines are longer
+#
+			<td valign="middle" nowrap="nowrap">{PROFILE_IMG}
+			  {WWW_IMG}
+
+		if ( navigator.userAgent.
+			document.write(
+		else
+			document.write(
+
+		  //--></script>
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+			<td valign="middle" nowrap="nowrap">{BUTTONS_PANEL}</td>
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/subSilver.cfg
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+$images['tz_-12'] = "$current_template_images/profilcp/gmt_-12.gif";
+$images['tz_-11'] = "$current_template_images/profilcp/gmt_-11.gif";
+$images['tz_-10'] = "$current_template_images/profilcp/gmt_-10.gif";
+$images['tz_-9'] = "$current_template_images/profilcp/gmt_-9.gif";
+$images['tz_-8'] = "$current_template_images/profilcp/gmt_-8.gif";
+$images['tz_-7'] = "$current_template_images/profilcp/gmt_-7.gif";
+$images['tz_-6'] = "$current_template_images/profilcp/gmt_-6.gif";
+$images['tz_-5'] = "$current_template_images/profilcp/gmt_-5.gif";
+$images['tz_-4'] = "$current_template_images/profilcp/gmt_-4.gif";
+$images['tz_-3.5'] = "$current_template_images/profilcp/gmt_-3,5.gif";
+$images['tz_-3'] = "$current_template_images/profilcp/gmt_-3.gif";
+$images['tz_-2'] = "$current_template_images/profilcp/gmt_-2.gif";
+$images['tz_-1'] = "$current_template_images/profilcp/gmt_-1.gif";
+$images['tz_0'] = "$current_template_images/profilcp/gmt_0.gif";
+$images['tz_1'] = "$current_template_images/profilcp/gmt_1.gif";
+$images['tz_2'] = "$current_template_images/profilcp/gmt_2.gif";
+$images['tz_3'] = "$current_template_images/profilcp/gmt_3.gif";
+$images['tz_3.5'] = "$current_template_images/profilcp/gmt_3,5.gif";
+$images['tz_4'] = "$current_template_images/profilcp/gmt_4.gif";
+$images['tz_4.5'] = "$current_template_images/profilcp/gmt_4,5.gif";
+$images['tz_5'] = "$current_template_images/profilcp/gmt_5.gif";
+$images['tz_5.45'] = "$current_template_images/profilcp/gmt_5,45.gif";
+$images['tz_5.5'] = "$current_template_images/profilcp/gmt_5,5.gif";
+$images['tz_6'] = "$current_template_images/profilcp/gmt_6.gif";
+$images['tz_6.5'] = "$current_template_images/profilcp/gmt_6,5.gif";
+$images['tz_7'] = "$current_template_images/profilcp/gmt_7.gif";
+$images['tz_8'] = "$current_template_images/profilcp/gmt_8.gif";
+$images['tz_8.5'] = "$current_template_images/profilcp/gmt_8,5.gif";
+$images['tz_9'] = "$current_template_images/profilcp/gmt_9.gif";
+$images['tz_9.5'] = "$current_template_images/profilcp/gmt_9,5.gif";
+$images['tz_10'] = "$current_template_images/profilcp/gmt_10.gif";
+$images['tz_11'] = "$current_template_images/profilcp/gmt_11.gif";
+$images['tz_12'] = "$current_template_images/profilcp/gmt_12.gif";
+$images['tz_13'] = "$current_template_images/profilcp/gmt_13.gif";
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/viewtopic_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+		<td width="150" align="left" valign="top" class="{postrow.ROW_CLASS}"><span class="name"><a name="{postrow.U_POST_ID}"></a><b>{postrow.POSTER_NAME} {postrow.ONLINE_IMG}</b></span><br /><span class="postdetails">{postrow.POSTER_RANK}<br />{postrow.RANK_IMAGE}{postrow.POSTER_AVATAR}<br /><br />{postrow.POSTER_JOINED}<br />{postrow.POSTER_POSTS}<br />{postrow.POSTER_FROM}{postrow.POSTER_AGE}{postrow.POSTER_GENDER}</span><br /></td>
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+		<td width="150" align="left" valign="top" class="{postrow.ROW_CLASS}"><a name="{postrow.U_POST_ID}"></a>{postrow.AUTHOR_PANEL}</td>
+#
+#-----[ FIND ]------------------------------------------------
+#
+		<td class="{postrow.ROW_CLASS}" width="100%" height="28" valign="bottom" nowrap="nowrap"><table cellspacing="0" cellpadding="0" border="0" height="18" width="18">
+			<tr>
+				<td valign="middle" nowrap="nowrap">{postrow.PROFILE_IMG} {postrow.BIRTHDAY_IMG} {postrow.FRIEND_IMG} {postrow.IGNORE_IMG} {postrow.PM_IMG} {postrow.EMAIL_IMG} {postrow.WWW_IMG} {postrow.AIM_IMG} {postrow.YIM_IMG} {postrow.MSN_IMG}<script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' {postrow.ICQ_IMG}');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute">{postrow.ICQ_IMG}</div><div style="position:absolute;left:3px;top:-1px">{postrow.ICQ_STATUS_IMG}</div></div>');
+
+				//--></script><noscript>{postrow.ICQ_IMG}</noscript></td>
+			</tr>
+		</table></td>
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+		<td class="{postrow.ROW_CLASS}" width="100%" height="28" valign="bottom" nowrap="nowrap"><table cellspacing="0" cellpadding="0" border="0" height="18" width="18"><tr>{postrow.BUTTONS_PANEL}</tr></table></td>
+#
+#-----[ SAVE/CLOSE ALL FILES ]--------------------------------
+#
+# EoM

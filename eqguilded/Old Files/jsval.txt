@@ -1,0 +1,21 @@
+<script language="JavaScript" src="validation.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Begin
+function init() {
+define('field1', 'string', 'Apple');
+define('field2', 'string', 'Peach', 4);
+define('field3', 'string', 'Cherry', null, 8);
+define('field4', 'string', 'Melon', 4, 8);
+define('field5', 'num', 'Banana');
+define('field6', 'num', 'Grape', 3);
+define('field7', 'num', 'Carot', null, 6);
+define('field8', 'num', 'Sugar', 4, 6);
+define('field9', 'email', 'Fruit');
+}
+//  End -->
+</script>
+
+BODY OnLoad="init()"
+submit onClick="validate();return returnVal;"

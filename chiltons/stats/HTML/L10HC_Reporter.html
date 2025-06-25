@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<meta http-equiv=Content-Type content="text/html;  charset=ISO-8859-1">
+<TITLE>L10 Hit Counter</TITLE>
+<script language="JavaScript">
+function setCookie(url,acct,pw,sesID,key,value) {
+	document.theImg.src = url+"?action=setCookie&pw="+pw+"&sesID="+sesID+"&acct="+acct+"&k="+key+"&v="+value;
+	//window.open(url+"?action=setCookie&pw="+pw+"&sesID="+sesID+"&acct="+acct+"&k="+key+"&v="+value,'_blank','address');
+}
+
+function removeCookie(url,acct,pw,sesID,key,value) {
+	document.theImg.src = url+"?action=removeCookie&pw="+pw+"&sesID="+sesID+"&acct="+acct+"&k="+key+"&v="+value;
+	//window.open(url+"?action=removeCookie&pw="+pw+"&sesID="+sesID+"&acct="+acct+"&k="+key+"&v="+value,'_blank','address');
+}
+</script>
+</HEAD>
+<BODY bgcolor="#FFFFFF"  leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0">
+<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+ codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+ WIDTH="100%" HEIGHT="100%" id="L10HC_Reporter" ALIGN="">
+ <PARAM NAME=movie VALUE="L10HC_Reporter.swf"> <PARAM NAME=quality VALUE=best> <PARAM NAME=scale VALUE=exactfit> <PARAM NAME=bgcolor VALUE=#FFFFFF> <EMBED src="L10HC_Reporter.swf" quality=best scale=exactfit bgcolor=#FFFFFF  WIDTH="100%" HEIGHT="100%" NAME="L10HC_Reporter" ALIGN=""
+ TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+</OBJECT>
+<center style="font-family: arial, helvetica, sans-serif; font-size:x-small">
+<img name=theImg src='' width=1 height=1>
+<a href="http://www.leveltendesign.com/L10Apps/HC">L10 Hit Counter - Free Web Counters</a> |
+<a href="http://www.leveltendesign.com">LevelTen Design - Web &amp; Flash Designers</a>
+</BODY>
+</HTML>

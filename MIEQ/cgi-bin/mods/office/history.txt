@@ -1,0 +1,35 @@
+Current version: WebOFFICE 0.9.6 rev. 1
+
+If you are upgrading from the initial release:
+1. back up all files and directories within you existing WebOFFICE db directory
+2. upload the following files:
+	- all .cgi files
+	- db/office.pl
+	- all the .tab files in the db directory
+	- extras/groupcal.cgi and extras/showcal.pl (if used)
+
+Fixes/Changes:
+- group calendar now displays details field properly
+- removed the stray </tr> when printing out the calendar event details
+- now okay to leave calendar editor field blank in admin area
+- cleaned out english.dat file which contained a number of unused tags
+
+Additions:
+- when viewing any calendar, dates with events are now underlined 
+- UBBC codes for event Details within the group calendar
+- separate admin script
+- groundwork for future WebOFFICE user management*
+
+* a list will be generated (office.users) containing all members who are using WebOFFICE.  
+Each member will be checked against this list as soon as they access the WebOFFICE index.
+If you are upgrading from an older version, existing WebOFFICE members will not be listed, 
+but the next time they access their office, they will be added to the list.
+
+
+
+Initial release: WebOFFICE 0.9.6
+
+- translated existing "organizer" suite (contacts, tasks and calendar) into WebOFFICE
+- integrated WebOFFICE into WebAPP
+- created journal script
+- created group calendar script

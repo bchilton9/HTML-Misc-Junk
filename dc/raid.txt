@@ -1,0 +1,69 @@
+
+   <CENTER><B>Dark Circles Raid Point System</B></CENTER>
+   <P>
+   Point coust for requesting raids<BR>
+   zone level * 2 per item raided for<BR>
+   Higher end items may be diffrent prices depending on mobs and levels.
+   <P>
+   Points awarded for attending raids/events<BR>
+   <P>
+   Rateing's<BR>
+   Level 1 - 10 = 5<BR>
+   Level 10 - 20 = 4<BR>
+   Level 20 - 30 = 3<BR>
+   Level 30 - 40 = 2<BR>
+   Level 50+ = 1
+   <P>
+   Zone level / Rateing (min of 1 point).
+   <P>
+   if a zone has a lvl range sutch as 30 to 50 an avrage will be used such as 40
+   <P>
+   Items and points may be granted at time of raid for need befor greed.<BR>
+   If a member can use an item and the item is better then what theay have but do<BR>
+   not have enuff points for the item theay will get that item inless a member that<BR>
+   can use the item has sugnifacant points. If there is no need for the item by any member<BR>
+   points may be used for the item by anyone. If noone wants the item it will be place in the<BR>
+   guild bank for future use or sold.
+   <P>
+   Other events such as buffing party’s, race’s, or tournament’s<BR>
+   Will be determined at time of event depending on level and type of event.
+   <P>
+   Bonus points may be awarded.
+   <P>
+   Some exceptions may be permitted on approval of the DC counsel.
+
+
+
+
+that page is a little complex i was hopeing to keep it simple
+i was thinking of changeing how points are given from zone lvl /5 to
+rateing the sone and/or mob like 1 to 5 with 5 being low lvl zones
+
+example
+cb ruffly lvl 15 zone
+rateing 5
+lvl 15 / 5 = 3 points
+poa ruffly lvl 50 zone (never been there not shure exalty what lvl it is)
+rateing of 1
+lvl 50 / 1 = 50 points
+
+and the same with spending points
+1 to 5 with 5 being high lvl zones
+cb
+lvl 15 * 1 = 15 points for an item
+poa
+lvl 50 * 5 = 250 points for an item
+
+rateing dosent meen lvl
+tofs can be taken very easy
+lvl 30 to 50 i think take an avrage of 40
+rate it at 2
+80 points per item
+20 points for going
+
+we may need to work on the numbers a bit
+
+we will also keep with the need befor greed
+if a good druid item is 200 points and the druid that needs it has 100 points but
+theres a wizard with 200 points that wants the item for selling it will be
+considered and most likly go to the druid inless there is a reason for it not too

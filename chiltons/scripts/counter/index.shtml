@@ -1,0 +1,13 @@
+<HTML>
+<HEAD>
+<TITLE>Text Counter Script Demo</TITLE>
+<BODY>
+<CENTER>
+<B>Text Counter Script Demo</B>
+<P>
+<HR>
+<SMALL><I>Text Counter:</I></SMALL><BR>
+<!--#include virtual="textcount.cgi" -->
+<HR>
+</BODY>
+</HTML>

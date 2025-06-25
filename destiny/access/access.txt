@@ -1,0 +1,36 @@
+ 0 - editwelcomemessage
+ 1 - addnews
+ 2 - editguestwelcomemessage
+ 3 - editnews
+ 4 - editmenus
+ 5 - edittopicsnews
+ 6 - editwelcomeim
+ 7 - pageadmin
+ 8 - blockadmin
+ 9 - iplistadmin
+10 - editfourmcats
+11 - editfourmwords
+12 - editfourmboards
+13 - galleryadmin
+14 - polladmin
+15 - createalbum
+16 - addpictures
+17 - editalbum
+18 - deletealbum
+19 - editmembers
+20 - addevents
+21 - deletemembers
+22 - deleteevents
+23 - editmemberaccess
+24 - editevents
+25 - editmemberrank
+26 - viewmemberlog
+27 - editlinkcats
+28 - poststicky
+29 - editlinks
+30 - editposts
+31 - deleteposts
+32 - moveposts
+33 - showip
+34 - broadcast
+35 - serverconfig

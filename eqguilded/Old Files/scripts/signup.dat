@@ -1,0 +1,73 @@
+ 
+  <FORM METHOD="POST">
+           	    <CENTER>
+           	      <TABLE BORDER=0 CLASS=table CELLPADDING="2" ALIGN="Center" BORDERCOLOR=0000ff >
+           		<TR>
+           		  <TD>EQ Name:</TD>
+           		  <TD>
+           		    <INPUT TYPE="text" NAME="name" id="input"><BR><SMALL><SMALL>No sir names please.<BR>Our system will not support them.<BR>You may add your sir name to your profile page.</SMALL></SMALL></TD>
+           		</TR>
+           		<TR>
+           		  <TD>Password</TD>
+           		  <TD>
+           		    <INPUT TYPE="password" NAME="pass"id="input"></TD>
+           		</TR>
+           		<TR>
+           		  <TD>ReType Password</TD>
+           		  <TD>
+           		    <INPUT TYPE="password" NAME="pass2"id="input"></TD>
+           		</TR>
+           		<TR>
+           		  <TD>E-Mail</TD>
+           		  <TD>
+           		    <INPUT TYPE="text" NAME="email"id="input"></TD>
+           		</TR>
+           		<TR>
+           		  <TD>class</TD>
+           		  <TD>
+           		    <SELECT NAME="class"id="input"> 
+           		    <OPTION SELECTED>Bard 
+           		    <OPTION>Cleric 
+           		    <OPTION>Druid 
+           		    <OPTION>Wizard 
+           		    <OPTION>Enchanter 
+           		    <OPTION>Magician 
+           		    <OPTION>Monk 
+           		    <OPTION>Necromancer 
+           		    <OPTION>Paladin 
+           		    <OPTION>Ranger 
+           		    <OPTION>Roug 
+           		    <OPTION>ShadowKnight 
+           		    <OPTION>Shaman 
+           		    <OPTION>Warrior
+           		    <OPTION>Beastlord</SELECT></TD>
+           		</TR>
+           		<TR>
+           		  <TD>race</TD>
+           		  <TD>
+           		    <SELECT NAME="race"id="input"> 
+           		    <OPTION SELECTED>Barbarian 
+           		    <OPTION>Dark_Elf 
+           		    <OPTION>Dwarf 
+           		    <OPTION>Erudite 
+           		    <OPTION>Gnome 
+           		    <OPTION>Half_Elf 
+           		    <OPTION>Halfling 
+           		    <OPTION>High_Elf 
+           		    <OPTION>Human 
+           		    <OPTION>Iskar 
+           		    <OPTION>Orge 
+           		    <OPTION>Troll 
+           		    <OPTION>Wood_Elf
+           		    <OPTION>Vah_Shir</SELECT></TD>
+           		</TR>
+           		<TR>
+           		  <TD COLSPAN=2><P ALIGN=Center>
+           		    <INPUT TYPE=submit name=a value="Sign Up"id="input"></TD>
+           		</TR>
+           	      </TABLE>
+           	    </CENTER>
+           	  </FORM>
+  
+ 
+ 

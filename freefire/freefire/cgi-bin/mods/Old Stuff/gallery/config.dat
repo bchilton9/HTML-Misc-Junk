@@ -1,0 +1,9 @@
+$config_vers = "0.9.9.4";
+$mod_name = "Gallery";
+$mod_vers = "1";
+$mod_desc = "Gallery Mod.";
+$mod_admin = "1";
+$admin_name = "admin.cgi";
+$lang_support = "0";
+$mod_lang = "english.dat";
+1;

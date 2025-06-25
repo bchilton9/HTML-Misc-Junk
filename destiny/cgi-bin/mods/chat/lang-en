@@ -1,0 +1,107 @@
+# Language: English
+# Package: Chat-N-Time http://www.tesol.net/scripts/ 
+# To translate: copy this file to lang-de, lang-jp, etc.
+# Change the text in the messages to their appropriate equivalents.
+# NOTE: messages MUST be in this format:
+# msg_msgname: Message text
+# Message text MUST be all on one line!!! You may use any HTML you wish.
+# Certain variables are denoted by %VARIABLE% . Do NOT change these, but
+# rather, translate the text around them, otherwise the debugging messages
+# will be useless. If you have questions, please feel free to email me
+# (http://www.tesol.net/scriptmail.html) and I will try to help, but please
+# REMEMBER that I can only really support English versions. :-)
+msg_debug0: DEBUG:
+msg_debug1: Operating system is %OPERATINGSYSTEM%
+msg_debug2: Webserver is %SERVERSOFTWARE%
+msg_debug3: %PATH_TO_CHAT_FILE% does not exist or is not writeable. This will never work. Please check that %PATH_TO_CHAT_FILE% is correctly defined in the chatntime.cgi program that that the file is writeable by the web server. this may mean you need to chmod it 766.
+msg_debug4: %PATH_TO_ACTIVE_USERS% does not exist or is not writeable. This means that you will not be able to show users online. Please check that %PATH_TO_ACTIVE_USERS% is correctly defined in the chatntime.cgi program and that the file is writeable by the web server. This may mean that you need to chmod it 766.
+msg_debug5: %LOG_DIRECTORY% does not exist or is not writeable. This means that you will not be able to keep a log of your chats. Please check that %LOG_DIRECTORY% exists, is a directory, and is correctly set up in the chatntime.cgi program. Also, please make sure it is writeable by the web server. You may need to chmod it 777.
+msg_debug6: Can't open %PATH_TO_ACTIVE_USERS% (active users file) for reading. The server returned this error:
+msg_debug7: Can't open %PATH_TO_ACTIVE_USERS% (active users file) for writing. The server returned this error:
+msg_debug8: Can't open %PATH_TO_CHAT_FILE% (path_to_chat_file) for reading. The server returned this error:
+msg_debug9: Can't open %PATH_TO_CHAT_FILE% (path_to_chat_file) for writing. The server returned this error:
+msg_debug10: Can't open chat log file for writing. The server returned this error:
+msg_debug11: Can't open %BADWORDS_FILE% (badwords_file) for reading. This chat will not be censored. The server returned this error:
+msg_debug12: Can't open %BANNED_IP_FILE% (banned_ip_file) for reading. Banning is disabled. The server returned this error:
+msg_debug13: Can't open %BANNED_IP_FILE% (banned_ip_file) for writing. Banning is disabled. The server returned this error:
+msg_text1: Logout
+msg_text2: User
+msg_text3: Talk to us, %LOGIN%!
+msg_text4: Talk
+msg_text5: Clear
+msg_text6: No Text Entered
+msg_text7: Idle since:
+msg_text8: Users in the Chat:
+msg_text9: The Chatroom is empty.
+msg_text10: 1 Person in the Chat.
+msg_text11: %NUMUSERS% users currently online.
+msg_text12: Chatroom time:
+msg_text13: Refresh
+msg_text14: Entering chat room as:
+msg_text15: What color text would you like to type in?
+msg_text16: Enter chat room
+msg_text17: Refresh top
+msg_text18: Logged on from %REMOTEHOST%.
+msg_text19: Entered the chatroom.
+msg_text20: <b>Error: Invalid login (%LOGIN%).</b><br><br>Your login cannot contain punctuation or special characters. Please hit the Back button on your browser, or <a onClick="top.window.close();" href=%REFERER%>click here to go back</a> and try again.
+msg_text21: <CENTER><b>Error: Login (%LOGIN%) is in use.</b><BR><table border=0><tr><form target=chatWin action="http://www.sanctuaryeq2.com/cgi-bin/mods/chat/chat.cgi" method="POST"><td><base target="chatWin"><input type=hidden name=Login value="linkk"><input type=hidden name=Logout value="yes"><input type=hidden name=FA value="Logout"><input type=hidden name=color value="0000FF"><input class='button' type=submit value="Logout"> <b>Then try agine!</b></td></form></tr></table>
+msg_text22: Left the chatroom.
+msg_text23: yell
+msg_text24: %LOGIN% yells,
+msg_text25: Disabled.
+msg_text26: Enabled.
+msg_text27: Chatroom settings:
+msg_text28: User HTML:
+msg_text29: Lines of Chat Displayed:
+msg_text30: Clear Chatroom when Empty;
+msg_text31: Chat Logging:
+msg_text32: Refresh Time:
+msg_text33: seconds
+msg_text34: Idle Timeout:
+msg_text35: minutes
+msg_text36: Show User Address on Login:
+msg_text37: Allow Special Characters in Login Name:
+msg_text38: Chat Censoring:
+msg_text39: Sorry, but the owner has disabled the /%SETTINGS% command.
+msg_text40: settings
+msg_text41: tell
+msg_text42: Private Msg from %LOGIN%
+msg_text43: Private Msg to %LOGIN%
+msg_text44: help
+msg_text45: Chatroom Commands
+msg_text46: Shows this help message
+msg_text47: Message
+msg_text48: Sends a private message to &lt;login&gt;
+msg_text49: does something
+msg_text50: "Emote": shows "YourLogin does something."
+msg_text51: Shows "YourLogin yells, 
+msg_text52: Shows current chat room settings.
+msg_text53: Chatroom unused.
+msg_text54: autologout
+msg_text55: Access Denied
+msg_text56: Password:
+msg_text57: kick
+msg_text58: ban
+msg_text59: unban
+msg_text60: Kicks &lt;login&gt; out of the chatroom, and bans their username and IP address so they cannot easily return.
+msg_text61: Shows the list of IP addresses and usernames which are currently banned.
+msg_text62: IP Address/login
+msg_text63: Takes the username or IP address off the banned list so that the user may log on again.
+msg_text64: Kicks &lt;login&gt; out of the chatroom temporarily. The user will be unable to return fully until a full screen of text has gone by. At that time, they can log back in.
+msg_text65: Admin-Only Options
+msg_text66: Banned by Admin
+msg_text67: Banned IP's and Patterns:
+msg_text68: unbanned.
+msg_text69: Has been kicked out by admin.
+msg_text70: is not logged on.
+
+
+msg_text81: Welcome to the mad house!
+msg_text82: I could do with a drink
+msg_text83: Did someone say pizza?
+msg_text84: Ahh, you can't beat a Martini by the pool on a sunny afternoon
+msg_text85: Oops, never mind
+msg_text86: Do you come here often
+msg_text87: Are you sure?
+msg_text88: Hey, how do they do that?
+msg_text89: Well my time is up, catch you another time.

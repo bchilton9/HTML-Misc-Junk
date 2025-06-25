@@ -1,0 +1,344 @@
+############################################################## 
+## MOD Title:		Profile Control Panel - upgrade from v 1.0.4-3 RC to v 2.0.0
+## MOD Author:		Ptirhiik < ptirhiik@clanmckeen.com > (Pierre) http://rpgnet.clanmckeen.com
+## MOD Description:
+##			Upgrade of the Profile Control Panel from v 1.0.4-3 RC to v 2.0.0
+## MOD Version:		2.0.0-1
+## 
+## Installation Level:	Easy
+## Installation Time:	10 Minutes
+## Files To Edit:
+##			profilcp/profilcp_email.php
+##			profilcp/profilcp_privmsg.php
+##			profilcp/profilcp_public_groups.php
+##			profilcp/def/def_userfuncs_std.php
+##			profilcp/def/def_usermaps.php
+## Included Files:
+##			profilcp/def_userfuncs_custom.php
+##			language/lang_english/lang_extend_pcp_addons.php
+##			templates/subSilver/admin/pcp_classesfields_body.tpl
+##
+##			mod-lang_settings/lang_extend_body.tpl
+##			mod-lang_settings/lang_extend_pack_body.tpl
+##			mod-lang_settings/lang_extend_search_body.tpl
+##
+############################################################## 
+## For Security Purposes, Please Check: http://www.phpbb.com/mods/ for the 
+## latest version of this MOD. Downloading this MOD from other sites could cause malicious code 
+## to enter into your phpBB Forum. As such, phpBB will not offer support for MOD's not offered 
+## in our MOD-Database, located at: http://www.phpbb.com/mods/ 
+############################################################## 
+## Author Notes:
+##
+##	o profilcp/def_userfuncs_custom.php has been added as a cleared file to store your custom functions
+##	o language/lang_english/lang_extend_addons.php has been added as a cleared file to store your custom lang key entries
+##
+##
+##	NB.: if you have made no modifications to the standard PCP, you can upgrade by copying all the files
+##		mentioned as edited.
+## 
+############################################################## 
+## MOD History: 
+## 
+##   2003-10-30 - Version 2.0.0
+##      - fix some missing td in lang settings admin progs
+##	- fix the return path of my friend/my ignore buttons
+##	- re-add those buttons to viewprofile
+##	- fix empty group list when user is the owner of
+##	- fix remaining .php qualifications
+##	- enhance the compliancy for email with phpBB > 2.0.4
+##	- enhance compliancy with sub-templates
+## 
+############################################################## 
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+##############################################################
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy profilcp/def/def_userfuncs_custom.php to profilcp/def/def_userfuncs_custom.php
+copy language/lang_english/lang_extend_pcp_addons.php to language/lang_english/lang_extend_pcp_addons.php
+copy templates/subSilver/admin/pcp_classesfields_body.tpl to templates/subSilver/admin/pcp_classesfields_body.tpl
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy mod-lang_settings/lang_extend_body.tpl to templates/subSilver/admin/lang_extend_body.tpl
+copy mod-lang_settings/lang_extend_pack_body.tpl to templates/subSilver/admin/lang_extend_pack_body.tpl
+copy mod-lang_settings/lang_extend_search_body.tpl to templates/subSilver/admin/lang_extend_search_body.tpl
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_email.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	revision			: 1.0.3 - 18/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	revision			: 1.0.4 - 27/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+			if ( ($sid == '' || $sid != $userdata['session_id']) && !define('NO_SID') )
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			if ( ($sid == '' || $sid != $userdata['session_id']) && !defined('NO_SID') )
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- fin mod : profilcp ----------------------------------------------------------------------------
+					$emailer = new emailer($board_config['smtp_delivery']);
+
+					$email_headers = 'Return-Path: ' . $userdata['user_email'] . "\nFrom: " . $userdata['user_email'] . "\n";
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- fin mod : profilcp ----------------------------------------------------------------------------
+					$emailer = new emailer($board_config['smtp_delivery']);
+
+//-- mod : profilcp --------------------------------------------------------------------------------
+					$email_headers = '';
+					switch ( $board_config['version'] )
+					{
+						case '.0.4':
+							$email_headers = 'Return-Path: ' . $userdata['user_email'] . "\nFrom: " . $userdata['user_email'] . "\n";
+							break;
+						default:
+							$emailer->from($userdata['user_email']);
+							$emailer->replyto($userdata['user_email']);
+							break;
+					}
+//-- fin mod : profilcp ----------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+					if ( !empty($HTTP_POST_VARS['cc_email']) )
+					{
+						$email_headers = 'Return-Path: ' . $userdata['user_email'] . "\nFrom: " . $userdata['user_email'] . "\n";
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+					if ( !empty($HTTP_POST_VARS['cc_email']) )
+					{
+//-- mod : profilcp --------------------------------------------------------------------------------
+						$email_headers = '';
+						switch ( $board_config['version'] )
+						{
+							case '.0.4':
+								$email_headers = 'Return-Path: ' . $userdata['user_email'] . "\nFrom: " . $userdata['user_email'] . "\n";
+								break;
+							default:
+								$emailer->from($userdata['user_email']);
+								$emailer->replyto($userdata['user_email']);
+								break;
+						}
+//-- fin mod : profilcp ----------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_privmsg.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.6 - 19/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.7 - 30/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+$privmsg_mode = '';
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+define('IN_PRIVMSG', true);
+
+#
+#-----[ FIND ]------------------------------------------------
+#
+				$email_headers = 'From: ' . $board_config['board_email'] . "\nReturn-Path: " . $board_config['board_email'] . "\n";
+
+				$script_name = preg_replace('/^\/?(.*?)\/?$/', "\\1", trim($board_config['script_path']));
+				$script_name = ( $script_name != '' ) ? $script_name . '/privmsg.'.$phpEx : 'privmsg.'.$phpEx;
+				$server_name = trim($board_config['server_name']);
+				$server_protocol = ( $board_config['cookie_secure'] ) ? 'https://' : 'http://';
+				$server_port = ( $board_config['server_port'] <> 80 ) ? ':' . trim($board_config['server_port']) . '/' : '/';
+
+				$emailer = new emailer($board_config['smtp_delivery']);
+
+				$emailer->use_template('privmsg_notify', $to_userdata['user_lang']);
+				$emailer->extra_headers($email_headers);
+				$emailer->email_address($to_userdata['user_email']);
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+				$emailer = new emailer($board_config['smtp_delivery']);
+
+//-- mod : profilcp --------------------------------------------------------------------------------
+				$email_headers = '';
+				switch( $board_config['version'] )
+				{
+					case '.0.4':
+						$email_headers = 'From: ' . $board_config['board_email'] . "\nReturn-Path: " . $board_config['board_email'] . "\n";
+						break;
+					default:
+						$emailer->from($board_config['board_email']);
+						$emailer->replyto($board_config['board_email']);
+						break;
+				}
+//-- fin mod : profilcp ----------------------------------------------------------------------------
+
+				$emailer->use_template('privmsg_notify', $to_userdata['user_lang']);
+				$emailer->email_address($to_userdata['user_email']);
+				$emailer->extra_headers($email_headers);
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_public_groups.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.5 - 17/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.6 - 30/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+			$u_group_name = append_sid("groupcp.php?g=" . $groups[$i]['group_id']);
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			$u_group_name = append_sid("groupcp.$phpEx?" . POST_GROUPS_URL . '=' . $groups[$i]['group_id']);
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/def/def_userfuncs_std.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.0 - 07/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.1 - 30/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	// use user_my_ignore
+
+	$txt = '';
+	$img = '';
+	$res = '';
+	if ( ($userdata['user_id'] != $view_userdata['user_id']) && ($view_userdata['user_id'] != ANONYMOUS) && $userdata['session_logged_in'] && ($userdata['user_id'] != ANONYMOUS) )
+	{
+		$from = isset($view_userdata['post_id']) ? "&from=topic&" . POST_POST_URL . '=' . $view_userdata['post_id'] : '';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	// use user_my_ignore
+
+	$txt = '';
+	$img = '';
+	$res = '';
+	if ( ($userdata['user_id'] != $view_userdata['user_id']) && ($view_userdata['user_id'] != ANONYMOUS) && $userdata['session_logged_in'] && ($userdata['user_id'] != ANONYMOUS) )
+	{
+		$from = '&from=profil';
+		$maps = explode('.', $map_name);
+		if ( empty($maps) )
+		{
+			$from = '&from=profil';
+		}
+		if ( in_array('viewprofile', $maps) )
+		{
+			$from = '&from=profil';
+		}
+		else if ( in_array('viewtopic', $maps) )
+		{
+			$from = '&from=topic&' . POST_POST_URL . '=' . $view_userdata['post_id'];
+		}
+		else if ( in_array('privmsgs', $maps) )
+		{
+			$from = '&from=privmsg&' . POST_POST_URL . '=' . $view_userdata['privmsgs_id'];
+		}
+#
+#-----[ FIND ]------------------------------------------------
+#
+	// uses user_my_friend
+
+	$txt = '';
+	$img = '';
+	if ( ($view_userdata['user_id'] != $userdata['user_id']) && ($view_userdata['user_id'] != ANONYMOUS) && $userdata['session_logged_in'] && ($userdata['user_id'] != ANONYMOUS) )
+	{
+		$from = isset($view_userdata['post_id']) ? "&from=topic&" . POST_POST_URL . '=' . $view_userdata['post_id'] : '';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	// uses user_my_friend
+
+	$txt = '';
+	$img = '';
+	if ( ($view_userdata['user_id'] != $userdata['user_id']) && ($view_userdata['user_id'] != ANONYMOUS) && $userdata['session_logged_in'] && ($userdata['user_id'] != ANONYMOUS) )
+	{
+		$from = isset($view_userdata['post_id']) ? "&from=topic&" . POST_POST_URL . '=' . $view_userdata['post_id'] : '';
+		$from = '&from=profil';
+		$maps = explode('.', $map_name);
+		if ( empty($maps) )
+		{
+			$from = '&from=profil';
+		}
+		if ( in_array('viewprofile', $maps) )
+		{
+			$from = '&from=profil';
+		}
+		else if ( in_array('viewtopic', $maps) )
+		{
+			$from = '&from=topic&' . POST_POST_URL . '=' . $view_userdata['post_id'];
+		}
+		else if ( in_array('privmsgs', $maps) )
+		{
+			$from = '&from=privmsg&' . POST_POST_URL . '=' . $view_userdata['privmsgs_id'];
+		}
+#
+#-----[ FIND ]------------------------------------------------
+#
+					$u_group_name = append_sid("groupcp.php?g=" . $groups[$i]['group_id']);
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+					$u_group_name = append_sid("groupcp.$phpEx?" . POST_GROUPS_URL . '=' . $groups[$i]['group_id']);
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/def/def_usermaps.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+# in PCP.viewprofile.base.messangers map
+#
+		'fields'	=> array(
+			'[lf]0' => array(
+			),
+			'user_email' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+		'fields'	=> array(
+			'[lf]0' => array(
+			),
+			'user_my_friend' => array(
+				'leg'          => true,
+				'img'          => true,
+			),
+			'user_my_ignore' => array(
+				'leg'          => true,
+				'img'          => true,
+			),
+			'user_email' => array(
+#
+#-----[ SAVE/CLOSE ALL FILES ]--------------------------------
+#
+# EoM

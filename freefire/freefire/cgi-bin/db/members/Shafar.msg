@@ -1,0 +1,1 @@
+admin|Welcome To Freefire!!|05/12/04 - 08:08:55|Welcome to Freefire. Please feel free to look around, Use the forms and messaging system. As of right now your account is set as friend. Once you are verified a a member of Freefire your account will be changed.|

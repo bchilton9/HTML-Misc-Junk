@@ -1,0 +1,2 @@
+&var1_titre=Pays
+&var1_list=France,Suisse,Italie,Espagne,Allemagne,Belgique,USA,Japon,Chine,Argentine&status=1& 

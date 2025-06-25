@@ -1,0 +1,63 @@
+    <TR>
+      <TD WIDTH=100%>
+<CENTER>
+<OBJECT WIDTH="!!width!!" HEIGHT="!!height!!" id="counter" ALIGN="">
+
+<PARAM NAME=movie VALUE="!!style!!.swf"> 
+<PARAM NAME=quality VALUE=high> 
+<PARAM NAME=bgcolor VALUE=!!bgcolor!!> 
+<PARAM NAME=FlashVars VALUE="id=!!id!!&textcolor=!!fontcolor!!">
+
+<EMBED src="!!style!!.swf" quality=high bgcolor=!!bgcolor!! FlashVars="id=!!id!!&textcolor=!!fontcolor!!" WIDTH="!!width!!" HEIGHT="!!height!!" NAME="counter"></EMBED>
+
+</OBJECT>
+
+</TD>
+      <TD>
+
+<OBJECT WIDTH="303" HEIGHT="26" id="bar">
+ <PARAM NAME=movie VALUE="bar.swf">
+ <PARAM NAME=quality VALUE=high>
+ <PARAM NAME=bgcolor VALUE=#FFFFFF>
+ <PARAM NAME=FlashVars VALUE="id=!!id!!">
+ <EMBED src="bar.swf" quality=high bgcolor=#FFFFFF FlashVars="id=!!id!!" WIDTH="303" HEIGHT="26" NAME="bar"></EMBED>
+</OBJECT>
+
+</TD>
+    
+
+    </TR>
+</FORM>
+
+<script>
+
+<!-- Begine
+function viewcode!!id!!() {
+
+ msg=open("","DisplayWindow", "toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=440,height=240");
+ msg.document.write("<HTML>\n<HEAD>\n<TITLE>Counter Code</TITLE>\n");
+ msg.document.write("<script type=text/javascript>\n");
+ msg.document.write("function highlightcode(){\n");
+ msg.document.write("document.form.txt.focus()\n");
+ msg.document.write("document.form.txt.select()\n");
+ msg.document.write("}\n");
+ msg.document.write("</script>\n");
+ msg.document.write("</HEAD>\n");
+ msg.document.write("<BODY BGCOLOR=#FFFFFF>\n<CENTER>\n<FORM name=form>\n"); 
+ msg.document.write("Copy and Past this code into your websites HTML where you would like the counter to be.<BR>\n"); 
+ msg.document.write("Changeing this code will cause your counter to mess up or not look correct.\n"); 
+ msg.document.write("<TEXTAREA name=txt ROWS=5 COLS=50>\n");
+ msg.document.write('<IFRAME SRC="http://www.chiltons.us/counter/Count.cgi?username=!!username!!&id=!!id!!" WIDTH="!!width!!" HEIGHT="!!height!!" FRAMEBORDER="0" SCROLLING="no"></iframe>');
+ msg.document.write("</TEXTAREA>\n<P>\n");
+ msg.document.write("<a href=javascript:highlightcode()><IMG SRC=all.gif BORDER=0></a> &nbsp; &nbsp; <A HREF=javascript:parent.window.focus();top.window.close()><IMG SRC=close.gif BORDER=0></A>\n");
+ msg.document.write("</FORM>\n</BODY>\n</HTML>");
+ 
+}
+// End -->
+
+function confirm!!id!!() {
+if (window.confirm('Are you sure you want to delete this counter?')) { 
+window.location.href = '?do=delete&id=!!id!!'
+ }
+}
+</script>

@@ -1,0 +1,285 @@
+#!/usr/local/bin/perl 
+
+require 'cgi-lib2.pl';
+require 'cookie.lib';
+
+&ReadParse;
+
+open (FILE, "config.pl");
+flock (FILE, 2);
+$guildname = <FILE>;
+chop ($guildname);
+$email = <FILE>;
+chop ($email);
+$cgipath = <FILE>;
+chop ($cgipath);
+$imgpath = <FILE>;
+chop ($imgpath);
+$upload_dir = <FILE>;
+chop ($upload_dir);
+$sitepath = <FILE>;
+chop ($sitepath);
+$junk = <FILE>;
+chop ($junk);
+flock (FILE, 8);
+close(FILE);
+
+print "Content-type: text/html\n\n";
+
+##################################################################################
+
+if ($in{'a'} eq "uploadfile") { &uploadfile }
+elsif ($in{'a'} eq "pform") { &pform; }
+elsif ($in{'a'} eq "newalbum") { &newalbum; }
+
+##################################################################################
+
+sub uploadfile {
+
+   if (!$in{'sourcefile'}) {
+$cont = "$cont ERROR: Upload file not specified or empty.";
+$cont = "$cont You did not provide a file to be uploaded or it is empty.  Please try again.\n";
+$file = "photo.tmp";
+&output;
+
+
+   	exit;
+   }
+   if ($ENV{'CONTENT_LENGTH'} > 50000) {
+$cont = "$cont ERROR: Upload file too large.";
+$cont = "$cont Size of your upload file exceeds max file size. Please try again.\n";
+$file = "photo.tmp";
+&output;
+
+
+   	exit;
+   }
+   
+   if (opendir(DIR,"$upload_dir") != 1) {
+         `chmod 0777 $upload_dir`;
+   }
+
+open (FILE, "photo.cnt");
+flock (FILE, 2);
+$abcdefg = <FILE>;
+chop ($abcdefg);
+$junk = <FILE>;
+chop ($junk);
+flock (FILE, 8);
+close(FILE);
+$abcdefg++;
+open(DATA, ">photo.cnt");
+print DATA "$abcdefg\n";
+print DATA "junk\n";
+close DATA;
+
+   $upload_dir = "$upload_dir/";
+   open(REAL,">$upload_dir$abcdefg$in{'destn_filename'}");
+   print REAL $in{'sourcefile'};
+   close(REAL);
+      `chmod 0777 $upload_dir$abcdefg$in{'destn_filename'}`;
+$cont = "$cont File Upload Completed";
+
+open (FILE,"tmps/photo.tmp");
+$file = "photo.tmp";
+&output;
+
+$in{'desc'} =~ s/ /%20/gi;
+
+open (DATA, "$in{'page'}.lst");
+@data = <DATA>;
+close DATA;
+open(DATA, ">$in{'page'}.lst");
+foreach $line (@data) {
+print DATA "$line";
+}
+print DATA "$abcdefg$in{'destn_filename'}::$in{'desc'}\n";
+close DATA;
+
+   exit;
+}
+
+##################################################################################
+
+sub pform {
+$pag = "$pag<SELECT NAME=page id=input>";
+
+open (DATA, "photo.lst");
+	@data = <DATA>;
+close DATA;
+foreach $line (@data) {
+	chomp ($line);
+	($page, $name) = split(/::/, $line);
+$pag = "$pag<OPTION>$page";
+}
+$pag = "$pag</SELECT>";
+
+$file = "photo_form.tmp";
+&output;
+}
+
+##################################################################################
+
+sub newalbum {
+
+open (DATA, "photo.lst");
+@data = <DATA>;
+close DATA;
+open(DATA, ">photo.lst");
+foreach $line (@data) {
+print DATA "$line";
+}
+print DATA "$in{'shtname'}::$in{'lngname'}\n";
+close DATA;
+
+
+$cont = "$cont New Album Added.";
+
+$file = "photo.tmp";
+&output;
+}
+
+sub output {
+
+&GetCookies('user');
+
+open (FILE, "data/$Cookies{'user'}");
+flock (FILE, 2);
+$ousr = <FILE>;
+chop ($oname);
+$opass = <FILE>;
+chop ($opass);
+$oemail = <FILE>;
+chop ($oemail);
+$orace = <FILE>;
+chop ($orace);
+$oclass = <FILE>;
+chop ($oclass);
+$otype = <FILE>;
+chop ($otype);
+$oacc = <FILE>;
+chop ($oacc);
+$orank = <FILE>;
+chop ($orank);
+$oraid = <FILE>;
+chop ($oraid);
+$style = <FILE>;
+chop ($style);
+$ojunk = <FILE>;
+chop ($ojunk);
+flock (FILE, 8);
+close(FILE);
+
+####STARTLINKS
+open (DATA, "links.dat");
+@data = <DATA>;
+close DATA;
+$links = "@data";
+####ENDLINKS
+####STARTNEWS
+open (DATA, "news.dat");
+@data = <DATA>;
+close DATA;
+$news = "@data";
+####ENDNEWS
+####STARTOFFICERNEWS
+open (DATA, "officernews.dat");
+@data = <DATA>;
+close DATA;
+$offnews = "@data";
+####ENDOFFICERNEWS
+
+##################################################################################
+$memb = "0";
+open (DATA, "data/members.data");
+@data = <DATA>;
+close DATA;
+foreach $line (@data) {
+$memb = $memb + 1;
+}
+$altnum = "0";
+open (DATA, "data/members.alt");
+@data = <DATA>;
+close DATA;
+foreach $line (@data) {
+$altnum = $altnum + 1;
+}
+$members = $memb + $altnum;
+##################################################################################
+
+####STARTHEADER
+open (DATA, "tmps/header.tmp");
+@data = <DATA>;
+close DATA;
+$header = "@data";
+####ENDHEADER
+
+$imgpath = "$imgpath/$INPUT{'img'}";
+
+open (FILE,"tmps/$file");
+while (<FILE>) { $file_content.=$_; }
+$file_content =~ s/!!header!!/$header/gi;
+$file_content =~ s/!!content!!/$cont/gi;
+$file_content =~ s/!!news!!/$news/gi;
+$file_content =~ s/!!officernews!!/$offnews/gi;
+$file_content =~ s/!!visitlist!!/$visit/gi;
+$file_content =~ s/!!cookieuser!!/$Cookies{'user'}/gi;
+$file_content =~ s/!!message!!/$message/gi;
+$file_content =~ s/!!admin!!/$file_content_admin/gi;
+$file_content =~ s/!!listmembers!!/$mem/gi;
+$file_content =~ s/!!editname!!/$INPUT{'usr'}/gi;
+$file_content =~ s/!!editemail!!/$INPUT{'email'}/gi;
+$file_content =~ s/!!editrace!!/$race/gi;
+$file_content =~ s/!!editclass!!/$class/gi;
+$file_content =~ s/!!editrank!!/$rank/gi;
+$file_content =~ s/!!editaccess!!/$acc/gi;
+$file_content =~ s/!!pagelist!!/$page/gi;
+$file_content =~ s/!!pageurl!!/$url/gi;
+$file_content =~ s/!!guildname!!/$guildname/gi;
+$file_content =~ s/!!guildemail!!/$guildemail/gi;
+$file_content =~ s/!!photolist!!/$plist/gi;
+$file_content =~ s/!!photo!!/$list/gi;
+$file_content =~ s/!!image!!/$imgpath/gi;
+$file_content =~ s/!!description!!/$INPUT{'desc'}/gi;
+$file_content =~ s/!!listleader!!/$lead/gi;
+$file_content =~ s/!!listofficer!!/$off/gi;
+$file_content =~ s/!!listmember!!/$mem/gi;
+$file_content =~ s/!!listalts!!/$altlist/gi;
+$file_content =~ s/!!albumlist!!/$pag/gi;
+$file_content =~ s/!!viewname!!/$INPUT{'user'}/gi;
+$file_content =~ s/!!viewsir!!/$sir/gi;
+$file_content =~ s/!!viewlvl!!/$lvl/gi;
+$file_content =~ s/!!viewclass!!/$class/gi;
+$file_content =~ s/!!viewrace!!/$race/gi;
+$file_content =~ s/!!viewsay!!/$say/gi;
+$file_content =~ s/!!viewimage!!/$img/gi;
+$file_content =~ s/!!viewac!!/$ac/gi;
+$file_content =~ s/!!viewatk!!/$atk/gi;
+$file_content =~ s/!!viewstr!!/$str/gi;
+$file_content =~ s/!!viewsta!!/$sta/gi;
+$file_content =~ s/!!viewagi!!/$agi/gi;
+$file_content =~ s/!!viewdex!!/$dex/gi;
+$file_content =~ s/!!viewwis!!/$wis/gi;
+$file_content =~ s/!!viewint!!/$int/gi;
+$file_content =~ s/!!viewcha!!/$cha/gi;
+$file_content =~ s/!!alts!!/$alt/gi;
+$file_content =~ s/!!altname!!/$INPUT{'usr'}/gi;
+$file_content =~ s/!!altlvl!!/$INPUT{'alvl'}/gi;
+$file_content =~ s/!!altclass!!/$altclass/gi;
+$file_content =~ s/!!altrace!!/$altrace/gi;
+$file_content =~ s/!!password!!/$passup/gi;
+$file_content =~ s/!!useremail!!/$email/gi;
+$file_content =~ s/!!memnum!!/$memb/gi;
+$file_content =~ s/!!altnum!!/$altnum/gi;
+$file_content =~ s/!!allnum!!/$members/gi;
+$file_content =~ s/!!classtable!!/$clas/gi;
+$file_content =~ s/!!racetable!!/$rac/gi;
+$file_content =~ s/!!lvltable!!/$lv/gi;
+$file_content =~ s/!!pagename!!/$INPUT{'page'}/gi;
+$file_content =~ s/!!stylesheet!!/$style/gi;
+$file_content =~ s/!!links!!/$links/gi;
+close (FILE);
+
+print "$file_content";
+
+}

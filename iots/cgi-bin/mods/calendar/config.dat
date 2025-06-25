@@ -1,0 +1,9 @@
+$config_vers = ".4";
+$mod_name = "CalendarMod";
+$mod_vers = "0.0.3";
+$mod_desc = "Calendar Mod";
+$mod_admin = "1";
+$admin_name = "admin.cgi";
+$lang_support = "1";
+$mod_lang = "english.dat";
+1;

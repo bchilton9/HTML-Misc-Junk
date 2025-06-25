@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><title>-=-= Signs =-=-</title></head>
+
+<body background="http://members.iinet.net.au/~garydep/images/furbgnd.gif" link="#9070ff" vlink="#300090" text="#000000" bgcolor="#ffffff" alink="#0000ee">
+<div align="Center">
+<h1><u><b>Signs</b></u></h1><br>
+
+</div>
+In this tutorial you will learn how to make signs work in your dream. The 
+first trigger you'll need is the 'Show DS' which is explained is <a href="DSresponse.htm">
+DS Responses</a>
+. You'll also need the following DS: <i>When somebody moves into position
+(#,#), play sound # to everyone on the map.</i> The (#,#) is the position of the sign that will be bumped. This is the DS that the bot
+responds to when a furre bumps a sign.  
+<p>The position coordinates are the position of the sign and the sound # can
+be any number of your choice (can be above 80). Be sure to use a different 
+sound for each sign. Now once you have the DS setup and the bot in the dream, 
+bump the sign. Something like the following should appear on your screen.
+ </p>
+<p><i>DS: dx: # dy: # dx2: # dy2: # did: # didx: # didy: #</i>. Now make
+a trigger  that responds to this DS. Name it LookSign1. Choose <i>DS-trigger
+# is sent</i>  from the pulldown menu in the When statement. Now Click the
+Add button under the -And- box. Choose <i>variable # is # (numeric comparison)</i>
+ from the pulldown menu. </p>
+<p>Type <i>[dsx2]</i> in the first textbox and the number that appears after
+<i>dx2:&nbsp;</i> when a furre bumps the sign in the second textbox. This
+is the X coordinate  of the trigger. Click Update the Add another And statement.
+And again choose <i>variable # is # (numeric comparison)</i> except this
+time type <i>[dsy2]</i> in the first textbox and the number that appears
+after <i>dy2:&nbsp;</i> when a furre bumps the sign in the second textbox.
+This is the Y coordinate of the trigger. Click Update. </p>
+<p>Now add a statement to the Then box. Choose <i>Store #1 to variable #1</i>
+ from the pulldown menu. Type <i>1</i> in the first textbox and type <i>[signNum]</i>
+ in the second textbox. Click Update. Add another statement to the Then box. 
+Choose <i>Look furre who is at (#1,#2) and set [desc] and [color] to contain 
+their stats</i> from the pulldown menu. In the first textbox type <i>[dsidx]</i>
+ and type <i>[dsidy]</i> in the second textbox. This tells the bot to look
+at the furre who bumped the sign, then put their desc, color, and name in
+variables for later use. Click Update. Now you have finished the -first-
+trigger for a sign. (Don't worry there are only two.) </p>
+<p>Add a Trigger and name it <i>Sign1Msg</i>. Choose <i>Desc and color trigger
+is activated</i> from the pulldown menu in the When statement then add a
+statement to the And box. Choose <i>variable # is # (numeric comparison)</i>
+ from the pulldown menu. Type <i>[signNum]</i> in the first textbox and <i>
+1</i> in the second textbox. Click Update. Add a statement to the Then box.
+Choose <i>Add text #1 to the connection log</i> from the pulldown menu and
+type <i>DESC: [descname]</i> in the small textbox. This says if a furre bumps
+sign 1 then show their name in the Connection Log. Click Update. </p>
+<p>Add another statement to the Then box. Choose <i>Whisper #1 to #2</i>
+from the pulldown menu. Type <i>Sign 1 Detected</i> in the first textbox
+and type <i>[descname]</i> in the first textbox. Click Update. Add yet another
+statement to the Then box (Last one =P). Choose <i>Store #1 to variable #2</i>
+ from the pulldown menu. Type <i>-1</i> in the first textbox and type <i>
+[signNum]</i> in the second textbox. Click Update. Click Update again. Click
+Close. Save your bot. </p>
+<p>Now when anyfurre bumps the sign the bot -should- whisper 'Sign 1 Detected'
+ to the triggering furre. Here's a summary of what sign triggers do. When
+someone sets off a DS trigger the bot checks the coordinates of the trigger.
+If they are the chosen coordinates then the bot stores the sign value to
+the variable [signNum] (In this case the value is 1) and looks at the position
+that the triggering furre is standing at. Then when the desc and color stats
+are recorded it checks the value of the [signNum] variable. If it is the
+chosen value then it shows the triggering furres name in the connection log,
+whispers the furre the sign message, and returns the value of [signNum] to
+0. </p>
+</body></html>

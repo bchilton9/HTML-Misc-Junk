@@ -1,0 +1,53 @@
+##############################################################################
+#Configuration Section - Set these variables to your web site's requirements #
+##############################################################################
+
+
+##### COLOR SETTINGS #####
+#@#@ Below are all the color settings for AMail Mod.
+#@#@ I would have explained them all, but where's the fun it that?
+#@#@ You will just have to play with them to see how they look on your site.  <br>
+$color1 = "#F1F1C9";
+$color2 = "#333333";
+$color3 = "#CCCCFF";
+$color4 = "#A08B76";
+$color5 = "#FFFFFF";
+$color6 = "#EEEEEE";
+$color7 = "NAVY";
+#%%%%%%%%%%%%%%%%%%%%%%%%#
+
+
+
+##### PATH SETTINGS #####
+#@#@ Below are all the paths and urls needed to run AMail.
+#@#@ By default they should all be correct and not need to be changed. <BR>
+$defaultFullHTMLDir = "$scriptdir/mods/apage/html";    # Full Path To The APage Mod html directory where your APage .txt and .html files are stored. No trailing "slashes" please.
+$defaultHTMLDir = "html";                              # Relative Path To The APage Mod html directory where your APage .txt and .html files are stored. This should in most cases just be set to "html". No trailing "slashes" please.
+$apageurl = "$scripturl/mods/apage/apage.cgi";         #- http URL To The Main APage Mod Script.
+$defaultImageDir = "$imagesdir/apage";                 #- Path To Where Images Are Stored
+$defaultImageURL = "$imagesurl/apage";                 #- http URL To Where Images Are Stored
+$relativeimagedir = "images/apage";                    # Relative Path from your Root folder to where your images are stored. This should in most cases just be set to "images/apage". This variable is just for "show" reasons.
+$apageicondir = "$imagesurl/apage/icons";              #- http URL To Where APage Icon Images Are Stored
+#%%%%%%%%%%%%%%%%%%%%%%%#
+
+
+
+##### ADMIN SETTINGS #####
+$extradmin = "wes!,chubbycheerio!,mrpotato!";   # Here you can add extra admins to administrate your newsletter.  Separate them with JUST with commas. Don't use spaces or quotes. Note - The initial example here has exclamation marks in it for security reasons.
+$allowstatus = "onlythebest!";  # Pick a user status to allow to administrate APage.  All users with this user status set here will have administration access to APage. Make sure not to leave this variable empty! If you don't want to use this, set it to a random word.  
+#@#@ <BR>Below is the variable which allows you to set the APage's default
+#@#@ usage of htmlArea. This only will affect htmlArea's usage inside of
+#@#@ APage. You can still turn it on in other areas of your website by
+#@#@ following the instructions in the readme file.  The values are as
+#@#@ follows: <blockquote>
+#@#@ 0 - Defaults to standard textarea editing but it gives a link to allow the usage of htmlArea for editing html pages.  <BR>
+#@#@ 1 - Defaults to using htmlArea for editing html files but it still gives a  link to edit without htmlArea.<BR>
+#@#@ 2 - Completely turns off the option to use htmlarea for APage html editing.</blockquote>
+$htmlarea = "0";
+#%%%%%%%%%%%%%%%%%%%%%%%%#
+
+#################################################################
+#End Configuration                                              #
+#################################################################
+
+1;

@@ -1,0 +1,2 @@
+linkk|themes|04/28/05 - 21:48:44|theres some diffrent themes now ill add more in later on eatch member can chose what theay like tho|1114742888|aicon2|1
+linkk|its working|04/28/05 - 21:19:12|was easy i just reuploaded it and it worked [imxhuh] who knows<br><br>thats to add categorys you then gota go to the links page to add the links [imxgrin]|1114741076|http://www.destinyeq2.com/themes/standard/images/dot.gif|1

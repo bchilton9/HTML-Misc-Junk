@@ -1,0 +1,9 @@
+
+AuthType Basic
+
+AuthName "Sos Admin Page"
+
+AuthUserFile "/home/onestcpb/.htpasswds/seekersfoserenity/admin/passwd"
+
+
+require valid-user

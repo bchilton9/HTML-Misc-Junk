@@ -1,0 +1,42 @@
+<B><A NAME="Brewing">Brewing</A></B>
+<P>
+Mastering Brewing can all be done in Thurgadin.<BR>
+Here is what to make at what lvl to master Brewing in around 2 hours.<BR>
+Combind ingredients and container in the brewbarrel and sell what you make.
+<P>
+<TABLE BORDER CELLPADDING="2">
+  <TR align="middle">
+    <TD>LEVEL</TD>
+    <TD>INGREDIENTS</TD>
+    <TD>CONTAINER</TD>
+    <TD>PRODUCT</TD>
+  </TR>
+  <TR align="middle">
+    <TD>1 to 41</TD>
+    <TD>Yeast, hops, malt</TD>
+    <TD>Cask</TD>
+    <TD>Mead</TD>
+  </TR>
+  <TR align="middle">
+    <TD>42 to 68</TD>
+    <TD>Barley, malt, water</TD>
+    <TD>Cask</TD>
+    <TD>Ale</TD>
+  </TR>
+  <TR align="middle">
+    <TD>69 to 135</TD>
+    <TD>Barley, hops, yeast, malt</TD>
+    <TD>Cask</TD>
+    <TD>Ol' Tijim's Fierce Brew</TD>
+  </TR>
+  <TR align="middle">
+    <TD>136 to 248</TD>
+    <TD>3 malts, yeast, 2 waters, 2 short beers</TD>
+    <TD>Cask</TD>
+    <TD>Minotaur Hero's Brew</TD>
+  </TR>
+</TABLE>
+<P>
+<B>The Broken Glacier</B> (loc) - Yeast, Hops, Barly, Malt.<BR>
+<B>Morodin's Meats</B> (loc) - Water Flask<BR>
+<B>Velium Keg </B>(loc) - Cask, Brew Barrel, Short Beers. 

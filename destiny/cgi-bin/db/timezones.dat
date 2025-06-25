@@ -1,0 +1,67 @@
+-12|-12|GMT-12:00||Dateline Standard Time|Eniwetok, Kwajalein 
+-11|-11|GMT-11:00||Samoa Standard Time|Midway Island, Samoa 
+-10|-10|GMT-10:00|HST|Hawaiian Standard Time|Hawaii 
+-9|-9|GMT-09:00|AKST|Alaskan Standard Time|Alaska 
+-8|-8|GMT-08:00|PST|Pacific Standard Time|Pacific Time (US & Canada); LA, San Francisco, Vancouver
+-7|-7|GMT-07:00|MST|Mountain Standard Time|Mountain Time (US & Canada); Denver, Calgary, Edmonton 
+-6|-6|GMT-06:00||Canada Central Standard Time|Saskatchewan 
+-6.01||GMT-06:00||Central America Standard Time|Central America 
+-6.02||GMT-06:00|CST|Central Standard Time|Central Time (US & Canada), Chicago, Houston, Winnipeg 
+-6.03||GMT-06:00||Mexico Standard Time|Mexico City 
+-5|-5|GMT-05:00|EST|Eastern Standard Time|Eastern Time (US & Canada), NY, DC, Toronto, Montreal 
+-5.01||GMT-05:00||SA Pacific Standard Time|Bogota, Lima, Quito 
+-5.02||GMT-05:00||US Eastern Standard Time|Indiana (East) 
+-4|-4|GMT-04:00|AST|Atlantic Standard Time|Atlantic Time (Canada), Halifax 
+-4.01||GMT-04:00||Pacific SA Standard Time|Santiago 
+-4.02||GMT-04:00||SA Western Standard Time|Caracas, La Paz 
+-3.50|-3.50|GMT-03:30||Newfoundland Standard Time|Newfoundland 
+-3|-3|GMT-03:00||E. South America Standard Time|Brasilia 
+-3.01||GMT-03:00||Greenland Standard Time|Greenland 
+-3.02||GMT-03:00||SA Eastern Standard Time|Buenos Aires, Georgetown 
+-2|-2|GMT-02:00||Mid-Atlantic Standard Time|Mid-Atlantic 
+-1|-1|GMT-01:00||Azores Standard Time|Azores 
+-1.01||GMT-01:00||Cape Verde Standard Time|Cape Verde Is 
+0|0|GMT 00:00|GMT|GMT Standard Time|Greenwich Mean Time United Kingdom, Portugal
+1|+1|GMT+01:00|CET|Central Europe Standard Time|Western Europe, Sweden 
+1.01||GMT+01:00||W. Central Africa Standard Time|West Central Africa 
+2|+2|GMT+02:00|EET|E. Europe Standard Time|Finland, Eastern Europe
+2.01||GMT+02:00||Egypt Standard Time|Cairo 
+2.02||GMT+02:00||FLE Standard Time|Helsinki, Riga, Tallinn 
+2.03||GMT+02:00||GTB Standard Time|Athens, Istanbul, Minsk 
+2.04||GMT+02:00||Israel Standard Time|Jerusalem 
+2.05||GMT+02:00||South Africa Standard Time|Harare, Pretoria 
+3|+3|GMT-03:00||Arab Standard Time|Kuwait, Riyadh 
+3.01||GMT+03:00||Arabic Standard Time|Baghdad 
+3.02||GMT+03:00||E. Africa Standard Time|Nairobi 
+3.03||GMT+03:00|MSK|Moscow Time|Moscow, St. Petersburg, Volgograd
+3.50|+3.50|GMT+03:30||Iran Standard Time|Tehran 
+4|+4|GMT+04:00|AST|Atlantic Standard Time|New York
+4.01||GMT+04:00||Arabian Standard Time|Abu Dhabi, Muscat 
+4.02||GMT+04:00||Caucasus Standard Time|Baku, Tbilisi, Yerevan 
+4.50|+4.50|GMT+04:30||Afghanistan Standard Time|Kabul 
+5|+5|GMT+05:00||West Asia Standard Time|Islamabad, Karachi, Tashkent 
+5.50|+5.50|GMT+05:30||India Standard Time|Calcutta, Chennai, Mumbai, New Delhi 
+5.75|+5.75|GMT+05:45||Nepal Standard Time|Kathmandu 
+6|+6|GMT+06:00||Central Asia Standard Time|Astana, Dhaka 
+6.01||GMT+06:00||N. Central Asia Standard Time|Almaty, Novosibirsk 
+6.02||GMT+06:00||Sri Lanka Standard Time|Sri Jayawardenepura 
+6.50|+6.50|GMT+06:30||Myanmar Standard Time|Rangoon 
+7|+7|GMT+07:00||North Asia Standard Time|Krasnoyarsk 
+7.01||GMT+07:00||SE Asia Standard Time|Bangkok, Hanoi, Jakarta 
+8|+8|GMT+08:00||China Standard Time|Beijing, Chongqing, Hong Kong, Urumqi 
+8.01||GMT+08:00||North Asia East Standard Time|Irkutsk, Ulaan Bataar 
+8.02||GMT+08:00||Singapore Standard Time|Kuala Lumpur, Singapore 
+8.03||GMT+08:00||Taipei Standard Time|Taipei 
+8.04||GMT+08:00|AWST|W. Australia Standard Time|Perth 
+9|+9|GMT+09:00||Korea Standard Time|Seoul 
+9.01||GMT+09:00||Tokyo Standard Time|Osaka, Sapporo, Tokyo 
+9.02||GMT+09:00||Yakutsk Standard Time|Yakutsk
+9.50|+9.50|GMT+09:30|ACST|AUS Central Standard Time|Darwin 
+10|+10|GMT+10:00|AEST|AUS Eastern Standard Time|Canberra, Melbourne, Sydney 
+10.01||GMT+10:00|TST|Tasmania Standard Time|Hobart 
+10.02||GMT+10:00||Vladivostok Standard Time|Vladivostok 
+10.03||GMT+10:00|WPST|West Pacific Standard Time|Guam, Port Moresby 
+11|+11|GMT+11:00|CPST|Central Pacific Standard Time|Magadan, Solomon Is., New Caledonia 
+12|+12|GMT+12:00||Fiji Standard Time|Fiji, Kamchatka, Marshall Is 
+12.01||GMT+12:00|NZST|New Zealand Standard Time|Auckland, Wellington 
+13|+13|GMT+13:00||Tonga Standard Time|Nuku'alofa

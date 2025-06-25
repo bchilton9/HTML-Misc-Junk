@@ -1,0 +1,96 @@
+<CENTER>
+<P>
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+    <TR>
+      <TD COLSPAN=3><IMG SRC="images/topbottom.gif" WIDTH="492" HEIGHT="12"></TD>
+    </TR>
+    <TR>
+      <TD BACKGROUND="images/left.gif"><IMG SRC="images/left.gif" WIDTH="10" HEIGHT="18"></TD>
+      <TD BGCOLOR=#009933><P ALIGN=Center>
+	<FONT COLOR="#ffffff"><SMALL>Updates every 30 minutes and resets every 7
+	days.</SMALL></FONT><BR>
+	<IMG SRC="images/spacer.gif" WIDTH="472" HEIGHT="8"><BR>
+	<A HREF="http://www.erenetwork.com/furctopsite"><FONT SIZE="2" FACE="Arial"
+	    COLOR="#ffffff">Home</FONT></A>&nbsp;
+	<A HREF="http://www.erenetwork.com/furctopsite/cgi-bin/lspro.cgi?request=new"><FONT
+	    SIZE="2" FACE="Arial" COLOR="#ffffff">Add your
+	link</FONT></A>&nbsp;<A HREF="http://www.erenetwork.com/furctopsite/cgi-bin/lspro.cgi?request=login_manager"><FONT
+	    SIZE="2" FACE="Arial" COLOR="#ffffff">Edit your account</FONT></A>
+	<A HREF="mailto:webmaster@erenetwork.com"><FONT SIZE="2" FACE="Arial" COLOR="#ffffff">E-Mail
+	Me</FONT></A></TD>
+      <TD BACKGROUND="images/right.gif"><IMG SRC="images/right.gif" WIDTH="10"
+	    HEIGHT="18"></TD>
+    </TR>
+    <TR>
+      <TD COLSPAN=3><IMG SRC="images/bottom.gif" WIDTH="492" HEIGHT="12"></TD>
+    </TR>
+  </TABLE>
+<BR>
+
+
+<P ALIGN=CENTER><A HREF="http://www.furres.net"><IMG SRC="http://www.furres.net/be/el.gif" WIDTH=60 HEIGHT=60 ALT="Furcadian Banner Exchange" ISMAP></A><A HREF="http://www.erenetwork.com/furnet/be/ads.pl?member=furtopsite;banner=NonSSI;page=01"><IMG SRC="http://www.erenetwork.com/furnet/be/ads.pl?member=furtopsite;page=01" WIDTH=468 HEIGHT=60 ALT="Furcadian Banner Exchange" ISMAP></A><BR><SMALL><A HREF="http://www.furres.net">Furcadian Banner Exchange</A></SMALL></P>
+
+</CENTER>
+<script language="JavaScript1.2">
+<!--
+
+function scrollBar(line,face,theme)
+	{
+		if (!line||!face)
+			{
+				line=null;
+				face=null;
+				switch(theme) // Predefined themes
+					{
+						case "blue":
+							var line="#78AAFF";
+							var face="#EBF5FF";
+							break;
+						case "orange":
+							var line="#FBBB37";
+							var face="#FFF9DF";
+							break;
+						case "red":
+							var line="#FF7979";
+							var face="#FFE3DD";
+							break;
+						case "green":
+							var line="#00C600";
+							var face="#D1EED0";
+							break;
+						case "neo":
+							var line="#BC7E41";
+							var face="#EFE0D1";
+							break;
+					}
+			}
+
+				with(document.body.style)
+					{
+						scrollbarDarkShadowColor=line;
+						scrollbar3dLightColor=line;
+						scrollbarArrowColor="black";
+						scrollbarBaseColor=face;
+						scrollbarFaceColor=face;
+						scrollbarHighlightColor=face;
+						scrollbarShadowColor=face;
+						scrollbarTrackColor="#F3F3F3";
+					}
+			}
+
+/*------------------[Pointer coordinates catcher]---------------*/
+function colorBar(){
+		var w = document.body.clientWidth;
+		var h = document.body.clientHeight;
+		var x = event.clientX;
+		var y = event.clientY;
+		if(x>w) scrollBar('#000080','#BFDFFF'); // Your colors
+		else scrollBar(null,null,"blue"); // A predefined theme
+	}
+
+if (document.all){
+scrollBar(null,null,"neo");
+document.onmousemove=colorBar;
+}
+//-->
+</script>

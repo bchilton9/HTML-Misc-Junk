@@ -1,0 +1,1 @@
+admin|Welcome to Destiny!|04/28/05 - 16:21:51|You have entered the IM zone of Destiny. Welcome and feel free to chat with anyone, have questions about the guild? Ask away we will gladly answer any questions you may have.|

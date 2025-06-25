@@ -1,0 +1,82 @@
+A.menu
+{
+    COLOR: white;
+    POSITION: static;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+A.menu:visited
+{
+    COLOR: white;
+    POSITION: static;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+A.menu:hover
+{
+    BORDER-RIGHT: double;
+    PADDING-RIGHT: 4px;
+    BORDER-TOP: double;
+    PADDING-LEFT: 4px;
+    BORDER-LEFT: double;
+    COLOR: white;
+    BORDER-BOTTOM: double;
+    POSITION: static;
+    BACKGROUND-COLOR: mediumblue;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+BODY
+{
+    COLOR: white;
+    BACKGROUND-COLOR: #4b4b4b
+}
+A
+{
+    COLOR: white;
+    TEXT-DECORATION: underline
+}
+A:visited
+{
+    COLOR: white;
+    TEXT-DECORATION: underline
+}
+.skill
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    BORDER-LEFT: medium none;
+    COLOR: white;
+    BORDER-BOTTOM: medium none;
+    BACKGROUND-COLOR: #5d605d
+}
+.news
+{
+    BORDER-RIGHT: blue ridge;
+    BORDER-TOP: blue ridge;
+    BORDER-LEFT: blue ridge;
+    COLOR: white;
+    BORDER-BOTTOM: blue ridge;
+    BACKGROUND-COLOR: #4b4b4b
+}
+.table
+{
+    BORDER-RIGHT: blue outset;
+    PADDING-RIGHT: 4px;
+    BORDER-TOP: blue outset;
+    PADDING-LEFT: 4px;
+    PADDING-BOTTOM: 4px;
+    BORDER-LEFT: blue outset;
+    COLOR: white;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: blue outset
+}
+.frame
+{
+    BORDER-RIGHT: lightgoldenrodyellow thick inset;
+    BORDER-TOP: lightgoldenrodyellow thick inset;
+    BORDER-LEFT: lightgoldenrodyellow thick inset;
+    COLOR: white;
+    BORDER-BOTTOM: lightgoldenrodyellow thick inset;
+    BACKGROUND-COLOR: black
+}

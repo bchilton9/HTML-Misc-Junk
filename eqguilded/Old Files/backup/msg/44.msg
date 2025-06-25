@@ -1,0 +1,3 @@
+<CENTER><TABLE BORDER=0 CELLPADDING=2 ALIGN=Center WIDTH=75%><TR><TD><B>From:</B></TD><TD>Skorpius
+</TD></TR><TR><TD><B>Subject:</B></TD><TD>web site</TD></TR><TR><TD COLSPAN=2><B>Message:</B></TD></TR><TR><TD COLSPAN=2>here is the web sit address<BR>http://everquest.allakhazam.com/</TD></TR><TR><TD><B>Sent:</B></TD><TD>4/3/2003 11:40 AM EST</TD></TR></TABLE></CENTER><P><CENTER><A HREF=http://www.eqguilded.com/?do=deletemessage&num=44><IMG SRC=images/delete.jpg BORDER=0></A><A HREF=http://www.eqguilded.com/?do=sendmsg&to=Skorpius
+><IMG SRC=images/reply.jpg BORDER=0></A><A HREF=http://www.eqguilded.com/?do=messages><IMG SRC=images/msg.jpg BORDER=0></A>

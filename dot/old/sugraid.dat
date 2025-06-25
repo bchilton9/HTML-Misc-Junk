@@ -1,0 +1,35 @@
+
+<FORM>
+   <CENTER>
+     <TABLE BORDER=0 CLASS=table>
+       <TR>
+ 	<TD>Zone name:</TD>
+ 	<TD>
+ 	  <INPUT TYPE="text" NAME="zname"></TD>
+       </TR>
+       <TR>
+ 	<TD>Level range:</TD>
+ 	<TD>
+ 	  <INPUT TYPE="text" NAME="za" SIZE="3"> to
+ 	  <INPUT TYPE="text" NAME="zb" SIZE="3"></TD>
+       </TR>
+       <TR>
+ 	<TD>Amount of items needed:</TD>
+ 	<TD>
+ 	  <INPUT TYPE="text" NAME="zamt" SIZE="3"><BR>
+<SMALL>If you dont want any items from<BR>
+raid/event place a 0 in amount.</TD>
+       </TR>
+       <TR>
+ 	<TD>What items needed:</TD>
+ 	<TD>
+ 	  <INPUT TYPE="text" NAME="zitems"></TD>
+       </TR>
+       <TR>
+ 	<TD COLSPAN=2><P ALIGN=Center>
+ 	  <INPUT TYPE=submit NAME="a" VALUE="Sugest Raid"></TD>
+       </TR>
+     </TABLE>
+   </CENTER>
+ </FORM>
+

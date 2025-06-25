@@ -1,0 +1,69 @@
+<html>
+<link rel="stylesheet" href="Style.css">
+<head>
+<title>DS Responses</title>
+</head>
+<body>
+<center><font class="tText">DS Responses With FurBot</font></center>
+<P>
+<table cellpadding="7" cellspacing="7" border="0" width="90%">
+<tbody>
+<tr>
+<td valign="Top">
+<font class="bText">
+The first thing you'll need to do is 'show' the DS on the bots screen. To do this make a Trigger 
+and name it 'Show DS'. In the 'When' statement choose 'DS-trigger # is sent' from the pulldown 
+menu.<p>
+</td>
+</tr>
+<tr>
+<td valign="Top">
+<img src="../../Images/fbDS1.gif" alt="FurBot - DS Response Trigger Name &amp; When Statement" width="535" height="379">
+<br>
+</td>
+</tr>
+<tr>
+<td valign="Top">
+<p>
+<font class="bText">
+Click the Add button under the Then box. Choose <i>Add text #1 to the connection log</i>. In 
+the small textbox type: <i>DS: dx: [dsx] dy: [dsy] dx2: [dsx2] dy2: [dsy2] did: [dsid] didx: 
+[dsidx] didy: [dsidy]</i><br> Click Update, then Update on the Trigger windows, Close the 
+Trigger window, and save your bot.<p>
+</p>
+</td>
+</td>
+</tr>
+<td valign="Top">
+<img src="../../Images/fbDS2.gif" alt="FurBot - Show DS Then Statement" width="623" height="360">
+<br>
+<br>
+<font class="bText">
+<p>About DS Variables:&nbsp;</p>
+[dsx] - Contains the previous X Coordinate of the triggering furre.<br>
+[dsy] - Contains the previous X Coordinate of the triggering furre<br>
+[dsx2] - Contains the X Coordinate of the trigger<br>
+[dsy2] - Contains the Y Coordinate of the trigger<br>
+[dsid] - Contains the trigger number<br>
+[dsidx] - Contains the new X Coordinate of the triggering furre.<br>
+[dsidy] - Contains the new Y Coordinate of the triggering furre.<br
+</td>
+</tr>
+<tr>
+<td valign="Top">
+<p>
+<font class="bText">
+Trigger Summary: &nbsp;</p>
+</td>
+</td>
+</tr>
+<td valign="Top">
+<font class="bText">
+When DS is triggered, the triggering furre's previous and new position, the 
+trigger position, and the trigger number are all shown in the bots connection log.<br>
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

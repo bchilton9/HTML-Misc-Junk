@@ -1,0 +1,453 @@
+############################################################## 
+## MOD Title: Profile Control Panel - upgrade from v 1.0.4 to v 1.0.4-2
+## MOD Author: Ptirhiik < ptirhiik@clanmckeen.com > (Pierre) http://rpgnet.clanmckeen.com
+## MOD Description: fix on PCP v 1.0.4
+##			This one is the collection of fixes already published on pcp v 1.0.4
+## MOD Version: 1.0.4-2 -RC
+## 
+## Installation Level: (Easy/Moderate/Advanced)
+## Installation Time: 10 Minutes
+## Files To Edit:
+##		viewtopic.php
+##		admin/admin_pcp_tableslinked.php
+##		admin/admin_pcp_usermaps.php
+##		includes/functions.php
+##		includes/functions_admin_pcp.php
+##		profilcp/profilcp_buddy.php
+##		profilcp/profilcp_privmsg.php
+##		profilcp/def/def_userfuncs.php
+##		templates/subSilver/admin/lang_extend_body.tpl
+##		templates/subSilver/admin/lang_extend_pack_body.tpl
+##		templates/subSilver/admin/lang_extend_search_body.tpl
+##
+## Included Files: (n/a)
+############################################################## 
+## For Security Purposes, Please Check: http://www.phpbb.com/mods/ for the 
+## latest version of this MOD. Downloading this MOD from other sites could cause malicious code 
+## to enter into your phpBB Forum. As such, phpBB will not offer support for MOD's not offered 
+## in our MOD-Database, located at: http://www.phpbb.com/mods/ 
+############################################################## 
+## Author Notes: 
+## 
+############################################################## 
+## MOD History: 
+## 
+##   2003-10-20 - Version 1.0.4-2 -RC upgrade
+##      - included all the fixes of the v 1.0.4 -RC
+## 
+############################################################## 
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+##############################################################
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-19-01 : PM button not shown in viewtopic
+#
+viewtopic.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$postrow[$i]['user_online']		= ( $postrow[$i]['user_session_time'] >= (time()-300) );
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	$postrow[$i]['user_pm'] = 1;
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-19-07 : order by statement not called back from tables linked def
+#
+admin/admin_pcp_tableslinked.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: v 0.0.1 - 11/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: v 1.0.0 - 20/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$sql_order	= isset($tables[$table]['sql_join']) ? str_replace("\n", ' ', str_replace("\r", '', str_replace("\t", '', $tables[$table]['sql_where']))) : '';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	$sql_order	= isset($tables[$table]['sql_order']) ? str_replace("\n", ' ', str_replace("\r", '', str_replace("\t", '', $tables[$table]['sql_order']))) : '';
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-20-03 : fix missing screen title in tables linked edit
+#
+admin/admin_pcp_tableslinked.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: v 1.0.0 - 20/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: v 1.0.1 - 20/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+			'L_TITLE'				=> $lang['PCP_tableslinked_edit'],
+			'L_TITLE_EXPLAIN'		=> $lang['PCP_tableslinked_edit_explain'],
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			'L_TITLE'				=> $lang['PCP_tableslinked_linked_edit'],
+			'L_TITLE_EXPLAIN'		=> $lang['PCP_tableslinked_linked_edit_explain'],
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-20-02 : add a suggest button for the option adress field
+#
+admin/admin_pcp_usermaps.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: v 1.0.0 - 18/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: v 1.0.1 - 20/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+			$field_det['type'] = 'VARCHAR';
+		}
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+
+		// suggest an Option address
+		if ( isset($HTTP_POST_VARS['suggest']) && empty($field_det['ind']) )
+		{
+			$last_ind = 0;
+			for ( $i = 0; $i < count($fields['ind']); $i++ )
+			{
+				if ( $fields['ind'][$i] > $last_ind )
+				{
+					$last_ind = $fields['ind'][$i];
+				}
+			}
+			$field_det['ind'] = $last_ind + 1;
+		}
+#
+#-----[ FIND ]------------------------------------------------
+#
+				if ($field_def[$def_key]['cat'] == $cur_cat)
+				{
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+					$suggest_button = '';
+					if ( $def_key == 'ind' )
+					{
+						$suggest_button = '  <input type="submit" name="suggest" value="' . $lang['Suggest'] . '" class="liteoption" />';
+					}
+#
+#-----[ FIND ]------------------------------------------------
+#
+						'FIELD'				=> stripslashes(pcp_format_input($def_type, $def_name, $def_value)),
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+						'FIELD'				=> stripslashes(pcp_format_input($def_type, $def_name, $def_value)) . $suggest_button,
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-19-05 : fix a pagination field name issue
+#
+includes/functions.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+			$page_string = ' <a href="' . append_sid($base_url . "&amp;start=" . ( ( $on_page - 2 ) * $per_page ) ) . '">' . $lang['Previous'] . '</a>&nbsp;&nbsp;' . $page_string;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			$page_string = ' <a href="' . append_sid($base_url . "&amp;$start_field=" . ( ( $on_page - 2 ) * $per_page ) ) . '">' . $lang['Previous'] . '</a>&nbsp;&nbsp;' . $page_string;
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-19-03 : Cleaning empty definition in user_maps preventing standard field definition to work
+#
+includes/functions_admin_pcp.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: v 1.0.0 - 18/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: v 1.0.1 - 19/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+					if ( ($def_key != 'field_name') && ($field_data[$def_key] != $user_fields[$field_name][$def_key]) )
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+					if ( ($def_key != 'field_name') && ($field_data[$def_key] != $user_fields[$field_name][$def_key]) && ( !empty($field_data[$def_key]) || ( empty($field_data[$def_key]) && !is_string($field_data[$def_key]) && ($field_data[$def_key] == "0") ) ) )
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-19-04 : Fix \" char in values
+#
+includes/functions_admin_pcp.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: v 1.0.1 - 19/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: v 1.0.2 - 19/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+					'VALUE'	=> sprintf($pres, str_replace( "''", "\'", $data)),
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+					'VALUE'	=> sprintf($pres, str_replace( "''", "\'", str_replace('\"', '"', $data))),
+#
+#-----[ FIND ]------------------------------------------------
+#
+							$value = sprintf( "'%s'", str_replace("''", "\'", $value) );
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+							$value = sprintf( "'%s'", str_replace("''", "\'", str_replace('\"', '"', $value)) );
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-20-01 : improvement of the SQL tables parsing process
+#
+profilcp/profilcp_buddy.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version			: 1.2.0 - 17/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version			: 1.2.1 - 20/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$done = false;
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+
+	// prepare the table processed
+	$tables_processed = array();
+	$tables_processed[] = 'USERS';
+#
+#-----[ FIND ]------------------------------------------------
+#
+			if ( ($table_name != 'USERS') && $used )
+			{
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			if ( !in_array($table_name, $tables_processed) )
+			{
+				$tables_processed[] = $table_name;
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$new_tables_used = array();
+		$sql_tables = pcp_parse_def( $sql_tables, $view_userdata, $new_tables_used );
+
+		// if no new tables
+		$done = ( count($new_tables_used) == count($tables_used) );
+		if ( !$done )
+		{
+			$tables_used = array();
+			$tables_used = $new_tables_used;
+		}
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+		$sql_tables = pcp_parse_def( $sql_tables, $view_userdata, $tables_used );
+
+		// check if any unprocessed table remains
+		$done = true;
+		@reset($tables_used);
+		while ( list($table_name, $used) = @each($tables_used) )
+		{
+			$done = in_array($table_name, $tables_processed);
+			if ( !$done )
+			{
+				break;
+			}
+		}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-19-02 : "Sentbox" missing in private message menu
+#
+profilcp/profilcp_privmsg.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.5 - 17/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.6 - 19/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	pcp_set_sub_menu('privmsg', 'savebox', 30, __FILE__, 'Savebox', 'Savebox' );
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	pcp_set_sub_menu('privmsg', 'sentbox', 30, __FILE__, 'Sentbox', 'Sentbox' );
+	pcp_set_sub_menu('privmsg', 'savebox', 40, __FILE__, 'Savebox', 'Savebox' );
+
+
+
+
+
+
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-19-06 : female icon when presents doesn't display
+#
+profilcp/def/def_userfuncs_std.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.0 - 07/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.1 - 19/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+				$res = '<img src="' . $images['Female'] . '" border="0" alt="' . $lang['Female'] . '" title="' . $lang['Female'] . '" />';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+				$img = '<img src="' . $images['Female'] . '" border="0" alt="' . $lang['Female'] . '" title="' . $lang['Female'] . '" />';
+
+
+
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/def/def_userfuncs.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.2 - 18/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.3 - 20/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$all_done = false;
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+		$tables_processed = array();
+		$tables_processed[] = $w['main'];
+#
+#-----[ FIND ]------------------------------------------------
+#
+				if ( ($table_name != $w['main']) && $used )
+				{
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+				if ( !in_array($table_name, $tables_processed) )
+				{
+					$tables_processed[] = $table_name;
+#
+#-----[ FIND ]------------------------------------------------
+#
+			// Are we introduced new tables ?
+			$new_tables_used = array();
+
+			// parse the tables and the where statement
+			$sql_tables = pcp_parse_def( $sql_tables, $userdata, $new_tables_used );
+			$sql_where = pcp_parse_def( $sql_where, $userdata, $new_tables_used );
+
+			// if no new tables
+			$all_done = ( count($new_tables_used) == count($tables_used) );
+			$tables_used = $new_tables_used;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			// parse the tables and the where statement
+			$sql_tables = pcp_parse_def( $sql_tables, $userdata, $new_tables_used );
+			$sql_where = pcp_parse_def( $sql_where, $userdata, $new_tables_used );
+
+			// check if any unprocessed table remains
+			$all_done = true;
+			@reset($tables_used);
+			while ( list($table_name, $used) = @each($tables_used) )
+			{
+				$all_done = in_array($table_name, $tables_processed);
+				if ( !$all_done )
+				{
+					break;
+				}
+			}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-20-04 : fix switch typo in lang_settings tpls
+#
+templates/subSilver/admin/lang_extend_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+<!-- END row -->
+</table>
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+<!-- END none -->
+</table>
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/admin/lang_extend_pack_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+<!-- END row -->
+<tr>
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+<!-- END none -->
+<tr>
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/admin/lang_extend_search_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+<!-- END row -->
+<tr>
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+<!-- END none -->
+<tr>
+#
+#-----[ SAVE/CLOSE ALL FILES ]--------------------------------
+#
+# EoM

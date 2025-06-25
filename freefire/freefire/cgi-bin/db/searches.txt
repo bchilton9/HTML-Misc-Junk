@@ -1,0 +1,5 @@
+|0
+shaman|1
+planes|0
+plains|0
+elemental|0

@@ -1,0 +1,2 @@
+Yaeyen|Buddy List|05/10/04 - 16:56:10|User Yaeyen. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=Yaeyen>Yaeyen</a>|1084226170|1
+admin|Welcome To Freefire!!|05/05/04 - 07:30:37|Welcome to Freefire. Please feel free to look around, Use the forms and messaging system. As of right now your account is set as friend. Once you are verified a a member of Freefire your account will be changed.||1|1

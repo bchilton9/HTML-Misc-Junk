@@ -1,0 +1,31 @@
+<CENTER>
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center" WIDTH=50%>
+    <TR>
+      <TD COLSPAN=3><IMG WIDTH="492" HEIGHT="146" SRC="images/top.gif"></TD>
+    </TR>
+    <TR>
+      <TD BACKGROUND="images/left.gif"><IMG SRC="images/left.gif" WIDTH="10" HEIGHT="18"></TD>
+      <TD BGCOLOR=#009933><Center>
+	<FONT COLOR="#ffffff"> <SMALL>The Original Furcadia's Top Site's is back
+	and better then ever.</SMALL><BR>
+	<SMALL> I lost all the old members files so none of the old members sites
+	are here.</SMALL><BR>
+	<SMALL>Sorry</SMALL><BR>
+	<SMALL> Add your site Now.</SMALL></FONT><BR>
+	<IMG SRC="images/spacer.gif" WIDTH="472" HEIGHT="8"><BR>
+	<A HREF="http://www.erenetwork.com/furctopsite"><FONT SIZE="2" FACE="Arial"
+	    COLOR="#ffffff">Home</FONT></A>&nbsp;
+	<A HREF="http://www.erenetwork.com/furctopsite/cgi-bin/lspro.cgi?request=new"><FONT
+	    SIZE="2" FACE="Arial" COLOR="#ffffff">Add your
+	link</FONT></A>&nbsp;<A HREF="http://www.erenetwork.com/furctopsite/cgi-bin/lspro.cgi?request=login_manager"><FONT
+	    SIZE="2" FACE="Arial" COLOR="#ffffff">Edit your account</FONT></A>
+	<A HREF="mailto:webmaster@erenetwork.com"><FONT SIZE="2" FACE="Arial" COLOR="#ffffff">E-Mail
+	Me</FONT></A></TD>
+      <TD BACKGROUND="images/right.gif"><IMG SRC="images/right.gif" WIDTH="10"
+	    HEIGHT="18"></TD>
+    </TR>
+    <TR>
+      <TD COLSPAN=3><IMG SRC="images/bottom.gif" WIDTH="492" HEIGHT="12"></TD>
+    </TR>
+  </TABLE>
+</CENTER>

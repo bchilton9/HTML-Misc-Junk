@@ -1,0 +1,17 @@
+Windows XP	Windows NT 5.1
+Windows 2000	Windows NT 5.0
+Windows NT 4.0	Windows NT 4.0
+Windows NT	WinNT
+Windows NT	Windows NT
+Windows 2000	Windows 2000
+Windows XP	Windows XP
+Windows 98	Windows 98
+Windows 98	Win98
+Windows 95	Windows 95
+Windows [version unkown]	Windows
+Macintosh	Mac OS
+Macintosh	Mac_PowerPC
+Macintosh	Macintosh
+SunOS	SunOS
+Linux	Linux
+Unix	X11

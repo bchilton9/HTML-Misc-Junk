@@ -1,0 +1,454 @@
+<!--#include file="preferences.pl"-->
+<%
+# Begin the code...
+# -----------------
+$STYLE = $in{style} || $_DEFAULT_LIST_GRID;
+$VIEW = $in{view};
+if (!$in{duration} && !$in{range} && !$in{startdate} && !$in{enddate}) {
+	$VIEW ||= $_DEFAULT_VIEW;
+	}
+if ($VIEW eq "Month") { &getEvents( { 'range'=>'month' , 'month'=>$MONTH } ); }
+elsif ($VIEW eq "Week") { &getEvents( { 'range'=>'week' } ); }
+elsif ($VIEW eq "Two-Week") { &getEvents( { 'range'=>'twoweek' } ); }
+elsif ($VIEW eq "Three-Week") { &getEvents( { 'range'=>'threeweek' } ); }
+elsif ($VIEW eq "Four-Week") { &getEvents( { 'range'=>'fourweek' } ); }
+elsif ($VIEW eq "Day") {
+	&getEvents( { 'range'=>'day','startdate'=>$DATESTRING } );
+	}
+elsif ($VIEW eq "Event") {
+	$EVENT->{'details'} = &getEvent($in{'event_id'});
+	$db = $main::DBEvents;
+	$fields = &main::DBGetFieldsInDisplayOrder($db);
+	}
+elsif ($VIEW eq "Search") {
+	$db = $main::DBEvents;
+	# Keep form values to populate form fields
+	foreach (keys %in) {$name = $_; if ($name =~ s/^FIELD_//) { $search_params->{$name} = $in{$_}; } }
+	}
+else {
+	&getEvents( {'duration'=>$in{duration}, 'range'=>$in{range}, 'startdate'=>$in{startdate}, 'enddate'=>$in{enddate} } );
+	}
+if ($GRID_ROW_COUNT > 0) {
+	$rowheight = "HEIGHT=\"".int(90/$GRID_ROW_COUNT)."%\"";
+	}
+%>
+<HTML>
+<HEAD>
+	<TITLE><%=$_PAGE_TITLE%></TITLE>
+<META HTTP-EQUIV="expires" CONTENT="now">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<!--#include file="styles.css"-->
+</HEAD>
+<BODY BGCOLOR="<%=$_BGCOLOR%>" LINK="<%=$_LINK%>" ALINK="<%=$_ALINK%>" VLINK="<%=$_VLINK%>" LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+               <TABLE width=100% BORDER=0 CELLSPACING="0" CELLPADDING="0" BACKGROUND="http://www.erenetwork.com/dcguild/back.gif">
+                 <TR>
+                   <TD><IMG WIDTH="400" HEIGHT="120" SRC="http://www.erenetwork.com/dcguild/logo.gif"></TD>
+                 <TD></td>
+                 </tr>
+               </table>
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>
+                 <TR>
+                   <TD BGCOLOR="#ffffff"><IMG SRC="http://www.erenetwork.com/dcguild/blank.gif" WIDTH="1" HEIGHT="1"></td>
+                 </tr>
+                 <TR>
+                   <TD BGCOLOR="#008080"><CENTER><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#008080">
+               	<TR>
+               	  <TD width=125><P ALIGN=Center>
+               	    <A HREF="http://www.erenetwork.com/dcguild/" class="menu"><FONT COLOR=#ffffff>Home</FONT></a></td>
+               	  <TD width=125><P ALIGN=Center>
+               	    <A HREF="http://www.erenetwork.com/dcguild/?page=charter&a=page" class="menu"><FONT COLOR=#ffffff>Charter</FONT></a></td>
+               	  <TD width=125><P ALIGN=Center>
+               	    <A HREF="http://www.erenetwork.com/dcguild/?a=roster" class="menu"><FONT COLOR=#ffffff>Roster</FONT></a></td>
+             	  <TD width=125><P ALIGN=Center>
+             	    <A HREF="http://www.erenetwork.com/dcguild/?a=stats" class="menu"><FONT COLOR=#ffffff>Guild Stats</FONT></a></td>  
+             	  <TD width=125><P ALIGN=Center>
+             	    <A HREF="http://www.erenetwork.com/dcguild/?a=page&page=raid" class="menu"><FONT COLOR=#ffffff>Raid Info</FONT></a></td>
+</TR><TR>
+               	  <TD width=125><P ALIGN=Center>
+               	    <A HREF="http://www.erenetwork.com/dcguild/cal/calendar.pl" class="menu"><FONT COLOR=#ffffff>Happenings</FONT></a></td>
+               	  <TD width=125><P ALIGN=Center>
+               	    <A HREF="http://pub27.ezboard.com/bdarkcircles" class="menu" TARGET=_new"><FONT COLOR=#ffffff>Boards</FONT></a></td>
+               	  <TD width=125><P ALIGN=Center>
+               	    <A HREF="http://www.erenetwork.com/dcguild/?a=photolist" class="menu"><FONT COLOR=#ffffff>Photo Album</FONT></a></td>
+               	  <TD width=125><P ALIGN=Center>
+               	    <A HREF="http://www.erenetwork.com/dcguild/?a=page&page=fun" class="menu"><FONT COLOR=#ffffff>Fun Stuff</FONT></a></td>	
+         
+         </tr>
+                     </table>
+                   </td>
+                 </tr>
+                 <TR>
+                   <TD BGCOLOR="#ffffff"><IMG SRC="http://www.erenetwork.com/dcguild/blank.gif" WIDTH="1" HEIGHT="1"></td>
+                 </tr>
+               </table>
+              <CENTER>
+               <P>
+
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" WIDTH="100%" HEIGHT="100%">
+	<% if ($_HEADER) { %><TR><TD COLSPAN="2"><SPAN CLASS="headertext"><%= $_HEADER %></SPAN></TD></TR><% } %>
+	<TR>
+		<TD COLSPAN="2">
+			<% if ($VIEW eq "Month") { %>
+				<%-- MONTH NAVIGATION --%>
+				<% my ($monthabbrs) = $Config->get("month_abbreviations"); %>
+				<TABLE BORDER="0" CLASS="thinborder" CELLPADDING="1" CELLSPACING="1" WIDTH=100%>
+				<TR>
+					<TD ALIGN="center" WIDTH="8%" CLASS="thinborder" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><A HREF="<% LAST YEAR LINK %>" CLASS="navigationtext">&lt;&nbsp;<%=$LAST_YEAR%></A></B></TD>
+					<% foreach $monthnum (0 .. 11) { %>
+						<%if($MONTH==($monthnum+1)){%>
+						<TD ALIGN="center" WIDTH="12%" BGCOLOR="<%=$_NAVIGATION_SELECTED_BGCOLOR%>" CLASS="thinborder"><SPAN CLASS="navigationselectedtext"><B><%=$monthabbrs->[$monthnum]%> <%=$YEAR%></B></SPAN></TD>
+						<%}else{%>
+						<TD ALIGN="center" WIDTH="6%" CLASS="thinborder" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><A HREF="<%=$CGI_URL_QUERYSTRING%>month=<%=($monthnum+1)%>" CLASS="navigationtext"><%=$monthabbrs->[$monthnum]%></A></B></TD>
+						<%}%>
+					<% } %>
+					<TD ALIGN="center" WIDTH="8%" CLASS="thinborder" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><A HREF="<% NEXT YEAR LINK%>" CLASS="navigationtext"><%=$NEXT_YEAR%>&nbsp;&gt;</A></B></TD>
+				</TR>
+				</TABLE>
+				<%-- /MONTH NAVIGATION --%>
+			<% } elsif ($VIEW eq "Week" || $VIEW eq "Two-Week" || $VIEW eq "Three-Week" || $VIEW eq "Four-Week") { %>
+				<%-- WEEKLY NAVIGATION --%>
+				<TABLE BORDER="0" CLASS="thinborder" CELLPADDING="0" CELLSPACING="0" WIDTH=100%>
+				<TR>
+					<TD ALIGN="left" WIDTH="20%" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><A HREF="<% LAST WEEK LINK %>" CLASS="navigationtext">&lt;&nbsp;Previous&nbsp;Week</A></B></TD>
+					<TD ALIGN="center" WIDTH="60%" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><SPAN CLASS="navigationtext"><FONT <%=$_HEADER_SIZE%> COLOR="<%=$_NAVIGATION_TEXT_COLOR%>"><%=$RANGE_START%> - <%=$RANGE_END%></FONT></SPAN></B></TD>
+					<TD ALIGN="right" WIDTH="20%" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><A HREF="<% NEXT WEEK LINK %>" CLASS="navigationtext">Next&nbsp;Week&nbsp;&gt;</A></B></TD>
+				</TR>
+				</TABLE>
+				<%-- /WEEKLY NAVIGATION --%>
+			<% } elsif ($VIEW eq "Day") { %>
+				<%-- DAY NAVIGATION --%>
+				<TABLE BORDER="0" CLASS="thinborder" CELLPADDING="0" CELLSPACING="0" WIDTH=100%>
+				<TR>
+					<TD ALIGN="left" WIDTH="20%" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><A HREF="<% PREVIOUS DAY LINK %>" CLASS="navigationtext">&lt;&nbsp;Previous&nbsp;Day</A></B></TD>
+					<TD ALIGN="center" WIDTH="60%" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><SPAN CLASS="navigationtext"><FONT <%=$_HEADER_SIZE%> COLOR="<%=$_NAVIGATION_TEXT_COLOR%>"><%=$DAY->{'dayname'}%> <%=$DAY->{'monthabbreviation'}%> <%=$DATE%>, <%=$YEAR%></FONT></SPAN></B></TD>
+					<TD ALIGN="right" WIDTH="20%" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><A HREF="<% NEXT DAY LINK %>" CLASS="navigationtext">Next&nbsp;Day&nbsp;&gt;</A></B></TD>
+				</TR>
+				</TABLE>
+				<%-- /DAY NAVIGATION --%>
+			<% } elsif ($VIEW eq "Event") { %>
+				<%-- EVENT NAVIGATION --%>
+				<TABLE BORDER="0" CLASS="thinborder" CELLPADDING="0" CELLSPACING="0" WIDTH=100%>
+				<TR>
+					<TD ALIGN="center" WIDTH="20%" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><SPAN CLASS="navigationtext"><FONT <%=$_HEADER_SIZE%> COLOR="<%=$_NAVIGATION_TEXT_COLOR%>"><%= EVENT FIELD(title) %></FONT></SPAN></B></TD>
+				</TR>
+				</TABLE>
+				<%-- /EVENT NAVIGATION --%>
+			<% } elsif ($VIEW eq "Search") { %>
+				<%-- SEARCH NAVIGATION --%>
+				<TABLE BORDER="0" CLASS="thinborder" CELLPADDING="0" CELLSPACING="0" WIDTH=100%>
+				<TR>
+					<TD ALIGN="center" WIDTH="20%" BGCOLOR="<%=$_NAVIGATION_BGCOLOR%>"><B><SPAN CLASS="navigationtext"><FONT <%=$_HEADER_SIZE%> COLOR="<%=$_NAVIGATION_TEXT_COLOR%>">Search</FONT></SPAN></B></TD>
+				</TR>
+				</TABLE>
+				<%-- /SEARCH NAVIGATION --%>
+			<% } %>
+	</TD>
+</TR>
+
+
+<% if ($_SHOW_LOGGED_IN) { %>
+<%IF USER LOGGED IN%>
+	<TR><TD COLSPAN="2">
+	<SPAN CLASS="text">Logged in as: <B><%=($User->{name} || $User->{username})%></B></SPAN><BR>
+	</TD></TR>
+<%/IF%>
+<% } %>
+
+<TR>
+	<TD WIDTH="100" align="left" valign="top">
+		<%-- COMMAND/VIEW OPTIONS --%>
+		<% if ($_SHOW_GRID_LIST) { %>
+		<TABLE BORDER="0" CLASS="thinborder" WIDTH="100" BGCOLOR="<%=$COMMAND_BGCOLOR%>">
+		<TR><TD BGCOLOR="<%=(($STYLE eq "Grid")?$_COMMAND_OPTION_SELECTED_BGCOLOR:$_COMMAND_OPTION_BGCOLOR)%>"><a href="<%= $CGI_URL_QUERYSTRING %>style=Grid" CLASS="<%=(($STYLE eq "Grid")?"selectedcommandtext":"commandtext")%>">Grid</A></TD></TR>
+		<TR><TD BGCOLOR="<%=(($STYLE eq "List")?$_COMMAND_OPTION_SELECTED_BGCOLOR:$_COMMAND_OPTION_BGCOLOR)%>"><a href="<%= $CGI_URL_QUERYSTRING %>style=List" CLASS="<%=(($STYLE eq "List")?"selectedcommandtext":"commandtext")%>">List</A></TD></TR>
+		</TABLE>
+		<BR>
+		<% } %>
+		<% if ($_SHOW_VIEW) { %>
+		<TABLE BORDER="0" CLASS="thinborder" WIDTH="100" BGCOLOR="<%=$COMMAND_BGCOLOR%>">
+		<TR><TD BGCOLOR="<%=$_COMMAND_OPTION_BGCOLOR%>"><a href="<%= $CGI_URL_QUERYSTRING %>view=Day&datestring=<%=$TODAY_DATESTRING%>&selected_datestring=<%=$TODAY_DATESTRING%>" CLASS="commandtext">Today</A></TD></TR>
+		<TR><TD BGCOLOR="<%=(($VIEW eq "Week")?$_COMMAND_OPTION_SELECTED_BGCOLOR:$_COMMAND_OPTION_BGCOLOR)%>"><a href="<%= $CGI_URL_QUERYSTRING %>view=Week" CLASS="<%=(($VIEW eq "Week")?"selectedcommandtext":"commandtext")%>">Week</A></TD></TR>
+		<TR><TD BGCOLOR="<%=(($VIEW eq "Two-Week")?$_COMMAND_OPTION_SELECTED_BGCOLOR:$_COMMAND_OPTION_BGCOLOR)%>"><a href="<%= $CGI_URL_QUERYSTRING %>view=Two-Week" CLASS="<%=(($VIEW eq "Two-Week")?"selectedcommandtext":"commandtext")%>">2-Week</A></TD></TR>
+		<TR><TD BGCOLOR="<%=(($VIEW eq "Three-Week")?$_COMMAND_OPTION_SELECTED_BGCOLOR:$_COMMAND_OPTION_BGCOLOR)%>"><a href="<%= $CGI_URL_QUERYSTRING %>view=Three-Week" CLASS="<%=(($VIEW eq "Three-Week")?"selectedcommandtext":"commandtext")%>">3-Week</A></TD></TR>
+		<TR><TD BGCOLOR="<%=(($VIEW eq "Four-Week")?$_COMMAND_OPTION_SELECTED_BGCOLOR:$_COMMAND_OPTION_BGCOLOR)%>"><a href="<%= $CGI_URL_QUERYSTRING %>view=Four-Week" CLASS="<%=(($VIEW eq "Four-Week")?"selectedcommandtext":"commandtext")%>">4-Week</A></TD></TR>
+		<TR><TD BGCOLOR="<%=(($VIEW eq "Month")?$_COMMAND_OPTION_SELECTED_BGCOLOR:$_COMMAND_OPTION_BGCOLOR)%>"><a href="<%= $CGI_URL_QUERYSTRING %>view=Month" CLASS="<%=(($VIEW eq "Month")?"selectedcommandtext":"commandtext")%>">Month</A></TD></TR>
+		</TABLE>
+		<BR>
+		<% } %>
+		<% if ($_SHOW_COMMAND_LIST) { %>
+		<TABLE BORDER="0" CLASS="thinborder" WIDTH="100" BGCOLOR="<%=$COMMAND_BGCOLOR%>">
+		<TR><TD BGCOLOR="<%=(($VIEW eq "Search")?$_COMMAND_OPTION_SELECTED_BGCOLOR:$_COMMAND_OPTION_BGCOLOR)%>"><a href="<%= $CGI_URL_QUERYSTRING %>view=Search" CLASS="<%=(($VIEW eq "Search")?"selectedcommandtext":"commandtext")%>">Search</A></TD></TR>
+		<%if ($User->hasPermission($CALENDAR_KEY,"ADD_EVENT")) { %>
+			<TR><TD BGCOLOR="<%=$_COMMAND_OPTION_BGCOLOR%>"><a href="<%=$ADMIN_CGI_URL%>?calendar=<%=$CALENDAR_KEY%>&username=<%=$User->{username}%>&template=add_edit_event.html" CLASS="commandtext">Add Event</A></TD></TR>
+		<%}%>
+		<%if ($User->hasPermission($CALENDAR_KEY,"EDIT_EVENTS") || $User->hasPermission($CALENDAR_KEY,"EDIT_OWN_EVENTS")) { %>
+			<TR><TD BGCOLOR="<%=$_COMMAND_OPTION_BGCOLOR%>"><a href="<%=$ADMIN_CGI_URL%>?calendar=<%=$CALENDAR_KEY%>&username=<%=$User->{username}%>&template=edit_delete_events.html&year=<%=$YEAR%>&month=<%=$MONTH%>" CLASS="commandtext">Edit Events</A></TD></TR>
+		<%}%>
+		<%IF USER LOGGED IN%>
+		<%if ($User->isCalendarAdmin($CALENDAR_KEY)) { %>
+			<TR><TD BGCOLOR="<%=$_COMMAND_OPTION_BGCOLOR%>"><a href="<%=$ADMIN_CGI_URL%>?calendar=<%=$CALENDAR_KEY%>" CLASS="commandtext">Admin</A></TD></TR>
+		<%}%>
+		<%/IF%>
+		<%IF USER LOGGED IN%>
+		<TR><TD BGCOLOR="<%=$_COMMAND_OPTION_BGCOLOR%>"><a href="<%= $CGI_URL_QUERYSTRING %>command=logout" onClick="return confirm('Are you sure you want to logout?')" CLASS="commandtext">Logout</A></TD></TR>
+		<%ELSE%>
+		<TR><TD BGCOLOR="<%=$_COMMAND_OPTION_BGCOLOR%>"><a href="<%= $CGI_URL_QUERYSTRING %>template=login.html" CLASS="commandtext">Login</A></TD></TR>
+		<%/IF%>
+		</TABLE>
+		<% } %>
+		<%-- /COMMAND/VIEW OPTIONS --%>
+	</TD>
+	<TD VALIGN="top" ALIGN="left" WIDTH="100%">
+		<%-- =============================== --%>
+		<%-- THIS IS THE ACTUAL DISPLAY AREA --%>
+		<%-- =============================== --%>
+
+		<%-- MONTHLY OR WEEKLY VIEW --%>
+		<% if ($VIEW eq "Month" || $VIEW eq "Week" || $VIEW eq "Two-Week" || $VIEW eq "Three-Week" || $VIEW eq "Four-Week") { %>
+			<%-- GRID STYLE DISPLAY --%>
+			<% if ($STYLE eq "Grid") { %>
+				<TABLE BORDER="1" CLASS="thinborder" HEIGHT="100%" WIDTH="100%" CELLPADDING="2" CELLSPACING="1">
+					<TR>
+						<%FOREACH GRID COLUMN%>
+						<TH CLASS="thinborder" BGCOLOR="<%=$_COLUMN_HEADER_BGCOLOR%>"><SPAN CLASS="columnheader"><%= $Grid->{'daynames'}->[$COL] %></SPAN></TH>
+						<%/FOREACH%>
+					</TR>
+					<%FOREACH GRID ROW%>
+					<TR <%=$rowheight%>>
+						<%FOREACH GRID COLUMN%>
+						<% $i=0; %>
+						<TD CLASS="thinborder" VALIGN="TOP" WIDTH="14%" <%=$rowheight%> BGCOLOR="<%IF SELECTED%><%=$_GRID_CELL_SELECTED_BGCOLOR%><%ELSE%><%=$_GRID_CELL_BGCOLOR%><%/IF%>">
+							<%IF DISPLAY%>
+								<SPAN BGCOLOR="<%=$_GRID_DATE_BGCOLOR%>" CLASS="griddatetext">&nbsp;<NOBR><A HREF="<%=$CGI_URL_QUERYSTRING%>selected_datestring=<%=$DAY->{'datestring'}%>&datestring=<%=$DAY->{'datestring'}%>&view=Day" CLASS="griddatetext"><%if($DAY->{'dd'}==1&&$VIEW ne "Month"){%><%=$DAY->{'monthname'}%>&nbsp;<%}%><%=$DAY->{'dd'}%></A>&nbsp;</NOBR></SPAN>
+								<%FOREACH EVENT%>
+									<%$i++;%>
+									<SPAN CLASS="gridtext">
+									<FONT SIZE="<%=$_GRID_CELL_TEXT_SIZE%>">
+									<% if ($_SHOW_GRID_EVENT_BULLET) {%>&#149;<%}%>
+									<% if ($_SHOW_EVENT_TIMES eq "ALL" || $_SHOW_EVENT_TIMES eq "START") { %>
+										<% if ($EVENT->{'schedule'}->{'start_time'}) { %><%= SCHEDULE FIELD(start_time) %><% } %>
+									<% } %>
+									<% if ($_SHOW_EVENT_TIMES eq "ALL") { %>
+										<% if ($EVENT->{'schedule'}->{'end_time'}) { %>-<%= SCHEDULE FIELD(end_time) %><% } %>
+									<% } %>
+									<% if (($_SHOW_EVENT_TIMES eq "ALL" || $_SHOW_EVENT_TIMES eq "START") && ($EVENT->{'schedule'}->{'start_time'})) { %> : <% } %>
+									<A HREF="<%=$CGI_URL_QUERYSTRING%>view=Event&event_id=<%= EVENT FIELD(id) %>" CLASS="gridtext"><%= EVENT FIELD(title) %></A><BR>
+									</FONT>
+									</SPAN>
+								<%/FOREACH%>
+								<% if ($i==0) { %><BR>&nbsp;<BR>&nbsp;<% } %>
+							<%/IF%>
+						&nbsp;
+						</TD>
+						<%/FOREACH%>
+					</TR>
+					<%/FOREACH%>
+				</TABLE>
+			<%-- END GRID STYLE DISPLAY --%>
+			<% } elsif ($STYLE eq "List") { %>
+			<%-- LIST STYLE DISPLAY --%>
+				<CENTER><TABLE BORDER="0" WIDTH="90%"><TR><TD ALIGN="left">
+				<SPAN CLASS="text">
+				<DL>
+				<%$total_events=0;%>
+				<%FOREACH EVENTLIST%>
+					<%IF EVENTS EXIST%>
+					<%$total_events++;%>
+					<DT><B><A HREF="<%=$CGI_URL_QUERYSTRING%>selected_datestring=<%=$DAY->{'datestring'}%>&datestring=<%=$DAY->{'datestring'}%>&view=Day" CLASS="text"><%=$DAY->{dayname}%>, <%=$DAY->{monthname}%> <%=$DAY->{dd}%></A></B>
+					<DD>
+						<%FOREACH EVENT%>
+							<% if ($_SHOW_GRID_EVENT_BULLET) {%>&#149;<%}%>
+							<% if ($_SHOW_EVENT_TIMES eq "ALL" || $_SHOW_EVENT_TIMES eq "START") { %>
+								<% if ($EVENT->{'schedule'}->{'start_time'}) { %><%= SCHEDULE FIELD(start_time) %><% } %>
+							<% } %>
+							<% if ($_SHOW_EVENT_TIMES eq "ALL") { %>
+								<% if ($EVENT->{'schedule'}->{'end_time'}) { %>-<%= SCHEDULE FIELD(end_time) %><% } %>
+							<% } %>
+							<% if (($_SHOW_EVENT_TIMES eq "ALL" || $_SHOW_EVENT_TIMES eq "START") && ($EVENT->{'schedule'}->{'start_time'})) { %> : <% } %>
+							<A HREF="<%=$CGI_URL_QUERYSTRING%>view=Event&event_id=<%= EVENT FIELD(id) %>" STYLE="text-decoration:underline;" CLASS="text"><%= EVENT FIELD(title) %></A><BR>
+						<%/FOREACH%>
+					<%/IF%>
+				<%/FOREACH%>
+				</DL>
+				<%unless($total_events){%>
+				<I><%= $_NO_EVENTS_LABEL %></I>
+				<% } %>
+				</SPAN>
+				</TD></TR></TABLE></CENTER>
+			<% } %>
+			<%-- END LIST STYLE DISPLAY --%>
+
+		<%-- DAY VIEW --%>
+		<% } elsif ($VIEW eq "Day") { %>
+
+			<% if ($STYLE eq "Grid") { %>
+				<%-- GRID VIEW --%>
+				<TABLE BORDER="1" CLASS="thinborder" WIDTH=100%>
+				<%FOREACH HOUR OF DAY%>
+				<TR>
+					<TD CLASS="thinborder" BGCOLOR="<%=$_GRID_CELL_BGCOLOR%>" ALIGN="right" VALIGN="middle" WIDTH="125">
+						<SPAN CLASS="text">
+						<% if ($HOUR == 99) { %>
+						All Day Events
+						<%ELSE%>
+						<%=Date::formatTime(&Date::LZ($HOUR)."00",$Config->{'time_format'})%>&nbsp;
+						<%/IF%>
+						</SPAN>
+					</TD>
+					<TD CLASS="thinborder" BGCOLOR="<%=$_GRID_CELL_BGCOLOR%>" VALIGN=TOP>
+						<SPAN CLASS="text">
+						<%FOREACH EVENT%>
+							<% if ($_SHOW_GRID_EVENT_BULLET) {%>&#149;<%}%>
+							<% if ($_SHOW_EVENT_TIMES eq "ALL" || $_SHOW_EVENT_TIMES eq "START") { %>
+								<% if ($EVENT->{'schedule'}->{'start_time'}) { %><%= SCHEDULE FIELD(start_time) %><% } %>
+							<% } %>
+							<% if ($_SHOW_EVENT_TIMES eq "ALL") { %>
+								<% if ($EVENT->{'schedule'}->{'end_time'}) { %>-<%= SCHEDULE FIELD(end_time) %><% } %>
+							<% } %>
+							<% if (($_SHOW_EVENT_TIMES eq "ALL" || $_SHOW_EVENT_TIMES eq "START") && ($EVENT->{'schedule'}->{'start_time'})) { %> : <% } %>
+							<%= EVENT FIELD(title) %>
+							<FONT SIZE="-2">[<A HREF="<%=$CGI_URL_QUERYSTRING%>view=Event&event_id=<%= EVENT FIELD(id) %>" STYLE="text-decoration:underline;">details</A>]</FONT>
+							<BR>
+						<%/FOREACH%>
+						<%IF NO EVENTS EXIST%>&nbsp;<%/IF%>
+						</SPAN>
+					</TD>
+				</TR>
+				<%/FOREACH%>
+				</TABLE>
+			<% } else { %>
+				<%-- LIST VIEW --%>
+				<CENTER><TABLE BORDER="0" WIDTH=90%><TR><TD>
+				<SPAN CLASS="text">
+				<%IF EVENTS EXIST%>
+					<DL>
+					<%FOREACH EVENT%>
+						<DT>
+						<% if ($_SHOW_GRID_EVENT_BULLET) {%>&#149;<%}%>
+						<% if ($_SHOW_EVENT_TIMES eq "ALL" || $_SHOW_EVENT_TIMES eq "START") { %>
+							<% if ($EVENT->{'schedule'}->{'start_time'}) { %><%= SCHEDULE FIELD(start_time) %><% } %>
+						<% } %>
+						<% if ($_SHOW_EVENT_TIMES eq "ALL") { %>
+							<% if ($EVENT->{'schedule'}->{'end_time'}) { %>-<%= SCHEDULE FIELD(end_time) %><% } %>
+						<% } %>
+						<% if (($_SHOW_EVENT_TIMES eq "ALL" || $_SHOW_EVENT_TIMES eq "START") && ($EVENT->{'schedule'}->{'start_time'})) { %> : <% } %>
+						<%= EVENT FIELD(title) %>
+						<FONT SIZE="-2">[<A HREF="<%=$CGI_URL_QUERYSTRING%>view=Event&event_id=<%= EVENT FIELD(id) %>" STYLE="text-decoration:underline;">details</A>]<BR></FONT>
+						<DD>
+						<%= EVENT FIELD(description) %>
+					<%/FOREACH%>
+					</DL>
+				<%ELSE%>
+					<BR><I><%= $_NO_EVENTS_LABEL %></I><BR>
+				<%/IF%>
+				</SPAN>
+				</TD></TR></TABLE></CENTER>
+			<% } %>
+
+		<%-- EVENT VIEW --%>
+		<% } elsif ($VIEW eq "Event") { %>
+			<TABLE BORDER="0" CELLPADDING="2" CELLSPACING="0">
+			<%
+			foreach (@$fields) {
+				next unless ($db->{'properties'}->{$_}->{'display_details'});
+			%>
+				<TR><TD ALIGN="right" VALIGN="top"><SPAN CLASS="text"><B><%=$db->{'properties'}->{$_}->{'name'}%>: </B></SPAN></TD><TD ALIGN="left" VALIGN="top"><SPAN CLASS="text"><%=$EVENT->{details}->{$_}%></SPAN></TD></TR>
+			<% } %>
+			</TABLE>
+
+		<%-- SEARCH VIEW --%>
+		<% } elsif ($VIEW eq "Search") { %>
+			<FORM NAME="mainform" ACTION="<%= $CGI_URL %>" METHOD="POST">
+			<INPUT TYPE="hidden" NAME="QUERY_STRING" VALUE="<%=$QUERY_STRING%>">
+			<INPUT TYPE="hidden" NAME="fromTemplate" VALUE="<%=$thisTemplate%>">
+			<INPUT TYPE="hidden" NAME="command" VALUE="search">
+			<INPUT TYPE="hidden" NAME="view" VALUE="Search">
+			<TABLE BORDER="0">
+			<% if ($userMessage ne "") { %>
+			<TR>
+				<TD></TD>
+				<TD ALIGN="left" VALIGN="top">
+				<SPAN CLASS="messagetext">
+				<%= $userMessage %>
+				</SPAN>
+				</TD>
+			</TR>
+			<% } %>
+			<%
+			$fieldnames = &main::DBGetSearchFields($db);
+			foreach $field (@$fieldnames) {
+			%>
+			<TR>
+				<TD ALIGN="RIGHT"><SPAN CLASS="text"><B><%= $db->{'properties'}->{$field}->{'name'} || $field %> : </B></SPAN></TD>
+				<TD><%= &main::GetSearchFieldInput($db->{'properties'}->{$field},$field,$search_params) %></TD>
+			</TR>
+			<% } %>
+			<TR>
+				<TD ALIGN="RIGHT"><SPAN CLASS="text"><B>Between : </B></SPAN></TD>
+				<TD>
+				<SELECT NAME="start_month"><%= &HTML::monthNameOptions($in{start_month} || $TODAY_MONTH) %></SELECT>
+				<SELECT NAME="start_date"><%= &HTML::dateOptions($in{start_date} || $TODAY_DATE) %></SELECT>
+				<SELECT NAME="start_year"><%= &HTML::yearOptions($in{start_year} || $TODAY_YEAR) %></SELECT>
+					<SPAN CLASS="text">and </SPAN>
+				<SELECT NAME="end_month"><%= &HTML::monthNameOptions($in{end_month} || $TODAY_MONTH) %></SELECT>
+				<SELECT NAME="end_date"><%= &HTML::dateOptions($in{end_date} || $TODAY_DATE) %></SELECT>
+				<SELECT NAME="end_year"><%= &HTML::yearOptions($in{end_year} || ($TODAY_YEAR+1)) %></SELECT>
+				</TD>
+			</TR>
+			<TR>
+				<TD ALIGN="CENTER" COLSPAN="2">
+				<INPUT CLASS="button" TYPE="submit" VALUE="Search">
+				</TD>
+			</TR>
+			<% IF SEARCH RESULT %>
+			<TR>
+				<TD COLSPAN="2" ALIGN="center">
+				<SPAN CLASS="text">
+				<u><B>Search Results</B></u><BR>
+				<% IF SEARCH RESULTS EXIST %>
+				No Matches
+				<% ELSE %>
+				<TABLE BORDER="1" CELLPADDING="1" CELLSPACING="0">
+					<TR>
+						<TH><SPAN CLASS="text">First Occurrence</SPAN></TH>
+						<TH><SPAN CLASS="text">Title</SPAN></TH>
+						<TH><SPAN CLASS="text">Description</SPAN></TH>
+					</TR>
+					<% FOREACH SEARCH RESULT %>
+					<TR>
+						<TD>
+							<SPAN CLASS="text">
+							<% IF NEXT OCCURRENCE EXISTS %>
+							<%=$MONTH_NAMES->[$EVENT->{schedule}->{nextoccurrence}->{month}-1]%> <%=$EVENT->{schedule}->{nextoccurrence}->{date}%>, <%=$EVENT->{schedule}->{nextoccurrence}->{year}%>
+							<% ELSE %>
+							None
+							<% /IF %>
+							</SPAN>
+						</TD>
+						<TD><A HREF="<%=$CGI_URL_QUERYSTRING%>view=Event&event_id=<%= EVENT FIELD(id) %>" STYLE="text-decoration:underline;" CLASS="text"><%= EVENT FIELD(title) %></A></TD>
+						<TD><SPAN CLASS="text"><%= EVENT FIELD(description) %></SPAN></TD>
+					</TR>
+					<% /FOREACH %>
+				</TABLE>
+				<% /IF %>
+				</SPAN>
+				</TD>
+			</TR>
+			<% /IF %>
+			</TABLE>
+			</FORM>
+
+		<% } %>
+		<%-- END OF VIEWS --%>
+		<%-- ================================ --%>
+		<%-- /THIS IS THE ACTUAL DISPLAY AREA --%>
+		<%-- ================================ --%>
+	</TD>
+</TR>
+
+<% if ($_FOOTER) { %><TR><TD COLSPAN="2"><%= $_FOOTER %></TD></TR><% } %>
+</TABLE>
+
+</BODY>
+</HTML>

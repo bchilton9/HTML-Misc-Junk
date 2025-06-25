@@ -1,0 +1,358 @@
+
+my $dbh = DBI->connect("DBI:mysql:eqguilded_com_-_freefire:localhost","eqguilded","sword") 
+or die "Can't connect to DBI: $dbh->errstr\n"; 
+
+$temp ="select * from flagging WHERE name='$input{'show'}'";
+
+if($sth=$dbh->prepare($temp)) 
+{ 
+ $sth->execute;  #Execute the query 
+
+ while((@row=$sth->fetchrow_array)!=NULL) { 
+          $row_hit=1;
+$id = "$row[0]";
+
+$myrow[1] = "$row[1]";
+$myrow[2] = "$row[2]";
+$myrow[3] = "$row[3]";
+$myrow[4] = "$row[4]";
+$myrow[5] = "$row[5]";
+$myrow[6] = "$row[6]";
+$myrow[7] = "$row[7]";
+$myrow[8] = "$row[8]";
+$myrow[9] = "$row[9]";
+$myrow[10] = "$row[10]";
+$myrow[11] = "$row[11]";
+$myrow[12] = "$row[12]";
+$myrow[13] = "$row[13]";
+$myrow[14] = "$row[14]";
+$myrow[15] = "$row[15]";
+$myrow[16] = "$row[16]";
+$myrow[17] = "$row[17]";
+$myrow[18] = "$row[18]";
+$myrow[19] = "$row[19]";
+$myrow[20] = "$row[20]";
+$myrow[21] = "$row[21]";
+$myrow[22] = "$row[22]";
+$myrow[23] = "$row[23]";
+$myrow[24] = "$row[24]";
+$myrow[25] = "$row[25]";
+$myrow[26] = "$row[26]";
+$myrow[27] = "$row[27]";
+$myrow[28] = "$row[28]";
+$myrow[29] = "$row[29]";
+$myrow[30] = "$row[30]";
+
+ } 
+
+}
+$sth->finish; 
+$dbh->disconnect; 
+
+
+print qq~
+<FORM>
+  <CENTER>
+    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" ALIGN="Center">
+      <TR>
+	<TD COLSPAN=2 class="boardtitle"><P ALIGN=Center>
+	  <B>Tier 1</B></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Any PoJ Trial</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="anypoj" VALUE="on"
+~;
+if ($myrow[1] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">All PoJ Trials</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="allpoj" VALUE="on"
+~;
+if ($myrow[2] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed PoI Xanamech</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="xana" VALUE="on"
+~;
+if ($myrow[3] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed PoI Behemoth</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="behe" VALUE="on"
+~;
+if ($myrow[4] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">PoD Grimror Quest</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="grimror" VALUE="on"
+~;
+if ($myrow[5] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed PoD Grummus</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="grummus" VALUE="on"
+~;
+if ($myrow[6] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">PoN Hedge Quest</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="hedge" VALUE="on"
+~;
+if ($myrow[7] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed PoNb Terris Thule</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="terris" VALUE="on"
+~;
+if ($myrow[8] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD></TD>
+	<TD></TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2 class="boardtitle"><P ALIGN=Center>
+	  <B>Tier 2</B></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">PoS Askr Quest</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="askr" VALUE="on"
+~;
+if ($myrow[9] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">PoV Grenic Quest</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="gernic" VALUE="on"
+~;
+if ($myrow[10] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed PoV Aerin'Dar</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="aerin" VALUE="on"
+~;
+if ($myrow[11] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed CoD Bertoxxulous</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="bertoxx" VALUE="on"
+~;
+if ($myrow[12] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed PoTorment Saryrn</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="saryrn" VALUE="on"
+~;
+if ($myrow[13] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">PoS Wembly Quest</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="wembly" VALUE="on"
+~;
+if ($myrow[14] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD></TD>
+	<TD></TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2 class="boardtitle"><P ALIGN=Center>
+	  <B>Tier 3</B></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">HoH Trials</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="hohtrial" VALUE="on"
+~;
+if ($myrow[15] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed HoHb Mithanial Marr</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="mithanial" VALUE="on"
+~;
+if ($myrow[16] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed PoTactics Tallon Zek</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="tallon" VALUE="on"
+~;
+if ($myrow[17] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed PoTactics Vallon Zek</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="vallon" VALUE="on"
+~;
+if ($myrow[18] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">PoTactics Rallos Zek Quest</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="rallos" VALUE="on"
+~;
+if ($myrow[19] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">BoT Rescue Karana Quest</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="karana" VALUE="on"
+~;
+if ($myrow[20] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed SolRoTower Jiva</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="jiva" VALUE="on"
+~;
+if ($myrow[21] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed SolRoTower Xuzl</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="xuzl" VALUE="on"
+~;
+if ($myrow[22] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed SolRoTower Arlyxir</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="arlyxir" VALUE="on"
+~;
+if ($myrow[23] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed SolRoTower Rizlona</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="rizlona" VALUE="on"
+~;
+if ($myrow[24] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed SolRoTower Protector of Dresolik</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="dresolik" VALUE="on"
+~;
+if ($myrow[25] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed SolRoTower Solusek Ro</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="solusek" VALUE="on"
+~;
+if ($myrow[26] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD></TD>
+	<TD></TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2 class="boardtitle"><P ALIGN=Center>
+	  <B>Tier 4</B></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed PoAir Xegony</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="xegony" VALUE="on"
+~;
+if ($myrow[27] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed PoFire Fennin Ro</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="fennin" VALUE="on"
+~;
+if ($myrow[28] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow2">Killed PoWater Coirnav</TD>
+	<TD class="forumwindow2">
+	  <INPUT TYPE="checkbox" NAME="coirnav" VALUE="on"
+~;
+if ($myrow[29] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+      <TR>
+	<TD class="forumwindow3">Killed PoEarthb The Rathe</TD>
+	<TD class="forumwindow3">
+	  <INPUT TYPE="checkbox" NAME="rathe" VALUE="on"
+~;
+if ($myrow[30] eq "1") { print " CHECKED"; }
+print qq~
+ disabled></TD>
+      </TR>
+    </TABLE>
+  </CENTER>
+</FORM>
+~;

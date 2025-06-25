@@ -1,0 +1,140 @@
+###############################################################################
+###############################################################################
+# WebAPP - Automated Perl Portal                                              #
+#-----------------------------------------------------------------------------#
+# english.dat - the english language file for the UserGallery mod             #
+#                                                                             #
+# This program is free software; you can redistribute it and/or               #
+# modify it under the terms of the GNU General Public License                 #
+# as published by the Free Software Foundation; either version 2              #
+# of the License, or (at your option) any later version.                      #
+#                                                                             #
+# This program is distributed in the hope that it will be useful,             #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               #
+# GNU General Public License for more details.                                #
+#                                                                             #
+# You should have received a copy of the GNU General Public License           #
+# along with this program; if not, write to the Free Software                 #
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. #
+#                                                                             #
+#                                                                             #
+# File: english.dat, Last modified: 12 December 2002                          #
+###############################################################################
+###############################################################################
+
+$ug{'001'} = "User Gallery";
+$ug{'002'} = "Please select an Album.";
+$ug{'003'} = "There are no albums to view!";
+$ug{'004'} = "Add a Picture";
+$ug{'005'} = "Edit this Album";
+$ug{'006'} = "Delete this Album";
+$ug{'007'} = "Create an Album";
+$ug{'008'} = "Admin Tools";
+$ug{'009'} = "Album Name:";
+$ug{'010'} = "Access:";
+$ug{'011'} = "Check to allow anyone to add pictures to this album.";
+$ug{'012'} = "Create";
+$ug{'013'} = "Picture has been Added!";
+$ug{'014'} = "Picture was NOT Added!";
+$ug{'015'} = "Picture has been Moved!";
+$ug{'016'} = "Please select a Picture.";
+$ug{'017'} = "This Album is actually empty!";
+$ug{'018'} = "Album List";
+$ug{'019'} = "Your picture will appear once it has been approved!";
+$ug{'020'} = "Sorry! Your picture was not accepted!<br>The file size may be too large or the file type may be unacceptable.<br>Please try again.";
+$ug{'021'} = "Edit this Picture";
+$ug{'022'} = "Move this Picture";
+$ug{'023'} = "Delete this Picture";
+$ug{'024'} = "Previous";
+$ug{'025'} = "Next";
+$ug{'026'} = "Album";
+$ug{'027'} = "Posted by ";
+$ug{'028'} = " on ";
+$ug{'029'} = "File:";
+$ug{'030'} = "Submit";
+$ug{'031'} = "Your picture has been saved!";
+$ug{'032'} = "Description:";
+$ug{'033'} = "Complete";
+$ug{'034'} = "No Name!";
+$ug{'035'} = "Edit Picture";
+$ug{'036'} = "Move Picture";
+$ug{'037'} = "No Albums to move to";
+$ug{'038'} = "Move Picture to Album:";
+$ug{'039'} = "Are your Sure?";
+$ug{'040'} = "Edit Album";
+$ug{'041'} = "Are your Sure? Any Pictures in this Album will be deleted!";
+# v1.5 Update ##################################################################
+$ug{'042'} = "To submit your pictures please click on the";
+$ug{'043'} = "icon!";
+$ug{'044'} = "Views:";
+$ug{'045'} = "Please Try Again!";
+$ug{'046'} = "New";
+$ug{'047'} = "views";
+$ug{'048'} = "Top 10 Pictures";
+$ug{'049'} = "Pic of the Moment";
+################################################################################
+
+# User Gallery Picture Posting Rules! Please feel free to edit! ################
+# NOTE: Rule 4 is dependant on AutoPublish settings! ###########################
+$ugrule{'001'} = "NOTE!";
+$ugrule{'002'} = "1. Images MUST be in .gif or .jpg format.";
+$ugrule{'003'} = "2. Images MUST be no more than 150kb in size.";
+$ugrule{'004'} = "3. Images MUST NOT have a URL or E-Mail Address on them.";
+$ugrule{'005'} = "4. All images will be reviewed before posting to the site.";
+################################################################################
+
+$ugadmin{'001'} = "User Gallery Admin";
+$ugadmin{'002'} = "Verify Pictures";
+$ugadmin{'003'} = "Setup";
+$ugadmin{'004'} = "User Gallery";
+$ugadmin{'005'} = "Nothing to Approve";
+$ugadmin{'006'} = "Admin Tools";
+$ugadmin{'007'} = "For Approval";
+$ugadmin{'008'} = "Sendersname";
+$ugadmin{'009'} = "Description";
+$ugadmin{'010'} = "Image";
+$ugadmin{'011'} = "Publish";
+$ugadmin{'012'} = "Delete";
+$ugadmin{'013'} = "No Name!";
+$ugadmin{'014'} = "Access Controls";
+$ugadmin{'015'} = "Maximum Items per Page";
+$ugadmin{'016'} = "Create Album & Post Pictures = Admin, View Gallery = Members, AutoPublish = Off";
+$ugadmin{'017'} = "Create Album & Post Pictures = Admin, View Gallery = All, AutoPublish = Off";
+$ugadmin{'018'} = "Create Album = Admin, Post Pictures = Members, View Gallery = Members, AutoPublish = Off";
+$ugadmin{'019'} = "Create Album = Admin, Post Pictures = Members, View Gallery = All, AutoPublish = Off";
+$ugadmin{'020'} = "Create Album & Post Pictures = Members, View Gallery = Members, AutoPublish = Off";
+$ugadmin{'021'} = "Create Album & Post Pictures = Members, View Gallery = All, AutoPublish = Off";
+$ugadmin{'022'} = "Create Album & Post Pictures = Members, View Gallery = Members, AutoPublish = On";
+$ugadmin{'023'} = "Create Album & Post Pictures = Members, View Gallery = All, AutoPublish = On";
+$ugadmin{'024'} = "Submit";
+# v1.5 Update ##################################################################
+$ugadmin{'025'} = "Show Album New";
+$ugadmin{'026'} = "Show Picture New";
+$ugadmin{'027'} = "Show Picture Hot";
+$ugadmin{'028'} = "Never";
+$ugadmin{'029'} = "Day";
+$ugadmin{'030'} = "Days";
+$ugadmin{'031'} = "Views";
+$ugadmin{'032'} = "View Failed Upload Log";
+$ugadmin{'033'} = "Reset Failed Upload Log";
+$ugadmin{'034'} = "There have been no failures!";
+$ugadmin{'035'} = "Needing Approval!";
+$ugadmin{'036'} = "No New Pictures!";
+$ugadmin{'037'} = "New Picture(s).";
+$ugadmin{'038'} = "Who may approve?";
+$ugadmin{'039'} = "Admin Only";
+$ugadmin{'040'} = "All Administrators";
+################################################################################
+
+# v1.5 Update - Note: Error Messages No Longer Required! #######################
+$ugerror{'001'} = "";
+$ugerror{'002'} = "";
+$ugerror{'003'} = "";
+$ugerror{'004'} = "";
+$ugerror{'005'} = "";
+$ugerror{'006'} = "";
+################################################################################
+
+1; # return true
+

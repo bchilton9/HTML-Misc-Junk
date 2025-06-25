@@ -1,0 +1,3 @@
+<A HREF=index.cgi class=menu>Home</A><BR>
+<A HREF=roster.cgi class=menu>Roster</A><BR>
+<A HREF=forum.cgi class=menu>Forums</A>

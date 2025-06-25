@@ -1,0 +1,3 @@
+cyrdan|Buddy List|05/29/04 - 20:17:56|User cyrdan. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=cyrdan>cyrdan</a>|1085879876
+Thenewone|Buddy List|05/19/04 - 16:18:16|User Thenewone. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=Thenewone>Thenewone</a>|1085001496
+drakling|Buddy List|03/30/04 - 14:11:51|User drakling. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=drakling>drakling</a>|1080677511

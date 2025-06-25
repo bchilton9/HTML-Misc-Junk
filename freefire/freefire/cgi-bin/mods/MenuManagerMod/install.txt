@@ -1,0 +1,78 @@
+Menu Manager Mod Installation Instructions:
+
+----------------------------------------------------------------------------------------------------------------
+Notes:
+      This mod requires WebApp version 0.9.7 or later. If you are using an earlier version,
+      you will need to make the following changes before you can install the mod:
+
+         Create a folder named user-lib in the main WebApp folder - this folder should be at the same level as the cgi-lib folder.
+         Chmod this folder 755.
+
+         Open subs.pl from your WebApp cgi-lib folder.
+         Add the following statement before the 1; at the end of the file:
+
+            if (-e "$scriptdir/user-lib/subs.pl") {require "$scriptdir/user-lib/subs.pl"}
+
+
+++++++++++++++++++++++++++++++++++
+
+      If you use the "admin lite" features in WebApp you will need to perform the following steps after installing the Menu Manager mod:
+
+      1) Add a unique user status for your admin lite users (in the Edit User Status section of Site Admin)
+      2) Assign the new user status to your admin lite users (on their profiles)
+      3) Make the admin lite menu item available to this new status (in the Member Panel section of the Menu Manager Mod admin console)
+
+----------------------------------------------------------------------------------------------------------------
+Installing the Menu Manager Mod:
+
+   Step 1: Copy files to your server
+
+      Open your FTP client and log into your web server with the hostname, username and password your web host has given you.
+      Upload the entire menuman directory in ASCII-Mode into your WebApp Mods folder.
+      You should now have the following directory structure:
+
+      mods/menuman/config.dat
+      mods/menuman/config.pl
+      mods/menuman/menuman.pl
+      mods/menuman/admin/admin.cgi
+      mods/menuman/admin/useradmin.cgi
+      mods/menuman/data/mainmenu.dat
+      mods/menuman/data/memberpanel.dat
+      mods/menuman/data/menubar.dat
+      mods/menuman/language/english.dat
+
+   Step 2: Set Permissions
+
+      CHMOD 755 (owner rwx, group rx, others rx) the following folders and files:
+      /menuman
+      /menuman/admin
+      /menuman/language
+      /menuman/admin/admin.cgi
+      /menuman/admin/useradmin.cgi
+      /menuman/menuman.pl
+
+      CHMOD 777 (owner rwx, group rwx, others rwx) the following folder:
+      /menuman/data
+      /menuman/data/mainmenu.dat
+      /menuman/data/memberpanel.dat
+      /menuman/data/menubar.dat
+
+      CHMOD 644 (owner rw, group r, others r) the following folders and files:
+      /menuman/config.dat
+      /menuman/config.pl
+      /menuman/language/english.dat
+
+
+   Step 3: Redirect calls to display the menu
+
+   Create a folder named themes in your user-lib folder and chmod it 755.
+   Copy themes.pl from the Menu Manager Mod distribution (user-lib/themes folder) to your WeApp user-lib/themes folder and chmod it 755.
+
+   If you do not currently have a user-lib version of subs.pl:
+      Copy subs.pl from the Menu Manager Mod distribution (user-lib folder) to your WebApp user-lib folder and chmod it 755.
+
+   If you already have a user-lib version of subs.pl and it does not contain the print_top() function:
+      Copy this function from the subs.pl file distributed with the Menu Manager Mod (user-lib folder) into your existing user-lib version of subs.pl.
+
+   If you already have a user-lib version of subs.pl and it does contain the print_top() function:
+      I hope you know what you’re doing because you’re on your own.

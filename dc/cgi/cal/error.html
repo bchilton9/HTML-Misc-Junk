@@ -1,0 +1,29 @@
+<HTML>
+<HEAD><TITLE>Error</TITLE>
+<META HTTP-EQUIV="expires" CONTENT="now">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<!--#include file="preferences.pl"-->
+<!--#include file="styles.css"-->
+</HEAD>
+<BODY BGCOLOR="white">
+
+<CENTER>
+<TABLE BORDER="1" WIDTH="500">
+<TR>
+	<TD ALIGN="center">
+	<BR><BR>
+	<B>ERROR:</B> <BR><BR>
+	<FONT COLOR="red">
+	<%= $errorMessage %>
+	<% if ($userMessage ne "") { %>
+		<%= $userMessage %>
+	<% } %>
+	</FONT>
+	<BR><BR>
+	</TD>
+</TR>
+</TABLE>
+</CENTER>
+
+</BODY>
+</HTML>

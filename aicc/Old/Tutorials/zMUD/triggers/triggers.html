@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+  <!-- Created with AOLpress/2.0 -->
+  <TITLE>Mys' BotMakeing</TITLE>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#ffffff" LINK="#ffffff" VLINK="#ffffff">
+<CENTER>
+  <TABLE BORDER CELLSPACING="0" CELLPADDING="0" ALIGN="Center" WIDTH="760"
+  BORDERCOLOR="blue">
+    <TR>
+      <TD BGCOLOR=#0000ff><P ALIGN=Center>
+	<BIG><A NAME="trig">Making Triggers</A></BIG></TD>
+    </TR>
+    <TR>
+      <TD><P ALIGN=Center>
+	Anything you see in the bots window can start a trigger
+	<P ALIGN=Center>
+	<IMG WIDTH="284" HEIGHT="194" SRC="greentext.gif">
+	<P ALIGN=Center>
+	The green&nbsp;text is what is sent from furcadia
+	<P ALIGN=Center>
+	Make a trigger as follows:
+	<CENTER>
+	  <TABLE BORDER CELLPADDING="2" ALIGN="Center">
+	    <TR>
+	      <TD>Class:</TD>
+	      <TD>anything</TD>
+	    </TR>
+	    <TR>
+	      <TD>Pattern:</TD>
+	      <TD>The green&nbsp;text you want to cause&nbsp;the trigger</TD>
+	    </TR>
+	    <TR>
+	      <TD>Command:</TD>
+	      <TD>what you want the bot to do when it sees the green&nbsp;text</TD>
+	    </TR>
+	  </TABLE>
+	</CENTER>
+	<P ALIGN=Center>
+	You cant just copy and past things over
+	<P ALIGN=Center>
+	zMUD uses some of the things sent as other things and wont recognize it.
+	<P ALIGN=Center>
+	For example when someone talks it looks like:
+	<P ALIGN=Center>
+	<FONT COLOR="#008000">(Mys': hello</FONT>
+	<P ALIGN=Center>
+	zMUD thinks the ( is (*) witch will be explained later
+	<P ALIGN=Center>
+	if you put {} around it the ( wont be looked at as (*)
+	<P ALIGN=Center>
+	<FONT COLOR="#008000">{(}Mys': hello</FONT>
+	<P ALIGN=Center>
+	Now this trigger will only be set off by Mys' if you put a * where Mys' name
+	is it wont be counted
+	<P ALIGN=Center>
+	*&nbsp;can take the place of anything if there is nutting where the * is
+	the trigger will not be recognized
+	<P ALIGN=Center>
+	<FONT COLOR="#008000">{(}*: hello</FONT>
+	<P ALIGN=Center>
+	now when ever someone says hello the bot will do&nbsp;what ever is in the
+	command
+	<P ALIGN=Center>
+	  <HR WIDTH="50%" COLOR="blue">
+	<P ALIGN=Center>
+	If you want your bot to say "hello name" when someone says "Hello Bot" heres
+	how you do it
+	<P ALIGN=Center>
+	use the pattern from&nbsp;above
+	<P ALIGN=Center>
+	<FONT COLOR="#008000">{(}*: hello</FONT>
+	<P ALIGN=Center>
+	now we want it to be just for someone saying hello to the bot so well&nbsp;put
+	the bots name in
+	<P ALIGN=Center>
+	<FONT COLOR="#008000">{(}*: hello bot</FONT>
+	<P ALIGN=Center>
+	this will&nbsp;work if you just want it to say hello back but what if you
+	want it to say hello Mys' back
+	<P ALIGN=Center>
+	this is where you use the (*)
+	<P ALIGN=Center>
+	instead of using the * use the (*) and anywhere in the command you put %1
+	it will put what ever is&nbsp;in the (*)
+	<P ALIGN=Center>
+	<FONT COLOR="#008000">{(}(*): hello bot</FONT>
+	<P ALIGN=Center>
+	Example:
+	<CENTER>
+	  <TABLE BORDER CELLPADDING="2" ALIGN="Center">
+	    <TR>
+	      <TD>Pattern:</TD>
+	      <TD><FONT COLOR="#ffffff">{(}(*): hello bot</FONT></TD>
+	    </TR>
+	    <TR>
+	      <TD>Command:</TD>
+	      <TD>"Hello %1</TD>
+	    </TR>
+	  </TABLE>
+	</CENTER>
+	<P ALIGN=Center>
+	This will&nbsp;make the bot say "hello Mys'" when Mys' says "hello bot"
+	<P ALIGN=Center>
+	Whispers work the same way
+	<P ALIGN=Center>
+	Example:
+	<CENTER>
+	  <TABLE BORDER CELLPADDING="2" ALIGN="Center">
+	    <TR>
+	      <TD>Pattern:</TD>
+	      <TD>{([} (*) whispers, "hello" to you. {]}</TD>
+	    </TR>
+	    <TR>
+	      <TD>Command:</TD>
+	      <TD>wh %1 Hello</TD>
+	    </TR>
+	  </TABLE>
+	</CENTER>
+	<P ALIGN=Center>
+	if you use more then one (*) just use %1 %2 and so on
+	<P ALIGN=Center>
+	Pattern: <FONT COLOR="#008000">{(}(*): (*)</FONT>
+	<P ALIGN=Center>
+	<FONT COLOR="#ffffff">Command: </FONT><FONT COLOR="#008000">"%1 said %2</FONT>
+	<P>
+	  <HR WIDTH="50%" COLOR="blue">
+	<P ALIGN=Center>
+	You don't need to make several different triggers for capital letters exp.
+	"hello bot" "HELLO BOT"
+	<P ALIGN=Center>
+	take the words you want to use and place&nbsp;them like so {WORD|word}
+	<P ALIGN=Center>
+	<FONT COLOR="#008000">{(}(*): {hello|HELLO} bot</FONT>
+	<P ALIGN=Center>
+	now when someone types either "hello bot" or "HELLO bot" the bot will respond
+	<P ALIGN=Center>
+	  <HR WIDTH="50%" COLOR="blue">
+	<P ALIGN=Center>
+	Use a ; to indicate a new line in the command
+	<P ALIGN=Center>
+	Example:
+	<P ALIGN=Center>
+	<FONT COLOR="#008000"> "hello;<BR>
+	m&nbsp;9</FONT>
+	<P ALIGN=Center>
+	or
+	<P ALIGN=Center>
+	<FONT COLOR="#008000"> "hello;m&nbsp;9</FONT>
+	<P ALIGN=Center>
+	This will&nbsp;make the bot say "hello" and take a step north east
+	<P ALIGN=Center>
+	  <HR WIDTH="50%" COLOR="blue">
+	<P ALIGN=Center>
+	<FONT COLOR="#ffffff"><FONT COLOR="#008000"><FONT COLOR="#ff0000"><BIG>*TIP*</BIG></FONT>
+	&nbsp;</FONT>You can use a ~ inserted of {} exp.</FONT><FONT COLOR="#008000">
+	~((*): hello</FONT></TD>
+    </TR>
+    <TR>
+      <TD BGCOLOR=#0000ff><P ALIGN=Center>
+	Created By Mys'</TD>
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY></HTML>

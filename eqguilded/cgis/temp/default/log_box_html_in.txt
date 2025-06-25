@@ -1,0 +1,6 @@
+ <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>
+<TR><TD><P ALIGN=right>
+Logged in as !!name!! !!sur!!<BR>
+<A HREF=http://www.eqguilded.com/message.cgi CLASS=menu>!!messages!! Messages</A>  <A HREF=http://www.eqguilded.com/useredit.cgi class=menu>Edit Settings</A>  <A HREF=http://www.eqguilded.com/login.cgi?logout class=menu>Log Out</A><BR>
+You have !!points!! points!
+</TD></TR></TABLE>

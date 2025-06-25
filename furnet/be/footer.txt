@@ -1,0 +1,63 @@
+<script language="JavaScript1.2">
+<!--
+
+function scrollBar(line,face,theme)
+	{
+		if (!line||!face)
+			{
+				line=null;
+				face=null;
+				switch(theme) // Predefined themes
+					{
+						case "blue":
+							var line="#78AAFF";
+							var face="#EBF5FF";
+							break;
+						case "orange":
+							var line="#FBBB37";
+							var face="#FFF9DF";
+							break;
+						case "red":
+							var line="#FF7979";
+							var face="#FFE3DD";
+							break;
+						case "green":
+							var line="#00C600";
+							var face="#D1EED0";
+							break;
+						case "neo":
+							var line="#BC7E41";
+							var face="#EFE0D1";
+							break;
+					}
+			}
+
+				with(document.body.style)
+					{
+						scrollbarDarkShadowColor=line;
+						scrollbar3dLightColor=line;
+						scrollbarArrowColor="black";
+						scrollbarBaseColor=face;
+						scrollbarFaceColor=face;
+						scrollbarHighlightColor=face;
+						scrollbarShadowColor=face;
+						scrollbarTrackColor="#F3F3F3";
+					}
+			}
+
+/*------------------[Pointer coordinates catcher]---------------*/
+function colorBar(){
+		var w = document.body.clientWidth;
+		var h = document.body.clientHeight;
+		var x = event.clientX;
+		var y = event.clientY;
+		if(x>w) scrollBar('#000080','#BFDFFF'); // Your colors
+		else scrollBar(null,null,"blue"); // A predefined theme
+	}
+
+if (document.all){
+scrollBar(null,null,"neo");
+document.onmousemove=colorBar;
+}
+//-->
+</script>

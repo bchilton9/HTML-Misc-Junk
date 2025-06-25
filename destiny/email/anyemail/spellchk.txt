@@ -1,0 +1,21 @@
+To install the spell checker for AnyEmail (http://netbula.com/anyemail/),
+follow these instructions
+
+1) Install the sproxy.cgi script at the same location as the anyboard.cgi
+   script, make sure you checked the perl path at the first line of script
+   (/usr/bin/perl) and change the script permission to make it executable.
+
+2) Install the spch.js javascript to your www/ directory. chmod 644 on it.
+
+3) set the $main::spellcgi to the URI of the sproxy.cgi script,
+   for example, if your cgibin directory is /cgi-bin/ then
+
+   $main::spellcgi="/cgi-bin/sproxy.cgi"; #note it starts with /
+
+   IMPORTANT: DO NOT PUT THE FULL URL IN ABOVE, ONLY THE PART AFTER DOMAIN NAME
+   THIS WON"T WORK: $abmain::spellcgi="http://anyboard.net/cgi-bin/sproxy.cgi";
+
+4) Set $main::enable_speller = 1
+
+  
+That is it!

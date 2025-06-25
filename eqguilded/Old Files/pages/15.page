@@ -1,0 +1,88 @@
+   <P>
+      <BR>
+   <CENTER>
+     <TABLE BORDER CELLSPACING="0" CELLPADDING="2" ALIGN="Center">
+       <TR>
+         <TD>Name</TD>
+         <TD>Status</TD>
+         <TD>ICQ Number</TD>
+       </TR>
+       <TR>
+         <TD><B>Senadien Silverwolf</B></TD>
+         <TD><img src="http://web.icq.com/whitepages/online?icq=256985438&img=9"></TD>
+         <TD>256985438</TD>
+       </TR>
+       <TR>
+         <TD><B>Keny Misspeller</B></TD>
+         <TD><img src="http://web.icq.com/whitepages/online?icq=249890961&img=9"></TD>
+         <TD>249890961</TD>
+       </TR>
+       <TR>
+         <TD><B>Klassy Truheart</B></TD>
+         <TD><img src="http://web.icq.com/whitepages/online?icq=179818745&img=9"--></TD>
+         <TD>179818745</TD>
+       </TR>
+       <TR>
+         <TD><B>Gugluk Hearteater</B></TD>
+         <TD><img src="http://web.icq.com/whitepages/online?icq=208998175&img=9"></TD>
+         <TD>208998175</TD>
+       </TR>
+       <TR>
+         <TD><B>Bojax</B></TD>
+         <TD><img src="http://web.icq.com/whitepages/online?icq=267994848&img=9"></TD>
+         <TD>267994848</TD>
+       </TR>
+ 
+       <TR>
+         <TD><B>Melinar</B></TD>
+         <TD><img src="http://web.icq.com/whitepages/online?icq=49565973&img=9"></TD>
+         <TD>49565973</TD>
+       </TR>
+     </TABLE>
+   </CENTER>
+      <P>
+      <BR>
+      
+      <script language="JavaScript">
+      <!--
+      	function NewWin() {
+      		var leftpos = (screen.availWidth - 200)-40 
+      		resiz = (navigator.appName=="Netscape") ? 0 : 1 
+      		window.open("http://go.icq.com//icqgo/web/0,,,00.html", "TOFI","width=164,height=446,top=40,left="+leftpos+",directories=no,location=no,menubar=no,scroll=no,status=no,titlebar=no,toolbar=no,resizable="+resiz+"") 
+      	}
+      	
+      	m_expdate = new Date() 
+      	m_expdate.setTime(m_expdate.getTime() + (365 * 24 * 60 * 60 * 1000))  // now + 1 year
+      	var path ="/" 
+      
+      	function fill_in(checkbox, cname) {
+      	if (cname != null) {
+      			if (cname == "false") checkbox.checked = false 
+      			else
+      			{
+      			checkbox.checked = true 
+      			NewWin() 
+      			}
+      		}
+      	else
+      		if (checkbox.checked == true) NewWin() 
+      
+      	}
+      
+      	function Save() {
+      	var launchICQgo = document.launcher.launchICQgo.checked 
+      	SetCookie("launchICQgo", launchICQgo , m_expdate , path, ".icq.com", false) 
+      	}
+      
+      	function fillFields() {
+      	var	launchICQgo = GetCookie("launchICQgo") 
+      	fill_in(document.launcher.launchICQgo , launchICQgo) 
+      	}
+      //-->
+      </script>
+      
+      
+      <a href="javascript:NewWin()"><img src='http://go.icq.com//lib/image/0,,6900,00.gif' width='172' height='32'  border='0' alt="Start ICQ2Go!"></a><BR>
+      ICQ2Go! is a web based ICQ client.<BR>
+      You can use it from any computer with out installing or downloading ICQ.<BR>
+      You need your ICQ # or email and password to use it.

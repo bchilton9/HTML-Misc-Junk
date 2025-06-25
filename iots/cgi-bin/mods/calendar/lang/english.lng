@@ -1,0 +1,132 @@
+###############################################################################
+# WebApp Calendar Mod - calendar.pl                                           #
+# ----------------------------------------------------------------------------#
+#                                                                             #
+# english.lng - the English language file                                     #
+#                                                                             #
+# Copyright (C) 2002 by Ted Loomos (tloomos@pbs-inc.net)                      #
+#                                                                             #
+# This program is free software; you can redistribute it and/or               #
+# modify it under the terms of the GNU General Public License                 #
+# as published by the Free Software Foundation; either version 2              #
+# of the License, or (at your option) any later version.                      #
+#                                                                             #
+# This program is distributed in the hope that it will be useful,             #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               #
+# GNU General Public License for more details.                                #
+#                                                                             #
+# You should have received a copy of the GNU General Public License           #
+# along with this program; if not, write to the Free Software                 #
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. #
+#                                                                             #
+# File: english.lng, Last modified: 06/09/02								  #
+#                                                                             #
+# Version History                                                             #
+# 0.0.1 - 06/09/02 - Initial language file created                            #
+#                                                                             #
+###############################################################################
+
+$cal_msg{'001'} = "Show Details";
+$cal_msg{'002'} = "Hide Details";
+$cal_msg{'003'} = "Event Summary For ";
+$cal_msg{'004'} = "Time";
+$cal_msg{'005'} = "Event";
+$cal_msg{'006'} = "No Events";
+$cal_msg{'007'} = "Event Details:";
+$cal_msg{'008'} = "Public";
+$cal_msg{'009'} = "Delete This Record?";
+$cal_msg{'011'} = "General Settings";
+$cal_msg{'012'} = "Event Approvals";
+$cal_msg{'013'} = "Event Manager";
+$cal_msg{'014'} = "Events For:";
+$cal_msg{'015'} = "No unapproved events exist.";
+$cal_msg{'016'} = "No events exist for ";
+$cal_msg{'017'} = $msg{'430'}; # "Admin";
+$cal_msg{'018'} = "Private for";
+
+
+$cal_opt{'001'} = $nav{'047'};
+$cal_opt{'002'} = $nav{'048'};
+$cal_opt{'003'} = "Approve?";
+$cal_opt{'004'} = "Delete?";
+$cal_opt{'005'} = "Approved?";
+
+
+$cal_set{'001'} = $msg{'207'}; #"Title";
+$cal_set{'002'} = "Require Admin Approval of Public events?";
+$cal_set{'003'} = "Send Notification Email to Admin for new events?";
+$cal_set{'004'} = "Email Address to send new event notification to";
+$cal_set{'005'} = "Files and Paths:";
+$cal_set{'006'} = "Full path to CalendarMod Script Files";
+$cal_set{'007'} = "Full path to CalendarMod Language Files";
+$cal_set{'008'} = "Full URL path to CalendarMod Script";
+$cal_set{'009'} = "Full URL path to CalendarMod Admin Script";
+$cal_set{'010'} = "Full path to CalendarMod Data Files";
+#$cal_set{'011'} = "Configuration Filename";
+$cal_set{'012'} = "Event Data Filename";
+$cal_set{'013'} = "Default Language Filename";
+$cal_set{'014'} = "Full URL to Calendar Image";
+$cal_set{'015'} = "Database Settings:";
+$cal_set{'016'} = "Delimiter";
+$cal_set{'017'} = "Use File Locking?";
+$cal_set{'018'} = "Sidebar Calendar Settings:";
+$cal_set{'019'} = "(&quot;Style&quot; entries use HTML property:value syntax)";
+$cal_set{'020'} = "Cell Size";
+$cal_set{'021'} = "Border Width";
+$cal_set{'022'} = "Border Style";
+$cal_set{'023'} = "Heading Font Style";
+$cal_set{'024'} = "Day of Week Heading Font Style";
+$cal_set{'025'} = "Day of Week Heading Cell Style";
+$cal_set{'026'} = "Font Style for Today";
+$cal_set{'027'} = "Cell Style for Today";
+$cal_set{'028'} = "Standard Font Style";
+$cal_set{'029'} = "Standard Cell Style";
+$cal_set{'030'} = "Empty Cell Style";
+$cal_set{'031'} = "Main Calendar Settings:";
+$cal_set{'032'} = "Large Calendar Cell Size";
+$cal_set{'033'} = "Large Calendar Border Width";
+$cal_set{'034'} = "Large Calendar Border Style";
+$cal_set{'035'} = "Small Calendar Cell Size";
+$cal_set{'036'} = "Small Calendar Border Width";
+$cal_set{'037'} = "Small Calendar Border Style";
+$cal_set{'038'} = "Heading Font Style";
+$cal_set{'039'} = "Day of Week Heading Font Style";
+$cal_set{'040'} = "Day of Week Heading Cell Style";
+$cal_set{'041'} = "Selected Day Font Style";
+$cal_set{'042'} = "Selected Day Cell Style";
+$cal_set{'043'} = "Standard Font Style";
+$cal_set{'044'} = "Standard Cell Style";
+$cal_set{'045'} = "Font Style for Today";
+$cal_set{'046'} = "Empty Cell Style";
+
+
+$cal_btn{'001'} = "Cancel";
+$cal_btn{'002'} = $btn{"027"}; # "Add"
+$cal_btn{'003'} = $btn{"015"}; # "Modify"
+$cal_btn{'004'} = $btn{"011"}; # "Delete"
+$cal_btn{'005'} = $btn{'009'}; # "Reset"
+$cal_btn{'006'} = "Process Selections";
+$cal_btn{'007'} = "Refresh";
+$cal_btn{'008'} = "Approve Events";
+
+##---------------------------------------------------------------
+## Database Columns
+##
+## These keys MUST MATCH the first row in the events data file!!!
+##---------------------------------------------------------------
+$cal_db{'ID'}       = "ID";
+$cal_db{'DATE'}     = "Date";
+$cal_db{'TIME'}     = "Time";
+$cal_db{'EVENT'}    = "Event";
+$cal_db{'OWNER'}    = "Visible To";
+$cal_db{'SOURCE'}   = "Created By";
+$cal_db{'APPROVED'} = "Approved";
+$cal_db{'DETAILS'}  = "Details";
+$cal_db{'WEBSITE'}  = "Web Site";
+$cal_db{'CATEGORY'}  = "Category";
+
+@daysAbbrev = qw(Su M Tu W Th F Sa);
+
+1; # return true
+

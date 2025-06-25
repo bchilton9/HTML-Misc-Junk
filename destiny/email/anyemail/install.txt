@@ -1,0 +1,38 @@
+Basic installation steps for AnyEmail
+
+1) ftp the aedata/ directory to your web server, change the permissions of aedata and its sub directories'
+   permissions to make them writable by AnyEmail (0777 permission under UNIX/Linux). AnyEmail will complain
+   about permissions if these directories are not writable.
+
+   ftp the aeicons/ directory to your web root (where your main home page sits), the url of aeicons/ should be
+   http://your-site-name.com/aeicons/
+
+2) Edit the anyemail.cgi script
+
+   a) If needed, edit the first line #!/usr/bin/perl to reflect PERL locaton on your server.
+
+   b) Set $fix_cgi_url to the URL of the anyemail.cgi script, for example
+
+               $fix_cgi_url = "http://perlpro.com/cgi-bin/anyemail.cgi";
+
+   c) Set $anyemaildir to the full path of the aedata/ directory just uploaded, for example
+
+               $anyemaildir = "C:/anyemail/aedata"; 
+
+      You can use relative path (relative to your CGI-BIN) if you are not sure about the full path.
+
+      note: we use / as directory separator even for Windows system
+
+   d) Set $icon_location to the URL of the DIRECTORY aeicons/, for example,
+
+	$icon_location = 'http://your-domain.com/aeicons';
+
+3) Upload the anyemail.cgi (change extension from cgi to pl if needed)  to your /cgi-bin/
+
+
+That's it! AnyEmail trial expires in 30 days. You will see cookie error afterwards. 
+To purchase a license key, please see links at http://netbula.com/anyemail/
+
+For more options, such as limiting POP3 servers, using default pop3 server, etc,
+please consult the online usage guide.
+           

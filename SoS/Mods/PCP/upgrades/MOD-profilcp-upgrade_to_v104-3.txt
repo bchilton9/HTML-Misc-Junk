@@ -1,0 +1,706 @@
+############################################################## 
+## MOD Title: Profile Control Panel - upgrade from v 1.0.4-2 to v 1.0.4-3
+## MOD Author: Ptirhiik < ptirhiik@clanmckeen.com > (Pierre) http://rpgnet.clanmckeen.com
+## MOD Description:
+##		This one is the collection of fixes already published on pcp v 1.0.4-2 plus
+##		the custom panel management.
+## MOD Version: 1.0.4-3 RC
+## 
+## Installation Level: Easy
+## Installation Time: 20 Minutes
+## Files To Edit:
+##		profilcp/functions_profile.php
+##		profilcp/profilcp_buddy.php
+##		profilcp/profilcp_home_wtopics.php
+##		profilcp/profilcp_public_groups.php
+##		profilcp/def/def_userfuncs.php
+##		profilcp/def/def_usermaps.php
+##		includes/mods_settings/mod_profile_control_panel.php
+##		language/lang_english/lang_extend_pcp_management.php
+##		templates/subSilver/profilcp/home_body.tpl
+##
+## Included Files:
+##		admin/admin_pcp_usermaps.php
+##		includes/functions_admin_pcp.php
+##		profilcp/profilcp_board_config.php
+##		profilcp/profilcp_public_base.php
+##		templates/subSilver/admin/pcp_usermaps_def.tpl
+##		templates/subSilver/admin/pcp_usermaps_edit_body.tpl
+############################################################## 
+## For Security Purposes, Please Check: http://www.phpbb.com/mods/ for the 
+## latest version of this MOD. Downloading this MOD from other sites could cause malicious code 
+## to enter into your phpBB Forum. As such, phpBB will not offer support for MOD's not offered 
+## in our MOD-Database, located at: http://www.phpbb.com/mods/ 
+############################################################## 
+## Author Notes: 
+## 
+############################################################## 
+## MOD History: 
+## 
+##   2003-10-24 - Version 1.0.4-3 RC
+##      - various fixes
+##	- add the custom panel management
+## 
+############################################################## 
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+##############################################################
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy admin/admin_pcp_usermaps.php to admin/admin_pcp_usermaps.php
+copy includes/functions_admin_pcp.php to includes/functions_admin_pcp.php
+copy profilcp/profilcp_board_config.php to profilcp/profilcp_board_config.php
+copy profilcp/profilcp_public_base.php to profilcp/profilcp_public_base.php
+copy templates/subSilver/admin/pcp_usermaps_def.tpl to templates/subSilver/admin/pcp_usermaps_def.tpl
+copy templates/subSilver/admin/pcp_usermaps_edit_body.tpl to templates/subSilver/admin/pcp_usermaps_edit_body.tpl
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-23-01 : groups public view sometime fails
+#
+profilcp/profilcp_public_groups.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.4 - 17/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.5 - 17/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+						AND user_id= $user_id
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+						AND user_id =" .  $userdata['user_id'] . "
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-23-02 : watched topics on home panel : typo in the pos
+#
+profilcp/profilcp_home_wtopics.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.0 - 26/09/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.1 - 23/10/2003
+ *
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$home_modules['pos'][] = 'left';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	$home_modules['pos'][] = 'right';
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-23-05 : select lost in pagination on members lists
+#
+profilcp/profilcp_buddy.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version			: 1.2.1 - 20/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version			: 1.2.2 - 23/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$fvalue = ( isset($HTTP_GET_VARS['fvalue'] ) || isset($HTTP_POST_VARS['fvalue'] ) ) ? ( isset($HTTP_GET_VARS['fvalue'] ) ? trim(htmlspecialchars($HTTP_GET_VARS['fvalue'] )) : htmlspecialchars(urldecode($HTTP_POST_VARS['fvalue'])) ) : '';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	$fvalue = ( isset($HTTP_GET_VARS['fvalue'] ) || isset($HTTP_POST_VARS['fvalue'] ) ) ? ( isset($HTTP_GET_VARS['fvalue'] ) ? trim(htmlspecialchars(stripslashes(urldecode($HTTP_GET_VARS['fvalue'])))) : htmlspecialchars(urldecode($HTTP_POST_VARS['fvalue'])) ) : '';
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$s_filter .= '</select>';
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+
+	// add the sort to the call
+	if ( !empty($order) && !empty($sort) ) 
+	{ 
+		$call .= "&order=$order&sort=$sort"; 
+	}
+#
+#-----[ FIND ]------------------------------------------------
+#
+	// call url
+	$call = "./profile.$phpEx?mode=buddy&sub=$sub";
+	if ( !empty($order) && !empty($sort) )
+	{
+		$call .= "&order=$order&sort=$sort";
+	}
+	if ( !empty($filter) && empty($comp) && !empty($fvalue) )
+	{
+		$call .= "&filter=$filter&comp=$comp&fvalue=" . urlencode($fvalue);
+	}
+	$call = append_sid($call);
+
+	$template->assign_vars(array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	$template->assign_vars(array(
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-23-03 : usage of get_func and chk func inoperational
+#
+profilcp/def/def_userfuncs.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.3 - 20/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.4 - 23/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$res['type'] = $res['get_mode'];
+	}
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	else if ( !empty($res['get_func']) || !empty($res['chk_func']) )
+	{
+		$res['type'] = '';
+	}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# 2003-10-23-04 : user_from missing from viewtopic panel
+#
+#	NB. : don't forget to set the CHMOD of the file to 666 after upload,
+#	or use the ACP to modify this one :) : map : PHPBB->viewtopic->left
+#
+profilcp/def/def_usermaps.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+			'user_loc' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			'user_from' => array(
+#
+#-----[ OPEN ]------------------------------------------------
+#
+# not published
+#
+# go to ACP after installation, and edit a map (any) to regenerate the file
+#
+#	NB. : don't forget to set the CHMOD of the file to 666 after upload
+#
+profilcp/def/def_usermaps.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'Preferences' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.Preferences' => array(
+		'order'		=> 20,
+		'custom'	=> 1,
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'Preferences.home' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.Preferences.home' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'Preferences.home.buddy' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.Preferences.home.buddy' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'Preferences.home.privmsgs' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.Preferences.home.privmsgs' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'Preferences.home.watched_topics' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.Preferences.home.watched_topics' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer' => array(
+		'order'	=> 10,
+		'title'	=> 'profile_prefer',
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer' => array(
+		'order'		=> 10,
+		'title'		=> 'profilcp_prefer_shortcut',
+		'custom'	=> 1,
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.base' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.base' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.base.Real_info' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.base.Real_info' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.base.Contact' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.base.Contact' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.base.Messangers' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.base.Messangers' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.base.Web_info' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.base.Web_info' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.PCP' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.PCP' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.PCP.i18n' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.PCP.i18n' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.PCP.privacy' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.PCP.privacy' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.PCP.notification' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.PCP.notification' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.PCP.posting' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.PCP.posting' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.PCP.reading' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.PCP.reading' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.PCP.system' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.PCP.system' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'profile_prefer.admin' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.profil.profile_prefer.admin' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'PCP.buddy' => array(
+		'title'	=> '',
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.buddy' => array(
+		'title'	=> 'profilcp_buddy_shortcut',
+		'order'	=> 50,
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'PCP.viewprofile.avatar' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.viewprofile.base.avatar' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'PCP.viewprofile.messangers' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.viewprofile.base.messangers' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'PCP.viewprofile.international' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.viewprofile.base.international' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'PCP.viewprofile.groups' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.viewprofile.base.groups' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'PCP.viewprofile.webinfo' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.viewprofile.base.webinfo' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'PCP.viewprofile.real' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.viewprofile.base.real' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+	'PCP.viewprofile.signature' => array(
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	'PCP.viewprofile.base.signature' => array(
+#
+#-----[ FIND ]------------------------------------------------
+#
+);
+
+
+?>
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+	'PCP' => array(
+		'order'	=> 10,
+		'title'	=> 'Profile',
+	),
+	'PHPBB' => array(
+		'order'	=> 20,
+		'title'	=> 'phpBB',
+	),
+	'PCP.viewprofile' => array(
+		'order'		=> 10,
+		'title'		=> 'profilcp_public_shortcut',
+	),
+	'PCP.viewprofile.base' => array(
+		'order'		=> 10,
+		'title'		=> 'profilcp_public_base_shortcut',
+		'custom'	=> 2,
+	),
+	'PCP.home' => array(
+		'title' => 'profilcp_index_shortcut',
+		'order'	=> 20,
+	),
+	'PCP.register' => array(
+		'title' => 'profilcp_register_shortcut',
+		'order'	=> 30,
+	),
+	'PCP.profil' => array(
+		'title' => 'profilcp_profil_shortcut',
+		'order'	=> 40,
+	),
+	'PCP.privmsg' => array(
+		'title' => 'Private_Messaging',
+		'order'	=> 60,
+	),
+	'PCP.profil.avatar' => array(
+		'title' => 'profilcp_avatar_shortcut',
+		'order'	=> 30,
+	),
+	'PCP.profil.signature' => array(
+		'title' => 'profilcp_signature_shortcut',
+		'order'	=> 40,
+	),
+#
+#-----[ OPEN ]------------------------------------------------
+#
+language/lang_english/lang_extend_pcp_management.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 0.0.3 - 18/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 0.0.4 - 24/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$lang['PCP_usermaps_add'] = 'Add a new map';
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	$lang['PCP_usermaps_custom'] = 'Program used';
+	$lang['PCP_usermaps_custom_explain'] = 'Set here if you want to use a standard panel program to display this map.';
+	$lang['PCP_custom_none'] = 'Dedicated program';
+	$lang['PCP_custom_input'] = 'Standard input program';
+	$lang['PCP_custom_output'] = 'Standard output program';
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/functions_profile.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.1.1 - 17/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.1.2 - 24/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+function pcp_set_menu($mode, $sort='', $url='', $shortcut='', $page_title='')
+{
+	global $lang;
+	global $module;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	global $user_maps;
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$module['page_title'][$idx]		= empty($module['page_title'][$idx]) ? $lang[$page_title] : $module['page_title'][$idx];
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+
+	if ( isset($user_maps['PCP.' . $mode]) )
+	{
+		$module['sort'][$idx] = $user_maps['PCP.' . $mode]['order'];
+	}
+#
+#-----[ FIND ]------------------------------------------------
+#
+function pcp_set_sub_menu($mode, $sub_mode, $sub_sort='', $sub_url='', $sub_shortcut='', $sub_page_title='' )
+{
+	global $lang;
+	global $module;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	global $user_maps;
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$module['sub'][$idx]['page_title'][$sub_idx]	= empty($module['sub'][$idx]['page_title'][$sub_idx]) ? $lang[$sub_page_title] : $module['sub'][$idx]['page_title'][$sub_idx];
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+
+	if ( isset($user_maps['PCP.' . $mode . '.' . $sub_mode]) )
+	{
+		$module['sub'][$idx]['sort'][$sub_idx] = $user_maps['PCP.' . $mode . '.' . $sub_mode]['order'];
+	}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/mods_settings/mod_profile_control_panel.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version			: 1.0.1 - 07/10/2003
+ *
+ *	mod version		: profile control panel v 1.0.2
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *
+ *	version			: 1.0.2 - 24/10/2003
+ *
+#
+#-----[ FIND ]------------------------------------------------
+#
+@reset($user_maps);
+while ( list($map_name, $map_data) = @each($user_maps) )
+{
+	$map_tree = explode('.', $map_name);
+	if ( ($map_tree[0] == 'profile_prefer') || ($map_tree[0] == 'Preferences') )
+	{
+		// some fields ?
+		if ( !empty($user_maps[$map_name]['fields']) )
+		{
+			$mod_main_menu	= pcp_get_mods_setting_menu('title', $map_tree[0]);
+			$mod_main_sort	= pcp_get_mods_setting_menu('order', $map_tree[0]);
+			$mod_name		= pcp_get_mods_setting_menu('title', $map_tree[0] . '.' . $map_tree[1]);
+			$mod_sort		= pcp_get_mods_setting_menu('order', $map_tree[0] . '.' . $map_tree[1]);
+			$sub_name		= '';
+			$sub_sort		= 0;
+			if ( !empty($map_tree[2]) )
+			{
+				$sub_name	= pcp_get_mods_setting_menu('title', $map_tree[0] . '.' . $map_tree[1] . '.' . $map_tree[2]);
+				$sub_sort	= pcp_get_mods_setting_menu('order', $map_tree[0] . '.' . $map_tree[1] . '.' . $map_tree[2]);
+			}
+			$config_fields	= pcp_get_mods_setting_config_fields($map_name);
+
+			// init config table
+			if ( !empty($config_fields) )
+			{
+				init_board_config($mod_name, $config_fields, $sub_name, $sub_sort, $mod_sort, $mod_main_menu, $mod_main_sort);
+			}
+		}
+	}
+}
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+// first pass : get main maps
+$w_maps = array();
+@reset($user_maps);
+while ( list($map_name, $map_data) = @each($user_maps) )
+{
+	$map_tree = explode('.', $map_name);
+	if ( ($map_tree[0] = 'PCP') && ($map_data['custom'] == 1) )
+	{
+		// get this map
+		$map_tree = explode('.', $map_name);
+		$w_maps['name'][] = $map_name;
+		$w_maps['depth'][] = count($map_tree)-1;
+	}
+}
+
+// second pass : get sub maps
+@reset($user_maps);
+while ( list($map_name, $map_data) = @each($user_maps) )
+{
+	for ( $i=0; $i < count($w_maps['name']); $i++ )
+	{
+		if ( substr($map_name, 0, strlen($w_maps['name'][$i])) == $w_maps['name'][$i] )
+		{
+			// we must stay within 3 sub levels
+			$map_tree = explode('.', $map_name);
+			if ( ( (count($map_tree) - 1 - $w_maps['depth'][$i]) < 3 ) && ( (count($map_tree) - 1 - $w_maps['depth'][$i]) > 0 ) )
+			{
+				// map name
+				$start = $w_maps['depth'][$i];
+				$map_root = '';
+				for ( $j=0; $j < $start; $j++ )
+				{
+					if ( !empty($map_tree[$j]) )
+					{
+						$map_root .= ( empty($map_root) ? '' : '.' ) . $map_tree[$j];
+					}
+				}
+
+				// get the menu name entries
+				$menu = array();
+				for ( $j=0; $j < 3; $j++ )
+				{
+					$local_name = '';
+					$local_sort = 0;
+					if ( !empty($map_tree[ $j + $start ]) )
+					{
+						$map_root .= '.' . $map_tree[ $j + $start ];
+						$local_name = pcp_get_mods_setting_menu('title', $map_root);
+						if ( ($j==0) && in_array($w_maps['name'][$i], array('PCP.profil.Preferences', 'PCP.profil.profile_prefer')) )
+						{
+							$local_name = $map_tree[$start];
+						}
+						$local_sort = pcp_get_mods_setting_menu('order', $map_root);
+					}
+					$menu[$j]['name'] = $local_name;
+					$menu[$j]['sort'] = $local_sort;
+				}
+
+				// init config table
+				$config_fields	= pcp_get_mods_setting_config_fields($map_name);
+				if ( !empty($config_fields) )
+				{
+					init_board_config($menu[1]['name'], $config_fields, $menu[2]['name'], $menu[2]['sort'], $menu[1]['sort'], $menu[0]['name'], $menu[0]['sort']);
+				}
+				break;
+			}
+		}
+	}
+}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/profilcp/home_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+	<!-- BEGIN right_part -->
+	<td width="100%" valign="top">
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	<!-- BEGIN right_part -->
+	<td width="99%" valign="top">
+#
+#-----[ SAVE/CLOSE ALL FILES ]--------------------------------
+#
+# EoM

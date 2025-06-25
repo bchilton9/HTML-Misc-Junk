@@ -1,0 +1,100 @@
+#!/usr/bin/perl -Tw
+
+use strict;
+$| = 1;
+
+use CGI::Carp "fatalsToBrowser";
+use CGI ":all";
+use DBI;
+
+my $serverName = "localhost";
+my $serverPort = "3306";
+my $serverUser = "guestbook";
+my $serverPass = "guestbook";
+my $serverDb = "guestbook";
+my $serverTabl = "guestbook";
+
+print 
+     header,
+     start_html("SQL Guestbook"),
+     h1("Add and Read Guestbook Entries");
+if(my $error = check_form()) {
+     show_form($error);
+     print end_html;
+} else {
+     if(my $error = insert_entry()) {
+          show_form($error);
+     } else {
+          show_entries();
+     }
+     print end_html;
+}
+
+sub show_form {
+     my $error = shift;
+     print hr;
+     if($error) { print $error, hr; }
+     print 
+          start_form,
+     table(map
+          Tr(td($_->[0]), td(textfield($_->[1],"",undef,60))),
+          ["Name", "name"],
+          ["Age", "age"],
+          ["E-Mail Address", "email"],
+          ["Web Site Address", "website"],
+          ["Comments", "comments"],
+          ),
+     submit,
+     end_form,
+     hr;
+}
+
+sub check_form() {
+     return "You didn't enter anything..." unless param();
+     return "Please enter a name" unless param("name"); 
+     return "Please enter your e-mail address" unless param("email");
+     return;
+}
+
+sub insert_entry {
+     my ($dbh, $success, $name, $age, $email, $website, $comments,$time);
+     
+     $dbh = DBI->connect("DBI:mysql:database=$server Db;host=$serverName;port=$serverPort",$serverUser,$serverPass);
+     $name = param("name");
+     $age = param("age");
+     $email = param("email");
+     $website = param("website");
+     $comments = param("comments");
+     $time = time;
+     $success = $dbh->do("INSERT INTO 
+               $serverTabl(name,age,email,website,comments,time) 
+               VALUES(?,?,?,?,?,?)", undef, $name, $age, $email, $website, $comments, $time);
+     $dbh->disconnect;
+     if($success != 1) {
+          return "Sorry, the database was unable to add your entry.
+               Please try again later.";
+     } else {
+          return;
+     }
+}
+
+sub show_entries {
+     my ($dbh, $sth, @row);
+
+     $dbh = DBI->connect("DBI:mysql:database=$serverDb;host=$serverName;port=$serverPort",$serverUser,$serverPass);
+     $sth = $dbh->prepare("SELECT name,age,email,website,comments,time 
+               FROM $serverTabl ORDER BY time");
+     $sth->execute;
+     print "Existing Entries",hr;
+     while(@row = $sth->fetchrow_array) {
+          $row[5] = scalar(localtime($row[5]));
+          print "Name: ", $row[0], br;
+          print "Age: ", $row[1], br;
+          print "E-Mail Address: ", $row[2], br;
+          print "Web Site Address: ", $row[3], br;
+          print "Comments: ", $row[4], br;
+          print "Added on ", $row[5], hr;
+     }
+     $sth->finish;
+     $dbh->disconnect;
+}

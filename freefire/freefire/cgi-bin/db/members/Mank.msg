@@ -1,0 +1,1 @@
+Tohdai|Forum post|05/12/04 - 14:25:28|Sweety, the comment about not complaining when not on so much was refering to myself, and not to you!!! I would not dare to comment about someone else!<br><br>I just wanted to make that clear to you hon!<br><br>*hugs*|1084389874|aicon2|1

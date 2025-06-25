@@ -1,0 +1,1495 @@
+# phpMyAdmin SQL Dump
+# version 2.5.2
+# http://www.phpmyadmin.net
+#
+# Host: localhost
+# Generation Time: Nov 23, 2003 at 08:57 PM
+# Server version: 4.0.15
+# PHP Version: 4.2.3
+# 
+# Database : `eqguild_guild`
+# 
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_album`
+#
+# Creation: Nov 23, 2003 at 08:11 AM
+# Last update: Nov 23, 2003 at 08:11 AM
+#
+
+CREATE TABLE `KS_album` (
+  `album` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `KS_album`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_forums`
+#
+# Creation: Nov 23, 2003 at 08:11 AM
+# Last update: Nov 23, 2003 at 08:11 AM
+#
+
+CREATE TABLE `KS_forums` (
+  `id` int(11) NOT NULL auto_increment,
+  `forum` text,
+  `description` text,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=3 ;
+
+#
+# Dumping data for table `KS_forums`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_html`
+#
+# Creation: Nov 23, 2003 at 08:11 AM
+# Last update: Nov 23, 2003 at 05:09 PM
+#
+
+CREATE TABLE `KS_html` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL,
+  `useheader` varchar(10) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `KS_html`
+#
+
+INSERT INTO `KS_html` VALUES ('main_page_html', '    <HTML>\r\n <HEAD>\r\n   <TITLE>EQ Guilded - !!guildname!!</TITLE>\r\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\r\n </HEAD>\r\n <body class=body>!!HEADBANNER!!\r\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\r\n   <TR>\r\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\r\n \r\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\r\n   <TR>\r\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\r\n </TR>\r\n <TR>\r\n <TD>\r\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\r\n   </TR>\r\n </TABLE>\r\n \r\n </TD>\r\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\r\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n 	<TR>\r\n 	  <TD><P ALIGN=Right>\r\n !!logbox!!\r\n 	  </TD>\r\n 	</TR>\r\n       </TABLE>\r\n     </TD>\r\n   </TR>\r\n   <TR>\r\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% BACKGROUND="http://www.eqguilded.com/images/curvbot.gif"><IMG\r\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\r\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n 	<TR>\r\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n 	      <TR>\r\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\r\n 		    <TR>\r\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n 			  <TR>\r\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n 				<TR>\r\n 				  <TD>  Main Menu</TD>\r\n 				</TR>\r\n 			      </TABLE>\r\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n 				<TR>\r\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n 				    class="menubackcolor">\r\n 				      <TR>\r\n 					<TD class="cat">\r\n \r\n !!links!!\r\n \r\n </TD>\r\n 				      </TR>\r\n 				    </TABLE>\r\n 				  </TD>\r\n 				</TR>\r\n 			      </TABLE>\r\n 			    </TD>\r\n 			  </TR>\r\n 			</TABLE>\r\n 		      </TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		</TD>\r\n 	      </TR>\r\n 	    </TABLE>\r\n 	  </TD>\r\n 	</TR>\r\n       </TABLE>\r\n     </TD>\r\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\r\n       CELLPADDING="4" WIDTH=100%>\r\n 	<TR>\r\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\r\n 	      <TR>\r\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n 		    <TR>\r\n 		      <TD>  Welcome to Knightstrike!</TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n 		    <TR>\r\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n 			class="menubackcolor">\r\n 			  <TR>\r\n 			    <TD class="cat"><CENTER>\r\n <!-- START CONTENT -->\r\n \r\n \r\n Welcome Knightstrike!!\r\n<BACKGROUND="http://bellsouthpwp.net/p/e/pendleyn/black13.jpg">\r\n <center><IMG SRC="http://bellsouthpwp.net/p/e/pendleyn/knightback.jpg">\r\n </center>\r\n <!-- END CONTENT -->\r\n \r\n 			      </CENTER>\r\n 			    </TD>\r\n 			  </TR>\r\n 			</TABLE>\r\n 		      </TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		</TD>\r\n 	      </TR>\r\n 	    </TABLE>\r\n 	  </TD>\r\n 	</TR>\r\n       </TABLE>\r\n       <P class=cat>\r\n Knightstrike news <A HREF=?show=news_history class=menu>(view news history)</A>\r\n </P>\r\n       !!news!!\r\n \r\n </TD>\r\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%><BR>\r\n       <TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\r\n 	<TR>\r\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n 	      <TR>\r\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n 		    <TR>\r\n 		      <TD>  Poll</TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n 		    <TR>\r\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n 			class="menubackcolor">\r\n 			  <TR>\r\n 			    <TD class="cat">Poll Coming Soon!!</TD>\r\n 			  </TR>\r\n 			</TABLE>\r\n 		      </TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		</TD>\r\n 	      </TR>\r\n 	    </TABLE></TD>\r\n 	</TR>\r\n       </TABLE>\r\n     </TD>\r\n   </TR>\r\n   <TR>\r\n   </TR>\r\n   <TR>\r\n   </TR>\r\n   <TR>\r\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\r\n 	  WIDTH="47" HEIGHT="40"></TD>\r\n   </TR>\r\n </TABLE>\r\n <CENTER>\r\n   <FONT face="Arial" size="1">©  COPYRIGHT 2003 ALL RIGHTS RESERVED\r\n   EQGUILDED.COM</FONT>\r\n <P>\r\n !!counter!!\r\n </CENTER>\r\n <P>\r\n !!FOOTBANNER!!</body></HTML>\r\n\r\n\r\n\r\n\r\n\r\n', 'true');
+INSERT INTO `KS_html` VALUES ('log_box_html_in', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n Loged in as !!name!! !!sur!!<BR>\n <A HREF=../message.cgi CLASS=menu>!!messages!! Messages</A>  <A HREF=../useredit.cgi class=menu>Edit Settings</A>  <A HREF=../login.cgi?logout class=menu>Log Out</A><BR>\n You have !!points!! points!\n </TD></TR></TABLE>', '');
+INSERT INTO `KS_html` VALUES ('log_box_html_out', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n You are not loged in<BR>\n <A HREF=http://www.eqguilded.com class=menu>Click here to login/Signup</A>\n </TD></TR></TABLE>', '');
+INSERT INTO `KS_html` VALUES ('news_box_html', ' <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n <TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n <TR><TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n <TR><TD>  !!date!!</TD>\n </TR></TABLE>\n <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n <TR>\n <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%" class="menubackcolor">\n <TR><TD class="cat">\n <CENTER>\n !!news!!\n </CENTER>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>', '');
+INSERT INTO `KS_html` VALUES ('off_page_html', '    <HTML>\n <HEAD>\n \n   <TITLE>EQ Guilded</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD class=cat>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 			<P>\n 			<TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" width=100%>\n 			  <TR>\n 			    <TD></TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100% HEIGHT=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  </TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n 		    <TR>\n 		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n 				<CENTER>\n \n 				  !!content!!\n \n 				</CENTER>\n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P>\n     </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%></TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT class=textsmall>©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>\n', 'true');
+INSERT INTO `KS_html` VALUES ('roster_line_html', ' <TR>\n <TD>!!name!! !!sur!!</TD>\n <TD>!!rank!!</TD>\n <TD>!!race!!</TD>\n <TD>!!class!!</TD>\n <TD>!!level!!</TD>\n </TR>', '');
+INSERT INTO `KS_html` VALUES ('roster_head_html', ' !!guildname!! Roster<BR>\n <CENTER>\n <TABLE BORDER="0" CELLSPACING="3" CELLPADDING="3" ALIGN="Center">\n <TR>\n <TD><P ALIGN=Center>Name</TD>\n <TD><P ALIGN=Center>Rank</TD>\n <TD><P ALIGN=Center>Race</TD>\n <TD><P ALIGN=Center>Class</TD>\n <TD><P ALIGN=Center>Level</TD>\n </TR>', '');
+INSERT INTO `KS_html` VALUES ('roster_foot_html', ' </TABLE>\n </CENTER>', '');
+INSERT INTO `KS_html` VALUES ('links_html', '<A HREF=index.cgi class=menu>Home</A><BR>\n <A HREF=roster.cgi class=menu>Roster</A><BR>\n <A HREF=forum.cgi class=menu>Forums</A>', '');
+INSERT INTO `KS_html` VALUES ('forum_main_html', '<P>\r\n <CENTER>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header>\r\n <td width=60% BGCOLOR=#c0c0c0>Forum Name</td>\r\n <td width=30% BGCOLOR=#c0c0c0>Last Post</td>\r\n <td width=10% BGCOLOR=#c0c0c0><CENTER>Posts</td>\r\n </tr>\r\n !!threads!!\r\n </table>', '');
+INSERT INTO `KS_html` VALUES ('forum_post_html', '<tr>\r\n <td valign=top width=20% BGCOLOR=#cbfacd>\r\n !!name!!<BR>\r\n<SMALL> - !!rank!!</SMALL>\r\n </TD>\r\n <td BGCOLOR=#cbfacd>\r\n <b>!!subject!!</b>\r\n <HR>\r\n !!message!!\r\n</TD>\r\n</TR>\r\n<TR>\r\n\r\n<TD BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right><SMALL>Posted on: !!date!!</SMALL> !!admin!!\r\n </td>\r\n \r\n </tr>', '');
+INSERT INTO `KS_html` VALUES ('forum_thread_html', '<tr><td BGCOLOR=#cbfacd><IMG SRC=!!image!!>  <a href="forum.cgi?do=view_topic&forum=!!forum!!&topic=!!topic!!" class=menu>!!topic!!</a></td>\r\n <td BGCOLOR=#cbfacd>!!name!!</td><td BGCOLOR=#cbfacd>!!date!!</td><td BGCOLOR=#cbfacd>!!count!!</td></tr>', '');
+INSERT INTO `KS_html` VALUES ('forum_topic_html', '<P>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr><td BGCOLOR=#c0c0c0>Poster</td><td BGCOLOR=#c0c0c0><A HREF=forum.cgi class=menu>Forums</A> > <A HREF="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</A> > <IMG SRC=!!image!!> !!topic!!\r\n</td></tr>\r\n\r\n !!posts!!\r\n\r\n <tr><td BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right>!!admin!!\r\n</td></tr>\r\n\r\n </table>', '');
+INSERT INTO `KS_html` VALUES ('forum_view_main_html', '<tr class=field>\n            <td BGCOLOR=#cbfacd>\n               <a href="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</a><BR>\n 	      <SMALL>!!description!!</SMALL>\n            </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      !!lastpostname!!<BR>\n               <SMALL>!!lastpostdate!!</SMALL>\n 	   </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      <CENTER>\n 	      !!count!!\n 	   </td>\n 	</tr>', '');
+INSERT INTO `KS_html` VALUES ('forum_view_thred_html', '<table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr>\r\n <td BGCOLOR=#c0c0c0 WIDTH=20%>\r\n     \r\n </td>\r\n <td BGCOLOR=#c0c0c0>\r\n <A HREF=forum.cgi class=menu>Forums</A> > !!forum!!\r\n </td>\r\n </tr>\r\n </TABLE>\r\n \r\n <table width=100%  BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header><td BGCOLOR=#c0c0c0>Topic</a></td>\r\n <td BGCOLOR=#c0c0c0>Created by</td><td BGCOLOR=#c0c0c0>Date Created</td><td BGCOLOR=#c0c0c0>Number of Replies</td></tr>\r\n \r\n !!topics!!\r\n \r\n </table>\r\n <A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=1" class=menu>New Thered</A>', '');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_news`
+#
+# Creation: Nov 23, 2003 at 08:11 AM
+# Last update: Nov 23, 2003 at 08:11 AM
+#
+
+CREATE TABLE `KS_news` (
+  `date` date NOT NULL default '0000-00-00',
+  `news` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `KS_news`
+#
+
+INSERT INTO `KS_news` VALUES ('2003-11-23', 'Dynamic News Boxes! To update go into your Edit Settings and select Add/Delete News.');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_pages`
+#
+# Creation: Nov 23, 2003 at 08:11 AM
+# Last update: Nov 23, 2003 at 08:11 AM
+#
+
+CREATE TABLE `KS_pages` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `KS_pages`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_photo`
+#
+# Creation: Nov 23, 2003 at 08:11 AM
+# Last update: Nov 23, 2003 at 08:11 AM
+#
+
+CREATE TABLE `KS_photo` (
+  `album` text NOT NULL,
+  `image` text NOT NULL,
+  `discription` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `KS_photo`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_posts`
+#
+# Creation: Nov 23, 2003 at 04:59 PM
+# Last update: Nov 23, 2003 at 04:59 PM
+#
+
+CREATE TABLE `KS_posts` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text,
+  `message` longtext,
+  `subject` text,
+  `ip` text,
+  `thread` int(11) default NULL,
+  `topic` text,
+  `forum` text,
+  `date` text,
+  `sticky` varchar(10) NOT NULL default '',
+  `locked` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `KS_posts`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_ranks`
+#
+# Creation: Nov 23, 2003 at 08:11 AM
+# Last update: Nov 23, 2003 at 08:11 AM
+#
+
+CREATE TABLE `KS_ranks` (
+  `name` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `KS_ranks`
+#
+
+INSERT INTO `KS_ranks` VALUES ('Guild-Leader');
+INSERT INTO `KS_ranks` VALUES ('Assistant-Guild-Leader');
+INSERT INTO `KS_ranks` VALUES ('Officer');
+INSERT INTO `KS_ranks` VALUES ('Member');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `KS_user`
+#
+# Creation: Nov 23, 2003 at 08:11 AM
+# Last update: Nov 23, 2003 at 08:11 AM
+#
+
+CREATE TABLE `KS_user` (
+  `name` varchar(25) NOT NULL default '',
+  `access` varchar(25) NOT NULL default '',
+  `rank` text NOT NULL,
+  `type` text NOT NULL,
+  `points` varchar(25) NOT NULL default '',
+  `aproved` varchar(25) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `KS_user`
+#
+
+INSERT INTO `KS_user` VALUES ('telisa', 'Master', 'Guild-Leader', 'Officer', '0', 'true');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_album`
+#
+# Creation: Nov 21, 2003 at 07:45 PM
+# Last update: Nov 21, 2003 at 07:45 PM
+#
+
+CREATE TABLE `PP_album` (
+  `album` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `PP_album`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_forums`
+#
+# Creation: Nov 21, 2003 at 07:45 PM
+# Last update: Nov 21, 2003 at 07:45 PM
+#
+
+CREATE TABLE `PP_forums` (
+  `id` int(11) NOT NULL auto_increment,
+  `forum` text,
+  `description` text,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=3 ;
+
+#
+# Dumping data for table `PP_forums`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_html`
+#
+# Creation: Nov 21, 2003 at 07:45 PM
+# Last update: Nov 23, 2003 at 05:10 PM
+#
+
+CREATE TABLE `PP_html` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL,
+  `useheader` varchar(10) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `PP_html`
+#
+
+INSERT INTO `PP_html` VALUES ('main_page_html', ' <HTML>\n <HEAD>\n   <TITLE>EQ Guilded - !!guildname!!</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><P ALIGN=Right>\n !!logbox!!\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% BACKGROUND="http://www.eqguilded.com/images/curvbot.gif"><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  Welcome to !!guildname!!</TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 		    <TR>\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n <!-- START CONTENT -->\n \n \n Welcome to our new guild website!!\n \n \n <!-- END CONTENT -->\n \n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P class=cat>\n !!guildname!! news <A HREF=?show=news_history class=menu>(view news history)</A>\n </P>\n       !!news!!\n \n </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%><BR>\n       <TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  Poll</TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 		    <TR>\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat">Poll Coming Soon!!</TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE></TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT face="Arial" size="1">©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n <P>\n !!counter!!\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>', 'true');
+INSERT INTO `PP_html` VALUES ('log_box_html_in', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n Loged in as !!name!! !!sur!!<BR>\n <A HREF=../message.cgi CLASS=menu>!!messages!! Messages</A>  <A HREF=../useredit.cgi class=menu>Edit Settings</A>  <A HREF=../login.cgi?logout class=menu>Log Out</A><BR>\n You have !!points!! points!\n </TD></TR></TABLE>', '');
+INSERT INTO `PP_html` VALUES ('log_box_html_out', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n You are not loged in<BR>\n <A HREF=http://www.eqguilded.com class=menu>Click here to login/Signup</A>\n </TD></TR></TABLE>', '');
+INSERT INTO `PP_html` VALUES ('news_box_html', ' <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n <TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n <TR><TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n <TR><TD>  !!date!!</TD>\n </TR></TABLE>\n <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n <TR>\n <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%" class="menubackcolor">\n <TR><TD class="cat">\n <CENTER>\n !!news!!\n </CENTER>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>', '');
+INSERT INTO `PP_html` VALUES ('off_page_html', '    <HTML>\n <HEAD>\n \n   <TITLE>EQ Guilded</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD class=cat>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 			<P>\n 			<TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" width=100%>\n 			  <TR>\n 			    <TD></TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100% HEIGHT=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  </TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n 		    <TR>\n 		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n 				<CENTER>\n \n 				  !!content!!\n \n 				</CENTER>\n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P>\n     </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%></TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT class=textsmall>©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>\n', 'true');
+INSERT INTO `PP_html` VALUES ('roster_line_html', ' <TR>\n <TD>!!name!! !!sur!!</TD>\n <TD>!!rank!!</TD>\n <TD>!!race!!</TD>\n <TD>!!class!!</TD>\n <TD>!!level!!</TD>\n </TR>', '');
+INSERT INTO `PP_html` VALUES ('roster_head_html', ' !!guildname!! Roster<BR>\n <CENTER>\n <TABLE BORDER="0" CELLSPACING="3" CELLPADDING="3" ALIGN="Center">\n <TR>\n <TD><P ALIGN=Center>Name</TD>\n <TD><P ALIGN=Center>Rank</TD>\n <TD><P ALIGN=Center>Race</TD>\n <TD><P ALIGN=Center>Class</TD>\n <TD><P ALIGN=Center>Level</TD>\n </TR>', '');
+INSERT INTO `PP_html` VALUES ('roster_foot_html', ' </TABLE>\n </CENTER>', '');
+INSERT INTO `PP_html` VALUES ('links_html', '<A HREF=index.cgi class=menu>Home</A><BR>\n <A HREF=roster.cgi class=menu>Roster</A><BR>\n <A HREF=forum.cgi class=menu>Forums</A>', '');
+INSERT INTO `PP_html` VALUES ('forum_main_html', '<P>\r\n <CENTER>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header>\r\n <td width=60% BGCOLOR=#c0c0c0>Forum Name</td>\r\n <td width=30% BGCOLOR=#c0c0c0>Last Post</td>\r\n <td width=10% BGCOLOR=#c0c0c0><CENTER>Posts</td>\r\n </tr>\r\n !!threads!!\r\n </table>', '');
+INSERT INTO `PP_html` VALUES ('forum_post_html', '<tr>\r\n <td valign=top width=20% BGCOLOR=#cbfacd>\r\n !!name!!<BR>\r\n<SMALL> - !!rank!!</SMALL>\r\n </TD>\r\n <td BGCOLOR=#cbfacd>\r\n <b>!!subject!!</b>\r\n <HR>\r\n !!message!!\r\n</TD>\r\n</TR>\r\n<TR>\r\n\r\n<TD BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right><SMALL>Posted on: !!date!!</SMALL> !!admin!!\r\n </td>\r\n \r\n </tr>', '');
+INSERT INTO `PP_html` VALUES ('forum_thread_html', '<tr><td BGCOLOR=#cbfacd><IMG SRC=!!image!!>  <a href="forum.cgi?do=view_topic&forum=!!forum!!&topic=!!topic!!" class=menu>!!topic!!</a></td>\r\n <td BGCOLOR=#cbfacd>!!name!!</td><td BGCOLOR=#cbfacd>!!date!!</td><td BGCOLOR=#cbfacd>!!count!!</td></tr>', '');
+INSERT INTO `PP_html` VALUES ('forum_topic_html', '<P>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr><td BGCOLOR=#c0c0c0>Poster</td><td BGCOLOR=#c0c0c0><A HREF=forum.cgi class=menu>Forums</A> > <A HREF="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</A> > <IMG SRC=!!image!!> !!topic!!\r\n</td></tr>\r\n\r\n !!posts!!\r\n\r\n <tr><td BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right>!!admin!!\r\n</td></tr>\r\n\r\n </table>', '');
+INSERT INTO `PP_html` VALUES ('forum_view_main_html', '<tr class=field>\n            <td BGCOLOR=#cbfacd>\n               <a href="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</a><BR>\n 	      <SMALL>!!description!!</SMALL>\n            </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      !!lastpostname!!<BR>\n               <SMALL>!!lastpostdate!!</SMALL>\n 	   </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      <CENTER>\n 	      !!count!!\n 	   </td>\n 	</tr>', '');
+INSERT INTO `PP_html` VALUES ('forum_view_thred_html', '<table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr>\r\n <td BGCOLOR=#c0c0c0 WIDTH=20%>\r\n     \r\n </td>\r\n <td BGCOLOR=#c0c0c0>\r\n <A HREF=forum.cgi class=menu>Forums</A> > !!forum!!\r\n </td>\r\n </tr>\r\n </TABLE>\r\n \r\n <table width=100%  BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header><td BGCOLOR=#c0c0c0>Topic</a></td>\r\n <td BGCOLOR=#c0c0c0>Created by</td><td BGCOLOR=#c0c0c0>Date Created</td><td BGCOLOR=#c0c0c0>Number of Replies</td></tr>\r\n \r\n !!topics!!\r\n \r\n </table>\r\n <A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=1" class=menu>New Thered</A>', '');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_news`
+#
+# Creation: Nov 21, 2003 at 07:45 PM
+# Last update: Nov 21, 2003 at 07:45 PM
+#
+
+CREATE TABLE `PP_news` (
+  `date` date NOT NULL default '0000-00-00',
+  `news` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `PP_news`
+#
+
+INSERT INTO `PP_news` VALUES ('2003-11-21', 'Dynamic News Boxes! To update go into your Edit Settings and select Add/Delete News.');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_pages`
+#
+# Creation: Nov 21, 2003 at 07:45 PM
+# Last update: Nov 21, 2003 at 07:49 PM
+#
+
+CREATE TABLE `PP_pages` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `PP_pages`
+#
+
+INSERT INTO `PP_pages` VALUES ('Welcome', 'Welcome to Paranoid Pirates\r\n');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_photo`
+#
+# Creation: Nov 21, 2003 at 07:45 PM
+# Last update: Nov 21, 2003 at 07:45 PM
+#
+
+CREATE TABLE `PP_photo` (
+  `album` text NOT NULL,
+  `image` text NOT NULL,
+  `discription` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `PP_photo`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_posts`
+#
+# Creation: Nov 23, 2003 at 04:59 PM
+# Last update: Nov 23, 2003 at 04:59 PM
+#
+
+CREATE TABLE `PP_posts` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text,
+  `message` longtext,
+  `subject` text,
+  `ip` text,
+  `thread` int(11) default NULL,
+  `topic` text,
+  `forum` text,
+  `date` text,
+  `sticky` varchar(10) NOT NULL default '',
+  `locked` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `PP_posts`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_ranks`
+#
+# Creation: Nov 21, 2003 at 07:45 PM
+# Last update: Nov 21, 2003 at 07:45 PM
+#
+
+CREATE TABLE `PP_ranks` (
+  `name` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `PP_ranks`
+#
+
+INSERT INTO `PP_ranks` VALUES ('Guild-Leader');
+INSERT INTO `PP_ranks` VALUES ('Assistant-Guild-Leader');
+INSERT INTO `PP_ranks` VALUES ('Officer');
+INSERT INTO `PP_ranks` VALUES ('Member');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `PP_user`
+#
+# Creation: Nov 21, 2003 at 07:45 PM
+# Last update: Nov 21, 2003 at 07:45 PM
+#
+
+CREATE TABLE `PP_user` (
+  `name` varchar(25) NOT NULL default '',
+  `access` varchar(25) NOT NULL default '',
+  `rank` text NOT NULL,
+  `type` text NOT NULL,
+  `points` varchar(25) NOT NULL default '',
+  `aproved` varchar(25) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `PP_user`
+#
+
+INSERT INTO `PP_user` VALUES ('gizmo', 'Master', 'Guild-Leader', 'Officer', '0', 'true');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_album`
+#
+# Creation: Nov 22, 2003 at 07:13 AM
+# Last update: Nov 22, 2003 at 07:13 AM
+#
+
+CREATE TABLE `SF_album` (
+  `album` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `SF_album`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_forums`
+#
+# Creation: Nov 22, 2003 at 07:13 AM
+# Last update: Nov 22, 2003 at 07:15 AM
+#
+
+CREATE TABLE `SF_forums` (
+  `id` int(11) NOT NULL auto_increment,
+  `forum` text,
+  `description` text,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=4 ;
+
+#
+# Dumping data for table `SF_forums`
+#
+
+INSERT INTO `SF_forums` VALUES (3, 'Shattered Faith Board', 'Board for Shattered Faith Guild');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_html`
+#
+# Creation: Nov 22, 2003 at 07:13 AM
+# Last update: Nov 23, 2003 at 05:10 PM
+#
+
+CREATE TABLE `SF_html` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL,
+  `useheader` varchar(10) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `SF_html`
+#
+
+INSERT INTO `SF_html` VALUES ('main_page_html', ' <HTML>\n <HEAD>\n   <TITLE>EQ Guilded - !!guildname!!</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><P ALIGN=Right>\n !!logbox!!\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% BACKGROUND="http://www.eqguilded.com/images/curvbot.gif"><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  Welcome to !!guildname!!</TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 		    <TR>\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n <!-- START CONTENT -->\n \n \n Welcome to our new guild website!!\n \n \n <!-- END CONTENT -->\n \n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P class=cat>\n !!guildname!! news <A HREF=?show=news_history class=menu>(view news history)</A>\n </P>\n       !!news!!\n \n </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%><BR>\n       <TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  Poll</TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 		    <TR>\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat">Poll Coming Soon!!</TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE></TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT face="Arial" size="1">©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n <P>\n !!counter!!\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>', 'true');
+INSERT INTO `SF_html` VALUES ('log_box_html_in', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n Loged in as !!name!! !!sur!!<BR>\n <A HREF=../message.cgi CLASS=menu>!!messages!! Messages</A>  <A HREF=../useredit.cgi class=menu>Edit Settings</A>  <A HREF=../login.cgi?logout class=menu>Log Out</A><BR>\n You have !!points!! points!\n </TD></TR></TABLE>', '');
+INSERT INTO `SF_html` VALUES ('log_box_html_out', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n You are not loged in<BR>\n <A HREF=http://www.eqguilded.com class=menu>Click here to login/Signup</A>\n </TD></TR></TABLE>', '');
+INSERT INTO `SF_html` VALUES ('news_box_html', ' <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n <TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n <TR><TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n <TR><TD>  !!date!!</TD>\n </TR></TABLE>\n <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n <TR>\n <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%" class="menubackcolor">\n <TR><TD class="cat">\n <CENTER>\n !!news!!\n </CENTER>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>', '');
+INSERT INTO `SF_html` VALUES ('off_page_html', '    <HTML>\n <HEAD>\n \n   <TITLE>EQ Guilded</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD class=cat>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 			<P>\n 			<TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" width=100%>\n 			  <TR>\n 			    <TD></TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100% HEIGHT=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  </TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n 		    <TR>\n 		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n 				<CENTER>\n \n 				  !!content!!\n \n 				</CENTER>\n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P>\n     </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%></TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT class=textsmall>©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>\n', 'true');
+INSERT INTO `SF_html` VALUES ('roster_line_html', ' <TR>\n <TD>!!name!! !!sur!!</TD>\n <TD>!!rank!!</TD>\n <TD>!!race!!</TD>\n <TD>!!class!!</TD>\n <TD>!!level!!</TD>\n </TR>', '');
+INSERT INTO `SF_html` VALUES ('roster_head_html', ' !!guildname!! Roster<BR>\n <CENTER>\n <TABLE BORDER="0" CELLSPACING="3" CELLPADDING="3" ALIGN="Center">\n <TR>\n <TD><P ALIGN=Center>Name</TD>\n <TD><P ALIGN=Center>Rank</TD>\n <TD><P ALIGN=Center>Race</TD>\n <TD><P ALIGN=Center>Class</TD>\n <TD><P ALIGN=Center>Level</TD>\n </TR>', '');
+INSERT INTO `SF_html` VALUES ('roster_foot_html', ' </TABLE>\n </CENTER>', '');
+INSERT INTO `SF_html` VALUES ('links_html', '<A HREF=index.cgi class=menu>Home</A><BR>\n <A HREF=roster.cgi class=menu>Roster</A><BR>\n <A HREF=forum.cgi class=menu>Forums</A>', '');
+INSERT INTO `SF_html` VALUES ('forum_main_html', '<P>\r\n <CENTER>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header>\r\n <td width=60% BGCOLOR=#c0c0c0>Forum Name</td>\r\n <td width=30% BGCOLOR=#c0c0c0>Last Post</td>\r\n <td width=10% BGCOLOR=#c0c0c0><CENTER>Posts</td>\r\n </tr>\r\n !!threads!!\r\n </table>', '');
+INSERT INTO `SF_html` VALUES ('forum_post_html', '<tr>\r\n <td valign=top width=20% BGCOLOR=#cbfacd>\r\n !!name!!<BR>\r\n<SMALL> - !!rank!!</SMALL>\r\n </TD>\r\n <td BGCOLOR=#cbfacd>\r\n <b>!!subject!!</b>\r\n <HR>\r\n !!message!!\r\n</TD>\r\n</TR>\r\n<TR>\r\n\r\n<TD BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right><SMALL>Posted on: !!date!!</SMALL> !!admin!!\r\n </td>\r\n \r\n </tr>', '');
+INSERT INTO `SF_html` VALUES ('forum_thread_html', '<tr><td BGCOLOR=#cbfacd><IMG SRC=!!image!!>  <a href="forum.cgi?do=view_topic&forum=!!forum!!&topic=!!topic!!" class=menu>!!topic!!</a></td>\r\n <td BGCOLOR=#cbfacd>!!name!!</td><td BGCOLOR=#cbfacd>!!date!!</td><td BGCOLOR=#cbfacd>!!count!!</td></tr>', '');
+INSERT INTO `SF_html` VALUES ('forum_topic_html', '<P>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr><td BGCOLOR=#c0c0c0>Poster</td><td BGCOLOR=#c0c0c0><A HREF=forum.cgi class=menu>Forums</A> > <A HREF="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</A> > <IMG SRC=!!image!!> !!topic!!\r\n</td></tr>\r\n\r\n !!posts!!\r\n\r\n <tr><td BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right>!!admin!!\r\n</td></tr>\r\n\r\n </table>', '');
+INSERT INTO `SF_html` VALUES ('forum_view_main_html', '<tr class=field>\n            <td BGCOLOR=#cbfacd>\n               <a href="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</a><BR>\n 	      <SMALL>!!description!!</SMALL>\n            </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      !!lastpostname!!<BR>\n               <SMALL>!!lastpostdate!!</SMALL>\n 	   </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      <CENTER>\n 	      !!count!!\n 	   </td>\n 	</tr>', '');
+INSERT INTO `SF_html` VALUES ('forum_view_thred_html', '<table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr>\r\n <td BGCOLOR=#c0c0c0 WIDTH=20%>\r\n     \r\n </td>\r\n <td BGCOLOR=#c0c0c0>\r\n <A HREF=forum.cgi class=menu>Forums</A> > !!forum!!\r\n </td>\r\n </tr>\r\n </TABLE>\r\n \r\n <table width=100%  BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header><td BGCOLOR=#c0c0c0>Topic</a></td>\r\n <td BGCOLOR=#c0c0c0>Created by</td><td BGCOLOR=#c0c0c0>Date Created</td><td BGCOLOR=#c0c0c0>Number of Replies</td></tr>\r\n \r\n !!topics!!\r\n \r\n </table>\r\n <A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=1" class=menu>New Thered</A>', '');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_news`
+#
+# Creation: Nov 22, 2003 at 07:13 AM
+# Last update: Nov 22, 2003 at 07:13 AM
+#
+
+CREATE TABLE `SF_news` (
+  `date` date NOT NULL default '0000-00-00',
+  `news` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `SF_news`
+#
+
+INSERT INTO `SF_news` VALUES ('2003-11-22', 'Dynamic News Boxes! To update go into your Edit Settings and select Add/Delete News.');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_pages`
+#
+# Creation: Nov 22, 2003 at 07:13 AM
+# Last update: Nov 22, 2003 at 07:13 AM
+#
+
+CREATE TABLE `SF_pages` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `SF_pages`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_photo`
+#
+# Creation: Nov 22, 2003 at 07:13 AM
+# Last update: Nov 22, 2003 at 07:13 AM
+#
+
+CREATE TABLE `SF_photo` (
+  `album` text NOT NULL,
+  `image` text NOT NULL,
+  `discription` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `SF_photo`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_posts`
+#
+# Creation: Nov 23, 2003 at 05:00 PM
+# Last update: Nov 23, 2003 at 05:38 PM
+#
+
+CREATE TABLE `SF_posts` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text,
+  `message` longtext,
+  `subject` text,
+  `ip` text,
+  `thread` int(11) default NULL,
+  `topic` text,
+  `forum` text,
+  `date` text,
+  `sticky` varchar(10) NOT NULL default '',
+  `locked` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=3 ;
+
+#
+# Dumping data for table `SF_posts`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_ranks`
+#
+# Creation: Nov 22, 2003 at 07:13 AM
+# Last update: Nov 22, 2003 at 07:13 AM
+#
+
+CREATE TABLE `SF_ranks` (
+  `name` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `SF_ranks`
+#
+
+INSERT INTO `SF_ranks` VALUES ('Guild-Leader');
+INSERT INTO `SF_ranks` VALUES ('Assistant-Guild-Leader');
+INSERT INTO `SF_ranks` VALUES ('Officer');
+INSERT INTO `SF_ranks` VALUES ('Member');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `SF_user`
+#
+# Creation: Nov 22, 2003 at 07:13 AM
+# Last update: Nov 22, 2003 at 07:13 AM
+#
+
+CREATE TABLE `SF_user` (
+  `name` varchar(25) NOT NULL default '',
+  `access` varchar(25) NOT NULL default '',
+  `rank` text NOT NULL,
+  `type` text NOT NULL,
+  `points` varchar(25) NOT NULL default '',
+  `aproved` varchar(25) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `SF_user`
+#
+
+INSERT INTO `SF_user` VALUES ('shattered', 'Master', 'Guild-Leader', 'Officer', '0', 'true');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_album`
+#
+# Creation: Nov 22, 2003 at 10:51 AM
+# Last update: Nov 22, 2003 at 10:51 AM
+#
+
+CREATE TABLE `Vols_album` (
+  `album` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `Vols_album`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_forums`
+#
+# Creation: Nov 22, 2003 at 10:51 AM
+# Last update: Nov 22, 2003 at 10:51 AM
+#
+
+CREATE TABLE `Vols_forums` (
+  `id` int(11) NOT NULL auto_increment,
+  `forum` text,
+  `description` text,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=3 ;
+
+#
+# Dumping data for table `Vols_forums`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_html`
+#
+# Creation: Nov 22, 2003 at 10:51 AM
+# Last update: Nov 23, 2003 at 05:11 PM
+#
+
+CREATE TABLE `Vols_html` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL,
+  `useheader` varchar(10) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `Vols_html`
+#
+
+INSERT INTO `Vols_html` VALUES ('main_page_html', ' <HTML>\n <HEAD>\n   <TITLE>EQ Guilded - !!guildname!!</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><P ALIGN=Right>\n !!logbox!!\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% BACKGROUND="http://www.eqguilded.com/images/curvbot.gif"><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  Welcome to !!guildname!!</TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 		    <TR>\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n <!-- START CONTENT -->\n \n \n Welcome to our new guild website!!\n \n \n <!-- END CONTENT -->\n \n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P class=cat>\n !!guildname!! news <A HREF=?show=news_history class=menu>(view news history)</A>\n </P>\n       !!news!!\n \n </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%><BR>\n       <TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  Poll</TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 		    <TR>\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat">Poll Coming Soon!!</TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE></TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT face="Arial" size="1">©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n <P>\n !!counter!!\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>', 'true');
+INSERT INTO `Vols_html` VALUES ('log_box_html_in', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n Loged in as !!name!! !!sur!!<BR>\n <A HREF=../message.cgi CLASS=menu>!!messages!! Messages</A>  <A HREF=../useredit.cgi class=menu>Edit Settings</A>  <A HREF=../login.cgi?logout class=menu>Log Out</A><BR>\n You have !!points!! points!\n </TD></TR></TABLE>', '');
+INSERT INTO `Vols_html` VALUES ('log_box_html_out', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n You are not loged in<BR>\n <A HREF=http://www.eqguilded.com class=menu>Click here to login/Signup</A>\n </TD></TR></TABLE>', '');
+INSERT INTO `Vols_html` VALUES ('news_box_html', ' <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n <TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n <TR><TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n <TR><TD>  !!date!!</TD>\n </TR></TABLE>\n <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n <TR>\n <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%" class="menubackcolor">\n <TR><TD class="cat">\n <CENTER>\n !!news!!\n </CENTER>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>', '');
+INSERT INTO `Vols_html` VALUES ('off_page_html', '    <HTML>\n <HEAD>\n \n   <TITLE>EQ Guilded</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD class=cat>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 			<P>\n 			<TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" width=100%>\n 			  <TR>\n 			    <TD></TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100% HEIGHT=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  </TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n 		    <TR>\n 		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n 				<CENTER>\n \n 				  !!content!!\n \n 				</CENTER>\n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P>\n     </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%></TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT class=textsmall>©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>\n', 'true');
+INSERT INTO `Vols_html` VALUES ('roster_line_html', ' <TR>\n <TD>!!name!! !!sur!!</TD>\n <TD>!!rank!!</TD>\n <TD>!!race!!</TD>\n <TD>!!class!!</TD>\n <TD>!!level!!</TD>\n </TR>', '');
+INSERT INTO `Vols_html` VALUES ('roster_head_html', ' !!guildname!! Roster<BR>\n <CENTER>\n <TABLE BORDER="0" CELLSPACING="3" CELLPADDING="3" ALIGN="Center">\n <TR>\n <TD><P ALIGN=Center>Name</TD>\n <TD><P ALIGN=Center>Rank</TD>\n <TD><P ALIGN=Center>Race</TD>\n <TD><P ALIGN=Center>Class</TD>\n <TD><P ALIGN=Center>Level</TD>\n </TR>', '');
+INSERT INTO `Vols_html` VALUES ('roster_foot_html', ' </TABLE>\n </CENTER>', '');
+INSERT INTO `Vols_html` VALUES ('links_html', '<A HREF=index.cgi class=menu>Home</A><BR>\n <A HREF=roster.cgi class=menu>Roster</A><BR>\n <A HREF=forum.cgi class=menu>Forums</A>', '');
+INSERT INTO `Vols_html` VALUES ('forum_main_html', '<P>\r\n <CENTER>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header>\r\n <td width=60% BGCOLOR=#c0c0c0>Forum Name</td>\r\n <td width=30% BGCOLOR=#c0c0c0>Last Post</td>\r\n <td width=10% BGCOLOR=#c0c0c0><CENTER>Posts</td>\r\n </tr>\r\n !!threads!!\r\n </table>', '');
+INSERT INTO `Vols_html` VALUES ('forum_post_html', '<tr>\r\n <td valign=top width=20% BGCOLOR=#cbfacd>\r\n !!name!!<BR>\r\n<SMALL> - !!rank!!</SMALL>\r\n </TD>\r\n <td BGCOLOR=#cbfacd>\r\n <b>!!subject!!</b>\r\n <HR>\r\n !!message!!\r\n</TD>\r\n</TR>\r\n<TR>\r\n\r\n<TD BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right><SMALL>Posted on: !!date!!</SMALL> !!admin!!\r\n </td>\r\n \r\n </tr>', '');
+INSERT INTO `Vols_html` VALUES ('forum_thread_html', '<tr><td BGCOLOR=#cbfacd><IMG SRC=!!image!!>  <a href="forum.cgi?do=view_topic&forum=!!forum!!&topic=!!topic!!" class=menu>!!topic!!</a></td>\r\n <td BGCOLOR=#cbfacd>!!name!!</td><td BGCOLOR=#cbfacd>!!date!!</td><td BGCOLOR=#cbfacd>!!count!!</td></tr>', '');
+INSERT INTO `Vols_html` VALUES ('forum_topic_html', '<P>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr><td BGCOLOR=#c0c0c0>Poster</td><td BGCOLOR=#c0c0c0><A HREF=forum.cgi class=menu>Forums</A> > <A HREF="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</A> > <IMG SRC=!!image!!> !!topic!!\r\n</td></tr>\r\n\r\n !!posts!!\r\n\r\n <tr><td BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right>!!admin!!\r\n</td></tr>\r\n\r\n </table>', '');
+INSERT INTO `Vols_html` VALUES ('forum_view_main_html', '<tr class=field>\n            <td BGCOLOR=#cbfacd>\n               <a href="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</a><BR>\n 	      <SMALL>!!description!!</SMALL>\n            </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      !!lastpostname!!<BR>\n               <SMALL>!!lastpostdate!!</SMALL>\n 	   </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      <CENTER>\n 	      !!count!!\n 	   </td>\n 	</tr>', '');
+INSERT INTO `Vols_html` VALUES ('forum_view_thred_html', '<table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr>\r\n <td BGCOLOR=#c0c0c0 WIDTH=20%>\r\n     \r\n </td>\r\n <td BGCOLOR=#c0c0c0>\r\n <A HREF=forum.cgi class=menu>Forums</A> > !!forum!!\r\n </td>\r\n </tr>\r\n </TABLE>\r\n \r\n <table width=100%  BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header><td BGCOLOR=#c0c0c0>Topic</a></td>\r\n <td BGCOLOR=#c0c0c0>Created by</td><td BGCOLOR=#c0c0c0>Date Created</td><td BGCOLOR=#c0c0c0>Number of Replies</td></tr>\r\n \r\n !!topics!!\r\n \r\n </table>\r\n <A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=1" class=menu>New Thered</A>', '');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_news`
+#
+# Creation: Nov 22, 2003 at 10:51 AM
+# Last update: Nov 22, 2003 at 10:51 AM
+#
+
+CREATE TABLE `Vols_news` (
+  `date` date NOT NULL default '0000-00-00',
+  `news` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `Vols_news`
+#
+
+INSERT INTO `Vols_news` VALUES ('2003-11-22', 'Dynamic News Boxes! To update go into your Edit Settings and select Add/Delete News.');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_pages`
+#
+# Creation: Nov 22, 2003 at 10:51 AM
+# Last update: Nov 22, 2003 at 10:51 AM
+#
+
+CREATE TABLE `Vols_pages` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `Vols_pages`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_photo`
+#
+# Creation: Nov 22, 2003 at 10:51 AM
+# Last update: Nov 22, 2003 at 10:51 AM
+#
+
+CREATE TABLE `Vols_photo` (
+  `album` text NOT NULL,
+  `image` text NOT NULL,
+  `discription` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `Vols_photo`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_posts`
+#
+# Creation: Nov 23, 2003 at 05:00 PM
+# Last update: Nov 23, 2003 at 05:00 PM
+#
+
+CREATE TABLE `Vols_posts` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text,
+  `message` longtext,
+  `subject` text,
+  `ip` text,
+  `thread` int(11) default NULL,
+  `topic` text,
+  `forum` text,
+  `date` text,
+  `sticky` varchar(10) NOT NULL default '',
+  `locked` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `Vols_posts`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_ranks`
+#
+# Creation: Nov 22, 2003 at 10:51 AM
+# Last update: Nov 22, 2003 at 10:51 AM
+#
+
+CREATE TABLE `Vols_ranks` (
+  `name` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `Vols_ranks`
+#
+
+INSERT INTO `Vols_ranks` VALUES ('Guild-Leader');
+INSERT INTO `Vols_ranks` VALUES ('Assistant-Guild-Leader');
+INSERT INTO `Vols_ranks` VALUES ('Officer');
+INSERT INTO `Vols_ranks` VALUES ('Member');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `Vols_user`
+#
+# Creation: Nov 22, 2003 at 10:51 AM
+# Last update: Nov 22, 2003 at 10:52 AM
+#
+
+CREATE TABLE `Vols_user` (
+  `name` varchar(25) NOT NULL default '',
+  `access` varchar(25) NOT NULL default '',
+  `rank` text NOT NULL,
+  `type` text NOT NULL,
+  `points` varchar(25) NOT NULL default '',
+  `aproved` varchar(25) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `Vols_user`
+#
+
+INSERT INTO `Vols_user` VALUES ('twyvols', 'Master', 'Officer', 'Officer', '0', 'true');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_album`
+#
+# Creation: Nov 21, 2003 at 05:27 PM
+# Last update: Nov 21, 2003 at 05:27 PM
+#
+
+CREATE TABLE `demo_album` (
+  `album` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `demo_album`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_forums`
+#
+# Creation: Nov 21, 2003 at 05:27 PM
+# Last update: Nov 23, 2003 at 08:30 PM
+#
+
+CREATE TABLE `demo_forums` (
+  `id` int(11) NOT NULL auto_increment,
+  `forum` text,
+  `description` text,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=8 ;
+
+#
+# Dumping data for table `demo_forums`
+#
+
+INSERT INTO `demo_forums` VALUES (4, 'General Chat', 'This Forum is for general chating!');
+INSERT INTO `demo_forums` VALUES (5, 'Website Help/Problems', 'Post here if you have problems or need help and cant find your answer in the FAQ.');
+INSERT INTO `demo_forums` VALUES (6, 'Templets', 'Post here if you created a set of templets and want to share it with others. Please include the URL to the templet HTML or the HTML for the templet.');
+INSERT INTO `demo_forums` VALUES (7, 'Misc.', 'Post here if your post dosent fit in the other forums.');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_html`
+#
+# Creation: Nov 21, 2003 at 05:27 PM
+# Last update: Nov 23, 2003 at 08:54 PM
+#
+
+CREATE TABLE `demo_html` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL,
+  `useheader` varchar(10) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `demo_html`
+#
+
+INSERT INTO `demo_html` VALUES ('main_page_html', '   <HTML>\r\n <HEAD>\r\n   <TITLE>EQ Guilded - !!guildname!!</TITLE>\r\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\r\n </HEAD>\r\n <body class=body>!!HEADBANNER!!!!headbanner!!\r\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\r\n   <TR>\r\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\r\n \r\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\r\n   <TR>\r\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\r\n </TR>\r\n <TR>\r\n <TD>\r\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\r\n   </TR>\r\n </TABLE>\r\n \r\n </TD>\r\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\r\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n 	<TR>\r\n 	  <TD><P ALIGN=Right>\r\n !!logbox!!\r\n 	  </TD>\r\n 	</TR>\r\n       </TABLE>\r\n     </TD>\r\n   </TR>\r\n   <TR>\r\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% BACKGROUND="http://www.eqguilded.com/images/curvbot.gif"><IMG\r\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\r\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n 	<TR>\r\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n 	      <TR>\r\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\r\n 		    <TR>\r\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n 			  <TR>\r\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n 				<TR>\r\n 				  <TD>  Main Menu</TD>\r\n 				</TR>\r\n 			      </TABLE>\r\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n 				<TR>\r\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n 				    class="menubackcolor">\r\n 				      <TR>\r\n 					<TD class="cat">\r\n \r\n !!links!!\r\n \r\n </TD>\r\n 				      </TR>\r\n 				    </TABLE>\r\n 				  </TD>\r\n 				</TR>\r\n 			      </TABLE>\r\n 			    </TD>\r\n 			  </TR>\r\n 			</TABLE>\r\n 		      </TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		</TD>\r\n 	      </TR>\r\n 	    </TABLE>\r\n 	  </TD>\r\n 	</TR>\r\n       </TABLE>\r\n     </TD>\r\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\r\n       CELLPADDING="4" WIDTH=100%>\r\n 	<TR>\r\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\r\n 	      <TR>\r\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n 		    <TR>\r\n 		      <TD>  Welcome to !!guildname!!</TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n 		    <TR>\r\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n 			class="menubackcolor">\r\n 			  <TR>\r\n 			    <TD class="cat"><CENTER>\r\n <!-- START CONTENT -->\r\n \r\n \r\n Welcome to our new guild website!!<BR>\r\nYou can place any content you want here!\r\n \r\n \r\n <!-- END CONTENT -->\r\n \r\n 			      </CENTER>\r\n 			    </TD>\r\n 			  </TR>\r\n 			</TABLE>\r\n 		      </TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		</TD>\r\n 	      </TR>\r\n 	    </TABLE>\r\n 	  </TD>\r\n 	</TR>\r\n       </TABLE>\r\n       <P class=cat>\r\n !!guildname!! news <A HREF=?show=news_history class=menu>(view news history)</A>\r\n </P>\r\n       !!news!!\r\n \r\n </TD>\r\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%><BR>\r\n       <TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\r\n 	<TR>\r\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n 	      <TR>\r\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n 		    <TR>\r\n 		      <TD>  Poll</TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n 		    <TR>\r\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n 			class="menubackcolor">\r\n 			  <TR>\r\n 			    <TD class="cat">Poll Coming Soon!!</TD>\r\n 			  </TR>\r\n 			</TABLE>\r\n 		      </TD>\r\n 		    </TR>\r\n 		  </TABLE>\r\n 		</TD>\r\n 	      </TR>\r\n 	    </TABLE></TD>\r\n 	</TR>\r\n       </TABLE>\r\n     </TD>\r\n   </TR>\r\n   <TR>\r\n   </TR>\r\n   <TR>\r\n   </TR>\r\n   <TR>\r\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\r\n 	  WIDTH="47" HEIGHT="40"></TD>\r\n   </TR>\r\n </TABLE>\r\n <CENTER>\r\n   <FONT face="Arial" size="1">©  COPYRIGHT 2003 ALL RIGHTS RESERVED\r\n   EQGUILDED.COM</FONT>\r\n <P>\r\n !!counter!!\r\n </CENTER>\r\n <P>\r\n!!FOOTBANNER!!</body></HTML>\r\n\r\n\r\n\r\n', 'true');
+INSERT INTO `demo_html` VALUES ('log_box_html_in', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n Loged in as !!name!! !!sur!!<BR>\n <A HREF=../message.cgi CLASS=menu>!!messages!! Messages</A>  <A HREF=../useredit.cgi class=menu>Edit Settings</A>  <A HREF=../login.cgi?logout class=menu>Log Out</A><BR>\n You have !!points!! points!\n </TD></TR></TABLE>', '');
+INSERT INTO `demo_html` VALUES ('log_box_html_out', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n You are not loged in<BR>\n <A HREF=http://www.eqguilded.com class=menu>Click here to login/Signup</A>\n </TD></TR></TABLE>', '');
+INSERT INTO `demo_html` VALUES ('news_box_html', ' <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n <TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n <TR><TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n <TR><TD>  !!date!!</TD>\n </TR></TABLE>\n <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n <TR>\n <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%" class="menubackcolor">\n <TR><TD class="cat">\n <CENTER>\n !!news!!\n </CENTER>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>', '');
+INSERT INTO `demo_html` VALUES ('off_page_html', '    <TITLE>EQ Guilded</TITLE>\r\n  <LINK REL="STYLESHEET" TYPE="text/css" HREF="../style.css">\r\n</HEAD>\r\n<body class=body>!!HEADBANNER!!\r\n<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\r\n  <TR>\r\n    <TD BACKGROUND="../images/bar.gif" COLSPAN=2><IMG SRC="../images/Logo.gif" WIDTH="316"\r\n	  HEIGHT="123"></TD>\r\n    <TD COLSPAN="2" BACKGROUND="../images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\r\n      BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n	<TR>\r\n	  <TD class=cat><P ALIGN=Right>\r\n	    <A HREF=../index.cgi class=menu>Home</A> - <A HREF=http://www.eqguilded.com/page.cgi?view=help class=menu>Help</A> - <A HREF=forum.cgi class=menu>Forms</A>\r\n	    <FORM ACTION="../server.cgi" METHOD="POST">\r\n	      <P ALIGN=Right>\r\n<SMALL>Find a Guild Website</SMALL><BR>\r\n<SMALL>Server : </SMALL><SELECT NAME="server">\r\n  <OPTION>Antonius Bayle\r\n  <OPTION>Ayonae Ro\r\n  <OPTION>Bertoxxulous\r\n  <OPTION>Brell Serilis\r\n  <OPTION>Bristlebane\r\n  <OPTION>Cazic-Thule\r\n  <OPTION>Drinal\r\n  <OPTION>Druzzil Ro\r\n  <OPTION>E\'ci\r\n  <OPTION>Erollisi Marr\r\n  <OPTION>Fennin Ro\r\n  <OPTION>Firiona Vie\r\n  <OPTION>Innoruuk\r\n  <OPTION>Kael Drakkal\r\n  <OPTION>Kane Bayle\r\n  <OPTION>Karana\r\n  <OPTION>Lanys T\'Vyl\r\n  <OPTION>Luclin\r\n  <OPTION>Maelin Starpyre\r\n  <OPTION>Mithaniel Marr\r\n  <OPTION>Morell-Thule\r\n  <OPTION>Povar\r\n  <OPTION>Prexus\r\n  <OPTION>Quellious\r\n  <OPTION>Rallos Zek\r\n  <OPTION>Rodcet Nife\r\n  <OPTION>Saryrn\r\n  <OPTION>Sebilis\r\n  <OPTION>Solusek Ro\r\n  <OPTION>Stormhammer\r\n  <OPTION>Sullon Zek\r\n  <OPTION>Tallon Zek\r\n  <OPTION>Threw Marr\r\n  <OPTION>Terris-Thule\r\n  <OPTION>The Nameless\r\n  <OPTION>The Rathe\r\n  <OPTION>The seventh Hammer\r\n  <OPTION>The Tribunal\r\n  <OPTION>Tholuxe Paells\r\n  <OPTION>Torvonnilous\r\n  <OPTION>Tunare\r\n  <OPTION>Vallon Zek\r\n  <OPTION>Vazaelle\r\n  <OPTION>Veeshan\r\n  <OPTION>Venril Sathir\r\n  <OPTION>Xegony\r\n  <OPTION>Xev\r\n  <OPTION>Zebuxoruk\r\n</SELECT>\r\n\r\n	      <INPUT TYPE=submit VALUE="Go">\r\n	    </FORM>\r\n<IMG SRC="../images/spacer.gif">\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n    </TD>\r\n  </TR>\r\n  <TR>\r\n    <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG\r\n	  SRC="../images/curvtop.gif" WIDTH="156" HEIGHT="62">\r\n      <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n	<TR>\r\n	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n	      <TR>\r\n		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\r\n		    <TR>\r\n		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n			  <TR>\r\n			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n				<TR>\r\n				  <TD> Main Menu</TD>\r\n				</TR>\r\n			      </TABLE>\r\n			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n				<TR>\r\n				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n				    class="menubackcolor">\r\n				      <TR>\r\n					<TD class="cat"><IMG SRC="../images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="../index.cgi"\r\n					   class="menu">Home</A><BR>\r\n					 <IMG SRC="../images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="http://www.eqguilded.com/page.cgi?view=help" class="menu">Help</A><BR>\r\n					 <IMG SRC="../images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="forum.cgi" class="menu">Forms</A><BR>\r\n					 <IMG SRC="../images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="../links" class="menu">Links</A><BR></TD>\r\n				      </TR>\r\n				    </TABLE>\r\n				  </TD>\r\n				</TR>\r\n			      </TABLE>\r\n			    </TD>\r\n			  </TR>\r\n			</TABLE>\r\n			<P>\r\n			<TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" width=100%>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		</TD>\r\n	      </TR>\r\n	    </TABLE>\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n    </TD>\r\n    <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\r\n      CELLPADDING="4" WIDTH=100%>\r\n	<TR>\r\n	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100% HEIGHT=100%>\r\n	      <TR>\r\n		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n		    <TR>\r\n		      <TD><IMG SRC="filler" WIDTH=1 HEIGHT=16></TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\r\n		    <TR>\r\n		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"\r\n			class="menubackcolor">\r\n			  <TR>\r\n			    <TD class="cat"><CENTER>\r\n				<CENTER>\r\n				  !!content!!\r\n				</CENTER>\r\n			      </CENTER>\r\n			    </TD>\r\n			  </TR>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		</TD>\r\n	      </TR>\r\n	    </TABLE>\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n      <P>\r\n    </TD>\r\n    <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%></TD>\r\n  </TR>\r\n  <TR>\r\n  </TR>\r\n  <TR>\r\n  </TR>\r\n  <TR>\r\n    <TD COLSPAN=4 BACKGROUND="../images/botbar.gif"><IMG SRC="../images/botbar.gif"\r\n	  WIDTH="47" HEIGHT="40"></TD>\r\n  </TR>\r\n</TABLE>\r\n<CENTER>\r\n  <FONT class=textsmall>© COPYRIGHT 2003 ALL RIGHTS RESERVED\r\n  EQGUILDED.COM</FONT>\r\n</CENTER>\r\n<P>\r\n!!FOOTBANNER!!</body></HTML>\r\n\r\n\r\n\r\n\r\n\r\n', 'true');
+INSERT INTO `demo_html` VALUES ('roster_line_html', ' <TR>\n <TD>!!name!! !!sur!!</TD>\n <TD>!!rank!!</TD>\n <TD>!!race!!</TD>\n <TD>!!class!!</TD>\n <TD>!!level!!</TD>\n </TR>', '');
+INSERT INTO `demo_html` VALUES ('roster_head_html', ' !!guildname!! Roster<BR>\n <CENTER>\n <TABLE BORDER="0" CELLSPACING="3" CELLPADDING="3" ALIGN="Center">\n <TR>\n <TD><P ALIGN=Center>Name</TD>\n <TD><P ALIGN=Center>Rank</TD>\n <TD><P ALIGN=Center>Race</TD>\n <TD><P ALIGN=Center>Class</TD>\n <TD><P ALIGN=Center>Level</TD>\n </TR>', '');
+INSERT INTO `demo_html` VALUES ('roster_foot_html', ' </TABLE>\n </CENTER>', '');
+INSERT INTO `demo_html` VALUES ('links_html', '<A HREF=index.cgi class=menu>Home</A><BR>\n <A HREF=roster.cgi class=menu>Roster</A><BR>\n <A HREF=forum.cgi class=menu>Forums</A>', '');
+INSERT INTO `demo_html` VALUES ('forum_main_html', '  <P>\r\n <CENTER>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header>\r\n <td width=60% BGCOLOR=#c0c0c0>Forum Name</td>\r\n <td width=30% BGCOLOR=#c0c0c0>Last Post</td>\r\n <td width=10% BGCOLOR=#c0c0c0><CENTER>Posts</td>\r\n </tr>\r\n !!threads!!\r\n </table>\r\n\r\n\r\n', '');
+INSERT INTO `demo_html` VALUES ('forum_post_html', '    <tr>\r\n <td valign=top width=20% BGCOLOR=#cbfacd>\r\n !!name!!<BR>\r\n<SMALL> - !!rank!!</SMALL>\r\n </TD>\r\n <td BGCOLOR=#cbfacd>\r\n <b>!!subject!!</b>\r\n <HR>\r\n !!message!!\r\n</TD>\r\n</TR>\r\n<TR>\r\n\r\n<TD BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right><SMALL>Posted on: !!date!!</SMALL> !!admin!!\r\n </td>\r\n \r\n </tr>\r\n\r\n\r\n\r\n', '');
+INSERT INTO `demo_html` VALUES ('forum_thread_html', ' <tr><td BGCOLOR=#cbfacd><IMG SRC=!!image!!>  <a href="forum.cgi?do=view_topic&forum=!!forum!!&topic=!!topic!!" class=menu>!!topic!!</a></td>\r\n <td BGCOLOR=#cbfacd>!!name!!</td><td BGCOLOR=#cbfacd>!!date!!</td><td BGCOLOR=#cbfacd>!!count!!</td></tr>\r\n\r\n', '');
+INSERT INTO `demo_html` VALUES ('forum_topic_html', '   <P>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr><td BGCOLOR=#c0c0c0>Poster</td><td BGCOLOR=#c0c0c0><A HREF=forum.cgi class=menu>Forums</A> > <A HREF="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</A> > <IMG SRC=!!image!!> !!topic!!\r\n</td></tr>\r\n\r\n !!posts!!\r\n\r\n <tr><td BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right>!!admin!!\r\n</td></tr>\r\n\r\n </table>\r\n\r\n\r\n\r\n\r\n\r\n\r\n', '');
+INSERT INTO `demo_html` VALUES ('forum_view_main_html', '  	<tr class=field>\n            <td BGCOLOR=#cbfacd>\n               <a href="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</a><BR>\n 	      <SMALL>!!description!!</SMALL>\n            </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      !!lastpostname!!<BR>\n               <SMALL>!!lastpostdate!!</SMALL>\n 	   </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      <CENTER>\n 	      !!count!!\n 	   </td>\n 	</tr>', '');
+INSERT INTO `demo_html` VALUES ('forum_view_thred_html', '  <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr>\r\n <td BGCOLOR=#c0c0c0 WIDTH=20%>\r\n<FONT COLOR=#c0c0c0>a</FONT>\r\n </td>\r\n <td BGCOLOR=#c0c0c0>\r\n <A HREF=forum.cgi class=menu>Forums</A> > !!forum!!\r\n </td>\r\n </tr>\r\n </TABLE>\r\n \r\n <table width=100%  BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header><td BGCOLOR=#c0c0c0>Topic</a></td>\r\n <td BGCOLOR=#c0c0c0>Created by</td><td BGCOLOR=#c0c0c0>Date Created</td><td BGCOLOR=#c0c0c0>Number of Replies</td></tr>\r\n \r\n !!topics!!\r\n \r\n </table>\r\n <A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=1" class=menu>New Thered</A>\r\n\r\n\r\n\r\n', '');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_news`
+#
+# Creation: Nov 21, 2003 at 05:27 PM
+# Last update: Nov 21, 2003 at 05:27 PM
+#
+
+CREATE TABLE `demo_news` (
+  `date` date NOT NULL default '0000-00-00',
+  `news` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `demo_news`
+#
+
+INSERT INTO `demo_news` VALUES ('2003-11-21', 'Dynamic News Boxes! To update go into your Edit Settings and select Add/Delete News.');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_pages`
+#
+# Creation: Nov 21, 2003 at 05:27 PM
+# Last update: Nov 21, 2003 at 05:27 PM
+#
+
+CREATE TABLE `demo_pages` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `demo_pages`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_photo`
+#
+# Creation: Nov 21, 2003 at 05:27 PM
+# Last update: Nov 21, 2003 at 05:27 PM
+#
+
+CREATE TABLE `demo_photo` (
+  `album` text NOT NULL,
+  `image` text NOT NULL,
+  `discription` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `demo_photo`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_posts`
+#
+# Creation: Nov 23, 2003 at 02:25 PM
+# Last update: Nov 23, 2003 at 08:56 PM
+#
+
+CREATE TABLE `demo_posts` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text,
+  `message` longtext,
+  `subject` text,
+  `ip` text,
+  `thread` int(11) default NULL,
+  `topic` text,
+  `forum` text,
+  `date` text,
+  `sticky` varchar(10) NOT NULL default '',
+  `locked` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=31 ;
+
+#
+# Dumping data for table `demo_posts`
+#
+
+INSERT INTO `demo_posts` VALUES (29, 'eqguilded', 'Please try to keep it clean on the forums. Theay are hear for help not for flameing.\r\n<P>\r\nAds are ok as long as theay are EQ related and dont contain any rude or adult content.\r\n<P>\r\nBoards are moterated and posts may be deleted if theay contain content not aproved by EQ Guilded.\r\n<P>\r\nThank You<BR>\r\nEQ Guilded Admin', 'Posting Rules!', NULL, 1, 'Posting Rules!', 'Templets', '2003-11-23 20:36:34', 'true', 'true');
+INSERT INTO `demo_posts` VALUES (28, 'eqguilded', 'Please try to keep it clean on the forums. Theay are hear for help not for flameing.\r\n<P>\r\nAds are ok as long as theay are EQ related and dont contain any rude or adult content.\r\n<P>\r\nBoards are moterated and posts may be deleted if theay contain content not aproved by EQ Guilded.\r\n<P>\r\nThank You<BR>\r\nEQ Guilded Admin', 'Posting Rules!', NULL, 1, 'Posting Rules!', 'Website Help/Problems', '2003-11-23 20:36:20', 'true', 'true');
+INSERT INTO `demo_posts` VALUES (27, 'eqguilded', 'Please try to keep it clean on the forums. Theay are hear for help not for flameing.\r\n<P>\r\nAds are ok as long as theay are EQ related and dont contain any rude or adult content.\r\n<P>\r\nBoards are moterated and posts may be deleted if theay contain content not aproved by EQ Guilded.\r\n<P>\r\nThank You<BR>\r\nEQ Guilded Admin', 'Posting Rules!', NULL, 1, 'Posting Rules!', 'General Chat', '2003-11-23 20:17:44', 'true', 'true');
+INSERT INTO `demo_posts` VALUES (30, 'eqguilded', 'Please try to keep it clean on the forums. Theay are hear for help not for flameing.\r\n<P>\r\nAds are ok as long as theay are EQ related and dont contain any rude or adult content.\r\n<P>\r\nBoards are moterated and posts may be deleted if theay contain content not aproved by EQ Guilded.\r\n<P>\r\nThank You<BR>\r\nEQ Guilded Admin', 'Posting Rules!', NULL, 1, 'Posting Rules!', 'Misc.', '2003-11-23 20:36:48', 'true', 'true');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_ranks`
+#
+# Creation: Nov 21, 2003 at 05:27 PM
+# Last update: Nov 21, 2003 at 05:27 PM
+#
+
+CREATE TABLE `demo_ranks` (
+  `name` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `demo_ranks`
+#
+
+INSERT INTO `demo_ranks` VALUES ('Guild-Leader');
+INSERT INTO `demo_ranks` VALUES ('Assistant-Guild-Leader');
+INSERT INTO `demo_ranks` VALUES ('Officer');
+INSERT INTO `demo_ranks` VALUES ('Member');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `demo_user`
+#
+# Creation: Nov 21, 2003 at 05:27 PM
+# Last update: Nov 23, 2003 at 03:33 PM
+#
+
+CREATE TABLE `demo_user` (
+  `name` varchar(25) NOT NULL default '',
+  `access` varchar(25) NOT NULL default '',
+  `rank` text NOT NULL,
+  `type` text NOT NULL,
+  `points` varchar(25) NOT NULL default '',
+  `aproved` varchar(25) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `demo_user`
+#
+
+INSERT INTO `demo_user` VALUES ('demo', 'Member', 'Guild-Leader', 'Officer', '0', 'true');
+INSERT INTO `demo_user` VALUES ('keny', 'Master', '', 'Officer', '', 'true');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_album`
+#
+# Creation: Nov 21, 2003 at 07:53 PM
+# Last update: Nov 21, 2003 at 07:53 PM
+#
+
+CREATE TABLE `exec_album` (
+  `album` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `exec_album`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_forums`
+#
+# Creation: Nov 21, 2003 at 07:53 PM
+# Last update: Nov 21, 2003 at 07:53 PM
+#
+
+CREATE TABLE `exec_forums` (
+  `id` int(11) NOT NULL auto_increment,
+  `forum` text,
+  `description` text,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=3 ;
+
+#
+# Dumping data for table `exec_forums`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_html`
+#
+# Creation: Nov 21, 2003 at 07:53 PM
+# Last update: Nov 23, 2003 at 05:11 PM
+#
+
+CREATE TABLE `exec_html` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL,
+  `useheader` varchar(10) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `exec_html`
+#
+
+INSERT INTO `exec_html` VALUES ('main_page_html', ' <HTML>\n <HEAD>\n   <TITLE>EQ Guilded - !!guildname!!</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><P ALIGN=Right>\n !!logbox!!\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% BACKGROUND="http://www.eqguilded.com/images/curvbot.gif"><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  Welcome to !!guildname!!</TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 		    <TR>\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n <!-- START CONTENT -->\n \n \n Welcome to our new guild website!!\n \n \n <!-- END CONTENT -->\n \n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P class=cat>\n !!guildname!! news <A HREF=?show=news_history class=menu>(view news history)</A>\n </P>\n       !!news!!\n \n </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%><BR>\n       <TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  Poll</TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 		    <TR>\n 		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat">Poll Coming Soon!!</TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE></TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT face="Arial" size="1">©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n <P>\n !!counter!!\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>', 'true');
+INSERT INTO `exec_html` VALUES ('log_box_html_in', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n Loged in as !!name!! !!sur!!<BR>\n <A HREF=../message.cgi CLASS=menu>!!messages!! Messages</A>  <A HREF=../useredit.cgi class=menu>Edit Settings</A>  <A HREF=../login.cgi?logout class=menu>Log Out</A><BR>\n You have !!points!! points!\n </TD></TR></TABLE>', '');
+INSERT INTO `exec_html` VALUES ('log_box_html_out', ' <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>\n <TR><TD><P ALIGN=right>\n You are not loged in<BR>\n <A HREF=http://www.eqguilded.com class=menu>Click here to login/Signup</A>\n </TD></TR></TABLE>', '');
+INSERT INTO `exec_html` VALUES ('news_box_html', ' <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n <TR><TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\n <TR><TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n <TR><TD>  !!date!!</TD>\n </TR></TABLE>\n <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n <TR>\n <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%" class="menubackcolor">\n <TR><TD class="cat">\n <CENTER>\n !!news!!\n </CENTER>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>\n </TD></TR></TABLE>', '');
+INSERT INTO `exec_html` VALUES ('off_page_html', '    <HTML>\n <HEAD>\n \n   <TITLE>EQ Guilded</TITLE>\n   <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">\n </HEAD>\n <body class=body>!!headbanner!!\n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\n   <TR>\n     <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>\n \n \n <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">\n   <TR>\n     <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>\n </TR>\n <TR>\n <TD>\n <IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>\n   </TR>\n </TABLE>\n \n \n </TD>\n     <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\n       BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD class=cat>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n   </TR>\n   <TR>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG\n 	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">\n       <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 	      <TR>\n 		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\n 		    <TR>\n 		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\n 			  <TR>\n 			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 				<TR>\n 				  <TD>  Main Menu</TD>\n 				</TR>\n 			      </TABLE>\n 			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\n 				<TR>\n 				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\n 				    class="menubackcolor">\n 				      <TR>\n 					<TD class="cat">\n \n !!links!!\n \n </TD>\n 				      </TR>\n 				    </TABLE>\n 				  </TD>\n 				</TR>\n 			      </TABLE>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 			<P>\n 			<TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" width=100%>\n 			  <TR>\n 			    <TD></TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n     </TD>\n     <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\n       CELLPADDING="4" WIDTH=100%>\n 	<TR>\n 	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100% HEIGHT=100%>\n 	      <TR>\n 		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\n 		    <TR>\n 		      <TD>  </TD>\n 		    </TR>\n 		  </TABLE>\n 		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\n 		    <TR>\n 		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"\n 			class="menubackcolor">\n 			  <TR>\n 			    <TD class="cat"><CENTER>\n 				<CENTER>\n \n 				  !!content!!\n \n 				</CENTER>\n 			      </CENTER>\n 			    </TD>\n 			  </TR>\n 			</TABLE>\n 		      </TD>\n 		    </TR>\n 		  </TABLE>\n 		</TD>\n 	      </TR>\n 	    </TABLE>\n 	  </TD>\n 	</TR>\n       </TABLE>\n       <P>\n     </TD>\n     <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%></TD>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n   </TR>\n   <TR>\n     <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"\n 	  WIDTH="47" HEIGHT="40"></TD>\n   </TR>\n </TABLE>\n <CENTER>\n   <FONT class=textsmall>©  COPYRIGHT 2003 ALL RIGHTS RESERVED\n   EQGUILDED.COM</FONT>\n </CENTER>\n <P>\n !!footbanner!!</body></HTML>\n', 'true');
+INSERT INTO `exec_html` VALUES ('roster_line_html', ' <TR>\n <TD>!!name!! !!sur!!</TD>\n <TD>!!rank!!</TD>\n <TD>!!race!!</TD>\n <TD>!!class!!</TD>\n <TD>!!level!!</TD>\n </TR>', '');
+INSERT INTO `exec_html` VALUES ('roster_head_html', ' !!guildname!! Roster<BR>\n <CENTER>\n <TABLE BORDER="0" CELLSPACING="3" CELLPADDING="3" ALIGN="Center">\n <TR>\n <TD><P ALIGN=Center>Name</TD>\n <TD><P ALIGN=Center>Rank</TD>\n <TD><P ALIGN=Center>Race</TD>\n <TD><P ALIGN=Center>Class</TD>\n <TD><P ALIGN=Center>Level</TD>\n </TR>', '');
+INSERT INTO `exec_html` VALUES ('roster_foot_html', ' </TABLE>\n </CENTER>', '');
+INSERT INTO `exec_html` VALUES ('links_html', '<A HREF=index.cgi class=menu>Home</A><BR>\n <A HREF=roster.cgi class=menu>Roster</A><BR>\n <A HREF=forum.cgi class=menu>Forums</A>', '');
+INSERT INTO `exec_html` VALUES ('forum_main_html', '<P>\r\n <CENTER>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header>\r\n <td width=60% BGCOLOR=#c0c0c0>Forum Name</td>\r\n <td width=30% BGCOLOR=#c0c0c0>Last Post</td>\r\n <td width=10% BGCOLOR=#c0c0c0><CENTER>Posts</td>\r\n </tr>\r\n !!threads!!\r\n </table>', '');
+INSERT INTO `exec_html` VALUES ('forum_post_html', '<tr>\r\n <td valign=top width=20% BGCOLOR=#cbfacd>\r\n !!name!!<BR>\r\n<SMALL> - !!rank!!</SMALL>\r\n </TD>\r\n <td BGCOLOR=#cbfacd>\r\n <b>!!subject!!</b>\r\n <HR>\r\n !!message!!\r\n</TD>\r\n</TR>\r\n<TR>\r\n\r\n<TD BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right><SMALL>Posted on: !!date!!</SMALL> !!admin!!\r\n </td>\r\n \r\n </tr>', '');
+INSERT INTO `exec_html` VALUES ('forum_thread_html', '<tr><td BGCOLOR=#cbfacd><IMG SRC=!!image!!>  <a href="forum.cgi?do=view_topic&forum=!!forum!!&topic=!!topic!!" class=menu>!!topic!!</a></td>\r\n <td BGCOLOR=#cbfacd>!!name!!</td><td BGCOLOR=#cbfacd>!!date!!</td><td BGCOLOR=#cbfacd>!!count!!</td></tr>', '');
+INSERT INTO `exec_html` VALUES ('forum_topic_html', '<P>\r\n <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr><td BGCOLOR=#c0c0c0>Poster</td><td BGCOLOR=#c0c0c0><A HREF=forum.cgi class=menu>Forums</A> > <A HREF="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</A> > <IMG SRC=!!image!!> !!topic!!\r\n</td></tr>\r\n\r\n !!posts!!\r\n\r\n <tr><td BGCOLOR=#c0c0c0 COLSPAN=2>\r\n<P ALIGN=Right>!!admin!!\r\n</td></tr>\r\n\r\n </table>', '');
+INSERT INTO `exec_html` VALUES ('forum_view_main_html', '<tr class=field>\n            <td BGCOLOR=#cbfacd>\n               <a href="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</a><BR>\n 	      <SMALL>!!description!!</SMALL>\n            </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      !!lastpostname!!<BR>\n               <SMALL>!!lastpostdate!!</SMALL>\n 	   </td>\n 	   <td BGCOLOR=#cbfacd>\n 	      <CENTER>\n 	      !!count!!\n 	   </td>\n 	</tr>', '');
+INSERT INTO `exec_html` VALUES ('forum_view_thred_html', '<table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr>\r\n <td BGCOLOR=#c0c0c0 WIDTH=20%>\r\n     \r\n </td>\r\n <td BGCOLOR=#c0c0c0>\r\n <A HREF=forum.cgi class=menu>Forums</A> > !!forum!!\r\n </td>\r\n </tr>\r\n </TABLE>\r\n \r\n <table width=100%  BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n <tr class=header><td BGCOLOR=#c0c0c0>Topic</a></td>\r\n <td BGCOLOR=#c0c0c0>Created by</td><td BGCOLOR=#c0c0c0>Date Created</td><td BGCOLOR=#c0c0c0>Number of Replies</td></tr>\r\n \r\n !!topics!!\r\n \r\n </table>\r\n <A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=1" class=menu>New Thered</A>', '');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_news`
+#
+# Creation: Nov 21, 2003 at 07:53 PM
+# Last update: Nov 21, 2003 at 07:53 PM
+#
+
+CREATE TABLE `exec_news` (
+  `date` date NOT NULL default '0000-00-00',
+  `news` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `exec_news`
+#
+
+INSERT INTO `exec_news` VALUES ('2003-11-21', 'Dynamic News Boxes! To update go into your Edit Settings and select Add/Delete News.');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_pages`
+#
+# Creation: Nov 21, 2003 at 07:53 PM
+# Last update: Nov 21, 2003 at 07:53 PM
+#
+
+CREATE TABLE `exec_pages` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `exec_pages`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_photo`
+#
+# Creation: Nov 21, 2003 at 07:53 PM
+# Last update: Nov 21, 2003 at 07:53 PM
+#
+
+CREATE TABLE `exec_photo` (
+  `album` text NOT NULL,
+  `image` text NOT NULL,
+  `discription` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `exec_photo`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_posts`
+#
+# Creation: Nov 23, 2003 at 05:00 PM
+# Last update: Nov 23, 2003 at 05:00 PM
+#
+
+CREATE TABLE `exec_posts` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text,
+  `message` longtext,
+  `subject` text,
+  `ip` text,
+  `thread` int(11) default NULL,
+  `topic` text,
+  `forum` text,
+  `date` text,
+  `sticky` varchar(10) NOT NULL default '',
+  `locked` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM AUTO_INCREMENT=1 ;
+
+#
+# Dumping data for table `exec_posts`
+#
+
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_ranks`
+#
+# Creation: Nov 21, 2003 at 07:53 PM
+# Last update: Nov 21, 2003 at 07:53 PM
+#
+
+CREATE TABLE `exec_ranks` (
+  `name` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `exec_ranks`
+#
+
+INSERT INTO `exec_ranks` VALUES ('Guild-Leader');
+INSERT INTO `exec_ranks` VALUES ('Assistant-Guild-Leader');
+INSERT INTO `exec_ranks` VALUES ('Officer');
+INSERT INTO `exec_ranks` VALUES ('Member');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `exec_user`
+#
+# Creation: Nov 21, 2003 at 07:53 PM
+# Last update: Nov 21, 2003 at 07:53 PM
+#
+
+CREATE TABLE `exec_user` (
+  `name` varchar(25) NOT NULL default '',
+  `access` varchar(25) NOT NULL default '',
+  `rank` text NOT NULL,
+  `type` text NOT NULL,
+  `points` varchar(25) NOT NULL default '',
+  `aproved` varchar(25) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `exec_user`
+#
+
+INSERT INTO `exec_user` VALUES ('naiyawins', 'Master', 'Guild-Leader', 'Officer', '0', 'true');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `guild`
+#
+# Creation: Nov 18, 2003 at 10:00 PM
+# Last update: Nov 23, 2003 at 07:20 PM
+#
+
+CREATE TABLE `guild` (
+  `shortname` varchar(10) NOT NULL default '',
+  `longname` varchar(100) NOT NULL default '',
+  `password` varchar(25) NOT NULL default '',
+  `email` varchar(50) NOT NULL default '',
+  `goldexp` date NOT NULL default '0000-00-00',
+  `stats` varchar(6) NOT NULL default '',
+  `createdon` date NOT NULL default '0000-00-00',
+  `createdby` varchar(25) NOT NULL default '',
+  `server` varchar(50) NOT NULL default '',
+  `counterimage` char(2) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `guild`
+#
+
+INSERT INTO `guild` VALUES ('admin', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('banner', 'Folder', 'f', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('boards', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('cgi-bin', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('cgis', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('fly-1.6.5', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('images', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('keny', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('links', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('cgi', 'Filter', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('cgibin', 'Filter', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('link', 'Filter', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('test', 'Filter', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('testing', 'Filter', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+INSERT INTO `guild` VALUES ('demo', 'Demo Guild Website', 'dmyemo', 'demo@demo.com', '0000-00-00', '', '2003-11-21', 'demo', '', '10');
+INSERT INTO `guild` VALUES ('SF', 'Shattered Faith', '12348765', 'mind_rage@msn.com', '0000-00-00', '', '2003-11-22', 'shattered', 'Antonius Bayle', '1');
+INSERT INTO `guild` VALUES ('exec', 'execution', 'goirish', 'kwikstuff44@hotmail.com', '0000-00-00', '', '2003-11-21', 'naiyawins', 'Tallon Zek', '1');
+INSERT INTO `guild` VALUES ('PP', 'Paranoid Pirates', 'egnaro', 'steve@cwcom.net', '0000-00-00', '', '2003-11-21', 'gizmo', 'Antonius Bayle', '1');
+INSERT INTO `guild` VALUES ('Vols', 'Vengence Of Lost Souls', 'Cracker', 'jacqueo@tds.net', '0000-00-00', '', '2003-11-22', 'twyvols', 'The Rathe', '6');
+INSERT INTO `guild` VALUES ('KS', 'Knightstrike', 'yoyoyo', 'telisa29@hotmail.com', '0000-00-00', '', '2003-11-23', 'telisa', 'Karana', '5');
+INSERT INTO `guild` VALUES ('faq', 'Folder', '', '', '0000-00-00', '', '0000-00-00', '', '', '');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `html`
+#
+# Creation: Oct 11, 2003 at 11:23 AM
+# Last update: Nov 23, 2003 at 08:24 PM
+#
+
+CREATE TABLE `html` (
+  `name` varchar(45) NOT NULL default '',
+  `content` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `html`
+#
+
+INSERT INTO `html` VALUES ('main_page_html', '      <HTML>\r\n<HEAD>\r\n<SCRIPT LANGUAGE="JavaScript">\r\n<!-- Begin\r\nfunction ignoreSpaces(string) {\r\nvar temp = "";\r\nstring = \'\' + string;\r\nsplitstring = string.split(" ");\r\nfor(i = 0; i < splitstring.length; i++)\r\ntemp += splitstring[i];\r\nreturn temp;\r\n}\r\n//  End -->\r\n</script>\r\n\r\n  <TITLE>EQ Guilded</TITLE>\r\n  <LINK REL="STYLESHEET" TYPE="text/css" HREF="style.css">\r\n</HEAD>\r\n<BODY class=body>\r\n<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\r\n  <TR>\r\n    <TD BACKGROUND="images/bar.gif" COLSPAN=2><IMG SRC="images/Logo.gif" WIDTH="316"\r\n	  HEIGHT="123"></TD>\r\n    <TD COLSPAN="2" BACKGROUND="images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\r\n      BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n	<TR>\r\n	  <TD class=cat><P ALIGN=Right><A HREF=http://www.eqguilded.com/page.cgi?view=help class=menu>Help</A> - <A HREF=http://www.eqguilded.com/demo/forum.cgi class=menu>Forms</A>\r\n<FORM ACTION="server.cgi" METHOD="POST">\r\n	      <P ALIGN=Right>\r\n<SMALL>Find a Guild Website</SMALL><BR>\r\n<SMALL>Server: </SMALL><SELECT NAME="server">\r\n  <OPTION>Antonius Bayle\r\n  <OPTION>Ayonae Ro\r\n  <OPTION>Bertoxxulous\r\n  <OPTION>Brell Serilis\r\n  <OPTION>Bristlebane\r\n  <OPTION>Cazic-Thule\r\n  <OPTION>Drinal\r\n  <OPTION>Druzzil Ro\r\n  <OPTION>E\'ci\r\n  <OPTION>Erollisi Marr\r\n  <OPTION>Fennin Ro\r\n  <OPTION>Firiona Vie\r\n  <OPTION>Innoruuk\r\n  <OPTION>Kael Drakkal\r\n  <OPTION>Kane Bayle\r\n  <OPTION>Karana\r\n  <OPTION>Lanys T\'Vyl\r\n  <OPTION>Luclin\r\n  <OPTION>Maelin Starpyre\r\n  <OPTION>Mithaniel Marr\r\n  <OPTION>Morell-Thule\r\n  <OPTION>Povar\r\n  <OPTION>Prexus\r\n  <OPTION>Quellious\r\n  <OPTION>Rallos Zek\r\n  <OPTION>Rodcet Nife\r\n  <OPTION>Saryrn\r\n  <OPTION>Sebilis\r\n  <OPTION>Solusek Ro\r\n  <OPTION>Stormhammer\r\n  <OPTION>Sullon Zek\r\n  <OPTION>Tallon Zek\r\n  <OPTION>Threw Marr\r\n  <OPTION>Terris-Thule\r\n  <OPTION>The Nameless\r\n  <OPTION>The Rathe\r\n  <OPTION>The seventh Hammer\r\n  <OPTION>The Tribunal\r\n  <OPTION>Tholuxe Paells\r\n  <OPTION>Torvonnilous\r\n  <OPTION>Tunare\r\n  <OPTION>Vallon Zek\r\n  <OPTION>Vazaelle\r\n  <OPTION>Veeshan\r\n  <OPTION>Venril Sathir\r\n  <OPTION>Xegony\r\n  <OPTION>Xev\r\n  <OPTION>Zebuxoruk\r\n</SELECT>\r\n	      <INPUT TYPE=submit VALUE="Go">\r\n	    </FORM>\r\n<IMG SRC="images/spacer.gif">\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n    </TD>\r\n  </TR>\r\n  <TR>\r\n    <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG\r\n	  SRC="images/curvtop.gif" WIDTH="156" HEIGHT="62">\r\n      <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n	<TR>\r\n	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n	      <TR>\r\n		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\r\n		    <TR>\r\n		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n			  <TR>\r\n			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n				<TR>\r\n				  <TD> Main Menu</TD>\r\n				</TR>\r\n			      </TABLE>\r\n			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n				<TR>\r\n				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n				    class="menubackcolor">\r\n				      <TR>\r\n					<TD class="cat">\r\n<IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="http://www.eqguilded.com/page.cgi?view=help" class="menu">Help</A><BR>\r\n					 <IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="http://www.eqguilded.com/demo/forum.cgi" class="menu">Forms</A><BR>\r\n					 <IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="/links" class="menu">Links</A><BR>\r\n</TD>\r\n				      </TR>\r\n				    </TABLE>\r\n				  </TD>\r\n				</TR>\r\n			      </TABLE>\r\n			    </TD>\r\n			  </TR>\r\n			</TABLE>\r\n			<P>\r\n!!logbox!!\r\n			      <P>\r\n			      !!leftblocks!!\r\n\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		</TD>\r\n	      </TR>\r\n	    </TABLE>\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n    </TD>\r\n    <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\r\n      CELLPADDING="4" WIDTH=100%>\r\n	<TR>\r\n	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\r\n	      <TR>\r\n		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n		    <TR>\r\n		      <TD> About EQ Guilded</TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n		    <TR>\r\n		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n			class="menubackcolor">\r\n			  <TR>\r\n			    <TD class="cat"><CENTER>\r\n	\r\n\r\n!!maincontent!!\r\n			      </CENTER>\r\n			    </TD>\r\n			  </TR>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		</TD>\r\n	      </TR>\r\n	    </TABLE>\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n      <P>\r\n<SMALL class=cat>       EQ Guilded News!  <A HREF=index.cgi?show=news_history class=menu>(View news history)</A></SMALL>\r\n      !!news!!</TD>\r\n    <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%><BR>\r\n      <TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\r\n	<TR>\r\n	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n	      <TR>\r\n		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n		    <TR>\r\n		      <TD> Poll</TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n		    <TR>\r\n		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n			class="menubackcolor">\r\n			  <TR>\r\n			    <TD class="cat">Coming Soon!!</TD>\r\n			  </TR>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		</TD>\r\n	      </TR>\r\n	    </TABLE>\r\n	    <P>\r\n	    !!rightblocks!!</TD>\r\n	</TR>\r\n      </TABLE>\r\n    </TD>\r\n  </TR>\r\n  <TR>\r\n  </TR>\r\n  <TR>\r\n  </TR>\r\n  <TR>\r\n    <TD COLSPAN=4 BACKGROUND="images/botbar.gif"><IMG SRC="images/botbar.gif"\r\n	  WIDTH="47" HEIGHT="40"></TD>\r\n  </TR>\r\n</TABLE>\r\n<CENTER>\r\n  <FONT class=textsmall>© COPYRIGHT 2003 ALL RIGHTS RESERVED\r\n  EQGUILDED.COM</FONT>\r\n</CENTER>\r\n<P>\r\n</BODY></HTML>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n');
+INSERT INTO `html` VALUES ('main_content_html', '      			<CENTER>\r\n				  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" ALIGN="Center" class=text>\r\n				    <TR>\r\n				      <TD><A HREF="http://www.eqguilded.com/demo/" TARGET="_new"><IMG\r\n					  SRC="images/demo.jpg" WIDTH="100" HEIGHT="100" BORDER="0"></A></TD>\r\n				      <TD VALIGN="Top"><B>Welcome to EQ Guilded. A new service for creating your own\r\n					<FONT COLOR=red>FREE</FONT> guild website with out all the work. </B>\r\n</TD>\r\n				    </TR>\r\n				    <TR>\r\n				      <TD COLSPAN=2 VALIGN="Top"><P ALIGN=Left>\r\n<B>Features for guild website:</B>\r\n<UL>\r\n<LI>FULL HTML editing on every page!\r\n<LI>Custom pages with any content!\r\n<LI>Auto insert of Header/footer/links to give every page the same look and for ease in updateing!\r\n<LI>Counter with diffrent image choices!\r\n<LI>Aproval of members wishing to join guild website!\r\n<LI>Edit members ranks/status/points ect!\r\n<LI>Mass Messing of members in your roster!\r\n<LI>Dynamic News table!\r\n<LI>Web based Forums!\r\n<LI>Guild Valt! (Coming Soon)\r\n</UL>\r\n<P>\r\n<B>Features for members:</B>\r\n<UL>\r\n<LI>Private Messageing system!\r\n<LI>Custom Profile! (Coming Soon)\r\n<LI>Use of Forums on any guild page!\r\n</UL>\r\n<HR>\r\n<CENTER>\r\n<B>More still to come and better features on what is already here!!\r\n<HR>\r\n<A HREF=http://www.eqguilded.com/demo/ class=menu>View Demo Site</A>\r\n<HR>\r\nHow do I start?\r\n<P>\r\nSimple! Create a <FONT COLOR=red>FREE</FONT> user acount, go into your "Edit Settings", click on "Edit Guild", if your guild has a website hosted by EQ Guilded chose your server you will see a list of guilds oh that server click on "Add me to Guild Name", if you want to create a new <FONT COLOR=red>FREE</FONT> guild website click on "Add a new Guild", fill out the form and your new guild website will be created! To edit your new guild website go back into your "Edit Settings" and click on "Edit Guild" and you will see a list of options to edit your guild website!\r\n<HR>\r\n<FONT COLOR=red>NOTE:</FONT> Site is still in the makeing. More features are coming soon!!\r\n</B>\r\n</TD>\r\n				    </TR>\r\n				  </TABLE>\r\n				</CENTER>\r\n\r\n\r\n\r\n');
+INSERT INTO `html` VALUES ('log_box_html_in', '<TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n		    <TR>\r\n		      <TD>&nbsp;Member\'s</TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n		    <TR>\r\n		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n			class="menubackcolor">\r\n			  <TR>\r\n			    <TD class="cat">\r\n\r\n\r\n<SMALL>Loged in as</SMALL><BR>\r\n!!name!! !!sur!!<BR>\r\n<IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8">&nbsp;<A HREF=message.cgi CLASS=menu>!!messages!! Message\'s</A><BR>\r\n<IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8">&nbsp;<A HREF=useredit.cgi class=menu>Edit Settings</A><BR>\r\n<IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8">&nbsp;<A HREF=login.cgi?logout class=menu>Log Out</A><BR>\r\n\r\n\r\n</TD>\r\n			  </TR>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>');
+INSERT INTO `html` VALUES ('log_box_html_out', '<TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n		    <TR>\r\n		      <TD>&nbsp;Member\'s</TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n		    <TR>\r\n		      <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n			class="menubackcolor">\r\n			  <TR>\r\n			    <TD class="cat">\r\n\r\n\r\n<FORM ACTION="login.cgi" METHOD="POST">\r\n  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" class=text>\r\n    <TR>\r\n      <TD COLSPAN=2><B><SMALL>Username:</SMALL></B></TD>\r\n      <TD></TD>\r\n    </TR>\r\n    <TR>\r\n      <TD></TD>\r\n      <TD COLSPAN=2>\r\n	<INPUT TYPE="text" NAME="user" SIZE="10" onBlur="this.value=ignoreSpaces(this.value);" onChange="javascript:this.value=this.value.toLowerCase();"></TD>\r\n    </TR>\r\n    <TR>\r\n      <TD COLSPAN=2><B><SMALL>Password:</SMALL></B></TD>\r\n      <TD></TD>\r\n    </TR>\r\n    <TR>\r\n      <TD></TD>\r\n      <TD COLSPAN=2>\r\n	<INPUT TYPE="password" NAME="password" SIZE="10" onBlur="this.value=ignoreSpaces(this.value);" onChange="javascript:this.value=this.value.toLowerCase();"></TD>\r\n    </TR>\r\n    <TR>\r\n      <TD COLSPAN=3><P ALIGN=Center>\r\n<INPUT TYPE=hidden NAME=login>\r\n	<INPUT TYPE=submit VALUE="Login"><BR>\r\n<INPUT TYPE="checkbox" NAME="rember" VALUE="true" CHECKED>Rember me!\r\n\r\n</TD>\r\n    </TR>\r\n  </TABLE>\r\n</FORM>\r\n<IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8">&nbsp;<A HREF=# class=menu>Lost your password?</A><BR>\r\n<IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8">&nbsp;<A HREF=signup.cgi class=menu>Not a member yet?</A>\r\n\r\n\r\n</TD>\r\n			  </TR>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>');
+INSERT INTO `html` VALUES ('left_blocks_html', '');
+INSERT INTO `html` VALUES ('right_blocks_html', '\r\n\r\n\r\n\r\n\r\n\r\n\r\n');
+INSERT INTO `html` VALUES ('off_page_html', '                        <HTML>\r\n<HEAD>\r\n\r\n<script language="JavaScript" src="validation.js"></script>\r\n\r\n<SCRIPT LANGUAGE="JavaScript">\r\n\r\n<!-- Begin\r\nfunction init() {\r\ndefine(\'user\', \'string\', \'Username\', \'4\', \'25\');\r\ndefine(\'name\', \'string\', \'Display Name\', \'4\', \'25\');\r\ndefine(\'pass\', \'string\', \'Password\', \'6\', \'25\');\r\ndefine(\'email\', \'email\', \'E-Mail\', \'7\', \'100\');\r\ndefine(\'guild\', \'string\', \'ShortName\', \'2\', \'25\');\r\ndefine(\'longname\', \'string\', \'Longname\', \'6\', \'50\');\r\n}\r\n//  End -->\r\n</script>\r\n  <SCRIPT LANGUAGE="JavaScript">\r\n<!-- Begin\r\nfunction NewWindow(mypage, myname, w, h, scroll) {\r\nvar winl = (screen.width - w) / 2;\r\nvar wint = (screen.height - h) / 2;\r\nwinprops = \'height=\'+h+\',width=\'+w+\',top=\'+wint+\',left=\'+winl+\',scrollbars=\'+scroll+\',resizable\'\r\nwin = window.open(mypage, myname, winprops)\r\nif (parseInt(navigator.appVersion) >= 4) { win.window.focus(); }\r\n}\r\n//  End -->\r\n</SCRIPT>\r\n<SCRIPT LANGUAGE="JavaScript">\r\n\r\n<!-- Begin\r\nfunction displayHTML(form) {\r\nvar inf = form.content.value;\r\nwin = window.open(", ", \'popup\', \'toolbar = no, status = no\');\r\nwin.document.write("" + inf + "");\r\n}\r\n//  End -->\r\n</script>\r\n<SCRIPT LANGUAGE="JavaScript">\r\n\r\n<!-- Begin\r\nfunction ignoreSpaces(string) {\r\nvar temp = "";\r\nstring = \'\' + string;\r\nsplitstring = string.split(" ");\r\nfor(i = 0; i < splitstring.length; i++)\r\ntemp += splitstring[i];\r\nreturn temp;\r\n}\r\n//  End -->\r\n</script>\r\n\r\n<SCRIPT LANGUAGE="JavaScript">\r\n\r\n<!-- Begin\r\nfunction replaceChars(entry) {\r\nout = ";"; // replace this\r\nadd = "XZXZXZX"; // with this\r\ntemp = "" + entry; // temporary holder\r\n\r\nwhile (temp.indexOf(out)>-1) {\r\npos= temp.indexOf(out);\r\ntemp = "" + (temp.substring(0, pos) + add + \r\ntemp.substring((pos + out.length), temp.length));\r\n}\r\ndocument.subform.content.value = temp;\r\n}\r\n//  End -->\r\n</script>\r\n<SCRIPT LANGUAGE="JavaScript">\r\n\r\n<!-- Begin\r\nfunction replaceCharsB(entry) {\r\nout = "TXTXTXT"; // replace this\r\nadd = "TEXTAREA"; // with this\r\ntemp = "" + entry; // temporary holder\r\n\r\nwhile (temp.indexOf(out)>-1) {\r\npos= temp.indexOf(out);\r\ntemp = "" + (temp.substring(0, pos) + add + \r\ntemp.substring((pos + out.length), temp.length));\r\n}\r\ndocument.subform.content.value = temp;\r\n\r\n}\r\n//  End -->\r\n</script>\r\n  <TITLE>EQ Guilded</TITLE>\r\n  <LINK REL="STYLESHEET" TYPE="text/css" HREF="style.css">\r\n</HEAD>\r\n<BODY class=body onLoad="init();">\r\n<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">\r\n  <TR>\r\n    <TD BACKGROUND="images/bar.gif" COLSPAN=2><IMG SRC="images/Logo.gif" WIDTH="316"\r\n	  HEIGHT="123"></TD>\r\n    <TD COLSPAN="2" BACKGROUND="images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE\r\n      BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n	<TR>\r\n	  <TD class=cat><P ALIGN=Right>\r\n	    <A HREF=index.cgi class=menu>Home</A> - <A HREF=http://www.eqguilded.com/page.cgi?view=help class=menu>Help</A> - <A HREF=http://www.eqguilded.com/demo/forum.cgi class=menu>Forms</A>\r\n	    <FORM ACTION="server.cgi" METHOD="POST">\r\n	      <P ALIGN=Right>\r\n<SMALL>Find a Guild Website</SMALL><BR>\r\n<SMALL>Server : </SMALL><SELECT NAME="server">\r\n  <OPTION>Antonius Bayle\r\n  <OPTION>Ayonae Ro\r\n  <OPTION>Bertoxxulous\r\n  <OPTION>Brell Serilis\r\n  <OPTION>Bristlebane\r\n  <OPTION>Cazic-Thule\r\n  <OPTION>Drinal\r\n  <OPTION>Druzzil Ro\r\n  <OPTION>E\'ci\r\n  <OPTION>Erollisi Marr\r\n  <OPTION>Fennin Ro\r\n  <OPTION>Firiona Vie\r\n  <OPTION>Innoruuk\r\n  <OPTION>Kael Drakkal\r\n  <OPTION>Kane Bayle\r\n  <OPTION>Karana\r\n  <OPTION>Lanys T\'Vyl\r\n  <OPTION>Luclin\r\n  <OPTION>Maelin Starpyre\r\n  <OPTION>Mithaniel Marr\r\n  <OPTION>Morell-Thule\r\n  <OPTION>Povar\r\n  <OPTION>Prexus\r\n  <OPTION>Quellious\r\n  <OPTION>Rallos Zek\r\n  <OPTION>Rodcet Nife\r\n  <OPTION>Saryrn\r\n  <OPTION>Sebilis\r\n  <OPTION>Solusek Ro\r\n  <OPTION>Stormhammer\r\n  <OPTION>Sullon Zek\r\n  <OPTION>Tallon Zek\r\n  <OPTION>Threw Marr\r\n  <OPTION>Terris-Thule\r\n  <OPTION>The Nameless\r\n  <OPTION>The Rathe\r\n  <OPTION>The seventh Hammer\r\n  <OPTION>The Tribunal\r\n  <OPTION>Tholuxe Paells\r\n  <OPTION>Torvonnilous\r\n  <OPTION>Tunare\r\n  <OPTION>Vallon Zek\r\n  <OPTION>Vazaelle\r\n  <OPTION>Veeshan\r\n  <OPTION>Venril Sathir\r\n  <OPTION>Xegony\r\n  <OPTION>Xev\r\n  <OPTION>Zebuxoruk\r\n</SELECT>\r\n\r\n	      <INPUT TYPE=submit VALUE="Go">\r\n	    </FORM>\r\n<IMG SRC="images/spacer.gif">\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n    </TD>\r\n  </TR>\r\n  <TR>\r\n    <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG\r\n	  SRC="images/curvtop.gif" WIDTH="156" HEIGHT="62">\r\n      <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">\r\n	<TR>\r\n	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n	      <TR>\r\n		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>\r\n		    <TR>\r\n		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>\r\n			  <TR>\r\n			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n				<TR>\r\n				  <TD> Main Menu</TD>\r\n				</TR>\r\n			      </TABLE>\r\n			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">\r\n				<TR>\r\n				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"\r\n				    class="menubackcolor">\r\n				      <TR>\r\n					<TD class="cat"><IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="index.cgi"\r\n					   class="menu">Home</A><BR>\r\n					 <IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="http://www.eqguilded.com/page.cgi?view=help" class="menu">Help</A><BR>\r\n					 <IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="http://www.eqguilded.com/demo/forum.cgi" class="menu">Forms</A><BR>\r\n					 <IMG SRC="images/dot.gif" WIDTH="6" HEIGHT="8"> <A href="/links" class="menu">Links</A><BR></TD>\r\n				      </TR>\r\n				    </TABLE>\r\n				  </TD>\r\n				</TR>\r\n			      </TABLE>\r\n			    </TD>\r\n			  </TR>\r\n			</TABLE>\r\n			<P>\r\n			<TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" width=100%>\r\n			  <TR>\r\n			    <TD>!!leftblocks!!</TD>\r\n			  </TR>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		</TD>\r\n	      </TR>\r\n	    </TABLE>\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n    </TD>\r\n    <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"\r\n      CELLPADDING="4" WIDTH=100%>\r\n	<TR>\r\n	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100% HEIGHT=100%>\r\n	      <TR>\r\n		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n		    <TR>\r\n		      <TD> </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\r\n		    <TR>\r\n		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"\r\n			class="menubackcolor">\r\n			  <TR>\r\n			    <TD class="cat"><CENTER>\r\n				<CENTER>\r\n				  !!tag!!\r\n				</CENTER>\r\n			      </CENTER>\r\n			    </TD>\r\n			  </TR>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		</TD>\r\n	      </TR>\r\n	    </TABLE>\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>\r\n      <P>\r\n    </TD>\r\n    <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%></TD>\r\n  </TR>\r\n  <TR>\r\n  </TR>\r\n  <TR>\r\n  </TR>\r\n  <TR>\r\n    <TD COLSPAN=4 BACKGROUND="images/botbar.gif"><IMG SRC="images/botbar.gif"\r\n	  WIDTH="47" HEIGHT="40"></TD>\r\n  </TR>\r\n</TABLE>\r\n<CENTER>\r\n  <FONT class=textsmall>© COPYRIGHT 2003 ALL RIGHTS RESERVED\r\n  EQGUILDED.COM</FONT>\r\n</CENTER>\r\n<P>\r\n</BODY></HTML>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n');
+INSERT INTO `html` VALUES ('sign_up_form_html', ' <FORM ACTION="signup.cgi" METHOD="POST" class=cat>\r\n  <CENTER>\r\n    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">\r\n      <TR>\r\n	<TD COLSPAN=2><B>Username:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="user" onBlur="this.value=ignoreSpaces(this.value);" onChange="javascript:this.value=this.value.toLowerCase();"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Display Name:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="name"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Sur Name:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="sur"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Password:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="pass" onBlur="this.value=ignoreSpaces(this.value);" onChange="javascript:this.value=this.value.toLowerCase();"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>E-Mail Address:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="email"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Race:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <SELECT NAME="race">\r\n            		    <OPTION SELECTED>Barbarian \r\n            		    <OPTION>Dark_Elf \r\n            		    <OPTION>Dwarf \r\n            		    <OPTION>Erudite \r\n            		    <OPTION>Gnome \r\n            		    <OPTION>Half_Elf \r\n            		    <OPTION>Halfling \r\n            		    <OPTION>High_Elf \r\n            		    <OPTION>Human \r\n            		    <OPTION>Iskar \r\n            		    <OPTION>Orge \r\n            		    <OPTION>Troll \r\n            		    <OPTION>Wood_Elf\r\n            		    <OPTION>Vah_Shir\r\n            		    <OPTION>Frog</SELECT></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Class:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <SELECT NAME="class">\r\n	              	    <OPTION SELECTED>Bard \r\n            		    <OPTION>Cleric \r\n            		    <OPTION>Druid \r\n            		    <OPTION>Wizard \r\n            		    <OPTION>Enchanter \r\n            		    <OPTION>Magician \r\n            		    <OPTION>Monk \r\n            		    <OPTION>Necromancer \r\n            		    <OPTION>Paladin \r\n            		    <OPTION>Ranger \r\n            		    <OPTION>Roug \r\n            		    <OPTION>ShadowKnight \r\n            		    <OPTION>Shaman \r\n            		    <OPTION>Warrior\r\n            		    <OPTION>Beastlord</SELECT></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Level:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="level" SIZE="4" MAXLENGTH="2"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=3><P ALIGN=Center>\r\n<INPUT TYPE=hidden NAME=signup_b>\r\n\r\n<INPUT TYPE=hidden NAME=guild VALUE=null>\r\n<INPUT TYPE=hidden NAME=longname VALUE=nullnull>\r\n\r\n	  <INPUT TYPE=submit VALUE="Sign Up" onClick="validate();return returnVal;">  \r\n	  <INPUT TYPE=reset VALUE="Start Over"></TD>\r\n      </TR>\r\n    </TABLE>\r\n  </CENTER>\r\n</FORM>\r\n\r\n');
+INSERT INTO `html` VALUES ('edit_form_html', ' <FORM ACTION="useredit.cgi" METHOD="POST" class=cat>\r\n  <CENTER>\r\n    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">\r\n      <TR>\r\n	<TD COLSPAN=2><B>Username:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="hidden" NAME="user" VALUE="!!user!!">!!user!!</TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Display Name:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="name" VALUE="!!name!!"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Sur Name:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="sur" VALUE="!!sur!!"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Password:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="password" NAME="pass" VALUE="!!pass!!" onBlur="this.value=ignoreSpaces(this.value);" onChange="javascript:this.value=this.value.toLowerCase();"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>E-Mail Address:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="email" VALUE="!!email!!"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Race:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <SELECT NAME="race">\r\n            		    <OPTION>Barbarian \r\n            		    <OPTION>Dark_Elf \r\n            		    <OPTION>Dwarf \r\n            		    <OPTION>Erudite \r\n            		    <OPTION>Gnome \r\n            		    <OPTION>Half_Elf \r\n            		    <OPTION>Halfling \r\n            		    <OPTION>High_Elf \r\n            		    <OPTION>Human \r\n            		    <OPTION>Iskar \r\n            		    <OPTION>Orge \r\n            		    <OPTION>Troll \r\n            		    <OPTION>Wood_Elf\r\n            		    <OPTION>Vah_Shir\r\n            		    <OPTION>Frog</SELECT></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Class:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <SELECT NAME="class">\r\n	              	    <OPTION>Bard \r\n            		    <OPTION>Cleric \r\n            		    <OPTION>Druid \r\n            		    <OPTION>Wizard \r\n            		    <OPTION>Enchanter \r\n            		    <OPTION>Magician \r\n            		    <OPTION>Monk \r\n            		    <OPTION>Necromancer \r\n            		    <OPTION>Paladin \r\n            		    <OPTION>Ranger \r\n            		    <OPTION>Roug \r\n            		    <OPTION>ShadowKnight \r\n            		    <OPTION>Shaman \r\n            		    <OPTION>Warrior\r\n            		    <OPTION>Beastlord</SELECT></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><B>Level:</TD>\r\n	<TD></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD></TD>\r\n	<TD COLSPAN=2>\r\n	  <INPUT TYPE="text" NAME="level" SIZE="4" MAXLENGTH="2" VALUE="!!level!!"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=3><P ALIGN=Center>\r\n<INPUT TYPE=hidden name=do value=useredit_b>\r\n<INPUT TYPE=hidden NAME=guild VALUE=null>\r\n<INPUT TYPE=hidden NAME=longname VALUE=nullnull>\r\n	  <INPUT TYPE=submit VALUE="Save Changes" onClick="validate();return returnVal;">  \r\n	  <INPUT TYPE=reset VALUE="Start Over"></TD>\r\n      </TR>\r\n    </TABLE>\r\n  </CENTER>\r\n</FORM>\r\n\r\n');
+INSERT INTO `html` VALUES ('edit_options_html', '<A HREF=useredit.cgi?do=edit_form class=menu>Edit User Info</A><BR>\r\n<A HREF=useredit.cgi?do=edit_guild class=menu>Edit Guild</A><BR>\r\nEdit Profile<BR>');
+INSERT INTO `html` VALUES ('news_box_html', '<TABLE BORDER="0" CELLSPACING="4"\r\n      CELLPADDING="4" WIDTH=100%>\r\n	<TR>\r\n	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100%>\r\n	      <TR>\r\n		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">\r\n		    <TR>\r\n		      <TD>&nbsp;!!date!!</TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">\r\n		    <TR>\r\n		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"\r\n			class="menubackcolor">\r\n			  <TR>\r\n			    <TD class="cat"><CENTER>\r\n				<CENTER>\r\n				  !!tag!!\r\n				</CENTER>\r\n			      </CENTER>\r\n			    </TD>\r\n			  </TR>\r\n			</TABLE>\r\n		      </TD>\r\n		    </TR>\r\n		  </TABLE>\r\n		</TD>\r\n	      </TR>\r\n	    </TABLE>\r\n	  </TD>\r\n	</TR>\r\n      </TABLE>');
+INSERT INTO `html` VALUES ('send_form_html', '<FORM name=myform ACTION="message.cgi" METHOD="POST" class=table>\r\n  <TABLE BORDER="0" CELLPADDING="2">\r\n    <TR>\r\n      <TD><B>To:</B></TD>\r\n      <TD>\r\n	<INPUT TYPE="HIDDEN" NAME="to" VALUE="!!to!!">!!to!!</TD>\r\n    </TR>\r\n    <TR>\r\n      <TD><B>Subject:</B></TD>\r\n      <TD>\r\n	<INPUT TYPE="text" NAME="subject"></TD>\r\n    </TR>\r\n    <TR>\r\n      <TD COLSPAN=2><B>Message:</B></TD>\r\n    </TR>\r\n    <TR>\r\n      <TD COLSPAN=2>\r\n<TEXTAREA NAME="message" ROWS="10" COLS="40">\r\n</TEXTAREA>\r\n</TD>\r\n    </TR>\r\n    <TR>\r\n      <TD COLSPAN=2><P ALIGN=Center>\r\n	<INPUT TYPE=submit VALUE="Send"> &nbsp;\r\n	<INPUT TYPE=reset VALUE="Start Over">\r\n	<INPUT TYPE="hidden" NAME="do" VALUE="send_msg"></TD>\r\n    </TR>\r\n  </TABLE>\r\n</FORM>');
+INSERT INTO `html` VALUES ('guild_add_news_html', '<FORM ACTION="useredit.cgi" METHOD="POST">\r\n  <CENTER>\r\n    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">\r\n      <TR>\r\n	<TD><TEXTAREA NAME="news" ROWS="15" COLS="40"></TEXTAREA></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD><P ALIGN=Center>\r\n<INPUT TYPE=hidden name=do value=guild_add_news_b>\r\n	  <INPUT TYPE=submit VALUE="Save News"> &nbsp;\r\n	  <INPUT TYPE=reset VALUE="Start Over"></TD>\r\n      </TR>\r\n    </TABLE>\r\n  </CENTER>\r\n</FORM>');
+INSERT INTO `html` VALUES ('header_banner_html', '');
+INSERT INTO `html` VALUES ('footer_banner_html', ' <CENTER>\r\nSite Hosted by <A HREF=http://www.eqguilded.com>EQ Guilded.com</A>\r\n</CENTER>\r\n\r\n');
+INSERT INTO `html` VALUES ('guild_message_member_html', '<FORM ACTION="useredit.cgi" METHOD="POST">\r\n  <CENTER>\r\n    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">\r\n      <TR>\r\n	<TD>Subject:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="text" NAME="subject"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2>Message:</TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><TEXTAREA NAME="message" ROWS="15" COLS="30"></TEXTAREA></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>Send To:</TD>\r\n	<TD>\r\n	  <SELECT NAME="sendto">\r\n	  <OPTION SELECTED>All\r\n	  <OPTION>Officers</SELECT></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><P ALIGN=Center>\r\n<INPUT TYPE="hidden" NAME="do" VALUE="guild_message_member_b">\r\n	  <INPUT TYPE=submit VALUE="Send Messages"> &nbsp;\r\n	  <INPUT TYPE=reset VALUE="Start Over"></TD>\r\n      </TR>\r\n    </TABLE>\r\n  </CENTER>\r\n</FORM>');
+INSERT INTO `html` VALUES ('guild_edit_counter_html', '  <FORM ACTION="useredit.cgi" METHOD="POST">\r\n  <CENTER>\r\n    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="1" CHECKED></TD>\r\n	<TD><IMG SRC="images/1/0.gif"> <IMG SRC="images/1/1.gif">\r\n	  <IMG SRC="images/1/2.gif"> <IMG SRC="images/1/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="2"></TD>\r\n	<TD><IMG SRC="images/2/0.gif"> <IMG SRC="images/2/1.gif">\r\n	  <IMG SRC="images/2/2.gif"> <IMG SRC="images/2/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="3"></TD>\r\n	<TD><IMG SRC="images/3/0.gif"> <IMG SRC="images/3/1.gif">\r\n	  <IMG SRC="images/3/2.gif"> <IMG SRC="images/3/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="4"></TD>\r\n	<TD><IMG SRC="images/4/0.gif"> <IMG SRC="images/4/1.gif">\r\n	  <IMG SRC="images/4/2.gif"> <IMG SRC="images/4/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="5"></TD>\r\n	<TD><IMG SRC="images/5/0.gif"> <IMG SRC="images/5/1.gif">\r\n	  <IMG SRC="images/5/2.gif"> <IMG SRC="images/5/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="6"></TD>\r\n	<TD><IMG SRC="images/6/0.gif"> <IMG SRC="images/6/1.gif">\r\n	  <IMG SRC="images/6/2.gif"> <IMG SRC="images/6/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="7"></TD>\r\n	<TD><IMG SRC="images/7/0.gif"> <IMG SRC="images/7/1.gif">\r\n	  <IMG SRC="images/7/2.gif"> <IMG SRC="images/7/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="8"></TD>\r\n	<TD><IMG SRC="images/8/0.gif"> <IMG SRC="images/8/1.gif">\r\n	  <IMG SRC="images/8/2.gif"> <IMG SRC="images/8/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="9"></TD>\r\n	<TD><IMG SRC="images/9/0.gif"> <IMG SRC="images/9/1.gif">\r\n	  <IMG SRC="images/9/2.gif"> <IMG SRC="images/9/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="10"></TD>\r\n	<TD><IMG SRC="images/10/0.gif"> <IMG SRC="images/10/1.gif">\r\n	  <IMG SRC="images/10/2.gif"> <IMG SRC="images/10/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="11"></TD>\r\n	<TD><IMG SRC="images/11/0.gif"> <IMG SRC="images/11/1.gif">\r\n	  <IMG SRC="images/11/2.gif"> <IMG SRC="images/11/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>\r\n	  <INPUT TYPE="radio" NAME="counter" VALUE="12"></TD>\r\n	<TD><IMG SRC="images/12/0.gif"> <IMG SRC="images/12/1.gif">\r\n	  <IMG SRC="images/12/2.gif"> <IMG SRC="images/12/3.gif"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><P ALIGN=Center>\r\n<INPUT TYPE=hidden NAME=do VALUE=guild_edit_counter_b>\r\n	  <INPUT TYPE=submit VALUE="Set Counter Image"></TD>\r\n      </TR>\r\n    </TABLE>\r\n  </CENTER>\r\n</FORM>\r\n\r\n\r\n\r\n');
+INSERT INTO `html` VALUES ('guild_save_counter_html', 'Counter Image Saved\r\n<P>\r\n<A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_edit_info_html', '<FORM ACTION="useredit.cgi" METHOD="POST">\r\n  <CENTER>\r\n    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">\r\n      <TR>\r\n	<TD>Guild Name:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="text" NAME="longname" value="!!longname!!"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>Guild Password:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="password" NAME="password" value="!!password!!"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>Guild E-Mail:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="text" NAME="email" value="!!email!!"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><P ALIGN=Center>\r\n<INPUT type=hidden name=do value=guild_edit_info_b>\r\n<INPUT type=hidden name=guild value="!!guild!!">\r\n	  <INPUT TYPE=submit VALUE="Save Info"> &nbsp;\r\n	  <INPUT TYPE=reset VALUE="Start Over"></TD>\r\n      </TR>\r\n    </TABLE>\r\n  </CENTER>\r\n</FORM>');
+INSERT INTO `html` VALUES ('guild_info_saved_html', 'Guild Info Saved\r\n<P>\r\n<A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_messages_sent_html', 'Messages Sent\r\n<P>\r\n<A HREF=?do=guild_message_member class=menu>Send Another Message</A><BR>\r\n<A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_delere_news_html', 'News Deleted!\r\n<P>\r\n<A HREF=?do=guild_delete_news class=menu>Delete more News</A><BR>\r\n<A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_add_news_b_html', 'News Updated!\r\n<P>\r\n<A HREF=?do=guild_add_news class=menu>Add more News</A><BR>\r\n<A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_edit_member_c_html', 'Member Updated!\r\n<P>\r\n<A HREF=?do=guild_edit_member class=menu>Edit more members</A><BR>\r\n<A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_aproved_member_b_html', 'Member Aproved/Declined!\r\n<P>\r\n<A HREF=?do=guild_aprove_member class=menu>Aprove more members</A><BR>\r\n<A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_create_form_html', '     <FORM ACTION="createguild.cgi" METHOD="POST">\r\n  <CENTER>\r\n    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">\r\n      <TR>\r\n	<TD>Short Name:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="text" NAME="guild" onBlur="this.value=ignoreSpaces(this.value);" onChange="javascript:this.value=this.value.toLowerCase();"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>Long Name:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="text" NAME="longname"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>Password:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="text" NAME="pass"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>E-Mail:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="text" NAME="email"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>Server:</TD>\r\n	<TD>\r\n	  <SELECT NAME="server"> \r\n	  <OPTION>Antonius Bayle \r\n	  <OPTION>Ayonae Ro \r\n	  <OPTION>Bertoxxulous \r\n	  <OPTION>Brell Serilis \r\n	  <OPTION>Bristlebane \r\n	  <OPTION>Cazic-Thule \r\n	  <OPTION>Drinal \r\n	  <OPTION>Druzzil Ro \r\n	  <OPTION>E\'ci \r\n	  <OPTION>Erollisi Marr \r\n	  <OPTION>Fennin Ro \r\n	  <OPTION>Firiona Vie \r\n	  <OPTION>Innoruuk \r\n	  <OPTION>Kael Drakkal \r\n	  <OPTION>Kane Bayle \r\n	  <OPTION>Karana \r\n	  <OPTION>Lanys T\'Vyl \r\n	  <OPTION>Luclin \r\n	  <OPTION>Maelin Starpyre \r\n	  <OPTION>Mithaniel Marr \r\n	  <OPTION>Morell-Thule \r\n	  <OPTION>Povar \r\n	  <OPTION>Prexus \r\n	  <OPTION>Quellious \r\n	  <OPTION>Rallos Zek \r\n	  <OPTION>Rodcet Nife \r\n	  <OPTION>Saryrn \r\n	  <OPTION>Sebilis \r\n	  <OPTION>Solusek Ro \r\n	  <OPTION>Stormhammer \r\n	  <OPTION>Sullon Zek \r\n	  <OPTION>Tallon Zek \r\n	  <OPTION>Threw Marr \r\n	  <OPTION>Terris-Thule \r\n	  <OPTION>The Nameless \r\n	  <OPTION>The Rathe \r\n	  <OPTION>The seventh Hammer \r\n	  <OPTION>The Tribunal \r\n	  <OPTION>Tholuxe Paells \r\n	  <OPTION>Torvonnilous \r\n	  <OPTION>Tunare \r\n	  <OPTION>Vallon Zek \r\n	  <OPTION>Vazaelle \r\n	  <OPTION>Veeshan \r\n	  <OPTION>Venril Sathir \r\n	  <OPTION>Xegony \r\n	  <OPTION>Xev\r\n  <OPTION>Zebuxoruk\r\n </SELECT></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><P ALIGN=Center>\r\n\r\n<INPUT TYPE=hidden NAME="user" VALUE="null">\r\n<INPUT TYPE=hidden NAME="name" VALUE="null">\r\n<INPUT TYPE=hidden NAME=do VALUE=create_guild>\r\n	  <INPUT TYPE=submit VALUE="Create Guild" onClick="validate();return returnVal;">  \r\n	  <INPUT TYPE=reset VALUE="Start Over"></TD>\r\n      </TR>\r\n    </TABLE>\r\n  </CENTER>\r\n</FORM>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n');
+INSERT INTO `html` VALUES ('guild_create_finish_html', '   Guild Created!\r\n<P>\r\nThe URL to your Guilds Website is:<BR>\r\n<A HREF=!!URL!! class=menu>!!URL!!</A>\r\n<P>\r\n<A HREF=useredit.cgi?do=edit_guild class=menu>Edit Your Guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>\r\n\r\n\r\n\r\n\r\n\r\n');
+INSERT INTO `html` VALUES ('guild_delete_finish_html', '  Guild Deleted!\r\n<P>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_delete_site_html', ' LAST CHANCE!!<BR>\r\nAre you sure you want to delete your guild website and all its files?<BR>\r\nWe are unabel to restore your guilds files if you do this!<P>\r\n<A HREF=?do=delete_guild class=menu>YES! Delete My Guilds Website</A>\r\n<P>\r\n<A HREF=http://www.eqguilded.com class=menu>NO! Dont Do It</A>\r\n\r\n');
+INSERT INTO `html` VALUES ('forum_view_thred_html', ' <table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n<tr>\r\n<td BGCOLOR=#c0c0c0 WIDTH=20%>\r\n    \r\n</td>\r\n<td BGCOLOR=#c0c0c0>\r\n<A HREF=forum.cgi class=menu>Forums</A> > !!forum!!\r\n</td>\r\n</tr>\r\n</TABLE>\r\n\r\n<table width=100%  BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n<tr class=header><td BGCOLOR=#c0c0c0>Topic</a></td>\r\n<td BGCOLOR=#c0c0c0>Created by</td><td BGCOLOR=#c0c0c0>Date Created</td><td BGCOLOR=#c0c0c0>Number of Replies</td></tr>\r\n\r\n!!topics!!\r\n\r\n</table>\r\n<A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=1" class=menu>New Thered</A>\r\n\r\n');
+INSERT INTO `html` VALUES ('add_forum_html', '<FORM ACTION="useredit.cgi" METHOD="POST">\r\n  <CENTER>\r\n    <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">\r\n      <TR>\r\n	<TD>Forum Name:</TD>\r\n	<TD>\r\n	  <INPUT TYPE="text" NAME="forum"></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD>Description</TD>\r\n	<TD><TEXTAREA NAME="desc" COLS="18"></TEXTAREA></TD>\r\n      </TR>\r\n      <TR>\r\n	<TD COLSPAN=2><P ALIGN=Center>\r\n<INPUT TYPE=hidden NAME=do VALUE=guild_add_forum_b>\r\n	  <INPUT TYPE=submit VALUE="Add Forum"> &nbsp;\r\n	  <INPUT TYPE=reset VALUE="Start Over"></TD>\r\n      </TR>\r\n    </TABLE>\r\n  </CENTER>\r\n</FORM>');
+INSERT INTO `html` VALUES ('guild_save_forum_html', 'Forum Added!\r\n<P>\r\n<A HREF=?do=guild_add_forum class=menu>Add More Forums</A><BR>\r\n<A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR>\r\n<A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('guild_delete_forum_b_html', 'Forum Deleted! <P> <A HREF=?do=guild_delete_forum class=menu>Delete More Forums</A><BR> <A HREF=?do=edit_guild class=menu>Return to edit guild</A><BR> <A HREF=index.cgi class=menu>Return to EQ Guilded</A>');
+INSERT INTO `html` VALUES ('forum_view_main_html', '  	<tr class=field>\r\n           <td BGCOLOR=#cbfacd>\r\n              <a href="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</a><BR>\r\n	      <SMALL>!!description!!</SMALL>\r\n           </td>\r\n	   <td BGCOLOR=#cbfacd>\r\n	      !!lastpostname!!<BR>\r\n              <SMALL>!!lastpostdate!!</SMALL>\r\n	   </td>\r\n	   <td BGCOLOR=#cbfacd>\r\n	      <CENTER>\r\n	      !!count!!\r\n	   </td>\r\n	</tr>');
+INSERT INTO `html` VALUES ('forum_topic_html', ' <P>\r\n<table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n<tr><td BGCOLOR=#c0c0c0>Poster</td><td BGCOLOR=#c0c0c0><A HREF=forum.cgi class=menu>Forums</A> > <A HREF="forum.cgi?do=view_thread&forum=!!forum!!" class=menu>!!forum!!</A> > !!topic!!</td></tr>\r\n!!posts!!\r\n</table>\r\n<A HREF="forum.cgi?do=post_a&topic=!!topic!!&forum=!!forum!!&thread=2" class=menu>Post Reply</A>\r\n\r\n');
+INSERT INTO `html` VALUES ('forum_thread_html', '<tr><td BGCOLOR=#cbfacd><a href="forum.cgi?do=view_topic&forum=!!forum!!&topic=!!topic!!" class=menu>!!topic!!</a></td>\r\n<td BGCOLOR=#cbfacd>!!name!!</td><td BGCOLOR=#cbfacd>!!date!!</td><td BGCOLOR=#cbfacd>!!count!!</td></tr>');
+INSERT INTO `html` VALUES ('forum_main_html', '  <P>\r\n<CENTER>\r\n<table width=100% BORDER CELLSPACING="0" CELLPADDING="5" BORDERCOLOR="#5f5f5f" class=cat>\r\n<tr class=header>\r\n<td width=60% BGCOLOR=#c0c0c0>Forum Name</td>\r\n<td width=30% BGCOLOR=#c0c0c0>Last Post</td>\r\n<td width=10% BGCOLOR=#c0c0c0><CENTER>Posts</td>\r\n</tr>\r\n!!threads!!\r\n</table>\r\n\r\n\r\n');
+INSERT INTO `html` VALUES ('forum_post_html', '   <tr>\r\n<td valign=top width=20% BGCOLOR=#cbfacd>\r\n!!name!!<BR>\r\n<SMALL>!!rank!!</SMALL>\r\n</TD>\r\n<td BGCOLOR=#cbfacd>\r\n<b>!!subject!!</b>\r\n<HR>\r\n!!message!!\r\n<hr>\r\nposted on: !!date!!\r\n</td>\r\n\r\n</tr>\r\n\r\n');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `messages`
+#
+# Creation: Sep 21, 2003 at 06:09 PM
+# Last update: Nov 22, 2003 at 11:01 AM
+#
+
+CREATE TABLE `messages` (
+  `to` varchar(25) NOT NULL default '',
+  `from` varchar(25) NOT NULL default '',
+  `subject` varchar(100) NOT NULL default '',
+  `message` text NOT NULL,
+  `date` datetime NOT NULL default '0000-00-00 00:00:00'
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `messages`
+#
+
+INSERT INTO `messages` VALUES ('naiyawins', 'naiyawins', 'Removel from execution', '\nThe officers of execution have decided to remove you from execution!\n<P>\nEQ Guilded has no choice over this decishion. If you feal it is in error please contact your guilds Leader/Officers.\n', '2003-11-21 19:54:36');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `news`
+#
+# Creation: Sep 23, 2003 at 01:45 PM
+# Last update: Nov 23, 2003 at 07:42 PM
+#
+
+CREATE TABLE `news` (
+  `date` date NOT NULL default '0000-00-00',
+  `news` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `news`
+#
+
+INSERT INTO `news` VALUES ('2003-11-23', 'Sticky, Locked, Edit, and Delete added to forums.\r\n<P>\r\nFixed bug in createing guild websites where spaces cause lost pages.');
+INSERT INTO `news` VALUES ('2003-11-17', 'Guild Websites are up and running!!<BR>\r\nCreate yours today\r\n<P>\r\nStill to come...<BR>\r\nforms<BR>\r\nguestbook<BR>\r\npoll<BR>\r\nbank<BR>\r\nprofiles<BR>\r\nand more...');
+INSERT INTO `news` VALUES ('2003-11-18', 'Forums installed and running. More features on the forums coming soon!!');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `pages`
+#
+# Creation: Nov 13, 2003 at 01:42 PM
+# Last update: Nov 23, 2003 at 08:26 PM
+#
+
+CREATE TABLE `pages` (
+  `name` varchar(25) NOT NULL default '',
+  `content` text NOT NULL
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `pages`
+#
+
+INSERT INTO `pages` VALUES ('help', 'EQ Guilded Help\r\n<P>\r\nNeed help? Check the <A HREF=./faq class=menu>FAQ</A>!\r\n<P>\r\nCant find it in the FAQ try the <A HREF=http://www.eqguilded.com/demo/forum.cgi class=menu>Forums</A>!');
+
+# --------------------------------------------------------
+
+#
+# Table structure for table `user`
+#
+# Creation: Nov 18, 2003 at 11:56 PM
+# Last update: Nov 23, 2003 at 08:41 PM
+#
+
+CREATE TABLE `user` (
+  `id` varchar(25) NOT NULL default '',
+  `name` varchar(25) NOT NULL default '',
+  `sur` varchar(25) NOT NULL default '',
+  `password` varchar(25) NOT NULL default '',
+  `email` varchar(100) NOT NULL default '',
+  `guild` varchar(25) NOT NULL default '',
+  `class` varchar(25) NOT NULL default '',
+  `race` varchar(25) NOT NULL default '',
+  `level` char(2) NOT NULL default '',
+  `created` date NOT NULL default '0000-00-00',
+  `lastactive` datetime NOT NULL default '0000-00-00 00:00:00',
+  `rank` varchar(25) NOT NULL default ''
+) TYPE=MyISAM;
+
+#
+# Dumping data for table `user`
+#
+
+INSERT INTO `user` VALUES ('keny', 'Keny', 'Misspeller', '0519aa', 'webmaster@eqguilded.com', 'demo', 'Magician', 'Gnome', '60', '2003-11-13', '2003-11-13 11:53:04', 'EQ Guilded Admin');
+INSERT INTO `user` VALUES ('sken', 'Sken', 'meatsicle', '0519aa', 'ske@eqguilded.com', '', 'Warrior', 'Gnome', '46', '2003-11-13', '2003-11-13 12:51:35', '');
+INSERT INTO `user` VALUES ('admin', 'Adminastrater', '', '0519aa', 'webmaster@eqguilded.com', '', 'Bard', 'Barbarian', '1', '2003-11-18', '2003-11-18 23:53:35', 'EQ Guilded - Admin');
+INSERT INTO `user` VALUES ('administration', 'Administration', '', '0519aa', 'webmaster@eqguilded.com', '', 'Bard', 'Barbarian', '1', '2003-11-18', '2003-11-18 23:54:07', 'EQ Guilded - Admin');
+INSERT INTO `user` VALUES ('administrator', 'administrator', '', '0519aa', 'webmaster@eqguilded.com', '', 'Bard', 'Barbarian', '1', '2003-11-18', '2003-11-18 23:54:36', 'EQ Guilded - Admin');
+INSERT INTO `user` VALUES ('demo', 'Demo', '', '522370519', 'demo@demo.com', 'demo', 'Bard', 'Barbarian', '1', '2003-11-21', '2003-11-21 17:26:40', '');
+INSERT INTO `user` VALUES ('bombados', 'Bombados', 'Kindheart', 'ds3108', 'lockdown87@hotmail.com', '', 'Shaman', 'Barbarian', '65', '2003-11-21', '2003-11-21 19:16:14', '');
+INSERT INTO `user` VALUES ('beaue88', 'Naiya', 'Wins', 'goirish', 'kwikstuff44@hotmail.com', '', 'Paladin', 'Human', '65', '2003-11-21', '2003-11-21 19:35:29', '');
+INSERT INTO `user` VALUES ('naiya', 'Naiya', 'Wins', 'goirish', 'kwikstuff44@hotmail.com', '', 'Paladin', 'Human', '65', '2003-11-21', '2003-11-21 19:39:20', '');
+INSERT INTO `user` VALUES ('gizmo', 'gizmo', 'armless', 'egnaro', 'steve@cwcom.net', 'PP', 'Ranger', 'Half_Elf', '62', '2003-11-21', '2003-11-21 19:44:04', '');
+INSERT INTO `user` VALUES ('naiyawins', 'Naiya', 'Wins', 'goirish', 'kwikstuff44@hotmail.com', 'exec', 'Paladin', 'Human', '65', '2003-11-21', '2003-11-21 19:53:20', '');
+INSERT INTO `user` VALUES ('treytalf', 'Treytalf', 'Juraviel', 'defender', 'dragonsfire101@yahoo.com', '', 'Paladin', 'Half_Elf', '65', '2003-11-21', '2003-11-21 22:33:22', '');
+INSERT INTO `user` VALUES ('Shattered', 'Zever', 'Warzone', '12348765', 'mind_rage@msn.com', 'SF', 'Wizard', 'Dark_Elf', '65', '2003-11-22', '2003-11-22 07:09:09', '');
+INSERT INTO `user` VALUES ('laylana', 'Laylana', 'Jones', 'spgpassw0rd', 'ccblow@hotmail.com', '', 'Shaman', 'Barbarian', '65', '2003-11-22', '2003-11-22 08:08:21', '');
+INSERT INTO `user` VALUES ('brenwyn', 'Brenwyn', 'Wolfstorm', 'evmad7', 'aboughton@swbell.net', '', 'Magician', 'Human', '65', '2003-11-22', '2003-11-22 10:40:59', '');
+INSERT INTO `user` VALUES ('twyvols', 'Twylitedawn', 'Soulguardian', 'turtle', 'jacqueo@tds.net', 'Vols', 'Cleric', 'High_Elf', '65', '2003-11-22', '2003-11-22 10:46:52', '');
+INSERT INTO `user` VALUES ('waspz', 'Waspz', 'Stingheart', 'whoknow', 'beauhasey@msn.com', '', 'ShadowKnight', 'Iskar', '65', '2003-11-22', '2003-11-22 16:03:44', '');
+INSERT INTO `user` VALUES ('dingk', 'Dingk', 'Wingk', 'y7kj5jj', 'Dingk1000@hotmail.com', '', 'Paladin', 'Dwarf', '58', '2003-11-22', '2003-11-22 17:43:58', '');
+INSERT INTO `user` VALUES ('sheira', 'Sheira', 'Elvynfyre', 'jujubees', 'SheiraMM@hotmail.com', '', 'Ranger', 'Wood_Elf', '65', '2003-11-22', '2003-11-22 18:42:28', '');
+INSERT INTO `user` VALUES ('jjhg', 'Ellron', 'Holyhand', 'gnirreh', 'jjh2162inf@yahoo.com', '', 'Cleric', 'High_Elf', '23', '2003-11-22', '2003-11-22 23:27:04', '');
+INSERT INTO `user` VALUES ('telisa', 'Telisa', 'Maximus', 'casey123', 'telisa29@hotmail.com', 'KS', 'Bard', 'Barbarian', '64', '2003-11-23', '2003-11-23 07:56:07', '');
+INSERT INTO `user` VALUES ('graveyard', 'graveyard', 'graveyard', 'graveyard', 'sidburn@eqguild.net', '', 'Cleric', 'Erudite', '12', '2003-11-23', '2003-11-23 14:37:27', '');
+INSERT INTO `user` VALUES ('mikjaez', 'Mikjae', 'Zephir', 'vegeta', 'pharoahoftheworld@hotmail.com', '', 'Bard', 'Human', '65', '2003-11-23', '2003-11-23 18:12:22', '');
+INSERT INTO `user` VALUES ('froganna', 'Froganna', 'Le Fay', '3791ring', 'donnierwx@aol.com', '', 'Wizard', 'Frog', '24', '2003-11-23', '2003-11-23 19:03:10', '');
+INSERT INTO `user` VALUES ('eqguilded', 'EQ Guilded', '', '0519aa', '', '', '', '', '', '0000-00-00', '0000-00-00 00:00:00', 'EQ Guilded Admin');
+INSERT INTO `user` VALUES ('eqguild', 'EQ Guilded', '', '0519aa', '', '', '', '', '', '0000-00-00', '0000-00-00 00:00:00', 'EQ Guilded Admin');

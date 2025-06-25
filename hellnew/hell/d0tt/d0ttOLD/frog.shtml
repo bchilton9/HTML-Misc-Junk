@@ -1,0 +1,10 @@
+<html>
+<head>
+<title>DØTT.com: Lucky Frog</title>
+<meta name="keywords" content="joke,funny,frog">
+<meta name="description" content="A funny joke abought a lucky frog">
+<!--#exec cgi="/cgi-bin/header.cgi" --
+A man takes the day off of work
+Opps not done yet
+<P>
+<!--#exec cgi="/cgi-bin/footer.cgi" -->

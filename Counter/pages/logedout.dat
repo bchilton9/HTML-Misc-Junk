@@ -1,0 +1,22 @@
+   <OBJECT WIDTH="320" HEIGHT="21" align="right" id="login">
+ <PARAM NAME=movie VALUE="login.swf">
+ <PARAM NAME=quality VALUE=high>
+ <PARAM NAME=bgcolor VALUE=#56B6E3>
+ <EMBED src="login.swf"  WIDTH="320" HEIGHT="21" align="right" quality=high bgcolor=#56B6E3 NAME="login"></EMBED>
+</OBJECT>
+</div> 
+</div> 
+<div id="pagecell1"> 
+  <!--pagecell1--> 
+
+  <div id="pageNav"> 
+    <div id="sectionLinks"> 
+      <a href="?">Home</a>
+	  <a href="?do=page&page=counters">Counter's</a>
+	  <a href="?do=page&page=help">Help</a>
+	  <a href="?do=page&page=contact">Contact</a>
+	  <a href="?do=page&page=signup">Sign up</a>
+    </div> 
+  </div> 
+  <div id="content">
+    <div class="story">

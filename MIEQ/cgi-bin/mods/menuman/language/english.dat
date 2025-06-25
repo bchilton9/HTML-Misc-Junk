@@ -1,0 +1,27 @@
+$menuManager{'001'} = "Menu Manager Mod";
+$menuManager{'002'} = "Main Menu";
+$menuManager{'003'} = "Member Panel";
+$menuManager{'004'} = "Title";
+$menuManager{'005'} = "URL";
+$menuManager{'006'} = "Available To";
+$menuManager{'007'} = "Up";
+$menuManager{'008'} = "Down";
+$menuManager{'009'} = "Add Menu Item";
+$menuManager{'010'} = "Menu Item";
+$menuManager{'011'} = "This is the caption you will see in the menu.  \$ variables can be used to allow multiple language support.";
+$menuManager{'012'} = "The URL for the link.  Entry will be appended to <B>$pageurl/$cgi\?action=</B>.<BR>To specify a full URL, start your entry with <B>http://</B>";
+$menuManager{'013'} = "Determines who will see this link.<BR>Hold CTRL to select multiple.<BR><BR>Groups can be setup in the <B><A href='$pageurl/$cgi\?action=admin&op=userstate'>Edit User Status</a></b> section of Site Admin.";
+$menuManager{'014'} = "Target";
+$menuManager{'015'} = "Determines where the link should open.";
+$menuManager{'016'} = "Icon";
+$menuManager{'017'} = "Full Path & File Name to icon. <BR><BR>The default is <B>\$themesurl/\$usertheme/images/dot.gif</B>";
+$menuManager{'018'} = "Current Browser Window";
+$menuManager{'019'} = "New Browser Window";
+$menuManager{'020'} = "admin user";
+$menuManager{'021'} = "Members";
+$menuManager{'022'} = "Guests";
+$menuManager{'023'} = "Everyone";
+#$menuManager{'024'} = "My Menu";
+$menuManager{'025'} = "Menu Bar";
+
+1;

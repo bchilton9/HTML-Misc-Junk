@@ -1,0 +1,18 @@
+     <tr>
+ <td valign=top width=20% BGCOLOR=#cbfacd>
+ !!name!!<BR>
+<SMALL> - !!rank!!</SMALL>
+ </TD>
+ <td BGCOLOR=#cbfacd>
+ <b>!!subject!!</b>
+ <HR>
+ !!message!!
+</TD>
+</TR>
+<TR>
+
+<TD BGCOLOR=#c0c0c0 COLSPAN=2>
+<P ALIGN=Right><SMALL>Posted on: !!date!!</SMALL> !!admin!!
+ </td>
+ 
+ </tr>

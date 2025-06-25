@@ -1,0 +1,3 @@
+Sulidin|Buddy List|05/10/04 - 23:49:05|User Sulidin. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=Sulidin>Sulidin</a>|1084250945|1|1
+Ajia|hugs|05/06/04 - 04:29:59|I have missed you sorry been gone so much one of the computers got a bunch of viruses...I do still miss ya and luv ya though /hugs[color=Purple][/color][font=Verdana][/font][size=5][/size][imxkiss]|1083835718|aicon2|1|1
+admin|Welcome To Freefire!!|05/02/04 - 09:53:52|Welcome to Freefire. Please feel free to look around, Use the forms and messaging system. As of right now your account is set as friend. Once you are verified a a member of Freefire your account will be changed.|

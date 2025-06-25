@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+  <!-- Created with AOLpress/2.0 -->
+  <TITLE>Ravens Of Dispair</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff" TEXT="#000000" LINK="#000000" VLINK="#000000">
+<CENTER>
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center" WIDTH="700">
+    <TR>
+      <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/ravens/header.gif" WIDTH="651" HEIGHT="150"></TD>
+    </TR>
+    <TR>
+      <TD VALIGN="Top"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+	  <TR>
+	    <TD ROWSPAN=3><IMG SRC="http://www.erenetwork.com/ravens/right.gif" WIDTH="11" HEIGHT="50"><BR>
+	      <IMG SRC="http://www.erenetwork.com/ravens/right.gif" WIDTH="11" HEIGHT="50"><BR>
+	      <IMG SRC="http://www.erenetwork.com/ravens/right.gif" WIDTH="11" HEIGHT="50"><BR>
+	      <IMG SRC="http://www.erenetwork.com/ravens/right.gif" WIDTH="11" HEIGHT="50"><BR>
+	    </TD>
+	    <TD BGCOLOR="#7B7B7B">
+	    <TD ROWSPAN=3><IMG SRC="http://www.erenetwork.com/ravens/right.gif" WIDTH="11" HEIGHT="50"><BR>
+	      <IMG SRC="http://www.erenetwork.com/ravens/right.gif" WIDTH="11" HEIGHT="50"><BR>
+	      <IMG SRC="http://www.erenetwork.com/ravens/right.gif" WIDTH="11" HEIGHT="50"><BR>
+	      <IMG SRC="http://www.erenetwork.com/ravens/right.gif" WIDTH="11" HEIGHT="50"><BR>
+	    </TD>
+	  </TR>
+	  <TR>
+	    <TD BGCOLOR="#7B7B7B"><P ALIGN=Center>
+	      <A HREF="http://www.erenetwork.com/ravens/members/index.html"><IMG SRC="http://www.erenetwork.com/ravens/scroll.gif" WIDTH="49" HEIGHT="53" BORDER="0"><BR>
+	      <SMALL>Members Main</SMALL></A></TD>
+	  </TR>
+	  <TR>
+	    <TD BGCOLOR="#7B7B7B"><P ALIGN=Center>
+	      <A HREF="http://www.erenetwork.com/ravens/cgi/memlist.cgi"><IMG SRC="http://www.erenetwork.com/ravens/specs.gif" WIDTH="46" HEIGHT="28"
+		  BORDER="0"><BR>
+	      <SMALL>Members List</SMALL></A><BR>
+	      <IMG SRC="http://www.erenetwork.com/ravens/spacer.gif" WIDTH="138" HEIGHT="6"></TD>
+	  </TR>
+	  <TR>
+	    <TD COLSPAN=3><IMG SRC="http://www.erenetwork.com/ravens/bottem.gif" WIDTH="160" HEIGHT="26"></TD>
+	  </TR>
+	</TABLE>
+	<P>
+      </TD>
+      <TD VALIGN="Top" WIDTH=75%><Center>
+	<BR>
+	<P>
+<p><small class="menu">|
+	<a class="menulink" href="<%build_root_url%>">Home</a> |
+	<a class="menulink" href="<%db_cgi_url%>/add.cgi">Add a Item</a> |
+	<a class="menulink" href="<%build_root_url%>/New">What's New</a> |
+	<a class="menulink" href="<%db_cgi_url%>/search.cgi">Search</a> |
+</small></p>
+
+
+
+
+
+      </TD>
+    </TR>
+  </TABLE>
+</CENTER>
+</BODY></HTML>

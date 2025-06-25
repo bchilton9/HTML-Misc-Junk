@@ -1,0 +1,66 @@
+!!admin!! Displays the admin for users with Administrator or Moderator access
+!!allnum!! Displays the number of members + alts
+!!altclass!! Displays a dropdown menu of classes with the alt being edited's class selected
+!!altname!! Displays the alts name created
+!!altnum!! Displays the number of alts
+!!altrace!! Displays a dropdown menu of races with the alt being edited's race selected
+!!alts!! Lists alts the user has
+!!altlvl!! Displays the lvl of the alt being edited
+!!classtable!! Displays a % based table of classes
+!!content!! Displays content from witch page is being viewed.
+!!cookieuser!! Displays the users name pulled from the cookie
+!!description!! Displays the images description
+!!editclass!! Displays a dropdown menu of classes with the user being edited's class selected
+!!editemail!! Displays the user being editeds email
+!!editaccess!!If access is Administrator it Displays a dropdown menu of access with the user being edited's access selected 
+!!editname!! Displays the name of the user being edited/aproved
+!!editrace!! Displays a dropdown menu of races with the user being edited's race selected
+!!editrank!! If access is Administrator it Displays a dropdown menu of ranks with the user being edited's rank selected
+!!fulladmin!! Displays the full admin to users with Administrator access
+!!guildemail!! Displays the Guilds E-mail address
+!!guildname!! Displays the Guild Name
+!!image!! Displays the image
+!!listalts!! Displays the list of alts for use in the roster
+!!listleader!! Displays the list of leaders for use in the roster
+!!listmember!! Displays the list of members for use in the roster
+!!listmembers!! Lists all of the users for use in the admin
+!!listofficer!! Displays the list of officers for use in the roster
+!!listwateing!! Lists the users wateing to be aproved
+!!lvltable!! Displays a % based table of lvls for use on guild stats
+!!memnum!! Displays the number of members
+!!message!! Displays the message count (exp. You have X message)
+!!news!! Displays the news
+!!officernews!! Displays the officer news
+!!pagelist!! Displays the list of pages
+!!pageurl!! Displays the URL to the page just created/edited
+!!password!! Displays what happened with editing the password (exp. Password Changed, New Passwords did not match)
+!!photo!! Displays the photos in album as thumbnails
+!!photolist!! Displays a list of photo albums
+!!racetable!! Displays a % based table of races
+!!useremail!! Displays the users e-mail address
+!!viewac!! AC on Profile being opened/edited
+!!viewagi!! AGI on Profile being opened/edited
+!!viewatk!! ATK on Profile being opened/edited
+!!viewcha!! CHA on Profile being opened/edited
+!!viewclass!! Class on Profile being opened/edited
+!!viewdex!! DEX on Profile being opened/edited
+!!viewimage!! Image on profile being opened/edited
+!!viewint!! INT on Profile being opened/edited
+!!viewlvl!! Lvl on Profile being opened/edited
+!!viewname!! Name on Profile being opened/edited
+!!viewrace!! Race on Profile being opened/edited
+!!viewsay!! Saying on Profile being opened/edited
+!!viewsir!! Sir name on Profile being opened/edited
+!!viewsta!! STA on Profile being opened/edited
+!!viewstr!! STR on Profile being opened/edited
+!!viewwis!! WIS on Profile being opened/edited
+!!visitlist!! Displays the visitors from within the last 10 minuits
+
+
+################
+## msgsnd.cgi ##
+################
+
+#############
+## msg.cgi ##
+#############

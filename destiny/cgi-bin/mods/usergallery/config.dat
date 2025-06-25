@@ -1,0 +1,9 @@
+$config_vers = ".4";
+$mod_name = "usergallery";
+$mod_vers = "1";
+$mod_desc = "usergallery Mod";
+$mod_admin = "0";
+$admin_name = "admin.cgi";
+$lang_support = "0";
+$mod_lang = "english.dat";
+1;

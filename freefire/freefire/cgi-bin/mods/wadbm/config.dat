@@ -1,0 +1,9 @@
+$config_vers = "0.9.9.4";
+$mod_name = "Database Multiple Mod";
+$mod_vers = "0.9.5";
+$mod_desc = "Multiple Database Mod for WebAPP.";
+$mod_admin = "1";
+$admin_name = "admin.cgi";
+$lang_support = "1";
+$mod_lang = "english.dat";
+1;

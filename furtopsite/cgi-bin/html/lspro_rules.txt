@@ -1,0 +1,14 @@
+<P>
+<CENTER>
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+    <TR>
+      <TD><FONT COLOR="#000000">
+<SMALL><B>Furcadia's Top Site's Rules.</B></SMALL><BR>
+<SMALL>Must be Furcadia related.</SMALL><BR>
+<SMALL>No adult or warez sites.</SMALL><BR>
+<SMALL>No use of pop up's, hidden frame's, or force vote's.</SMALL><BR>
+<SMALL>You must put the linking code on your site to receive votes.</SMALL><BR>
+</FONT></TD>
+    </TR>
+  </TABLE>
+</CENTER>

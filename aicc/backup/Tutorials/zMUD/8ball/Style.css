@@ -1,0 +1,22 @@
+Body { background-color: black; 
+       font-family: Copperplate Gothic Light }
+A { color: 006699;
+    text-decoration: None }
+A:hover { color: 000000;
+	  background-color: 006699 }
+.Highlighted { color: FBFBFB }
+.bText { color: 007799;
+       font-family: Copperplate Gothic Light;
+       font-size:12pt }
+.tText { color: 007799;
+	 font-family: Copperplate Gothic Light;
+	 font-size:18pt;
+	 text-align: center }
+.topic { color: 007799;
+	  font-family: Copperplate Gothic Light;
+	  font-size: 15pt;
+	  font-weight: bold }
+.subTopic { color: 007799;
+	     font-family: Copperplate Gothic Light;
+	     font-size: 12pt;
+	     font-weight: bold }

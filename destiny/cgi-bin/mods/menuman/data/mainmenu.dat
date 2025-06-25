@@ -1,0 +1,7 @@
+1|http://www.destinyeq2.com/cgi-bin/index.cgi|$nav{'002'}|-public-||$themesurl/$usertheme/images/dot.gif
+2|http://www.destinyeq2.com/cgi-bin/index.cgi?action=topics|$nav{'004'}|-public-||$themesurl/$usertheme/images/dot.gif
+3|http://www.destinyeq2.com/cgi-bin/index.cgi?action=forum&board=|$nav{'003'}|-public-||$themesurl/$usertheme/images/dot.gif
+4|http://www.destinyeq2.com/cgi-bin/index.cgi?action=links|$nav{'005'}|-public-||$themesurl/$usertheme/images/dot.gif
+5|http://www.destinyeq2.com/cgi-bin/mods/calendar/index.cgi?vsSD=1|Calendar|-public-||$themesurl/$usertheme/images/dot.gif
+7|http://www.destinyeq2.com/cgi-bin/mods/usergallery/index.cgi|Gallery|-public-||$themesurl/$usertheme/images/dot.gif
+8|http://www.destinyeq2.com/cgi-bin/mods/chat/index.cgi|Chat|-admin-,-member-,Friend|chat|$themesurl/$usertheme/images/dot.gif

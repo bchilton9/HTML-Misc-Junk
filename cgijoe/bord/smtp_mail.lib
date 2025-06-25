@@ -1,0 +1,108 @@
+#################################################################
+#             smtp_mail.lib 
+#
+# This program is distributed as freeware. We are not            	
+# responsible for any damages that the program causes	
+# to your system. It may be used and modified free of 
+# charge, as long as the copyright notice
+# in the program that give us credit remain intact.
+# If you find any bugs in this program. It would be thankful
+# if you can report it to us at cgifactory@cgi-factory.com.  
+# However, that email address above is only for bugs reporting. 
+# We will not  respond to the messages that are sent to that 
+# address. If you have any trouble installing this program. 
+# Please feel free to post a message on our CGI Support Forum.
+# Selling this script is absolutely forbidden and illegal.
+##################################################################
+#
+#               COPYRIGHT NOTICE:
+#
+#         Copyright 1999-2001 CGI-Factory.com TM 
+#		  A subsidiary of SiliconSoup.com LLC
+#
+#
+#      Web site: http://www.cgi-factory.com
+#      E-Mail: cgifactory@cgi-factory.com
+#      Released Date: April 08, 2000
+#      Revised Date: Febrary 08, 2001
+#	
+#   smtp_mail.lib is protected by the copyright 
+#   laws and international copyright treaties, as well as other 
+#   intellectual property laws and treaties.
+###################################################################
+#usage sample: 
+#&smtp_mail("cgifactory\@cgi-factory.com","cgifactory\@cgi-factory.com","sending mail with smtp","cgi-factory.com","Howdy!\n");
+#this lib is currently only a beta and designed for mb and amb.
+
+sub smtp_mail {
+use Socket;
+
+@TO=split(',',$_[0]);
+$TO=$TO[0];
+chomp($TO);
+$FROM=$_[1]; 
+$SUBJECT=$_[2];
+$SMTP_SERVER = $_[3];
+$MESSAGE_BODY = $_[4];
+$PORT=25;#smtp/tcp port
+
+$ADDR= ($SMTP_SERVER =~ /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/)? pack('C4', $1, $2, $3, $4) : (gethostbyname($SMTP_SERVER));# Java isn't the only one that can use conditional Operator! Beautiful, isn't it!
+unless (defined($ADDR)) {#check if server exisits
+&error("Unable to send the notification mail: SMTP server not found.");
+return -1;	
+}
+$PROTO = getprotobyname('tcp');
+unless (socket(smtp, PF_INET, SOCK_STREAM, $PROTO)) {
+&error("Unable to send the notification mail: Socket failed");
+#return -1;
+} 
+
+unless (connect(smtp, pack('S n a4 x8', AF_INET, $PORT, $ADDR))) {
+&error("Unable to send the notification mail: Unable to connect to $SMTP_SERVER");
+return -1;
+}select(smtp); 
+$| = 1; 
+select(STDOUT);
+$LOCAL = localhost;
+print smtp "HELO $LOCAL\n";
+#print "1. SMTP:". <smtp>."<br>";
+$a=<smtp>;
+print smtp "MAIL FROM:<$FROM>\n";
+
+#print "2. SMTP:". <smtp>."<br>";
+$a=<smtp>;
+print smtp "RCPT TO:<$TO>\n";
+
+
+#print "3. SMTP:". <smtp>."<br>";
+$a=<smtp>;
+if ($#TO > 0) {
+foreach (1..$#TO) { 
+chomp($TO[$_]);
+if ($TO[$_] ne "") {
+print smtp "RCPT TO: <$TO[$_]>\n";
+#print "  SMTP:". <smtp>."<br>";
+$a=<smtp>;
+}
+}
+}
+print smtp "DATA \n";
+
+#print " 4. SMTP:". <smtp>."<br>";
+$a=<smtp>;
+#the message
+print smtp "To: Message Board User<$FROM> \n";
+print smtp "From: $FROM\n";
+print smtp "Content-Type: text/plain; charset=\"US-ASCII\"\n";
+print smtp "X-Mailer: CGI Script-SMTP/TCP\n";
+print smtp "Subject: $SUBJECT\n\n";
+print smtp "$MESSAGE_BODY\n.\n";
+#print " 5. SMTP:". <smtp>."<br>";
+$a=<smtp>;
+print smtp "QUIT";
+#print " 6. SMTP:". <smtp>."<br>";
+$a=<smtp>;
+close (smtp);
+
+} 
+1;

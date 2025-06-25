@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><title>Whispers with FurBot</title></head>
+
+<body background="http://members.iinet.net.au/~garydep/images/furbgnd.gif" link="#9070ff" vlink="#300090" text="#000000" bgcolor="#ffffff" alink="#0000ee">
+<div align="Center">
+</div>
+<div align="Center">
+<h1><u><b>Respond to Whispers</b></u></h1>
+</div>
+<div align="Center">
+
+<table cellpadding="2" cellspacing="2" border="0" width="90%">
+  <tbody>
+    <tr>
+      <td valign="Top">[1] Your first lesson will be a simple action. Go to the Bot menu and click the
+Actions option.<br>
+      </td>
+      <td valign="Top"><img src="../../Images/fbactmnu.gif" alt="FurBot - Bot Menu, Actions highlighted" width="332" height="261">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="Top">On the new window Click the Add Button. You should first
+name the action with a name that tells you what the action does. Lets name
+this one 'Greeting', without the quotes, because this action will be used to greet furres when they greet the bot.<br>
+      </td>
+      <td valign="Top"><img src="../../Images/fbgreet1.gif" alt="FurBot - Greeting Action" width="535" height="378">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="Top">
+      <p>[2] We start by by typing your name in the first textbox of the If statement,
+ choosing Whispers from the dropdown listbox, and typing 'hi' without the
+quotes in the second textbox. The If statement should look like this 'If
+YourName Whispers hi'. </p>
+      </td>
+      <td valign="Top"><img src="../../Images/fbgreet2.gif" alt="FurBot - Then Statement of Greeting Action" width="534" height="378">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="Top">
+      <p>[3] We won't do anything with the And box just yet so lets move onto the Then 
+box. Click the Add button -under- the Then box. In the new window choose 'Whisper
+back #1' from the dropdown pulldown menu and type 'hi' in the -small- textbox.
+Click Update on the current window, click update on the Action window, then
+click Close and Save your bot. Now when you whisper the bot 'hi' it will
+whisper 'hi' back to you. </p>
+      </td>
+      <td valign="Top"><img src="../../Images/fbgreet3.gif" alt="FurBot - Then Statement of Greeting Action" width="623" height="360">
+      <br>
+      <br>
+      <img src="../../Images/fbgreet4.gif" alt="FurBot - Close Action Window" width="535" height="379">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="Top">
+      <p>[4] Now a for a slightly more versatile action. Go back to the Bot menu and 
+click Actions again. Name this one 'Relay Message'. Leave the first textbox in 
+the If statement as it is (with an * in it). Choose 'Whispers' from the pulldown 
+menu. Leave the second textbox as it is (with an * in it). </p>
+      </td>
+      <td valign="Top"><img src="../../Images/fbRelay2.gif" alt="FurBot - Relay Message If Statement" width="532" height="376">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="Top">
+      <p>[5] Click the Add button under the Then box and choose 'Whisper #1 to #2'
+from the pulldown menu. Type '[player] whispered [message] to me.' in the
+first textbox and type your name in the second textbox. This action deals
+with variables.&nbsp; </p>
+      </td>
+      <td valign="Top"><img src="../../Images/fbRelay1.gif" alt="FurBot - Relay Message Then Statement" width="623" height="360">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="Top">
+      <p>About FurBot Variables:&nbsp;  </p>
+      </td>
+      <td valign="Top">All variables in FurBot are incased in brackets (The brackets are []).
+The [player] variable holds the value of the whispering furres name and the
+[message] variable holds the message that the whispering furre sent.  There are other variables that can split up the contents
+of the message. They are as follows:<br>
+      <br>
+[startingword#] - All words after and including the # are held in this variable.
+When used, replace the # with the number of the word you want to start with.<br>
+      <blockquote>Ex: If * Does orders *<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Then Emote gives [player] [startingword2]<br>
+        <br>
+In this example, the bot stores everyword after the second word and the second
+word in the variable [startingword2]. Then gives the triggering furre what
+they ordered.<br>
+        </blockquote>
+[word#] - A specific word is held in this variable. When used, replace the
+# with the number of the word you want to be stored in the variable.<br>
+        <blockquote>Ex: If * Does orders * in a tall glass<br>
+&nbsp;&nbsp;&nbsp; &nbsp; Then Emote gives [player] [word2] in a tall glass.<br>
+          <br>
+In this example, the bot stores the second word in the [word2] variable.
+Then gives the triggering furre what they ordered in a tall glass.<br>
+          </blockquote>
+          </td>
+        </tr>
+        <tr>
+          <td valign="Top">
+          <p>[7]&nbsp; </p>
+          </td>
+          <td valign="Top">Back to the action. Click the Update button on the current window. Click
+ the Update button on the next window, then click Close, and Save your bot.
+ Now when anyone whispers your bot anything, your bot will whisper you the
+ name of the furre that whispered it and what they whispered. <br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="Top">
+          <p>[8]&nbsp; </p>
+          </td>
+          <td valign="Top">Now that you know how to make an action, a Trigger will be easy to learn
+ because Actions and Triggers are only different in one way and that thing
+ is what they are triggered by. Actions are triggered by something a furre
+ does and Triggers are triggered by something Furcadia does. <br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="Top">
+          <p>[9]&nbsp; </p>
+          </td>
+          <td valign="Top">Try making a trigger and have it respond to different things that Furcadia
+ does, for instance, When it connects to Furcadia have it whisper 'Connected'
+ to you. After you have experimented with Triggers you are ready to move
+onto Timers. <br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="Top">
+          <p>[10]&nbsp; </p>
+          </td>
+          <td valign="Top">Timers are exactly what they seem to be. They do certain things at specified
+ intervals of time. You can have your bot say a certain message every 5 minutes 
+or so. The only problem is that it is only done in seconds so if you want 
+it to do something on an interval thats longer than a minute then you'll have
+to convert the minutes to seconds. Just multiply the number of minutes you
+want by 60. <br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="Top">
+          <p>[11]&nbsp; </p>
+          </td>
+          <td valign="Top">Filters can block out any text from showing on the bots screen, being
+written to the log file, or just not being processed. This can be useful
+if you have some furre that sets off the same trigger multiple times and
+you want the bot to stop responding to it. <br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="Top">
+          <p>[12]&nbsp; </p>
+          </td>
+          <td valign="Top">Lastly, is Who Is Online Detection. You can change 
+how often your bot checks to see who is on the map by going to File... Configuration. 
+When the bot checks to see who is on the map is when the Who Is Online Detection 
+triggers take place. It can respond to someone leaving the map, coming onto 
+the map, or to someone staying on the map. <br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="Top">[13] <br>
+          </td>
+          <td valign="Top">An example of Who Is Online Detection: 'If * Comes to the map Whisper
+Hello friend! to [player]'. With this trigger if anyone that is on the current 
+players list that wasn't on it the last time the bot checked to see who is 
+on the map will be whispered 'Hello friend!' by the bot.<br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body></html>

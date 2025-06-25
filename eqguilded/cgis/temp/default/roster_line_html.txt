@@ -1,0 +1,7 @@
+ <TR>
+<TD>!!name!! !!sur!!</TD>
+<TD>!!rank!!</TD>
+<TD>!!race!!</TD>
+<TD>!!class!!</TD>
+<TD>!!level!!</TD>
+</TR>

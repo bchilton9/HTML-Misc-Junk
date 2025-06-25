@@ -1,0 +1,342 @@
+<HEAD>
+<!-- START START START -->
+
+<!--[if IE]>
+
+<style>
+<!--
+.drag{position:relative;cursor:hand
+}
+#scontentmain{
+position:absolute;
+width:200px;
+}
+#scontentbar{
+cursor:hand;
+position:absolute;
+background-color:blue;
+height:15;
+width:100%;
+top:0;
+}
+#scontentsub{
+position:absolute;
+width:100%;
+top:15;
+background-color:ffffff;
+border:2px solid blue;
+padding:1.5px;
+}
+-->
+</style>
+
+<script language="JavaScript1.2">
+<!--
+
+var dragapproved=false
+var zcor,xcor,ycor
+function movescontentmain(){
+if (event.button==1&&dragapproved){
+zcor.style.pixelLeft=tempvar1+event.clientX-xcor
+zcor.style.pixelTop=tempvar2+event.clientY-ycor
+leftpos=document.all.scontentmain.style.pixelLeft-document.body.scrollLeft
+toppos=document.all.scontentmain.style.pixelTop-document.body.scrollTop
+return false
+}
+}
+function dragscontentmain(){
+if (!document.all)
+return
+if (event.srcElement.id=="scontentbar"){
+dragapproved=true
+zcor=scontentmain
+tempvar1=zcor.style.pixelLeft
+tempvar2=zcor.style.pixelTop
+xcor=event.clientX
+ycor=event.clientY
+document.onmousemove=movescontentmain
+}
+}
+document.onmousedown=dragscontentmain
+document.onmouseup=new Function("dragapproved=false")
+//-->
+</script>
+
+<![endif]-->
+<script>
+<!--
+
+var content=new Array()
+content[0]='Edit your member data. I.E. E-Mail address, Webiste info.'
+content[1]='Change your Acount Password!'
+content[2]='This is the code to place in your webpages html for your counter!'
+content[3]='counter edit'
+content[4]='clock code'
+content[5]='This is the code to place in your webpages html for your Guestbook!<BR><BR>Help'
+content[6]='Edit Guestbook'
+content[7]='Edit Guestbook entrys'
+content[8]='FFAL Code'
+content[9]='Edit FFAL'
+content[10]='Edit FFAL entrys'
+content[11]='mail list code'
+content[12]='edit mail list'
+content[13]='edit thank you'
+content[14]='send mail to list'
+content[15]='Webpool code'
+content[16]='Edit Webpool'
+content[17]='Delete Webpool'
+content[18]='Postcards code'
+content[19]='postcards edit'
+content[20]='postcards add image'
+content[21]='postcards delete image'
+content[22]='E-Mail Form'
+content[23]='add random image'
+content[24]='random Delere image'
+content[25]='Random Image code'
+
+function regenerate(){
+window.location.reload()
+}
+function regenerate2(){
+if (document.layers)
+setTimeout("window.onresize=regenerate",450)
+}
+
+function changetext(whichcontent){
+if (document.all)
+descriptions.innerHTML='<font face="Verdana"><small>'+whichcontent+'<font></small>'
+else if (document.layers){
+document.d1.document.d2.document.write('<font face="Verdana"><small>'+whichcontent+'</small></font>')
+document.d1.document.d2.document.close()
+}
+
+}
+
+
+//-->
+</script>
+<!-- END END END END -->
+
+  <TITLE>ERE Network!! Members!</TITLE>
+</HEAD>
+<BODY BACKGROUND="http://www.erenetwork.com/bg.jpg" TEXT="#000000" LINK="#000000"
+VLINK="#000000">
+
+<!-- START START START -->
+<!--[if IE]>
+<div id="scontentmain">
+<div id="scontentbar" >
+<img align="right" src="barbutton.gif" onClick="cdisplay()">
+<img align="right" src="barbutton2.gif" onClick="onoffdisplay()">
+</div>
+<div id="scontentsub">
+<CENTER>
+<B>ERE Help!</B><BR>
+This window is designed to help you by giveing a descripshen of the item you are slecting
+<HR COLOR=blue>
+<ilayer id="d1" width="155" height="155">
+<layer id="d2" width="155" height="155">
+<div id="descriptions" align="CENTER">
+</div>
+</ilayer>
+</layer>
+<BR>
+</div>
+</div>
+</div>
+<script language="JavaScript1.2">
+
+var w=document.body.clientWidth-220
+var h=2
+
+w+=document.body.scrollLeft
+h+=document.body.scrollTop
+
+var leftpos=w
+var toppos=h
+scontentmain.style.left=w
+scontentmain.style.top=h
+
+function onoffdisplay(){
+if (scontentsub.style.display=='') 
+scontentsub.style.display='none'
+else
+scontentsub.style.display=''
+}
+
+function cdisplay(){
+scontentsub.style.display='none'
+scontentbar.style.display='none'
+scontentmain.style.display='none'
+}
+
+function staticize(){
+w2=document.body.scrollLeft+leftpos
+h2=document.body.scrollTop+toppos
+scontentmain.style.left=w2
+scontentmain.style.top=h2
+}
+window.onscroll=staticize
+
+</script>
+<![endif]-->
+
+<!-- END END END END -->
+
+
+<CENTER>
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center" WIDTH="700">
+    <TR>
+      <TD Width=1%><P ALIGN=Right>
+	<IMG WIDTH="32" HEIGHT="32" SRC="http://www.erenetwork.com/1.gif"></TD>
+      <TD BACKGROUND="http://www.erenetwork.com/top.gif"></TD>
+      <TD Width=1%><IMG WIDTH="32" HEIGHT="32" SRC="http://www.erenetwork.com/2.gif"></TD>
+    </TR>
+    <TR>
+      <TD BACKGROUND="http://www.erenetwork.com/left.gif"><IMG WIDTH=1 HeIGHT=1></TD>
+      <TD BGCOLOR=#ffffff><TABLE BORDER="0" CELLPADDING="2" WIDTH="100%">
+	  <TR>
+	    <TD><A HREF="http://www.erenetwork.com"><IMG WIDTH="182" BORDER="0" HEIGHT="56" SRC="http://www.erenetwork.com/logo.gif"></A></TD>
+	    <TD><SCRIPT LANGUAGE="JavaScript" SRC="http://www.erenetwork.com/ban/banners.js"></SCRIPT></TD>
+	  </TR>
+	  <TR>
+	    <TD COLSPAN=2><CENTER>
+		<A href="http://www.onresponse.com/onR_Referral.asp?a=d0tt"><IMG src="http://www.onresponse.com/banners/onr_400x40.gif"
+		    border="0" width="400" height="40"></A><BR>
+<A HREF="http://www.erenetwork.com"><B>ERE Network!!</B></A>
+		<P>
+
+
+
+<!-- START START START -->
+<div id="scriptmenu" style="line-height:20px">
+<!-- END END END END -->
+
+ <!-- onMouseover="changetext(content[0])" -->
+
+		<TABLE BORDER="0" CELLPADDING="2">
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/memb.gif" WIDTH="397" HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD WIDTH=4%></TD>
+		    <TD><A HREF=members.cgi?a=editinfo&user=ERE&pass=0519a onMouseover="changetext(content[0])">Edit
+		      your member info</A><BR>
+		      <A HREF=members.cgi?a=changepass&user=ERE&pass=0519a onMouseover="changetext(content[1])">Change
+		      Your Password</A></TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/cont.gif" WIDTH="397" HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><!--
+		      <A HREF=members.cgi?a=cont_code&user=ERE&pass=0519a onMouseover="changetext(content[2])">Code</A><BR>
+		      <A HREF=members.cgi?a=edit_cont&user=ERE&pass=0519a onMouseover="changetext(content[3])">Edit</A><BR>
+		      -->
+		      Comeing Soon!!</TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/clok.gif" WIDTH="397" HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><!--
+		      <A HREF=members.cgi?a=clock_code&user=ERE&pass=0519a onMouseover="changetext(content[4])">Code</A><BR>
+		      -->
+		      Comeing Soon!!</TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/book.gif" WIDTH="397" HEIGHT="45"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><A HREF=members.cgi?a=book_code&user=ERE&pass=0519a onMouseover="changetext(content[5])">Code</A><BR>
+		      <A HREF=members.cgi?a=edit_book&user=ERE&pass=0519a onMouseover="changetext(content[6])">Edit</A><BR>
+		      <A HREF=members.cgi?a=edit_gb_entry&user=ERE&pass=0519a onMouseover="changetext(content[7])">Edit
+		      Entrys</A></TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/ffal.gif" WIDTH="397" HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><A HREF=members.cgi?a=ffal_code&user=ERE&pass=0519a onMouseover="changetext(content[8])">Code</A><BR>
+		      <A HREF=members.cgi?a=edit_ffal&user=ERE&pass=0519a onMouseover="changetext(content[9])">Edit</A><BR>
+		      <A HREF=members.cgi?a=edit_ffal_entry&user=ERE&pass=0519a onMouseover="changetext(content[10])">Edit
+		      Entrys</A></TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/mailL.gif" WIDTH="397"
+			  HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><A HREF=members.cgi?a=mail_code&user=ERE&pass=0519a onMouseover="changetext(content[11])">code</A><BR>
+		      <A HREF=members.cgi?a=edit_mail&user=ERE&pass=0519a onMouseover="changetext(content[12])">Edit
+		      list entrys</A><BR>
+		      <A HREF=members.cgi?a=edit_mail_thank&user=ERE&pass=0519a onMouseover="changetext(content[13])">Edit
+		      thank you message</A><BR>
+		      <A HREF=members.cgi?a=send_email&user=ERE&pass=0519a onMouseover="changetext(content[14])">Send
+		      E-Mail</A></TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/poll.gif" WIDTH="397" HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><A HREF=members.cgi?a=poll_code&user=ERE&pass=0519a onMouseover="changetext(content[15])">Code</A><BR>
+		      <A HREF=members.cgi?a=poll_edit&user=ERE&pass=0519a onMouseover="changetext(content[16])">Edit</A><BR>
+		      <A HREF=members.cgi?a=del_poll&user=ERE&pass=0519a onMouseover="changetext(content[17])">Delete</A></TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/post.gif" WIDTH="397" HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><A HREF=members.cgi?a=post_code&user=ERE&pass=0519a onMouseover="changetext(content[18])">Code</A><BR>
+		      <A HREF=members.cgi?a=edit_post&user=ERE&pass=0519a onMouseover="changetext(content[19])">Edit</A><BR>
+		      <A HREF=members.cgi?a=add_post_img&user=ERE&pass=0519a onMouseover="changetext(content[20])">Add
+		      Images</A><BR>
+		      <A HREF=members.cgi?a=del_post_img&user=ERE&pass=0519a onMouseover="changetext(content[21])">Delete
+		      Images</A></TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/mailF.gif" WIDTH="397"
+			  HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><A HREF=members.cgi?a=email_form_code&user=ERE&pass=0519a onMouseover="changetext(content[22])">Code</A></TD>
+		  </TR>
+		  <TR>
+		    <TD COLSPAN=2><IMG SRC="http://www.erenetwork.com/rand.gif" WIDTH="397" HEIGHT="44"></TD>
+		  </TR>
+		  <TR>
+		    <TD></TD>
+		    <TD><A HREF=members.cgi?a=add_rand_img&user=ERE&pass=0519a onMouseover="changetext(content[23])">Add
+		      image</A><BR>
+		      <A HREF=members.cgi?a=del_rand_img&user=ERE&pass=0519a onMouseover="changetext(content[24])">Delete
+		      images</A><BR>
+		      <A HREF=members.cgi?a=rand_code&user=ERE&pass=0519a onMouseover="changetext(content[25])">Code</A></TD>
+		  </TR>
+		</TABLE>
+</DIV>
+		<P>
+	      </CENTER>
+	    </TD>
+	  </TR>
+	</TABLE>
+      </TD>
+      <TD BACKGROUND="http://www.erenetwork.com/right.gif"></TD>
+    </TR>
+    <TR>
+      <TD><P ALIGN=Right>
+	<IMG WIDTH="32" HEIGHT="32" SRC="http://www.erenetwork.com/4.gif"></TD>
+      <TD BACKGROUND="http://www.erenetwork.com/bot.gif"></TD>
+      <TD><IMG WIDTH="32" HEIGHT="32" SRC="http://www.erenetwork.com/3.gif"></TD>
+    </TR>
+  </TABLE>
+</CENTER>
+<Center><FONT COLOR="#ffffff"><SMALL><SMALL>All Content CopyRight 2000, Byron Chilton
+(ERE Network), All Rights reserved. </SMALL></SMALL></FONT></CENTER>

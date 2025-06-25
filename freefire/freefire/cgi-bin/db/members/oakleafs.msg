@@ -1,0 +1,1 @@
+Coralhunt|Re: hello sweety|06/03/04 - 09:58:51|Miss you to sweety. &nbsp;I hadn't been on either, &nbsp;Giin's wife just had a baby last night so been running around.<br><br>Hugs and kisses<br>|1086274692|aicon2

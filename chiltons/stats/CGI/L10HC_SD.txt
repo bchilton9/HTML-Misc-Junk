@@ -1,0 +1,22 @@
+dmoz.org	Open Directory
+directory.google.com	Google Directory
+au.dir.yahoo.com	Yahoo Directory Australia
+br.dir.yahoo.com	Yahoo Directory Brasil
+ca.dir.yahoo.com	Yahoo Directory Canada
+cn.dir.yahoo.com	Yahoo Directory China
+dk.dir.yahoo.com	Yahoo Directory Denmark
+fr.dir.yahoo.com	Yahoo Directory France
+de.dir.yahoo.com	Yahoo Directory Germany
+gr.dir.yahoo.com	Yahoo Directory Greece
+hk.dir.yahoo.com	Yahoo Directory Hong Kong
+id.dir.yahoo.com	Yahoo Directory India
+ie.dir.yahoo.com	Yahoo Directory Ireland
+it.dir.yahoo.com	Yahoo Directory Italy
+mx.dir.yahoo.com	Yahoo Directory Mexico
+no.dir.yahoo.com	Yahoo Directory Norway
+sg.dir.yahoo.com	Yahoo Directory Singapore
+es.dir.yahoo.com	Yahoo Directory Spain
+se.dir.yahoo.com	Yahoo Directory Sweden
+ch.dir.yahoo.com	Yahoo Directory Switzerland
+uk.dir.yahoo.com	Yahoo Directory U.K.
+dir.yahoo.com	Yahoo Directory

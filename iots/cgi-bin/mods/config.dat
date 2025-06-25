@@ -1,0 +1,7 @@
+$mm_vers = "0.9.8";
+$mod_name = "Mod Manager";
+$mod_vers = "0.9.8";
+$mod_desc = "Mod Manager for WebAPP.";
+$lang_support = "1";
+$def_lang = "english.dat";
+1;

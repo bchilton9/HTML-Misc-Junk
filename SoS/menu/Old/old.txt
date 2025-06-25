@@ -1,0 +1,13 @@
+
+                                    <span class="mainmenu">&nbsp;
+
+			<a href="./index.pl"><img src="./forums/templates/WoWMaevahEmpire/images/icon_mini_faq.gif" width="12" height="13" border="0" alt="Home Page" hspace="3" />Home</a>&nbsp; &nbsp;
+			<a href="./index.pl?roster"><img src="./forums/templates/WoWMaevahEmpire/images/icon_mini_search.gif" width="12" height="13" border="0" alt="Roster" hspace="3" />Roster</a>&nbsp; &nbsp;
+			<a href="./forums/index.php"><img src="./forums/templates/WoWMaevahEmpire/images/icon_mini_members.gif" width="12" height="13" border="0" alt="Fourms" hspace="3" />Forums</a>&nbsp; &nbsp;
+			<a href="./forums/apply.php"><img src="./forums/templates/WoWMaevahEmpire/images/icon_mini_groups.gif" width="12" height="13" border="0" alt="Guild Application" hspace="3" />Guild Application</a>&nbsp; &nbsp;
+			<a href="./eqdkp/listmembers.php"><img src="./forums/templates/WoWMaevahEmpire/images/icon_mini_register.gif" width="12" height="13" border="0" alt="DKP" hspace="3" />DKP</a>&nbsp; &nbsp;
+
+			<a href="./index.pl?page&p=rules"><img src="./forums/templates/WoWMaevahEmpire/images/icon_mini_profile.gif" width="12" height="13" border="0" alt="Rules" hspace="3" />Rules</a>&nbsp;
+
+						</span>
+

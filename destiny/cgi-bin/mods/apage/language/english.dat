@@ -1,0 +1,90 @@
+##### Mostly Main Page Words #####
+$apage{'100'} = "can't opendir";
+$apage{'101'} = "Back to the Main Folder";
+$apage{'102'} = "Back to the Previous Folder";
+$apage{'103'} = "Manage Language or Config Settings";
+$apage{'104'} = "Sort Up";
+$apage{'105'} = "Sort Down";
+$apage{'106'} = "Actions";
+$apage{'107'} = "Date";
+$apage{'108'} = "Size";
+$apage{'109'} = "Type";
+$apage{'110'} = "File Name";
+$apage{'111'} = "View";
+$apage{'112'} = "Delete";
+$apage{'113'} = "Folder";
+$apage{'114'} = "View";
+$apage{'115'} = "Edit";
+$apage{'116'} = "Preview";
+$apage{'117'} = "Rename";
+$apage{'118'} = "Delete";
+$apage{'119'} = "File";
+$apage{'120'} = "file(s)";
+$apage{'121'} = "Folder(s) Found";
+$apage{'122'} = "File(s) Found";
+$apage{'123'} = "Admin Menu";
+$apage{'124'} = "Create APage";
+$apage{'125'} = "Make A Folder";
+$apage{'126'} = "Edit Page";
+$apage{'127'} = "Preview Page";
+$apage{'128'} = "Upload Files";
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+
+
+##### The Rest of the Words #####
+$apage{'129'} = "Edit in Standard Version";
+$apage{'130'} = "Edit with htmlArea";
+$apage{'131'} = "saved";
+$apage{'132'} = "saved";
+$apage{'133'} = "viewing";
+$apage{'134'} = "You must remove all .html and .txt files within the folder before you can delete it.";
+$apage{'135'} = "All images in $apageimagedir/$info{delfold} will automatically be deleted.";
+$apage{'136'} = "Delete";
+$apage{'137'} = "yes";
+$apage{'138'} = "no";
+$apage{'139'} = "contains files";
+$apage{'140'} = "You may also delete these folders with your FTP program";
+$apage{'141'} = "cant opendir";
+$apage{'142'} = "deleted";
+$apage{'143'} = "and";
+$apage{'144'} = "Delete";
+$apage{'145'} = "yes";
+$apage{'146'} = "no";
+$apage{'147'} = "You may rename the file";
+$apage{'148'} = "File name must end in either .txt or .htm or .html";
+$apage{'149'} = "Changing file name extensions is not recommended.";
+$apage{'150'} = "Note: You can use relative paths to change folders, i.e. newfolder/filename.html.";
+$apage{'151'} = "File name must not have spaces.";
+$apage{'152'} = "Entering an exsisting file name will erase its contents";
+$apage{'153'} = "Please enter new file name";
+$apage{'154'} = "File name must end in either .txt or .htm or .html";
+$apage{'155'} = "File name must not have spaces.";
+$apage{'156'} = "Entering an exsisting file name will erase its contents.";
+$apage{'157'} = "Please enter a new folder name";
+$apage{'158'} = "Folder name must not have spaces or special chars in it.";
+$apage{'159'} = "Note this folder will be under the";
+$apage{'160'} = "folder.";
+$apage{'161'} = "Bad Folder Name";
+$apage{'162'} = "Sorry, the folder";
+$apage{'163'} = "already exsists";
+$apage{'164'} = "Successfully created the folders";
+$apage{'165'} = "Renamed";
+$apage{'166'} = "New file created";
+$apage{'167'} = "You may now edit the file to create its contents.";
+$apage{'168'} = "APage Uploader and Manager";
+$apage{'169'} = "Upload File";
+$apage{'170'} = "submit";
+$apage{'171'} = "No pictures have";
+$apage{'172'} = "been submitted yet";
+$apage{'173'} = "view";
+$apage{'174'} = "delete";
+$apage{'175'} = "code";
+$apage{'176'} = "Image";
+$apage{'177'} = "deleted";
+$apage{'178'} = "The End!";
+$apage{'179'} = "";
+$apage{'180'} = "";
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
+
+
+1;

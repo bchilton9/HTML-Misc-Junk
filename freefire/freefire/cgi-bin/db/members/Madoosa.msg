@@ -1,0 +1,8 @@
+Thenewone|Buddy List|05/19/04 - 16:19:47|User Thenewone. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=Thenewone>Thenewone</a>|1085001587
+Fitiala|Need your email addy|04/28/04 - 06:49:33|Morning, Maddy! &nbsp;I need your email addy to send you some scanned pics.|1083152923|aicon2
+Coralhunt|all, |03/23/04 - 14:07:03|is anyone deleting posts, or is any admin moving posts to dump folder?|1080072423|1|1
+Killaana|cya's later, |03/23/04 - 13:59:47|well actually in like 12 hours will be back home off duty...going to have dinner with liele, be there in like 20 to 30 min...night all|1080071987|1
+Coralhunt|Gnome, on the job|03/23/04 - 13:57:43|Gnome is out digging through the system, &nbsp;please ignore the sparks and frayed wires as he is really going to town.<br><br>|1080071863|1
+Coralhunt|posts|03/23/04 - 13:55:17|Seems we have a posting problem on repling to stickies that we are tracking down. &nbsp;<br><br>Also, important post, please keep a copy of them just in case there is a sneaky server issue happening. &nbsp;No panicks yet<br>|1080071717|1
+Killaana|woot|03/23/04 - 13:35:07|woot look at all these members online, we need a chat room lol, this is a site wide IM btw, so going to all online people|1080070507|1
+admin|Forms Not allowing you to post!!|03/23/04 - 13:12:31|If you have this problem with not being able to post a reply to sticky threads please send me a IM with the thread you wanted to post and the time so I can try and track down what is causing this to happen.<br><br>It seems to only be messing up on sticky posts. Please let me know if you have this problem.|1080069151|1

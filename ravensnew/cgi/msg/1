@@ -1,0 +1,28 @@
+<FORM METHOD="POST"><CENTER>
+<TABLE BORDER BORDERCOLOR=red WIDTH=40% CELLPADDING="2" ALIGN="Center">
+<TR><TD><P ALIGN=Center>
+<FONT COLOR="#000000">From:</FONT></TD><TD>
+
+bojax
+
+<INPUT TYPE=hidden VALUE="
+
+1
+
+" NAME=msgnum><INPUT TYPE=hidden VALUE="
+
+Bojax
+
+" NAME="sender"><INPUT TYPE=hidden VALUE="
+
+keny
+
+" NAME=name></TD></TR><TR><TD COLSPAN=2>
+
+message goses here
+
+</TD></TR><TR><TD><P ALIGN=Center>
+<INPUT TYPE=submit VALUE="Reply" NAME=a></TD>
+<TD><P ALIGN=Center>
+<INPUT TYPE=submit VALUE="Delete" NAME=a></TD></TR>
+</TABLE></CENTER></FORM>

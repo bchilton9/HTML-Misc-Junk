@@ -1,0 +1,16 @@
+$wadb{'001'} = "Database>";
+$wadb{'002'} = "Select desired .dat or .cfg file here.<br> Delimiter sets the database delimiter, it works but leave default for this beta release.";
+$wadb{'003'} = "&nbsp;Add fields to .dat file only!";
+$wadb{'004'} = "";
+$wadb{'005'} = "Database>";
+$wadb{'006'} = "Database>";
+$dbadmin{'001'} = "Database Admin Page";
+$dbadmin{'002'} = "Current Existing Databases";
+$dbadmin{'003'} = "Remove Database";
+$dbadmin{'004'} = "Create New Database";
+$dbadmin{'005'} = "ID, used to name datafile(use one word or underscore) ie:football or football_schedule";
+$dbadmin{'006'} = "Fullname, this is what the user sees(may use more than one word) ie:Football or Football Schedule";
+$dbadmin{'007'} = "Description, used on index page";
+$dbadmin{'008'} = "(Description optional)";
+$dbadmin{'009'} = "DO NOT add records to .cfg files!!";
+1;

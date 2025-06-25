@@ -1,0 +1,100 @@
+AltaVista	MSN	Google	Yahoo
+search.about.com	About	terms
+alltheweb.com	All The Web	q
+altavista.com	AltaVista	q
+search01.altavista.com	AltaVista	q
+au.altavista.com	AltaVista Australia	q
+at.altavista.com	AltaVista Austria	q
+be-fr.altavista.com	AltaVista Belgium	q
+br.altavista.com	AltaVista Brasil	q
+ca-en.altavista.com	AltaVista Canada	q
+ca-fr.altavista.com	AltaVista Canada	q
+dk.altavista.com	AltaVista Denmark	q
+fi.altavista.com	AltaVista Finland	q
+fr.altavista.com	AltaVista France	q
+de.altavista.com	AltaVista Germany	q
+ie.altavista.com	AltaVista Ireland	q
+in.altavista.com	AltaVista India	q
+it.altavista.com	AltaVista Italy	q
+kr.altavista.com	AltaVista Korea	q
+nl.altavista.com	AltaVista Netherlands	q
+nz.altavista.com	AltaVista New Zealand	q
+no.altavista.com	AltaVista Norway	q
+pt.altavista.com	AltaVista Portugal	q
+es.altavista.com	AltaVista Spain	q
+se.altavista.com	AltaVista Sweden	q
+ch-de.altavista.com	AltaVista Switzerland	q
+ch-fr.altavista.com	AltaVista Switzerland	q
+ch-it.altavista.com	AltaVista Switzerland	q
+uk.altavista.com	AltaVista U.K.	q
+search.aol.com	AOL	query
+aolsearch.aol.com	AOL	query
+search.dmoz.org	Open Directory	search
+search.dogpile.com	Dogpile	q
+msxml.excite.com	Excite	qkw
+google.com	Google	q
+google.com.ar	Google Argentina	q
+google.au	Google Australia	q
+google.at	Google Austria	q
+google.be	Google Belgium	q
+google.com.br	Google Brasil	q
+google.ca	Google Canada	q
+google.fr	Google France	q
+google.de	Google Germany	q
+google.ie	Google Ireland	q
+google.it	Google Italy	q
+google.nl	Google Netherlands	q
+google.ru	Google Russia	q
+google.ch	Google Switzerland	q
+google.co.uk	Google U.K.	q
+google.co.jp	Google Japan	q
+search.iwon.com	iWon	searchfor
+looksmart.com	Looksmart	key
+hotbot.lycos.com	Hotbot	query
+hotbot.lycos.co.uk	Hotbot	query
+search.lycos.com	Lycos	query
+mamma.com	Mamma	query
+search.metacrawler.com	MetaCrawler	q
+auto.search.msn.com	MSN	q
+search.msn.com	MSN	q
+au.search.msn.com	MSN Australia	q
+at.search.msn.com	MSN Austria	q
+be.search.msn.com	MSN Belgium	q
+dk.search.msn.com	MSN Denmark	q
+fi.search.msn.com	MSN Finland	q
+fr.search.msn.com	MSN France	q
+de.search.msn.com	MSN Germany	q
+it.search.msn.com	MSN Italy	q
+nl.search.msn.com	MSN Netherlands	q
+no.search.msn.com	MSN Norway	q
+ru.search.msn.com	MSN Russia	q
+es.search.msn.com	MSN Spain	q
+se.search.msn.com	MSN Sweden	q
+ch.search.msn.com	MSN Switzerland	q
+uk.search.msn.com	MSN U.K.	q
+search.msn.co.uk	MSN U.K.	q
+search.netscape.com	Netscape	query
+overture.com	Overture	Keywords
+srch.overture.com	Overture	Keywords
+search.evreka.passagen.se	Passagen	q
+search.yahoo.com	Yahoo	p
+au.search.yahoo.com	Yahoo Australia	p
+br.search.yahoo.com	Yahoo Brasil	p
+ca.search.yahoo.com	Yahoo Canada	p
+cn.search.yahoo.com	Yahoo China	p
+dk.search.yahoo.com	Yahoo Denmark	p
+fr.search.yahoo.com	Yahoo France	p
+de.search.yahoo.com	Yahoo Germany	p
+gr.search.yahoo.com	Yahoo Greece	p
+hk.search.yahoo.com	Yahoo Hong Kong	p
+in.search.yahoo.com	Yahoo India	p
+ie.search.yahoo.com	Yahoo Ireland	p
+it.search.yahoo.com	Yahoo Italy	p
+mx.search.yahoo.com	Yahoo Mexico	p
+no.search.yahoo.com	Yahoo Norway	p
+sg.search.yahoo.com	Yahoo Singapore	p
+es.search.yahoo.com	Yahoo Spain	p
+se.search.yahoo.com	Yahoo Sweden	p
+ch.search.yahoo.com	Yahoo Switzerland	p
+uk.search.yahoo.com	Yahoo U.K.	p
+

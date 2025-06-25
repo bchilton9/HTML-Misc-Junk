@@ -1,0 +1,1 @@
+Thenewone|Buddy List|05/19/04 - 16:20:18|User Thenewone. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=Thenewone>Thenewone</a>|1085001618|1|1

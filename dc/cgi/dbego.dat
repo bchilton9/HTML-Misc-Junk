@@ -1,0 +1,22 @@
+
+
+ <CENTER>
+     This is my first real atempt with flash. Just having some fun. And im not very good at drawing yet but hey it looks like someone and not a stick figure.
+     <BR>
+     <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+      codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+      WIDTH="550" HEIGHT="400" id="dunkbego" ALIGN="">
+      <PARAM NAME=movie VALUE="dunkbego.swf">
+     <PARAM NAME=quality VALUE=high>
+     <PARAM NAME=bgcolor VALUE=#FFFFFF>
+     <EMBED src="dunkbego.swf" quality=high bgcolor=#FFFFFF  WIDTH="550" HEIGHT="400" NAME="dunkbego" ALIGN=""
+      TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+     </EMBED>
+     </OBJECT>
+  <P>
+  <A HREF="http://www.erenetwork.com/dcguild/egg.cgi?a=egg&page=dbego">
+  <IMG SRC="http://www.erenetwork.com/dcguild/smturkey.gif" WIDTH="50" HEIGHT="50" BORDER="0"></A>
+     </CENTER>
+ 
+
+

@@ -1,0 +1,9 @@
+$config_vers = ".4";
+$mod_name = "Menu Manager";
+$mod_vers = "0.9.7";
+$mod_desc = "Menu Manager Mod";
+$mod_admin = "1";
+$admin_name = "admin.cgi";
+$lang_support = "1";
+$mod_lang = "english.dat";
+1;

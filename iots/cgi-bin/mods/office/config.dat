@@ -1,0 +1,9 @@
+$config_vers = ".4";
+$mod_name = "WebOFFICE";
+$mod_vers = "0.9.6";
+$mod_desc = "WebOFFICE";
+$mod_admin = "1";
+$admin_name = "admin.cgi";
+$lang_support = "1";
+$mod_lang = "english.dat";
+1;

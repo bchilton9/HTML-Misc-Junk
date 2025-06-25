@@ -1,0 +1,47 @@
+$modmanager{'001'} = "Mod Manager";
+$modmanager{'002'} = "A list of currently installed Mods is below.";
+$modmanager{'003'} = "Warning!";
+$modmanager{'004'} = "Config File not found.";
+$modmanager{'005'} = "Create Config File";
+# v0.9.8 Update  ###############################################################
+$modmanager{'006'} = "";
+################################################################################
+$modmanager{'007'} = "Admin";
+$modmanager{'008'} = "Edit Config File";
+# v0.9.8 Update  ###############################################################
+$modmanager{'009'} = "";
+$modmanager{'010'} = "";
+################################################################################
+$modmanager{'011'} = "Mod Name:";
+$modmanager{'012'} = "Mod Version:";
+$modmanager{'013'} = "Admin Script:";
+$modmanager{'014'} = "Please select 0 if there is no Admin Script or 1 if there is.";
+$modmanager{'015'} = "Language Support:";
+$modmanager{'016'} = "Please select 0 if there is no Language Support or 1 if there is.";
+$modmanager{'017'} = "Mod Description:";
+$modmanager{'018'} = "Mod for WebAPP.";
+# v0.9.8 Update  ###############################################################
+$modmanager{'019'} = "";
+$modmanager{'020'} = "";
+$modmanager{'021'} = "";
+$modmanager{'022'} = "";
+$modmanager{'023'} = "";
+################################################################################
+$modmanager{'024'} = "<b>NOTE:</b> Please ensure that both the <i>Admin Script</i> and <i>Language Support</i> variables are set correctly. Failure to do so will cause script errors.";
+# v0.9.8 Update  ###############################################################
+$modmanager{'025'} = "";
+$modmanager{'026'} = "";
+$modmanager{'027'} = "";
+################################################################################
+$modmanager{'028'} = "No Mod Name";
+$modmanager{'029'} = "No Mod Version Number";
+$modmanager{'030'} = "No Mod Description";
+$modmanager{'031'} = "No Mod Admin Script Name";
+$modmanager{'032'} = "No Default Language File";
+# v0.9.8 Update  ###############################################################
+$modmanager{'033'} = "Main Admin Script Name";
+$modmanager{'034'} = "Config File is <b>NOT</b> to ";
+$modmanager{'035'} = "Please Edit!";
+################################################################################
+
+1;

@@ -1,0 +1,136 @@
+    <HTML>
+<HEAD>
+
+  <TITLE>EQ Guilded</TITLE>
+  <LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.eqguilded.com/style.css">
+</HEAD>
+<body class=body>!!headbanner!!
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+  <TR>
+    <TD BACKGROUND="http://www.eqguilded.com/images/bar.gif" COLSPAN=2>
+
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD><IMG SRC="http://www.eqguilded.com/images/logospacer.gif"><FONT COLOR="#ffffff"><BIG><B>!!guildname!!</B></BIG></FONT></TD>
+</TR>
+<TR>
+<TD>
+<IMG SRC="http://www.eqguilded.com/images/LogoB.gif"></TD>
+  </TR>
+</TABLE>
+
+
+</TD>
+    <TD COLSPAN="2" BACKGROUND="http://www.eqguilded.com/images/bar.gif" VALIGN="Top" WIDTH=50%><TABLE
+      BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">
+	<TR>
+	  <TD class=cat>
+	  </TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD ROWSPAN=3 VALIGN="Top" WIDTH=10% class=sidebg><IMG
+	  SRC="http://www.eqguilded.com/images/curvtop.gif" WIDTH="156" HEIGHT="62">
+      <TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" WIDTH="100%">
+	<TR>
+	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>
+	      <TR>
+		<TD><TABLE BORDER=0 CELLSPACING="4" CELLPADDING="4" WIDTH=100%>
+		    <TR>
+		      <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=150>
+			  <TR>
+			    <TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">
+				<TR>
+				  <TD>  Main Menu</TD>
+				</TR>
+			      </TABLE>
+			      <TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menubordercolor">
+				<TR>
+				  <TD width="100%"><TABLE border="0" cellpadding="0" cellspacing="3" width="100%"
+				    class="menubackcolor">
+				      <TR>
+					<TD class="cat">
+
+!!links!!
+
+</TD>
+				      </TR>
+				    </TABLE>
+				  </TD>
+				</TR>
+			      </TABLE>
+			    </TD>
+			  </TR>
+			</TABLE>
+			<P>
+			<TABLE BORDER="0" CELLSPACING="4" CELLPADDING="4" width=100%>
+			  <TR>
+			    <TD></TD>
+			  </TR>
+			</TABLE>
+		      </TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+      </TABLE>
+    </TD>
+    <TD ROWSPAN=3 COLSPAN=2 VALIGN="Top" width=80%><TABLE BORDER="0" CELLSPACING="4"
+      CELLPADDING="4" WIDTH=100%>
+	<TR>
+	  <TD><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width=100% HEIGHT=100%>
+	      <TR>
+		<TD><TABLE border="0" cellpadding="0" cellspacing="0" width="100%" class="menutable">
+		    <TR>
+		      <TD><IMG SRC="filler" WIDTH=1 HEIGHT=16></TD>
+		    </TR>
+		  </TABLE>
+		  <TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+		    <TR>
+		      <TD width="100%"><TABLE BORDER="0" CELLSPACING="3" CELLPADDING="0" WIDTH="100%"
+			class="menubackcolor">
+			  <TR>
+			    <TD class="cat"><CENTER>
+				<CENTER>
+
+				  !!content!!
+
+				</CENTER>
+			      </CENTER>
+			    </TD>
+			  </TR>
+			</TABLE>
+		      </TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+      </TABLE>
+      <P>
+    </TD>
+    <TD ROWSPAN=3 VALIGN="Top" WIDTH=10%></TD>
+  </TR>
+  <TR>
+  </TR>
+  <TR>
+  </TR>
+  <TR>
+    <TD COLSPAN=4 BACKGROUND="http://www.eqguilded.com/images/botbar.gif"><IMG SRC="http://www.eqguilded.com/images/botbar.gif"
+	  WIDTH="47" HEIGHT="40"></TD>
+  </TR>
+</TABLE>
+<CENTER>
+  <FONT class=textsmall>©  COPYRIGHT 2003 ALL RIGHTS RESERVED
+  EQGUILDED.COM</FONT>
+</CENTER>
+<P>
+!!footbanner!!</body></HTML>

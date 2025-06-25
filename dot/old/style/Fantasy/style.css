@@ -1,0 +1,225 @@
+#wrapper
+{
+    WIDTH: 697px
+}
+#heading
+{
+    BORDER-RIGHT: green double;
+    BACKGROUND-POSITION: left top;
+    BORDER-TOP: green double;
+    BACKGROUND-IMAGE: url(logo.gif);
+    BORDER-LEFT: green double;
+    BORDER-BOTTOM: green double;
+    BACKGROUND-REPEAT: no-repeat;
+    TOP: 25pt;
+    HEIGHT: 110pt;
+    BACKGROUND-COLOR: green;
+    TEXT-ALIGN: right;
+    BACKGROUND-: url(http://www.erenetwork.com/dotguild/style/Defalt/defaltbg.gif)
+}
+#loged
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#message
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#raidpoints
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#vist
+{
+    BORDER-RIGHT: 0px;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: smaller;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    BORDER-LEFT: 0px;
+    WIDTH: 100%;
+    COLOR: black;
+    PADDING-TOP: 0px;
+    BORDER-BOTTOM: 0px;
+    TEXT-ALIGN: left
+}
+#links
+{
+    WIDTH: 100%;
+    HEIGHT: 20px;
+    BACKGROUND-COLOR: green
+}
+#news
+{
+    COLOR: white;
+    TEXT-ALIGN: center
+}
+#newstext
+{
+    BORDER-RIGHT: green double;
+    BORDER-TOP: green double;
+    BORDER-LEFT: green double;
+    WIDTH: 300pt;
+    COLOR: white;
+    BORDER-BOTTOM: green double;
+    HEIGHT: 150pt;
+    BACKGROUND-COLOR: green
+}
+#admin
+{
+    MARGIN-TOP: 10px;
+    COLOR: white;
+    TEXT-ALIGN: center
+}
+BODY
+{
+    BACKGROUND: url(bg.jpg) darkgreen fixed no-repeat center top;
+    TEXT-ALIGN: center
+}
+A#editlog
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+A#sendmessage
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+A#visitlist
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+A#visitlist:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+#adminhr
+{
+    WIDTH: 75%;
+    COLOR: white
+}
+#aprovetable
+{
+    BORDER-RIGHT: green double;
+    PADDING-RIGHT: 1px;
+    BORDER-TOP: green double;
+    PADDING-LEFT: 1px;
+    PADDING-BOTTOM: 1px;
+    MARGIN: 1px;
+    BORDER-LEFT: green double;
+    COLOR: white;
+    PADDING-TOP: 1px;
+    BORDER-BOTTOM: green double;
+    BACKGROUND-COLOR: green
+}
+#adminhead
+{
+    FONT-SIZE: larger
+}
+#adminlinks
+{
+    BORDER-RIGHT: khaki;
+    BORDER-TOP: khaki;
+    BORDER-LEFT: khaki;
+    BORDER-BOTTOM: khaki
+}
+A#adminlink
+{
+    COLOR: white;
+    BACKGROUND-COLOR: green;
+    TEXT-DECORATION: none
+}
+A#adminlink:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+A#link
+{
+    FONT-SIZE: larger;
+    COLOR: white;
+    BACKGROUND-COLOR: green;
+    TEXT-DECORATION: none
+}
+A#link:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+#text1
+{
+    FONT-SIZE: larger;
+    COLOR: red;
+    BACKGROUND-COLOR: green;
+    TEXT-ALIGN: center
+}
+#text2
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    BACKGROUND-COLOR: green
+}
+#text3
+{
+    COLOR: white;
+    BACKGROUND-COLOR: green
+}
+#text4
+{
+    COLOR: white;
+    BACKGROUND-COLOR: green;
+    TEXT-ALIGN: center
+}
+#input
+{
+    COLOR: white;
+    BACKGROUND-COLOR: green
+}
+#table
+{
+    BORDER-RIGHT: green double;
+    BORDER-TOP: green double;
+    BORDER-LEFT: green double;
+    BORDER-BOTTOM: green double;
+    BACKGROUND-COLOR: green
+}
+#content
+{
+    TEXT-ALIGN: center
+}
+#pages
+{
+    FONT-SIZE: smaller;
+    COLOR: white;
+    BACKGROUND-COLOR: green;
+    TEXT-ALIGN: left
+}
+A#pageslink
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#pageslink:hover
+{
+    FONT-WEIGHT: bolder;
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: underline overline
+}
+#pagelist
+{
+    BACKGROUND-COLOR: green;
+    TEXT-ALIGN: center
+}

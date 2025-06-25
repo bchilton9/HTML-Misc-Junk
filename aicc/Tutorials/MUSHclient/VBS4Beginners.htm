@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>MUSHclient 103 - VBScripting for Beginners</title>
+   
+</head>
+ <body background="http://members.iinet.net.au/~garydep/images/furbgnd.gif" link="#9070ff" vlink="#300090" text="#000000" bgcolor="#ffffff" alink="#0000ee">
+<h3>
+<p>MUSHclient 103 - VBScripting for Beginners</p>
+<p>VBScript is a scripting language that allows a user to make more advanced
+bots with MUSHclient.<br>
+  </p>
+<p>Create a new trigger and type <i>([ * whispers, "*" to you. ]</i> in the
+Trigger textbox. Type "Whisper" in the Label textbox and in the Script textbox.
+Click OK and close the Triggers box. Click on the Script button. Check the
+Enable Script checkbox and click on the Edit Script button. A blank document
+will open in Notepad. Save it as <i>Furc.vbs</i>, vbs is the file format
+for VBScript files.   </p>
+<p>In VBScript, routines accessed by MUSHclient when triggers are activated
+are called Subs. We need to create a Whisper Sub for the trigger to access
+that we created earlier. The following is the Whisper Sub with comment lines(lines
+starting with an apostrophe), explaining each part of the Sub:  </p>
+<p>'Sub means a sub routine is being declared with the name of the word following 
+it, and some arguments in parentheses. The name of this Sub is Whisper and 
+it has the arguments a, b, and c.  <br>
+ 'The 'a' argument holds the name of the label of the Trigger <br>
+ 'The 'b' argument holds the match text to the trigger pattern <br>
+ 'The 'c' argument is an array that holds each * placed in the trigger pattern
+  </p>
+<p>Sub Whisper(a,b,c) <br>
+ 'The first * in the trigger pattern is in place of the whispering furres 
+name, so Furre will store c(1) <br>
+ Furre = c(1) <br>
+ 'The second * in the trigger pattern holds the message from the whispering 
+furre, so Msg will store c(2) <br>
+ Msg = c(2) <br>
+ 'We'll have the bot send a message to the whispering furre, telling them 
+who whispered the bot and what 'their message was, to verify that the script 
+works. <br>
+ 'world.send means the text following it will be sent to Furcadia. Text strings 
+should always be placed inside 'quotations. <br>
+ 'To insert a variable into the string you have to close the quotations,
+use an ampersand (&amp;) to join the string 'and the variable together then
+insert the variable, join the next part of the string with an ampersand and
+'reopen the quotations to continue the string. The Chr(34) is used to insert
+quotation marks within the string when its sent to Furcadia. In this case,
+its used to put Msg inside of quotations. <br>
+ world.send "wh " &amp; Furre &amp; " " &amp; Furre &amp; " has whispered 
+" &amp; Msg &amp; " to me." <br>
+ 'After you are done with the Sub you close it with End Sub <br>
+ End Sub  </p>
+<p>So the Sub without comment lines would look like the following:  </p>
+<p>Sub Whisper(a,b,c) <br>
+ Furre = c(1) <br>
+ Msg = c(2) <br>
+ world.send "wh " &amp; Furre &amp; " " &amp; Furre &amp; " has whispered 
+" &amp; Chr(34) &amp; Msg &amp; Chr(34) &amp; " to me." <br>
+ End Sub  </p>
+<p>You can leave the comment lines in the script for reference if you want, 
+but they aren't necessary. Save the script and MUSHclient will ask you if 
+you want to reload the script. Click Yes. This will load the script you just 
+saved into MUSHclient so it can be used. Try whispering your bot and see what
+happens. :) </p>
+</h3>
+</body>
+</html>

@@ -1,0 +1,198 @@
+###############################################################################
+###############################################################################
+# WebAPP - Automated Perl Portal                                              #
+#-----------------------------------------------------------------------------#
+# english.dat - the english language file for Brad's Office mod               #
+#                                                                             #
+# This program is free software; you can redistribute it and/or               #
+# modify it under the terms of the GNU General Public License                 #
+# as published by the Free Software Foundation; either version 2              #
+# of the License, or (at your option) any later version.                      #
+#                                                                             #
+# This program is distributed in the hope that it will be useful,             #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               #
+# GNU General Public License for more details.                                #
+#                                                                             #
+# You should have received a copy of the GNU General Public License           #
+# along with this program; if not, write to the Free Software                 #
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. #
+#                                                                             #
+#                                                                             #
+# File: english.dat, Last modified: 8 Sept 2002                               #
+###############################################################################
+###############################################################################
+
+# this file contains specific terms for use in the Office mod
+
+# General #
+$office_gen{'001'} = "$msg{'284'}"; # grabbed from your WebAPP site language file (calendar title)
+$office_gen{'002'} = "WebOFFICE";
+$office_gen{'003'} = "Update"; # button
+$office_gen{'004'} = "Delete"; # button
+$office_gen{'005'} = "Cancel"; # button
+$office_gen{'006'} = "Add"; # button
+$office_gen{'007'} = "Delete This Record?"; # button
+$office_gen{'008'} = "Search"; # button
+$office_gen{'009'} = "Clear"; # button
+$office_gen{'010'} = "Make any modifications to your journal, then click on the &quot;update&quot; button to save your changes.";
+$office_gen{'011'} = "Message from the Admin";
+$office_gen{'012'} = "Admin Options";
+$office_gen{'013'} = "Records";
+$office_gen{'014'} = "Submit Request"; # button
+$office_gen{'015'} = "Header Color"; # admin cfg
+$office_gen{'016'} = "Data Dark Colour"; # admin cfg
+$office_gen{'017'} = "Data Light Colour"; # admin cfg
+$office_gen{'018'} = "Data Highlight Colour"; # admin cfg
+$office_gen{'019'} = "Options"; 
+$office_gen{'020'} = "View Printer-Friendly Version"; 
+$office_gen{'021'} = "";
+$office_gen{'022'} = "Colour"; # admin cfg
+$office_gen{'023'} = "$btn{'014'}"; # grabbed from your WebAPP site language file (deco)
+$office_gen{'024'} = "Go to your";
+$office_gen{'025'} = "Your Name";
+$office_gen{'026'} = "Your Email";
+$office_gen{'027'} = "E-mail Address to send to:";
+$office_gen{'028'} = "This E-mail was sent via $pagename from ";
+$office_gen{'029'} = "Save";
+$office_gen{'030'} = "Settings";
+$office_gen{'031'} = "User";
+$office_gen{'032'} = "Your"; # precedes each section title
+$office_gen{'033'} = "Broadcast this message to your users";
+$office_gen{'034'} = "Members Using WebOffice";
+$office_gen{'035'} = "User Management";
+
+# Calendar #
+$office_cal{'001'} = "Calendar";
+$office_cal{'002'} = "ID"; # used in display
+$office_cal{'003'} = "DATE"; # used in display
+$office_cal{'004'} = "TIME"; # used in display
+$office_cal{'005'} = "EVENT"; # used in display
+$office_cal{'006'} = "DETAILS"; # used in display
+$office_cal{'007'} = "Event Details";
+$office_cal{'008'} = "January";
+$office_cal{'009'} = "February";
+$office_cal{'010'} = "March";
+$office_cal{'011'} = "April";
+$office_cal{'012'} = "May";
+$office_cal{'013'} = "June";
+$office_cal{'014'} = "July";
+$office_cal{'015'} = "August";
+$office_cal{'016'} = "September";
+$office_cal{'017'} = "October";
+$office_cal{'018'} = "November";
+$office_cal{'019'} = "December";
+$office_cal{'020'} = "Summary for";
+$office_cal{'021'} = "No Events";
+$office_cal{'022'} = "S"; # Sunday - use three letters or less
+$office_cal{'023'} = "M"; # Monday - use three letters or less
+$office_cal{'024'} = "T"; # Tuesday - use three letters or less
+$office_cal{'025'} = "W"; # Wednesday - use three letters or less
+$office_cal{'026'} = "T"; # Thursday - use three letters or less
+$office_cal{'027'} = "F"; # Friday - use three letters or less
+$office_cal{'028'} = "S"; # Saturday - use three letters or less
+$office_cal{'029'} = "Hide Details";
+$office_cal{'030'} = "Show Details";
+$office_cal{'031'} = "View details for: "; # alt img tag
+$office_cal{'032'} = "Group Calendar";
+$office_cal{'033'} = "Go to your Office";
+$office_cal{'034'} = "Members have access to their own Journal, Calendar, Contact List and Task Manager! Join today!"; # alt img message
+$office_cal{'035'} = "To add an event on this day, fill in the above fields, then <b>submit the request</b>. Afterwards, check your IM for information regarding this request.";
+$office_cal{'036'} = "Event on"; # part of IM
+$office_cal{'037'} = "This is an auto-generated message."; # part of IM
+$office_cal{'038'} = "would like the following event added to the calendar:"; # part of IM
+$office_cal{'039'} = "Submitted on"; # part of IM
+$office_cal{'040'} = "Your event information was submitted to the calendar Editor on"; # part of IM
+$office_cal{'041'} = "Here is a copy for your records"; # part of IM
+$office_cal{'042'} = "<u>Note</u>: this is <b>not</b> an acknowledgement that the event has been added to the calendar; however, the Editor has been notified and will attend to your request as soon as possible."; # part of IM
+$office_cal{'043'} = "Member assigned to manage group calendar requests:";
+$office_cal{'044'} = "Cc: the request to your Instant Messanger?";
+$office_cal{'045'} = "The user assigned to handle requests does not exist.  Please go back and check the spelling.";
+$office_cal{'046'} = "Add this event"; # part of IM
+$office_cal{'047'} = "to the group calendar."; # part of IM
+$office_cal{'048'} = "has been notified of this submission."; # part of IM
+
+# Contacts #
+$office_con{'001'} = "Contacts"; # used in many areas
+$office_con{'002'} = "First Name";
+$office_con{'003'} = "Last Name";
+$office_con{'004'} = "Title";
+$office_con{'005'} = "Company";
+$office_con{'006'} = "Work Address 1";
+$office_con{'007'} = "Work Address 2";
+$office_con{'008'} = "Work City";
+$office_con{'009'} = "Work Province";
+$office_con{'010'} = "Work Postal Code";
+$office_con{'011'} = "Home Address 1";
+$office_con{'012'} = "Home Address 2";
+$office_con{'013'} = "Home City";
+$office_con{'014'} = "Home Province";
+$office_con{'015'} = "Home Postal Code";
+$office_con{'016'} = "Work Phone";
+$office_con{'017'} = "Home Phone";
+$office_con{'018'} = "Cell Phone";
+$office_con{'019'} = "Fax";
+$office_con{'020'} = "Pager";
+$office_con{'021'} = "Primary Email";
+$office_con{'022'} = "Secondary Email";
+$office_con{'023'} = "WebSite URL";
+$office_con{'024'} = "Notes";
+$office_con{'025'} = "Show"; # button
+$office_con{'026'} = "Per Page"; # button
+$office_con{'027'} = "All"; # button
+$office_con{'028'} = "New Contact";
+$office_con{'029'} = "Edit Record"; # alt img tag
+$office_con{'030'} = "Result Page";  # also used in tasks
+$office_con{'031'} = "of"; # also used in tasks
+$office_con{'032'} = "Country"; 
+$office_con{'033'} = "Display this Contact on the Office index page"; 
+$office_con{'034'} = "You have not selected any contacts for viewing."; 
+$office_con{'035'} = "Default display: detailed view";
+$office_con{'036'} = "Number of Contacts per page";
+$office_con{'037'} = "Showing";
+$office_con{'038'} = "Sort by:";
+
+# Tasks #
+$office_task{'001'} = "Tasks"; # used in many areas
+$office_task{'002'} = "Add New Task"; # button
+$office_task{'003'} = "Hide Completed"; # button
+$office_task{'004'} = "Show Completed"; # button
+$office_task{'005'} = "View Task Details";
+$office_task{'006'} = "Completed?";
+$office_task{'007'} = "Description";
+$office_task{'008'} = "Due Date";
+$office_task{'009'} = "Assigned To";
+$office_task{'010'} = "Notes";
+$office_task{'011'} = "You do not have any tasks due at this time.";
+$office_task{'012'} = "Number of Tasks per page";
+
+# Journal #
+$office_journal{'001'} = "Journal"; # used in many areas
+$office_journal{'002'} = "Add a Journal Entry";
+$office_journal{'003'} = "E-mail Journal Entry";
+$office_journal{'004'} = "To email this entry to someone, please fill in the form below and click \"Send\"";
+$office_journal{'005'} = "Send"; # button
+$office_journal{'006'} = "You have no entries in your Journal";
+$office_journal{'007'} = "Show details of most recent entry on Office index page";
+$office_journal{'008'} = "\# of entries to list on Office index page";
+$office_journal{'009'} = "Previous Entries";
+$office_journal{'010'} = "Last Modified:";
+$office_journal{'011'} = "Edit this Entry";
+$office_journal{'012'} = "Remove this Entry";
+$office_journal{'013'} = "Title:";
+$office_journal{'014'} = "Entry:";
+$office_journal{'015'} = "Modify Entry";
+$office_journal{'016'} = "Add Entry";
+$office_journal{'017'} = "Untitled";
+
+# Error Messages #
+$office_error{'001'} = "You are unauthorized for this action!";
+$office_error{'002'} = "You need to actavate your Journal by clicking <A HREF=http://www.eqguilded.com/freefire/cgi-bin/mods/office/index.cgi>Here</A>!";
+$office_error{'003'} = "Cannot write to file";
+$office_error{'004'} = "Cannot lock datafile";
+$office_error{'005'} = "Cannot find";
+
+
+
+
+1; # return true

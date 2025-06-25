@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/">
+<channel rdf:about="http://www.destinyeq2.com">
+<title>Destiny!</title>
+<link>http://www.destinyeq2.com/cgi-bin/index.cgi</link>
+<description>Destiny! - News to Go</description>
+<items>
+<rdf:Seq>
+<rdf:li resource="http://www.destinyeq2.com/cgi-bin/index.cgi?action=viewnews&amp;id=4" />
+<rdf:li resource="http://www.destinyeq2.com/cgi-bin/index.cgi?action=viewnews&amp;id=3" />
+</rdf:Seq>
+</items>
+</channel>
+
+<item rdf:about="http://www.destinyeq2.com/cgi-bin/index.cgi?action=viewnews&amp;id=4">
+<title>WE Have our own Website WOOTERS</title>
+<link>http://www.destinyeq2.com/cgi-bin/index.cgi?action=viewnews&amp;id=4</link>
+</item>
+
+<item rdf:about="http://www.destinyeq2.com/cgi-bin/index.cgi?action=viewnews&amp;id=3">
+<title>Guild Events comming soon, I swear they are </title>
+<link>http://www.destinyeq2.com/cgi-bin/index.cgi?action=viewnews&amp;id=3</link>
+</item>
+</rdf:RDF>

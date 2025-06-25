@@ -1,0 +1,117 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+
+image1 = new Image();
+image1.src = "yesno.gif";
+
+image2 = new Image();
+image2.src = "noyes.gif";
+
+// End -->
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- hide from none JavaScript Browsers
+                                          
+Image1= new Image(75,50)
+Image1.src = "yesno.gif"
+Image2 = new Image(75,50)
+Image2.src = "noyes.gif"
+                                          
+function SwapOut() {
+document.Rupert.src = Image2.src; return true;
+}
+                                          
+function SwapBack() {
+document.Rupert.src = Image1.src; return true;
+}
+                                          
+// - stop hiding -->
+</SCRIPT>
+<script language="JavaScript1.2">
+
+//Contents for menu 1
+var menu1=new Array()
+menu1[0]='<A HREF="yesno.nvm"><IMG SRC="yesno.gif" WIDTH="328" HEIGHT="119" BORDER="0" ISMAP USEMAP="#yesno" NAME="Rupert"></A><MAP NAME="yesno"><AREA SHAPE="RECT" COORDS="174,82,249,105" onmouseover="SwapOut()" onmouseout="SwapBack()"><AREA SHAPE="RECT" HREF="http://d0tt.erenetwork.com/index2.html" COORDS="82,82,157,105"></MAP>'
+
+</script>
+
+<style>
+<!--
+.iewrap1{
+position:relative;
+height:30px;
+}
+.iewrap2{
+position:absolute;
+}
+#dropmenu0{
+visibility:hide;
+z-index:100;
+}
+-->
+</style>
+  <TITLE>D0TT.com</TITLE>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#ffffff" LINK="#ffffff" VLINK="#ffffff">
+<CENTER>
+  <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+    <TR>
+      <TD>
+<script language="JavaScript1.2">
+//reusable/////////////////////////////
+var zindex=100
+function dropit2(whichone){
+if (window.themenu&&themenu.id!=whichone.id)
+themenu.style.visibility="hidden"
+themenu=whichone
+if (document.all){
+themenu.style.left=document.body.scrollLeft+document.body.clientWidth/2-themenu.offsetWidth/2
+themenu.style.top=document.body.scrollTop+document.body.clientHeight/2-themenu.offsetHeight/2
+if (themenu.style.visibility=="hidden"){
+themenu.style.visibility="visible"
+themenu.style.zIndex=zindex++
+}
+else{
+hidemenu()
+}
+}
+}
+
+
+
+//reusable/////////////////////////////
+</script>
+<ilayer height=30px>
+<layer visibility=show>
+<span onClick="dropit2(dropmenu0);event.cancelBubble=true;return false"><center>
+	<B>Welcome to D0TT.com!</B><BR>
+	<a HREF="http://d0tt.erenetwork.com/index2.html" onClick="if(document.layers) return dropit(event, 'document.dropmenu0')"><IMG BORDER="0" WIDTH="232" HEIGHT="292" SRC="openin.gif"></A><BR>
+	<B>The New revaloshen is web trash!</B><BR>
+<b><a HREF="http://d0tt.erenetwork.com/index2.html" onClick="if(document.layers) return dropit(event, 'document.dropmenu0')">Click here to enter D0TT.com</a></b></span>
+</layer>
+</ilayer>
+<div id=dropmenu0 style="position:absolute;left:0;top:0;layer-background-color:white;background-color:white;width:120;visibility:hidden;border:0px solid black;padding:0px">
+<script language="JavaScript1.2">
+if (document.all)
+dropmenu0.style.padding="0px"
+for (i=0;i<menu1.length;i++)
+document.write(menu1[i])
+</script>
+</div>
+<script language="JavaScript1.2">
+if (document.layers){
+document.dropmenu0.captureEvents(Event.CLICK)
+document.dropmenu0.onclick=hidemenu2
+}
+</script>
+
+</TD>
+    </TR>
+  </TABLE>
+</CENTER>
+<P>
+
+</BODY></HTML>

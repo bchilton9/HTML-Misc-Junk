@@ -1,0 +1,37 @@
+@bT = qw(Status Subject From Date size);
+
+%mail_stats=(
+RO=>"Read",
+R=>"Read",
+O=>"Old",
+N=>qq(<font color=red>New</font>),
+U=>"Unread",
+);
+
+  #################### COLORS ##################################
+
+@bgcols =("#ffffff", "#f0f0f5"); #backgrounds of  message list line
+$hi_bg ="#dfdfdf"; ##background color of selected messages
+
+$form_color= qq("#E8FFbb");      #background of the compose form
+$form_body_bg= qq("#336699"); #background of the send message window
+
+$label_bg_color=qq(#5588bb);    #background of the label columns
+
+$bar_bg_color=qq(#336699);    #background of the table columns
+$bar_txt_color=qq(#ffffee);    #text of the table columns
+
+$cmd_bar_bg=qq(#c0c0c0);    #background of the command bar
+
+$body_bg_color=qq(#E8FFBB);    #background of the mail listings display
+$cmd_panel_bg =qq(#e8ffbb);    #background of the command panel 
+
+$pglist_bg_color=qq(#336699);    #background of the page list area
+$pglist_txt_color=qq(#ffeeee);    #text color of the page list area
+
+$mpage_tit_bg = qq(#bbbbbb);
+$login_form_field_bg =qq(#dcdcdc);
+
+$box_label_bg =qq(#6699cc);
+
+  #################### COLORS ##################################

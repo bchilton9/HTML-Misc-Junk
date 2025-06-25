@@ -1,0 +1,215 @@
+<html>
+<head>
+<title>DØTT.com: You add!</title>
+<meta name="keywords" content="Banner, ads, make money">
+<meta name="description" content="Have a website want more hits? Get your banner on d0tt.coms website">
+
+<STYLE>
+     body {cursor: se-resize}
+     A:link {cursor: sw-resize}
+     A:visited {cursor: sw-resize}
+     input {cursor: sw-resize}
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff" TEXT="#000000" LINK="#000000" VLINK="#000000">
+<TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+  <TR>
+    <TD><TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+	  <TD><IMG SRC=http://www.d0tt.com/logo.jpg WIDTH=237 HEIGHT=65></TD>
+	  <TD ALIGN=right WIDTH=100%><A HREF=http://www.d0tt.com/ads.shtml><IMG SRC="http://www.d0tt.com/ads.jpg"></A><!--#exec cgi="/cgi-bin/ban/ads.pl" --></TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD><TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+	  <TD><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% BGCOLOR="#808080">
+	      <TR>
+		<TD><IMG SRC=http://www.d0tt.com/blueleft.gif WIDTH=16 HEIGHT=25></TD>
+		<TD WIDTH=100%><P ALIGN=Right>
+		  <B> D&Oslash;TT.com: Advertize</B></TD>
+		<TD><IMG SRC=http://www.d0tt.com/blueright.gif WIDTH=16 HEIGHT=25></TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+	<TR>
+	  <TD><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	      <TR>
+		<TD WIDTH=120><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% BGCOLOR="#c0c0c0">
+		    <TR>
+		      <TD><IMG SRC=http://www.d0tt.com/redleft.gif WIDTH=16 HEIGHT=25></TD>
+		      <TD Width=100%><CENTER>
+			  <B> D&Oslash;TT.com</B>
+			</CENTER>
+		      </TD>
+		      <TD><IMG SRC=http://www.d0tt.com/redright.gif WIDTH=16 HEIGHT=25></TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+		<TD><CENTER>
+		    <B>Advetize with D&Oslash;TT.com!!</B>
+		  </CENTER>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD VALIGN=Top><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+	  <TD width=140 VALIGN=Top><BR>
+	    <TABLE BORDER=2 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	      <TR>
+		<TD VALIGN=Top><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=2 WIDTH=100%>
+		    <TR>
+		      <TD VALIGN=Top BGCOLOR="#808080"><SMALL><B>D&Oslash;TT.com</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><!--#exec cgi="/cgi-bin/ssi/con.cgi" --></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Sub Domains</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><SMALL><A HREF=http://www.d0tt.com/domain.shtml#reg>Register
+			for a domain!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/domain.shtml#edit>Edit existing
+			domain!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/domain.shtml#Lost>Lost your
+			password?</A></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Links</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><!--#exec cgi="/cgi-bin/ssi/links.cgi" --></A></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#808080"><!--#exec cgi="/cgi-bin/midi/midi.cgi" --></TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	  <TD VALIGN=Top><CENTER><P>
+<h4>DØTT.com has a new way to get hits to your page with aroung 400 hits a day to DØTT.com your site will bring in trafic CHEEP!!</h4><BR>
+<B>Hears the plans:</B><BR>
+1. 1000 views for $10!! Thats 1 cent per view! (banner top of page and in the pop up ads for the sub domains)<BR>
+2. You banner on EAVRY page for $10 a month! (small banner right of page)
+<p>
+<B>Fill in the form and start bringing in hits:</B><BR>
+<FORM ACTION="/cgi-bin/ban/email.cgi" METHOD="POST">
+  <CENTER>
+    <TABLE BORDER CELLPADDING="2" ALIGN="Center">
+      <TR>
+	<TD>Your Name:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="name"></TD>
+      </TR>
+      <TR>
+	<TD>Your E-Mail:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="mailto"></TD>
+      </TR>
+      <TR>
+	<TD>Your address:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="add"></TD>
+      </TR>
+      <TR>
+	<TD>Your Sites URL:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="url"></TD>
+      </TR>
+      <TR>
+	<TD>Your Banners URL:<BR>
+	  <SMALL>(You may have up to 4)</SMALL></TD>
+	<TD>1. 
+	  <INPUT TYPE="text" NAME="ban1"><BR>
+	  2. 
+	  <INPUT TYPE="text" NAME="ban2"><BR>
+	  3. 
+	  <INPUT TYPE="text" NAME="ban3"><BR>
+	  4. 
+	  <INPUT TYPE="text" NAME="ban4"></TD>
+      </TR>
+      <TR>
+	<TD>Alt text for banner:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="alt"></TD>
+      </TR>
+      <TR>
+	<TD>Plan:</TD>
+	<TD>  <SELECT NAME="plan">
+  <OPTION SELECTED>1000 views for $10!
+  <OPTION>EAVRY page for $10 a month!</SELECT></TD>
+</TR>
+    <TR>
+	<TD>User name:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="user"></TD>
+      </TR>
+    <TR>
+	<TD>Password:</TD>
+	<TD>
+	  <INPUT TYPE="text" NAME="pass"></TD>
+      </TR>
+      <TR>
+	<TD COLSPAN=2><P ALIGN=Center>
+	  <INPUT TYPE=submit VALUE="Send"></TD>
+      </TR>
+    </TABLE>
+  </CENTER>
+</FORM>
+<P>
+</TD>
+	  <TD WIDTH="130" VALIGN="Top"><BR><TABLE BORDER CELLSPACING="0" CELLPADDING="0">
+	      <TR>
+		<TD VALIGN=Top><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2">
+		    <TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Advertisments</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><!--#exec cgi="/cgi-bin/ban/ban.pl" --></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Search</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><CENTER><FORM METHOD=POST ACTION="http://www.d0tt.com/cgi-bin/websearch.pl">
+			  <INPUT TYPE="text" NAME="terms" SIZE="15"><BR>
+			  <INPUT TYPE=SUBMIT VALUE="Search">
+			</FORM>
+		      </TD>
+		    </TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Send this site</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><FORM ACTION="http://www.d0tt.com/cgi-bin/sendasite.cgi" METHOD="POST">
+  <INPUT TYPE="text" NAME="to" VALUE="There E-Mail" SIZE="15"><BR>
+  <INPUT TYPE="text" NAME="from" VALUE="Your E-Mail" SIZE="15"><BR>
+  <INPUT TYPE="text" NAME="name" VALUE="Your Name" SIZE="15"><BR>
+  <INPUT TYPE="text" NAME="comment" VALUE="Comments" SIZE="15"><BR>
+  <CENTER><INPUT TYPE=submit VALUE="Send">
+</FORM>
+		      </TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY></HTML>
+   

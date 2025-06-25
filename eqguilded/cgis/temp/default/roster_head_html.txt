@@ -1,0 +1,10 @@
+ !!guildname!! Roster<BR>
+<CENTER>
+<TABLE BORDER="0" CELLSPACING="3" CELLPADDING="3" ALIGN="Center">
+<TR>
+<TD><P ALIGN=Center>Name</TD>
+<TD><P ALIGN=Center>Rank</TD>
+<TD><P ALIGN=Center>Race</TD>
+<TD><P ALIGN=Center>Class</TD>
+<TD><P ALIGN=Center>Level</TD>
+</TR>

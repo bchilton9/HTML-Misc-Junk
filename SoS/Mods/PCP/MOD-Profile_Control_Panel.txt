@@ -1,0 +1,2452 @@
+############################################################## 
+## MOD Title:		Profile Control Panel
+## MOD Author:		Ptirhiik < admin@rpgnet-fr.com > (Pierre) http://rpgnet.clanmckeen.com
+## MOD Description:	This mod is a rewrite of the user management, including new features
+##
+## MOD Version:		2.0.0-1
+## 
+## Installation Level:	Moderate
+## Installation Time:	40 Minutes
+## Files To Edit:
+##			memberlist.php
+##			privmsg.php
+##			viewonline.php
+##			viewtopic.php
+##
+##			admin/admin_ranks.php
+##
+##			includes/bbcode.php
+##			includes/constants.php
+##			includes/functions.php
+##			includes/functions_post.php
+##			includes/functions_search.php
+##			includes/page_header.php
+##			includes/topic_review.php
+##
+##			templates/subSilver/index_body.tpl
+##			templates/subSilver/overall_header.tpl
+##			templates/subSilver/privmsgs_read_body.tpl
+##			templates/subSilver/subSilver.cfg
+##			templates/subSilver/subSilver.css
+##			templates/subSilver/viewonline_body.tpl
+##			templates/subSilver/viewtopic_body.tpl
+##			templates/subSilver/admin/ranks_edit_body.tpl
+##
+## Included Files:
+##			profile.php
+##			profile_avatar.php
+##			profile_birthday.php
+##			profile_pic.php
+##
+##			language/lang_english/lang_extend_profile_control_panel.php
+##			language/lang_english/lang_extend_pcp_management.php
+##			language/lang_english/lang_extend_pcp_addons.php
+##
+##			admin/*.php
+##			includes/functions_admin_pcp.php
+##			includes/mods_settings/mod_profile_control_panel.php
+##			profilcp/*.php
+##			profilcp/def/*.php
+##
+##			templates/subSilver/admin/*.tpl
+##			templates/subSilver/profilcp/*.tpl
+##			templates/subSilver/images/*.gif
+##			templates/subSilver/images/lang_english/*.gif
+##			templates/subSilver/images/profilcp/*.gif
+##
+##			-- mod-mods_settings --
+##			mod-mods_settings/lang_extend_mods_settings.php
+##			mod-mods_settings/functions_mods_settings.php
+##			mod-mods_settings/admin_board_extend.php
+##			mod-mods_settings/board_config_extend_body.tpl
+##
+##			-- mod-lang_settings --
+##			mod-lang_settings/admin_lang_extend.php
+##			mod-lang_settings/lang_extend_mac.php
+##			mod-lang_settings/lang_extend.php
+##			mod-lang_settings/lang_extend_lang_extend.php
+##			mod-lang_settings/lang_extend_body.tpl
+##			mod-lang_settings/lang_extend_def.tpl
+##			mod-lang_settings/lang_extend_key_body.tpl
+##			mod-lang_settings/lang_extend_pack_body.tpl
+##			mod-lang_settings/lang_extend_search_body.tpl
+##
+##			-- topics list --
+##			mod-topics_list/functions_topics_list.php
+##			mod-topics_list/topics_list_box.tpl
+##			mod-topics_list/graph.gif/folder_announce_own.gif
+##			mod-topics_list/graph.gif/folder_announce_new_own.gif
+##			mod-topics_list/graph.gif/folder_own.gif
+##			mod-topics_list/graph.gif/folder_new_own.gif
+##			mod-topics_list/graph.gif/folder_hot_own.gif
+##			mod-topics_list/graph.gif/folder_new_hot_own.gif
+##			mod-topics_list/graph.gif/folder_lock_own.gif
+##			mod-topics_list/graph.gif/folder_lock_new_own.gif
+##			mod-topics_list/graph.gif/folder_sticky_own.gif
+##			mod-topics_list/graph.gif/folder_sticky_new_own.gif
+##
+############################################################## 
+## For Security Purposes, Please Check: http://www.phpbb.com/mods/ for the 
+## latest version of this MOD. Downloading this MOD from other sites could cause malicious code 
+## to enter into your phpBB Forum. As such, phpBB will not offer support for MOD's not offered 
+## in our MOD-Database, located at: http://www.phpbb.com/mods/ 
+############################################################## 
+##
+## Author Notes: 
+##
+##	to prevent an erase of the original prog, rename profile.php into profile_orig.php
+##
+##	Additional feature of the profile cp :
+##	- friend list and ignore list,
+##	- user custom member list,
+##	- subscripted topics list,
+##	- online/offline/hidden indicator,
+##	- summer time management (user and administration),
+##	- groups on profile displaying,
+##	- gender (based on gender mod by Niels Chr < ncr@db9.dk >)
+##	- birthday date, also anniversary whish,
+##	- gender on rank titles,
+##	- signature editor,
+##	- anti-robotic registering,
+##	- realname, phones numbers,
+##	- user information display management by the user,
+##	- admin user management from standard user link (doesn't require to go to the ACP no more),
+##
+##	coding :
+##	- more friendly programmers adding fields to users table,
+##	- modulated menu and sub-menu management
+## 
+##	A great thanks to Gilgraf (http://www.gilgraf.com/ggforum/) who was a so precious help 
+##		while debugging and finalizing steps
+##
+##	_________________________________________________________________________________________
+##
+##
+##	  / \
+##	 / ! \	The next CHMODs are required to allow the editing of the mentioned files by the ACP tools
+##	/_____\
+##
+##
+##	CHMOD 666 to apply :
+##
+##		profilcp/def/def_userfields.php
+##		profilcp/def/def_usermaps.php
+##
+##	COPY to each of your language installed directories (ie: languages/lang_english/) and
+##	CHMOD 666 those files :
+##		COPY mod-lang_settings/lang_extend.php TO language/lang_*/lang_extend.php
+##
+############################################################## 
+##
+## MOD History:
+##
+##   2003-10-30 - Version 2.0.0
+##      - fix some missing td in lang settings admin progs
+##	- fix the return path of my friend/my ignore buttons
+##	- re-add those buttons to viewprofile
+##	- fix empty group list when user is the owner of
+##	- fix remaining .php qualifications
+##	- enhance the compliancy for email with phpBB > 2.0.4
+##	- enhance compliancy with sub-templates
+##
+##   2003-10-18 - Version 1.0.4 - RC
+##      - add the ability to disallow SID checking, using a constant,
+##	- fix the use of the global admin setting in the buddy/memberlist,
+##	- enhance panel/sub-panel recognition in menu (works entirely as plug-ins now),
+##	- add the ability to create field links with constant text or image,
+##	- add the ability to create/edit/delete fields in the admin configuration panel, including database creation,
+##	- add the ability to manage the input and output of a field in the admin configuration panel,
+##	- add the ability to create/edit language keys
+##
+##   2003-10-07 - Version 1.0.3 - beta
+##      - introduce the map managing
+##	- introduce the lang extend mod
+##	- fix delete and update user (sql error)
+##	- map managing in the mods_settings
+##
+##   2003/09/26 - Version 1.0.2 - beta
+##	- various fixes already published has been included,
+##	- rework the buddy list to improve the quickness,
+##	- includes mods_settings mod as bundle to ease add of fields,
+##	- rework of the home panel to a plug-ins system
+##
+##   2003/06/22 - Version 1.0.1
+##	- add : re-send password was missing : added by Simpelscript http://webdev.haz.dk/ ,
+##	- enh : the redirection is no more to register form but to login form when not logged,
+##	- enh : modify the privmsg part in order to ease the installation,
+##	- fix : create_birthday_date() issued on certain server to an error,
+##	- fix : a lang key entry was wrong in profil_register.php,
+##	- fix : sorting on user pm in buddy list issued to an sql error,
+##	- fix : phpBB bug : the MOD user_level is granted before the acceptance into the group,
+##	- upg : dutch users will also find an upgrade of the language pack.
+##
+##   2003/06/08 - Version 1.0.0
+##	- minor fixes,
+##	- enhanced management of the user_level (ADMIN_FOUNDER added),
+##	- add the ability to disable anti-robotic registering control in the ACP
+##
+##   2003/05/28 - Version 0.0.9 (RC)
+##	- fix duplicated private messages while editing
+##	- fix HTML allowed in username
+##	- rewrite a part of the memberlist to enhance compliancy with postgres and ease adds
+##	- minor issues
+##	- rewrite of the installation descro
+##
+##   2003/05/18 - Version 0.0.8
+##	- fix the birthday - 1 day year 1969 issue,
+##	- add the set of gender in viewtopic.php,
+##	- add the user info in the call of function get_user_level_class(),
+##	- change the select javascript on the buddy list,
+##	- use of the class on author name in profile home
+##	- fix the sub value in the index sentence
+##	- add integration of private message management
+##
+##   2003/05/16 - Version 0.0.7
+##	- rewrite some code to make it more readable,
+##	- extend the list of option for the memberlist to 50 fields
+##	- add the tutorials to the pack
+##
+##   2003/05/15 - Version 0.0.6
+##	- more fix for compliancy with postgres SQL database
+##
+##   2003/05/13 - Version 0.0.5
+##	- fix compliancy with postgres SQL database
+##
+##   2003/05/12 - Version 0.0.4
+##	- use a the "link" color for standard user on the pseudo-css,
+##	- little fix for people having probs running under windows with older EasyPHP than 1.6,
+##	- little improvement for the selection on gender in the buddy lists
+##	- add the rank to the memberlist, sort and filter included
+##	- fix a quote issue in the username while registering
+##
+##   2003/05/11 - Version 0.0.3
+##	- minor fix within the mod (ie: display date blank when equal 0),
+##	- fix username change ability for the user,
+##	- remove anti-robotic check when modifying the user,
+##	- fix wrong redirection after modifying a user,
+##	- fix on the user_summer_time initialisation,
+##
+##   2003/05/10 - Version 0.0.2
+##	- minor fix on the install description text,
+##	- add a birthday today list on index,
+##	- add the age display on the post view
+##
+##   2003/05/08 - Version 0.0.1
+##	- first beta,
+## 
+############################################################## 
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+##############################################################
+#
+#-----[ SQL ]-------------------------------------------------
+#
+ALTER TABLE phpbb_users ADD user_realname VARCHAR(25) NOT NULL;
+ALTER TABLE phpbb_users ADD user_gender TINYINT(1) UNSIGNED DEFAULT '0' NOT NULL;
+ALTER TABLE phpbb_users ADD user_birthday VARCHAR(8) DEFAULT '0' NOT NULL;
+ALTER TABLE phpbb_users ADD user_last_birthday INT(11) UNSIGNED DEFAULT '0' NOT NULL;
+ALTER TABLE phpbb_users ADD user_home_phone VARCHAR(20);
+ALTER TABLE phpbb_users ADD user_home_fax VARCHAR(20);
+ALTER TABLE phpbb_users ADD user_work_phone VARCHAR(20);
+ALTER TABLE phpbb_users ADD user_work_fax VARCHAR(20);
+ALTER TABLE phpbb_users ADD user_cellular VARCHAR(20);
+ALTER TABLE phpbb_users ADD user_pager VARCHAR(20);
+ALTER TABLE phpbb_users ADD user_summer_time TINYINT(1) UNSIGNED DEFAULT '0' NOT NULL;
+ALTER TABLE phpbb_users ADD user_list_option VARCHAR(255);
+ALTER TABLE phpbb_users ADD user_allow_email TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_allow_website TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_allow_messanger TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_allow_real TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_allow_sig TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_viewpm TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_viewwebsite TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_viewmessanger TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_viewreal TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_viewavatar TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_viewsig TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_viewimg TINYINT(1) DEFAULT '1' NOT NULL;
+ALTER TABLE phpbb_users ADD user_buddy_friend_display TINYINT(1) DEFAULT '1';
+ALTER TABLE phpbb_users ADD user_buddy_ignore_display TINYINT(1) DEFAULT '1';
+ALTER TABLE phpbb_users ADD user_buddy_friend_of_display TINYINT(1) DEFAULT '1';
+ALTER TABLE phpbb_users ADD user_buddy_ignored_by_display TINYINT(1) DEFAULT '1';
+ALTER TABLE phpbb_users ADD user_watched_topics_per_page SMALLINT(3) DEFAULT '15';
+ALTER TABLE phpbb_users ADD user_privmsgs_per_page SMALLINT(3) DEFAULT '5';
+#
+#-----[ SQL ]-------------------------------------------------
+#
+ALTER TABLE phpbb_sessions ADD session_robot VARCHAR(32);
+#
+#-----[ SQL ]-------------------------------------------------
+#
+ALTER TABLE phpbb_ranks CHANGE rank_title rank_title VARCHAR(255) NOT NULL;
+ALTER TABLE phpbb_ranks ADD rank_max MEDIUMINT(8) NOT NULL AFTER rank_min; 
+#
+#-----[ SQL ]-------------------------------------------------
+#
+CREATE TABLE phpbb_buddy (
+  user_id mediumint(8) NOT NULL default '0',
+  buddy_id mediumint(8) NOT NULL default '0',
+  buddy_ignore tinyint(1) NOT NULL default '0',
+  buddy_visible tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (user_id, buddy_id)
+) TYPE=MyISAM;
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy profile.php to profile.php
+copy profile_avatar.php to profile_avatar.php
+copy profile_birthday.php to profile_birthday.php
+copy profile_pic.php to profile_pic.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy admin/*.* to admin/*.*
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy includes/functions_admin_pcp.php to includes/functions_admin_pcp.php
+copy includes/mods_settings/mod_profile_control_panel.php to includes/mods_settings/mod_profile_control_panel.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy language/lang_english/lang_extend_profile_control_panel.php to language/lang_english/lang_extend_profile_control_panel.php
+copy language/lang_english/lang_extend_pcp_management.php to language/lang_english/lang_extend_pcp_management.php
+copy language/lang_english/lang_extend_pcp_addons.php to language/lang_english/lang_extend_pcp_addons.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy profilcp/*.* to profilcp/*.*
+copy profilcp/def/def_userfields.php to profilcp/def/def_userfields.php
+copy profilcp/def/def_userfuncs.php to profilcp/def/def_userfuncs.php
+copy profilcp/def/def_userfuncs_std.php to profilcp/def/def_userfuncs_std.php
+copy profilcp/def/def_userfuncs_custom.php to profilcp/def/def_userfuncs_custom.php
+copy profilcp/def/def_userfuncs_vlist.php to profilcp/def/def_userfuncs_vlist.php
+copy profilcp/def/def_usermaps.php to profilcp/def/def_usermaps.php
+copy templates/subSilver/admin/*.* to templates/subSilver/admin/*.*
+copy templates/subSilver/profilcp/*.* to templates/subSilver/profilcp/*.*
+copy templates/subSilver/images/*.* to templates/subSilver/images/*.*
+copy templates/subSilver/images/profilcp/*.* to templates/subSilver/images/profilcp/*.*
+copy templates/subSilver/images/lang_english/*.* to templates/subSilver/images/lang_english/*.*
+#
+#-----[ COPY ]------------------------------------------------
+#
+# -- mod-mods_settings --
+#
+copy mod-mods_settings/lang_extend_mods_settings.php to language/lang_english/lang_extend_mods_settings.php
+copy mod-mods_settings/functions_mods_settings.php to includes/functions_mods_settings.php
+copy mod-mods_settings/admin_board_extend.php to admin/admin_board_extend.php
+copy mod-mods_settings/board_config_extend_body.tpl to templates/subSilver/admin/board_config_extend_body.tpl
+#
+#-----[ COPY ]------------------------------------------------
+#
+# -- mod-lang_settings --
+#
+copy mod-lang_settings/admin_lang_extend.php to admin/admin_lang_extend.php
+copy mod-lang_settings/lang_extend_mac.php to includes/lang_extend_mac.php
+copy mod-lang_settings/lang_extend.php to language/lang_english/lang_extend.php
+copy mod-lang_settings/lang_extend_lang_extend.php to language/lang_english/lang_extend_lang_extend.php
+copy mod-lang_settings/lang_extend_body.tpl to templates/subSilver/admin/lang_extend_body.tpl
+copy mod-lang_settings/lang_extend_def.tpl to templates/subSilver/admin/lang_extend_def.tpl
+copy mod-lang_settings/lang_extend_key_body.tpl to templates/subSilver/admin/lang_extend_key_body.tpl
+copy mod-lang_settings/lang_extend_pack_body.tpl to templates/subSilver/admin/lang_extend_pack_body.tpl
+copy mod-lang_settings/lang_extend_search_body.tpl to templates/subSilver/admin/lang_extend_search_body.tpl
+#
+#-----[ COPY ]------------------------------------------------
+#
+# -- mod-topics list --
+#
+copy mod-topics_list/functions_topics_list.php to includes/functions_topics_list.php
+copy mod-topics_list/topics_list_box.tpl to templates/subSilver/topics_list_box.tpl
+copy mod-topics_list/graph.gif/folder_announce_own.gif to templates/subSilver/images/folder_announce_own.gif
+copy mod-topics_list/graph.gif/folder_announce_new_own.gif to templates/subSilver/images/folder_announce_new_own.gif
+copy mod-topics_list/graph.gif/folder_own.gif to templates/subSilver/images/folder_own.gif
+copy mod-topics_list/graph.gif/folder_new_own.gif to templates/subSilver/images/folder_new_own.gif
+copy mod-topics_list/graph.gif/folder_hot_own.gif to templates/subSilver/images/folder_hot_own.gif
+copy mod-topics_list/graph.gif/folder_new_hot_own.gif to templates/subSilver/images/folder_new_hot_own.gif
+copy mod-topics_list/graph.gif/folder_lock_own.gif to templates/subSilver/images/folder_lock_own.gif
+copy mod-topics_list/graph.gif/folder_lock_new_own.gif to templates/subSilver/images/folder_lock_new_own.gif
+copy mod-topics_list/graph.gif/folder_sticky_own.gif to templates/subSilver/images/folder_sticky_own.gif
+copy mod-topics_list/graph.gif/folder_sticky_new_own.gif to templates/subSilver/images/folder_sticky_new_own.gif
+#
+#-----[ OPEN ]------------------------------------------------
+#
+memberlist.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+//
+// End session management
+//
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+redirect(append_sid("./profile.$phpEx?mode=buddy&sub=memberlist"));
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+privmsg.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	message_die(GENERAL_MESSAGE, 'PM_disabled');
+}
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+$get_vars = array('folder', 'sid', 'mode', 'start', 'msgdays', POST_POST_URL, POST_USERS_URL);
+$s_call = '';
+$newpm = false;
+for ($i = 0; $i < count($get_vars); $i++)
+{
+	$key = $get_vars[$i];
+	$val = $HTTP_GET_VARS[$get_vars[$i]];
+	switch ($get_vars[$i])
+	{
+		case POST_USERS_URL: $key = 'b'; break;
+		case 'mode': 
+			$newpm = ($val == 'newpm');
+			if (!$newpm) $key = 'privmsg_mode';
+			break;
+		case 'folder': $key = 'sub'; break;
+		default: $key = $get_vars[$i];
+	}
+	if (isset($HTTP_GET_VARS[$get_vars[$i]])) $s_call .= '&' . $key . '=' . $HTTP_GET_VARS[$get_vars[$i]];
+}
+if ( !$newpm )
+{
+	redirect(append_sid("profile.$phpEx?mode=privmsg" . $s_call, true));
+}
+else
+{
+	redirect(append_sid("profile.$phpEx?mode=privmsg_popup", true));
+}
+exit;
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+viewonline.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+//
+// End session management
+//
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+define('SHOW_ONLINE', true);
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+//
+// Get user list
+//
+$sql = "SELECT u.user_id, u.username, u.user_allow_viewonline, u.user_level, s.session_logged_in, s.session_time, s.session_page, s.session_ip
+	FROM ".USERS_TABLE." u, ".SESSIONS_TABLE." s
+	WHERE u.user_id = s.session_user_id
+		AND s.session_time >= ".( time() - 300 ) . "
+	ORDER BY u.username ASC, s.session_ip ASC";
+if ( !($result = $db->sql_query($sql)) )
+{
+	message_die(GENERAL_ERROR, 'Could not obtain regd user/online information', '', __LINE__, __FILE__, $sql);
+}
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//
+// Get user list
+//
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+// $sql = "SELECT u.user_id, u.username, u.user_allow_viewonline, u.user_level, s.session_logged_in, s.session_time, s.session_page, s.session_ip
+//	FROM ".USERS_TABLE." u, ".SESSIONS_TABLE." s
+//	WHERE u.user_id = s.session_user_id
+//		AND s.session_time >= ".( time() - 300 ) . "
+//	ORDER BY u.username ASC, s.session_ip ASC";
+// if ( !($result = $db->sql_query($sql)) )
+// {
+//	message_die(GENERAL_ERROR, 'Could not obtain regd user/online information', '', __LINE__, __FILE__, $sql);
+// }
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+while ( $row = $db->sql_fetchrow($result) )
+{
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+// while ( $row = $db->sql_fetchrow($result) )
+// {
+//-- add
+for ($i=0; $i < count($connected); $i++)
+{
+	$row = $connected[$i];
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$user_id = $row['user_id'];
+
+		if ( $user_id != $prev_user )
+		{
+			$username = $row['username'];
+
+			$style_color = '';
+			if ( $row['user_level'] == ADMIN )
+			{
+				$username = '<b style="color:#' . $theme['fontcolor3'] . '">' . $username . '</b>';
+			}
+			else if ( $row['user_level'] == MOD )
+			{
+				$username = '<b style="color:#' . $theme['fontcolor2'] . '">' . $username . '</b>';
+			}
+
+			if ( !$row['user_allow_viewonline'] )
+			{
+				$view_online = ( $userdata['user_level'] == ADMIN ) ? true : false;
+				$hidden_users++;
+
+				$username = '<i>' . $username . '</i>';
+			}
+			else
+			{
+				$view_online = true;
+				$registered_users++;
+			}
+
+			$which_counter = 'reg_counter';
+			$which_row = 'reg_user_row';
+			$prev_user = $user_id;
+		}
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//		$user_id = $row['user_id'];
+//
+//		if ( $user_id != $prev_user )
+//		{
+//			$username = $row['username'];
+//
+//			$style_color = '';
+//			if ( $row['user_level'] == ADMIN )
+//			{
+//				$username = '<b style="color:#' . $theme['fontcolor3'] . '">' . $username . '</b>';
+//			}
+//			else if ( $row['user_level'] == MOD )
+//			{
+//				$username = '<b style="color:#' . $theme['fontcolor2'] . '">' . $username . '</b>';
+//			}
+//
+//			if ( !$row['user_allow_viewonline'] )
+//			{
+//				$view_online = ( $userdata['user_level'] == ADMIN ) ? true : false;
+//				$hidden_users++;
+//
+//				$username = '<i>' . $username . '</i>';
+//			}
+//			else
+//			{
+//				$view_online = true;
+//				$registered_users++;
+//			}
+//
+//			$which_counter = 'reg_counter';
+//			$which_row = 'reg_user_row';
+//			$prev_user = $user_id;
+//		}
+//-- add
+		$username = '<a href="' . append_sid("profile.$phpEx?mode=viewprofile&" . POST_USERS_URL . "=" . $connected[$i]['user_id'] ) . '"' . $connected[$i]['style'] . '>' . $connected[$i]['username'] . '</a>';
+
+		// set the status
+		switch ($row['status'])
+		{
+			case 'offline':
+				$hidden_users++;
+				$view_online = false;
+				break;
+			case 'online':
+				$registered_users++;
+				$view_online = true;
+				break;
+			case 'hidden':
+				$hidden_users++;
+				$view_online = true;
+				break;
+			default:
+				break;
+		}
+
+		$which_counter = 'reg_counter';
+		$which_row = 'reg_user_row';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+viewtopic.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+include($phpbb_root_path . 'includes/bbcode.'.$phpEx);
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+include($phpbb_root_path . 'profilcp/functions_profile.'.$phpEx);
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+$sql = "SELECT u.username, u.user_id, u.user_posts, u.user_from, u.user_website, u.user_email, u.user_icq, u.user_aim, u.user_yim, u.user_regdate, u.user_msnm, u.user_viewemail, u.user_rank, u.user_sig, u.user_sig_bbcode_uid, u.user_avatar, u.user_avatar_type, u.user_allowavatar, u.user_allowsmile, p.*,  pt.post_text, pt.post_subject, pt.bbcode_uid
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+// $sql = "SELECT u.username, u.user_id, u.user_posts, u.user_from, u.user_website, u.user_email, u.user_icq, u.user_aim, u.user_yim, u.user_regdate, u.user_msnm, u.user_viewemail, u.user_rank, u.user_sig, u.user_sig_bbcode_uid, u.user_avatar, u.user_avatar_type, u.user_allowavatar, u.user_allowsmile, p.*,  pt.post_text, pt.post_subject, pt.bbcode_uid
+//-- add
+$sql = "SELECT u.*, p.*,  pt.post_text, pt.post_subject, pt.bbcode_uid
+#
+#-----[ FIND ]------------------------------------------------
+#
+	ORDER BY p.post_time $post_time_order
+	LIMIT $start, ".$board_config['posts_per_page'];
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+$postrow = array();
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+$user_ids = array();
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$postrow[] = $row;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		$user_ids[] = $row['user_id'];
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+$sql = "SELECT *
+	FROM " . RANKS_TABLE . "
+	ORDER BY rank_special, rank_min";
+if ( !($result = $db->sql_query($sql)) )
+{
+	message_die(GENERAL_ERROR, "Could not obtain ranks information.", '', __LINE__, __FILE__, $sql);
+}
+
+$ranksrow = array();
+while ( $row = $db->sql_fetchrow($result) )
+{
+	$ranksrow[] = $row;
+}
+$db->sql_freeresult($result);
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+// $sql = "SELECT *
+//	FROM " . RANKS_TABLE . "
+//	ORDER BY rank_special, rank_min";
+// if ( !($result = $db->sql_query($sql)) )
+// {
+//	message_die(GENERAL_ERROR, "Could not obtain ranks information.", '', __LINE__, __FILE__, $sql);
+// }
+//
+// $ranksrow = array();
+// while ( $row = $db->sql_fetchrow($result) )
+// {
+//	$ranksrow[] = $row;
+// }
+// $db->sql_freeresult($result);
+//-- add
+$buddys = array();
+if (count($user_ids) > 0)
+{
+	$s_user_ids = implode(', ', $user_ids);
+
+	// get base info
+	$sql = "SELECT * FROM " . BUDDYS_TABLE . " WHERE user_id=" . $userdata['user_id'] . " and buddy_id in ($s_user_ids)";
+	if ( !($result = $db->sql_query($sql)) ) message_die(GENERAL_ERROR, "Could not obtain buddys information.", '', __LINE__, __FILE__, $sql);
+	while ( $row = $db->sql_fetchrow($result) )
+	{
+		$buddys[ $row['buddy_id'] ]['buddy_my_ignore'] = $row['buddy_ignore'];
+		$buddys[ $row['buddy_id'] ]['buddy_my_friend'] = !$row['buddy_ignore'];
+		$buddys[ $row['buddy_id'] ]['buddy_friend'] = false;
+		$buddys[ $row['buddy_id'] ]['buddy_visible'] = false;
+	}
+
+	// check if in the topic author's friend list and "always visible" status he granted
+	$sql = "SELECT * FROM " . BUDDYS_TABLE . " WHERE buddy_id=" . $userdata['user_id'] . " and user_id in ($s_user_ids)";
+	if ( !($result = $db->sql_query($sql)) ) message_die(GENERAL_ERROR, "Could not obtain buddys information.", '', __LINE__, __FILE__, $sql);
+	while ( $row = $db->sql_fetchrow($result) )
+	{
+		if ( !isset($buddys[ $row['user_id'] ]) ) $buddys[ $row['user_id'] ]['buddy_my_ignore'] = false;
+		if ( !isset($buddys[ $row['user_id'] ]) ) $buddys[ $row['user_id'] ]['buddy_my_friend'] = false;
+		$buddys[ $row['user_id'] ]['buddy_friend'] = !$row['buddy_ignore'];
+		$buddys[ $row['user_id'] ]['buddy_visible'] = $row['buddy_visible'];
+	}
+}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+for($i = 0; $i < $total_posts; $i++)
+{
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	$author_panel = '';
+	$postrow[$i]['user_friend']		= $buddys[ $postrow[$i]['user_id'] ]['buddy_friend'];
+	$postrow[$i]['user_visible']	= $buddys[ $postrow[$i]['user_id'] ]['buddy_visible'];
+	$postrow[$i]['user_my_friend']	= $buddys[ $postrow[$i]['user_id'] ]['buddy_my_friend'];
+	$postrow[$i]['user_my_ignore']	= $buddys[ $postrow[$i]['user_id'] ]['buddy_my_ignore'];
+	$postrow[$i]['user_online']		= ( $postrow[$i]['user_session_time'] >= (time()-300) );
+	$postrow[$i]['user_pm'] = 1;
+
+	// sig
+	if (!$userdata['user_viewsig'] || !$postrow[$i]['user_allow_sig'])
+	{
+		$postrow[$i]['user_sig'] = '';
+	}
+
+	// get the panels
+	$author_panel	= pcp_output_panel('PHPBB.viewtopic.left', $postrow[$i]);
+	$buttons_panel	= pcp_output_panel('PHPBB.viewtopic.buttons', $postrow[$i]);
+	$ignore_panel	= pcp_output_panel('PHPBB.viewtopic.left.ignore', $postrow[$i]);
+	$ignore_buttons	= pcp_output_panel('PHPBB.viewtopic.buttons.ignore', $postrow[$i]);
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$post_date = create_date($board_config['default_dateformat'], $postrow[$i]['post_time'], $board_config['board_timezone']);
+
+	$poster_posts = ( $postrow[$i]['user_id'] != ANONYMOUS ) ? $lang['Posts'] . ': ' . $postrow[$i]['user_posts'] : '';
+
+	$poster_from = ( $postrow[$i]['user_from'] && $postrow[$i]['user_id'] != ANONYMOUS ) ? $lang['Location'] . ': ' . $postrow[$i]['user_from'] : '';
+
+	$poster_joined = ( $postrow[$i]['user_id'] != ANONYMOUS ) ? $lang['Joined'] . ': ' . create_date($lang['DATE_FORMAT'], $postrow[$i]['user_regdate'], $board_config['board_timezone']) : '';
+
+	$poster_avatar = '';
+	if ( $postrow[$i]['user_avatar_type'] && $poster_id != ANONYMOUS && $postrow[$i]['user_allowavatar'] )
+	{
+		switch( $postrow[$i]['user_avatar_type'] )
+		{
+			case USER_AVATAR_UPLOAD:
+				$poster_avatar = ( $board_config['allow_avatar_upload'] ) ? '<img src="' . $board_config['avatar_path'] . '/' . $postrow[$i]['user_avatar'] . '" alt="" border="0" />' : '';
+				break;
+			case USER_AVATAR_REMOTE:
+				$poster_avatar = ( $board_config['allow_avatar_remote'] ) ? '<img src="' . $postrow[$i]['user_avatar'] . '" alt="" border="0" />' : '';
+				break;
+			case USER_AVATAR_GALLERY:
+				$poster_avatar = ( $board_config['allow_avatar_local'] ) ? '<img src="' . $board_config['avatar_gallery_path'] . '/' . $postrow[$i]['user_avatar'] . '" alt="" border="0" />' : '';
+				break;
+		}
+	}
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	$post_date = create_date($board_config['default_dateformat'], $postrow[$i]['post_time'], $board_config['board_timezone']);
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$mini_post_url = append_sid("viewtopic.$phpEx?" . POST_POST_URL . '=' . $postrow[$i]['post_id']) . '#' . $postrow[$i]['post_id'];
+
+	//
+	// Generate ranks, set them to empty string initially.
+	//
+	$poster_rank = '';
+	$rank_image = '';
+	if ( $postrow[$i]['user_id'] == ANONYMOUS )
+	{
+	}
+	else if ( $postrow[$i]['user_rank'] )
+	{
+		for($j = 0; $j < count($ranksrow); $j++)
+		{
+			if ( $postrow[$i]['user_rank'] == $ranksrow[$j]['rank_id'] && $ranksrow[$j]['rank_special'] )
+			{
+				$poster_rank = $ranksrow[$j]['rank_title'];
+				$rank_image = ( $ranksrow[$j]['rank_image'] ) ? '<img src="' . $ranksrow[$j]['rank_image'] . '" alt="' . $poster_rank . '" title="' . $poster_rank . '" border="0" /><br />' : '';
+			}
+		}
+	}
+	else
+	{
+		for($j = 0; $j < count($ranksrow); $j++)
+		{
+			if ( $postrow[$i]['user_posts'] >= $ranksrow[$j]['rank_min'] && !$ranksrow[$j]['rank_special'] )
+			{
+				$poster_rank = $ranksrow[$j]['rank_title'];
+				$rank_image = ( $ranksrow[$j]['rank_image'] ) ? '<img src="' . $ranksrow[$j]['rank_image'] . '" alt="' . $poster_rank . '" title="' . $poster_rank . '" border="0" /><br />' : '';
+			}
+		}
+	}
+
+	//
+	// Handle anon users posting with usernames
+	//
+	if ( $poster_id == ANONYMOUS && $postrow[$i]['post_username'] != '' )
+	{
+		$poster = $postrow[$i]['post_username'];
+		$poster_rank = $lang['Guest'];
+	}
+
+	$temp_url = '';
+
+	if ( $poster_id != ANONYMOUS )
+	{
+		$temp_url = append_sid("profile.$phpEx?mode=viewprofile&amp;" . POST_USERS_URL . "=$poster_id");
+		$profile_img = '<a href="' . $temp_url . '"><img src="' . $images['icon_profile'] . '" alt="' . $lang['Read_profile'] . '" title="' . $lang['Read_profile'] . '" border="0" /></a>';
+		$profile = '<a href="' . $temp_url . '">' . $lang['Read_profile'] . '</a>';
+
+		$temp_url = append_sid("privmsg.$phpEx?mode=post&amp;" . POST_USERS_URL . "=$poster_id");
+		$pm_img = '<a href="' . $temp_url . '"><img src="' . $images['icon_pm'] . '" alt="' . $lang['Send_private_message'] . '" title="' . $lang['Send_private_message'] . '" border="0" /></a>';
+		$pm = '<a href="' . $temp_url . '">' . $lang['Send_private_message'] . '</a>';
+
+		if ( !empty($postrow[$i]['user_viewemail']) || $is_auth['auth_mod'] )
+		{
+			$email_uri = ( $board_config['board_email_form'] ) ? append_sid("profile.$phpEx?mode=email&amp;" . POST_USERS_URL .'=' . $poster_id) : 'mailto:' . $postrow[$i]['user_email'];
+
+			$email_img = '<a href="' . $email_uri . '"><img src="' . $images['icon_email'] . '" alt="' . $lang['Send_email'] . '" title="' . $lang['Send_email'] . '" border="0" /></a>';
+			$email = '<a href="' . $email_uri . '">' . $lang['Send_email'] . '</a>';
+		}
+		else
+		{
+			$email_img = '';
+			$email = '';
+		}
+
+		$www_img = ( $postrow[$i]['user_website'] ) ? '<a href="' . $postrow[$i]['user_website'] . '" target="_userwww"><img src="' . $images['icon_www'] . '" alt="' . $lang['Visit_website'] . '" title="' . $lang['Visit_website'] . '" border="0" /></a>' : '';
+		$www = ( $postrow[$i]['user_website'] ) ? '<a href="' . $postrow[$i]['user_website'] . '" target="_userwww">' . $lang['Visit_website'] . '</a>' : '';
+
+		if ( !empty($postrow[$i]['user_icq']) )
+		{
+			$icq_status_img = '<a href="http://wwp.icq.com/' . $postrow[$i]['user_icq'] . '#pager"><img src="http://web.icq.com/whitepages/online?icq=' . $postrow[$i]['user_icq'] . '&img=5" width="18" height="18" border="0" /></a>';
+			$icq_img = '<a href="http://wwp.icq.com/scripts/search.dll?to=' . $postrow[$i]['user_icq'] . '"><img src="' . $images['icon_icq'] . '" alt="' . $lang['ICQ'] . '" title="' . $lang['ICQ'] . '" border="0" /></a>';
+			$icq =  '<a href="http://wwp.icq.com/scripts/search.dll?to=' . $postrow[$i]['user_icq'] . '">' . $lang['ICQ'] . '</a>';
+		}
+		else
+		{
+			$icq_status_img = '';
+			$icq_img = '';
+			$icq = '';
+		}
+
+		$aim_img = ( $postrow[$i]['user_aim'] ) ? '<a href="aim:goim?screenname=' . $postrow[$i]['user_aim'] . '&amp;message=Hello+Are+you+there?"><img src="' . $images['icon_aim'] . '" alt="' . $lang['AIM'] . '" title="' . $lang['AIM'] . '" border="0" /></a>' : '';
+		$aim = ( $postrow[$i]['user_aim'] ) ? '<a href="aim:goim?screenname=' . $postrow[$i]['user_aim'] . '&amp;message=Hello+Are+you+there?">' . $lang['AIM'] . '</a>' : '';
+
+		$temp_url = append_sid("profile.$phpEx?mode=viewprofile&amp;" . POST_USERS_URL . "=$poster_id");
+		$msn_img = ( $postrow[$i]['user_msnm'] ) ? '<a href="' . $temp_url . '"><img src="' . $images['icon_msnm'] . '" alt="' . $lang['MSNM'] . '" title="' . $lang['MSNM'] . '" border="0" /></a>' : '';
+		$msn = ( $postrow[$i]['user_msnm'] ) ? '<a href="' . $temp_url . '">' . $lang['MSNM'] . '</a>' : '';
+
+		$yim_img = ( $postrow[$i]['user_yim'] ) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $postrow[$i]['user_yim'] . '&amp;.src=pg"><img src="' . $images['icon_yim'] . '" alt="' . $lang['YIM'] . '" title="' . $lang['YIM'] . '" border="0" /></a>' : '';
+		$yim = ( $postrow[$i]['user_yim'] ) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $postrow[$i]['user_yim'] . '&amp;.src=pg">' . $lang['YIM'] . '</a>' : '';
+	}
+	else
+	{
+		$profile_img = '';
+		$profile = '';
+		$pm_img = '';
+		$pm = '';
+		$email_img = '';
+		$email = '';
+		$www_img = '';
+		$www = '';
+		$icq_status_img = '';
+		$icq_img = '';
+		$icq = '';
+		$aim_img = '';
+		$aim = '';
+		$msn_img = '';
+		$msn = '';
+		$yim_img = '';
+		$yim = '';
+	}
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	$mini_post_url = append_sid("viewtopic.$phpEx?" . POST_POST_URL . '=' . $postrow[$i]['post_id']) . '#' . $postrow[$i]['post_id'];
+#
+#-----[ FIND ]------------------------------------------------
+#
+		'ROW_COLOR' => '#' . $row_color,
+		'ROW_CLASS' => $row_class,
+		'POSTER_NAME' => $poster,
+		'POSTER_RANK' => $poster_rank,
+		'RANK_IMAGE' => $rank_image,
+		'POSTER_JOINED' => $poster_joined,
+		'POSTER_POSTS' => $poster_posts,
+		'POSTER_FROM' => $poster_from,
+		'POSTER_AVATAR' => $poster_avatar,
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		'POST_ID' => $postrow[$i]['post_id'],
+		'AUTHOR_PANEL'	=> $postrow[$i]['user_my_ignore'] ? $ignore_panel : $author_panel,
+		'BUTTONS_PANEL'	=> $buttons_panel,
+		'IGNORE_IMG'	=> $ignore_buttons,
+//-- fin mod : profile cp --------------------------------------------------------------------------
+		'ROW_COLOR' => '#' . $row_color,
+		'ROW_CLASS' => $row_class,
+#
+#-----[ FIND ]------------------------------------------------
+#
+		'MINI_POST_IMG' => $mini_post_img,
+		'PROFILE_IMG' => $profile_img,
+		'PROFILE' => $profile,
+		'SEARCH_IMG' => $search_img,
+		'SEARCH' => $search,
+		'PM_IMG' => $pm_img,
+		'PM' => $pm,
+		'EMAIL_IMG' => $email_img,
+		'EMAIL' => $email,
+		'WWW_IMG' => $www_img,
+		'WWW' => $www,
+		'ICQ_STATUS_IMG' => $icq_status_img,
+		'ICQ_IMG' => $icq_img,
+		'ICQ' => $icq,
+		'AIM_IMG' => $aim_img,
+		'AIM' => $aim,
+		'MSN_IMG' => $msn_img,
+		'MSN' => $msn,
+		'YIM_IMG' => $yim_img,
+		'YIM' => $yim,
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+		'MINI_POST_IMG' => $mini_post_img,
+#
+#-----[ FIND ]------------------------------------------------
+#
+		'U_POST_ID' => $postrow[$i]['post_id'])
+	);
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	if ($postrow[$i]['user_my_ignore'])
+	{
+		$template->assign_block_vars('postrow.switch_buddy_ignore', array());
+	}
+	else
+	{
+		$template->assign_block_vars('postrow.switch_no_buddy_ignore', array());
+	}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+$template->pparse('body');
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+$template->assign_vars(array(
+	'L_IGNORE_CHOOSEN' => $lang['Ignore_choosed'],
+	)
+);
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+admin/admin_ranks.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+			"body" => "admin/ranks_edit_body.tpl")
+		);
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+		$rank_title		= explode( '|', $rank_info['rank_title']);
+		$rank_default	= (isset($rank_title[0]) ) ? $rank_title[0] : '';
+		$rank_male		= (isset($rank_title[1]) ) ? $rank_title[1] : '';
+		$rank_female	= (isset($rank_title[2]) ) ? $rank_title[2] : '';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+			"RANK" => $rank_info['rank_title'],
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//			"RANK" => $rank_info['rank_title'],
+//-- add
+			'L_RANK_DEFAULT'	=> $lang['No_gender_specify'],
+			'L_RANK_MALE'		=> $lang['Male'],
+			'L_RANK_FEMALE'		=> $lang['Female'],
+			'RANK_DEFAULT'		=> $rank_default,
+			'RANK_MALE'			=> ($rank_male != '') ? $rank_male : $rank_default,
+			'RANK_FEMALE'		=> ($rank_female != '') ? $rank_female : $rank_default,
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$rank_title = ( isset($HTTP_POST_VARS['title']) ) ? trim($HTTP_POST_VARS['title']) : "";
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//		$rank_title = ( isset($HTTP_POST_VARS['title']) ) ? trim($HTTP_POST_VARS['title']) : "";
+//-- add
+		$rank_default	= ( isset($HTTP_POST_VARS['title_default']) ) ? trim($HTTP_POST_VARS['title_default']) : '';
+		$rank_male		= ( isset($HTTP_POST_VARS['title_male']) ) ? trim($HTTP_POST_VARS['title_male']) : '';
+		$rank_female	= ( isset($HTTP_POST_VARS['title_female']) ) ? trim($HTTP_POST_VARS['title_female']) : '';
+
+		if ($rank_default == '') $rank_default = $rank_male;
+		if ($rank_default == '') $rank_default = $rank_female;
+		if ($rank_male == $rank_default) $rank_male = '';
+		if ($rank_female == $rank_default) $rank_female = '';
+		$rank_title = (($rank_default != '') || ($rank_male != '') || ($rank_female != '')) ? $rank_default . ( ( ($rank_male != '') || ($rank_female != '') ) ? '|' : '' ) . $rank_male . ( ($rank_female != '') ? '|' : '' ) . $rank_female : '';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/bbcode.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	// [img]image_url_here[/img] code..
+	// This one gets first-passed..
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	global $userdata;
+
+	if (!$userdata['user_viewimg'])
+	{
+		$text = str_replace("[img:$uid]", "", $text);
+		$text = str_replace("[/img:$uid]", "", $text);
+	}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/constants.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+?>
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+define('ADMIN_FOUNDER', 99);
+
+define('NO', 0);
+define('YES', 1);
+define('FRIEND_ONLY',2);
+
+define('UNKNOWN', 0);
+define('MALE', 1);
+define('FEMALE', 2);
+
+define('BUDDYS_TABLE', $table_prefix . 'buddy');
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/functions.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- mod : mods settings ---------------------------------------------------------------------------
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	if ( $userdata['user_id'] != ANONYMOUS )
+	{
+		if ( !empty($userdata['user_lang']))
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	global $admin_level, $level_prior, $level_desc;
+	global $values_list, $tables_linked, $classes_fields, $user_maps, $user_fields;
+	global $list_yes_no;
+
+	include_once( $phpbb_root_path . './profilcp/functions_profile.' . $phpEx);
+//-- fin mod : profile cp --------------------------------------------------------------------------
+//-- mod : mods settings ---------------------------------------------------------------------------
+//-- add
+	global $db, $mods, $userdata;
+
+	//	get all the mods settings
+	$dir = @opendir($phpbb_root_path . 'includes/mods_settings');
+	while( $file = @readdir($dir) )
+	{
+		if( preg_match("/^mod_.*?\." . $phpEx . "$/", $file) )
+		{
+			include_once($phpbb_root_path . 'includes/mods_settings/' . $file);
+		}
+	}
+	@closedir($dir);
+//-- fin mod : mods settings -----------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	//
+	// Set up style
+	//
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- add
+	include($phpbb_root_path . './includes/lang_extend_mac.' . $phpEx);
+//-- fin mod : language settings -------------------------------------------------------------------
+
+#
+#-----[ FIND ]------------------------------------------------
+#
+	static $translate;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	global $userdata, $db;
+
+	if ( !isset($board_config['summer_time']) )
+	{
+		$board_config['summer_time'] = false;
+		$sql = "INSERT INTO " . CONFIG_TABLE . " (config_name,config_value) VALUES('summer_time','0')";
+		if ( !($result = $db->sql_query($sql)) ) message_die(GENERAL_ERROR, 'Could not add key summer_time in config table', '', __LINE__, __FILE__, $sql);
+	}
+	$switch_summer_time = ( $userdata['user_summer_time'] && $board_config['summer_time'] ) ? true : false;
+	if ($switch_summer_time) $tz++;
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+function generate_pagination($base_url, $num_items, $per_page, $start_item, $add_prevnext_text = TRUE)
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+// here we added
+//	, $start_field='start'
+//-- modify
+#
+#-----[ IN-LINE FIND ]---------------------------------------- 
+#
+, $add_prevnext_text = TRUE
+#
+#-----[ IN-LINE AFTER, ADD ]---------------------------------- 
+#
+, $start_field='start'
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$init_page_max = ( $total_pages > 3 ) ? 3 : $total_pages;
+
+		for($i = 1; $i < $init_page_max + 1; $i++)
+		{
+			$page_string .= ( $i == $on_page ) ? '<b>' . $i . '</b>' : '<a href="' . append_sid($base_url . "&amp;start=" . ( ( $i - 1 ) * $per_page ) ) . '">' . $i . '</a>';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+		$init_page_max = ( $total_pages > 3 ) ? 3 : $total_pages;
+
+		for($i = 1; $i < $init_page_max + 1; $i++)
+		{
+//-- mod : profile cp ------------------------------------------------------------------------------
+// here we replaced
+//	start
+// with
+//	$start_field
+//-- modify
+			$page_string .= ( $i == $on_page ) ? '<b>' . $i . '</b>' : '<a href="' . append_sid($base_url . "&amp;$start_field=" . ( ( $i - 1 ) * $per_page ) ) . '">' . $i . '</a>';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+				for($i = $init_page_min - 1; $i < $init_page_max + 2; $i++)
+				{
+					$page_string .= ($i == $on_page) ? '<b>' . $i . '</b>' : '<a href="' . append_sid($base_url . "&amp;start=" . ( ( $i - 1 ) * $per_page ) ) . '">' . $i . '</a>';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+				for($i = $init_page_min - 1; $i < $init_page_max + 2; $i++)
+				{
+//-- mod : profile cp ------------------------------------------------------------------------------
+// here we replaced
+//	start
+// with
+//	$start_field
+//-- modify
+					$page_string .= ($i == $on_page) ? '<b>' . $i . '</b>' : '<a href="' . append_sid($base_url . "&amp;$start_field=" . ( ( $i - 1 ) * $per_page ) ) . '">' . $i . '</a>';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+			for($i = $total_pages - 2; $i < $total_pages + 1; $i++)
+			{
+				$page_string .= ( $i == $on_page ) ? '<b>' . $i . '</b>'  : '<a href="' . append_sid($base_url . "&amp;start=" . ( ( $i - 1 ) * $per_page ) ) . '">' . $i . '</a>';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			for($i = $total_pages - 2; $i < $total_pages + 1; $i++)
+			{
+//-- mod : profile cp ------------------------------------------------------------------------------
+// here we replaced
+//	start
+// with
+//	$start_field
+//-- modify
+				$page_string .= ( $i == $on_page ) ? '<b>' . $i . '</b>'  : '<a href="' . append_sid($base_url . "&amp;$start_field=" . ( ( $i - 1 ) * $per_page ) ) . '">' . $i . '</a>';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	else
+	{
+		for($i = 1; $i < $total_pages + 1; $i++)
+		{
+			$page_string .= ( $i == $on_page ) ? '<b>' . $i . '</b>' : '<a href="' . append_sid($base_url . "&amp;start=" . ( ( $i - 1 ) * $per_page ) ) . '">' . $i . '</a>';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	else
+	{
+		for($i = 1; $i < $total_pages + 1; $i++)
+		{
+//-- mod : profile cp ------------------------------------------------------------------------------
+// here we replaced
+//	start
+// with
+//	$start_field
+//-- modify
+			$page_string .= ( $i == $on_page ) ? '<b>' . $i . '</b>' : '<a href="' . append_sid($base_url . "&amp;$start_field=" . ( ( $i - 1 ) * $per_page ) ) . '">' . $i . '</a>';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+		if ( $on_page > 1 )
+		{
+			$page_string = ' <a href="' . append_sid($base_url . "&amp;start=" . ( ( $on_page - 2 ) * $per_page ) ) . '">' . $lang['Previous'] . '</a>&nbsp;&nbsp;' . $page_string;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+		if ( $on_page > 1 )
+		{
+//-- mod : profile cp ------------------------------------------------------------------------------
+// here we replaced
+//	start
+// with
+//	$start_field
+//-- modify
+			$page_string = ' <a href="' . append_sid($base_url . "&amp;$start_field=" . ( ( $on_page - 2 ) * $per_page ) ) . '">' . $lang['Previous'] . '</a>&nbsp;&nbsp;' . $page_string;
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+		if ( $on_page < $total_pages )
+		{
+			$page_string .= '&nbsp;&nbsp;<a href="' . append_sid($base_url . "&amp;start=" . ( $on_page * $per_page ) ) . '">' . $lang['Next'] . '</a>';
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+		if ( $on_page < $total_pages )
+		{
+//-- mod : profile cp ------------------------------------------------------------------------------
+// here we replaced
+//	start
+// with
+//	$start_field
+//-- modify
+			$page_string .= '&nbsp;&nbsp;<a href="' . append_sid($base_url . "&amp;$start_field=" . ( $on_page * $per_page ) ) . '">' . $lang['Next'] . '</a>';
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	global $starttime;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	global $admin_level, $level_prior;
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+		}
+
+		if ( empty($template) )
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- add
+			include($phpbb_root_path . './includes/lang_extend_mac.' . $phpEx);
+//-- fin mod : language settings -------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/functions_post.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	global $user_ip, $session_length, $starttime;
+	global $userdata;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	global $admin_level, $level_prior;
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/functions_search.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	global $starttime, $gen_simple_header;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	global $admin_level, $level_prior;
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/page_header.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+define('HEADER_INC', TRUE);
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+include_once($phpbb_root_path . 'profilcp/functions_profile.' . $phpEx);
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$sql = "SELECT u.username, u.user_id, u.user_allow_viewonline, u.user_level, s.session_logged_in, s.session_ip
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//	$sql = "SELECT u.username, u.user_id, u.user_allow_viewonline, u.user_level, s.session_logged_in, s.session_ip
+//-- add
+	$sql = "SELECT u.*, s.session_logged_in, s.session_time, s.session_page, s.session_ip 
+#
+#-----[ FIND ]------------------------------------------------
+#
+		ORDER BY u.username ASC, s.session_ip ASC";
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	while( $row = $db->sql_fetchrow($result) )
+	{
+		// User is logged in and therefor not a guest
+		if ( $row['session_logged_in'] )
+		{
+			// Skip multiple sessions for one user
+			if ( $row['user_id'] != $prev_user_id )
+			{
+				$style_color = '';
+				if ( $row['user_level'] == ADMIN )
+				{
+					$row['username'] = '<b>' . $row['username'] . '</b>';
+					$style_color = 'style="color:#' . $theme['fontcolor3'] . '"';
+				}
+				else if ( $row['user_level'] == MOD )
+				{
+					$row['username'] = '<b>' . $row['username'] . '</b>';
+					$style_color = 'style="color:#' . $theme['fontcolor2'] . '"';
+				}
+
+				if ( $row['user_allow_viewonline'] )
+				{
+					$user_online_link = '<a href="' . append_sid("profile.$phpEx?mode=viewprofile&amp;" . POST_USERS_URL . "=" . $row['user_id']) . '"' . $style_color .'>' . $row['username'] . '</a>';
+					$logged_visible_online++;
+				}
+				else
+				{
+					$user_online_link = '<a href="' . append_sid("profile.$phpEx?mode=viewprofile&amp;" . POST_USERS_URL . "=" . $row['user_id']) . '"' . $style_color .'><i>' . $row['username'] . '</i></a>';
+					$logged_hidden_online++;
+				}
+
+				if ( $row['user_allow_viewonline'] || $userdata['user_level'] == ADMIN )
+				{
+					$online_userlist .= ( $online_userlist != '' ) ? ', ' . $user_online_link : $user_online_link;
+				}
+			}
+
+			$prev_user_id = $row['user_id'];
+		}
+		else
+		{
+			// Skip multiple sessions for one user
+			if ( $row['session_ip'] != $prev_session_ip )
+			{
+				$guests_online++;
+			}
+		}
+
+		$prev_session_ip = $row['session_ip'];
+	}
+	$db->sql_freeresult($result);
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//	while( $row = $db->sql_fetchrow($result) )
+//	{
+//		// User is logged in and therefor not a guest
+//		if ( $row['session_logged_in'] )
+//		{
+//			// Skip multiple sessions for one user
+//			if ( $row['user_id'] != $prev_user_id )
+//			{
+//				$style_color = '';
+//				if ( $row['user_level'] == ADMIN )
+//				{
+//					$row['username'] = '<b>' . $row['username'] . '</b>';
+//					$style_color = 'style="color:#' . $theme['fontcolor3'] . '"';
+//				}
+//				else if ( $row['user_level'] == MOD )
+//				{
+//					$row['username'] = '<b>' . $row['username'] . '</b>';
+//					$style_color = 'style="color:#' . $theme['fontcolor2'] . '"';
+//				}
+//
+//				if ( $row['user_allow_viewonline'] )
+//				{
+//					$user_online_link = '<a href="' . append_sid("profile.$phpEx?mode=viewprofile&amp;" . POST_USERS_URL . "=" . $row['user_id']) . '"' . $style_color .'>' . $row['username'] . '</a>';
+//					$logged_visible_online++;
+//				}
+//				else
+//				{
+//					$user_online_link = '<a href="' . append_sid("profile.$phpEx?mode=viewprofile&amp;" . POST_USERS_URL . "=" . $row['user_id']) . '"' . $style_color .'><i>' . $row['username'] . '</i></a>';
+//					$logged_hidden_online++;
+//				}
+//
+//				if ( $row['user_allow_viewonline'] || $userdata['user_level'] == ADMIN )
+//				{
+//					$online_userlist .= ( $online_userlist != '' ) ? ', ' . $user_online_link : $user_online_link;
+//				}
+//			}
+//
+//			$prev_user_id = $row['user_id'];
+//		}
+//		else
+//		{
+//			// Skip multiple sessions for one user
+//			if ( $row['session_ip'] != $prev_session_ip )
+//			{
+//				$guests_online++;
+//			}
+//		}
+//
+//		$prev_session_ip = $row['session_ip'];
+//	}
+//	$db->sql_freeresult($result);
+//-- add
+	$connected = array();
+	$user_ids = array();
+	while ($row = $db->sql_fetchrow($result) )
+	{
+		// User is logged in and therefor not a guest
+		if ( $row['session_logged_in'] )
+		{
+			if ( !in_array($row['user_id'], $user_ids) )
+			{
+				$row['style'] = ' class="' . get_user_level_class($row['user_level'], 'gen', $row) . '"';
+				$connected[] = $row;
+				$user_ids[] = $row['user_id'];
+			}
+		}
+		else
+		{
+			// Skip multiple sessions for one user
+			if ( $row['session_ip'] != $prev_session_ip )
+			{
+				$row['style'] = '';
+				$connected[] = $row;
+			}
+		}
+		$prev_session_ip = $row['session_ip'];
+	}
+	$db->sql_freeresult($result);
+
+	// read buddy list
+	$buddys = array();
+	if (count($user_ids) > 0)
+	{
+		$s_user_ids = implode(', ', $user_ids);
+
+		// get base info
+		$sql = "SELECT * FROM " . BUDDYS_TABLE . " WHERE user_id=" . $userdata['user_id'] . " and buddy_id in ($s_user_ids)";
+		if ( !($result = $db->sql_query($sql)) ) message_die(GENERAL_ERROR, "Could not obtain buddys information.", '', __LINE__, __FILE__, $sql);
+		while ( $row = $db->sql_fetchrow($result) )
+		{
+			$buddys[ $row['buddy_id'] ]['buddy_ignore'] = $row['buddy_ignore'];
+			$buddys[ $row['buddy_id'] ]['buddy_my_friend'] = !$row['buddy_ignore'];
+			$buddys[ $row['buddy_id'] ]['buddy_friend'] = false;
+			$buddys[ $row['buddy_id'] ]['buddy_visible'] = false;
+		}
+
+		// check if in the topic author's friend list and "always visible" status he granted
+		$sql = "SELECT * FROM " . BUDDYS_TABLE . " WHERE buddy_id=" . $userdata['user_id'] . " and user_id in ($s_user_ids)";
+		if ( !($result = $db->sql_query($sql)) ) message_die(GENERAL_ERROR, "Could not obtain buddys information.", '', __LINE__, __FILE__, $sql);
+		while ( $row = $db->sql_fetchrow($result) )
+		{
+			if ( !isset($buddys[ $row['user_id'] ]) ) $buddys[ $row['user_id'] ]['buddy_ignore'] = false;
+			if ( !isset($buddys[ $row['user_id'] ]) ) $buddys[ $row['user_id'] ]['buddy_my_friend'] = false;
+			$buddys[ $row['user_id'] ]['buddy_friend'] = !$row['buddy_ignore'];
+			$buddys[ $row['user_id'] ]['buddy_visible'] = $row['buddy_visible'];
+		}
+		$db->sql_freeresult($result);
+	}
+
+	// get visible/not visible status
+	$user_id = $userdata['user_id'];
+	$user_level = $userdata['user_level'];
+	$is_admin = is_admin($userdata);
+
+	for ($i=0; $i < count($connected); $i++)
+	{
+		$view_user_id = $connected[$i]['user_id'];
+		$view_is_admin = is_admin($connected[$i]);
+
+		$view_online_set = $connected[$i]['user_allow_viewonline'];
+
+		$view_ignore	= ($is_admin || $view_is_admin || ($view_user_id == $user_id)) ? false : $buddys[$view_user_id]['buddy_ignore'];
+		$view_friend	= $buddys[$view_user_id]['buddy_friend'];
+		$view_visible	= ($is_admin || ($view_user_id == $user_id)) ? YES : $buddys[$view_user_id]['buddy_visible'];
+
+		// online/offline/hidden icon
+		if ($view_user_id == ANONYMOUS)
+		{
+			$status = 'guest';
+		}
+		else if ($view_ignore) 
+		{
+			$status = 'offline';
+		}
+		else
+		{
+			switch ($view_online_set)
+			{
+				case NO:
+					$status = ($view_visible) ? 'hidden' : 'offline';
+					break;
+				case YES:
+					$status = 'online';
+					break;
+				case FRIEND_ONLY:
+					$status = ($view_friend || $view_visible) ? 'hidden' : 'offline';
+					break;
+				default:
+					$status = '???';
+			}
+		}
+
+		// set the status
+		switch ($status)
+		{
+			case 'guest':
+				$guests_online++;
+				break;
+			case 'offline':
+				$logged_hidden_online++;
+				break;
+			case 'online':
+				$logged_visible_online++;
+				break;
+			case 'hidden':
+				$connected[$i]['username'] = '<i>' . $connected[$i]['username'] . '</i>';
+				$logged_hidden_online++;
+				break;
+			default:
+		}
+
+		$connected[$i]['status'] = $status;
+
+		// add the user to the online list
+		if ( ($status == 'online') || ($status == 'hidden') )
+		{
+			$online_userlist .= ( $online_userlist != '' ) ? ', ' : '';
+			$online_userlist .= '<a href="' . append_sid("profile.$phpEx?mode=viewprofile&" . POST_USERS_URL . "=" . $connected[$i]['user_id'] ) . '"' . $connected[$i]['style'] . '>' . $connected[$i]['username'] . '</a>';
+		}
+	}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full lines are longer
+#
+	'L_WHOSONLINE_ADMIN' => sprintf($lang['Admin_online_color']
+	'L_WHOSONLINE_MOD' => sprintf($lang['Mod_online_color']
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- delete
+//	'L_WHOSONLINE_ADMIN' => sprintf($lang['Admin_online_color'], '<span style="color:#' . $theme['fontcolor3'] . '">', '</span>'),
+//	'L_WHOSONLINE_MOD' => sprintf($lang['Mod_online_color'], '<span style="color:#' . $theme['fontcolor2'] . '">', '</span>'),
+//-- add
+	'L_WHOSONLINE' => get_users_online_color(),
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+$template->pparse('overall_header');
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+if ( $userdata['session_logged_in'] )
+{
+	if (empty($gen_simple_header))
+	{
+		$today_year = date('Y', time());
+		$today_month = date('m', time());
+		$today_day = date('d', time());
+		$today = mktime( 0, 0, 1, $today_month, $today_day, $today_year );
+
+		$birthday_year = $today_year;
+		$birthday_month = intval(substr($userdata['user_birthday'], 4, 2));
+		$birthday_day = intval(substr($userdata['user_birthday'], 6, 2 ));
+		$birthday = mktime( 0, 0, 1, $birthday_month, $birthday_day, $birthday_year );
+
+		$last_year = date('Y', $userdata['user_last_birthday']);
+		$last_month = date('m', $userdata['user_last_birthday']);
+		$last_day = date('d', $userdata['user_last_birthday']);
+		$last = (intval($userdata['user_last_birthday']) > 0 ) ? mktime( 0, 0, 1, $last_month, $last_day, $last_year ) : 0;
+
+		// one week limit
+		if ( ($last < $birthday) && ($today >= $birthday) && ($today <= ($birthday + 3600*24*7)) )
+		{
+			$userdata['user_last_birthday'] = time();
+			$sql = "UPDATE " . USERS_TABLE . " 
+					SET user_last_birthday = " . $userdata['user_last_birthday'] . " 
+					WHERE user_id = " . $userdata['user_id'];
+			if ( !$db->sql_query($sql) )
+			{
+				message_die(GENERAL_ERROR, 'Could not update user information', '', __LINE__, __FILE__, $sql);
+			}
+			$template->assign_block_vars('birthday_popup', array(
+				'U_BIRTHDAY_POPUP' => append_sid('profile_birthday.'.$phpEx),
+				)
+			);
+		}
+	}
+}
+
+// birthday today list
+function get_birthday_list( $time )
+{
+	global $db, $phpbb_root_path, $phpEx, $userdata, $admin_level, $level_prior;
+
+	$res = '';
+
+	// no guest here, sorry ;)
+	if ( ($userdata['user_id'] == ANONYMOUS) || !$userdata['session_logged_in']) return $res;
+
+	$today = date("md", $time);
+	$user_id = $userdata['user_id'];
+	$sql = "SELECT u.*, 
+					(CASE WHEN i.buddy_ignore = 1 THEN 1 ELSE 0 END) AS user_ignore,
+					(CASE WHEN b.buddy_ignore = 0 THEN 1 ELSE 0 END) AS user_friend,
+					(CASE WHEN b.buddy_visible = 1 THEN 1 ELSE 0 END) AS user_visible
+				FROM ((" . USERS_TABLE . " AS u 
+				LEFT JOIN " . BUDDYS_TABLE . " AS b	ON b.user_id=u.user_id AND b.buddy_id=$user_id)
+				LEFT JOIN " . BUDDYS_TABLE . " AS i ON i.user_id=$user_id AND i.buddy_id=u.user_id)
+				WHERE u.user_id <> " . ANONYMOUS . " AND u.user_birthday <> 0 AND u.user_birthday <> '' and RIGHT(u.user_birthday, 4) = $today 
+				ORDER BY username";
+	if ( !$result = $db->sql_query($sql) )
+	{
+		message_die(GENERAL_ERROR, 'Could not read user table to get birthday today info', '', __LINE__, __FILE__, $sql);
+	}
+	while ($row = $db->sql_fetchrow($result))
+	{
+		// get user relational status
+		$ignore  = $row['user_ignore'];
+		$friend  = $row['user_friend'];
+		$always_visible = $row['user_visible'];
+
+		// get the status of each info
+		$real_display = ( !$ignore && $userdata['user_allow_real'] && $row['user_allow_real'] && ( ($row['user_viewreal'] == YES) || ( ($row['user_viewreal'] == FRIEND_ONLY) && $friend ) ) );
+
+		// take care of admin status
+		if ( is_admin($userdata) || ($row['user_id'] == $userdata['user_id']) ) $real_display = true;
+
+		if ($real_display)
+		{
+			$txtclass = get_user_level_class($row['user_level'], 'genmed', $row);
+			if ($row['user_allow_viewonline'] != YES) $row['username'] = '<i>' . $row['username'] . '</i>';
+			$temp_url = append_sid("profile.$phpEx?mode=viewprofile&" . POST_USERS_URL . "=" . $row['user_id']);
+			$row['username'] = '<a href="' . $temp_url . '" class="' . $txtclass . '">' . $row['username'] . '</a>';
+
+			// add to the user list
+			$res .= ( $res != '' ) ? ', ' : '';
+			$res .= $row['username'];
+		}
+	}
+	return $res;
+}
+
+// send happy birthday list
+if (defined('SHOW_ONLINE') && $userdata['session_logged_in'])
+{
+	$birthday_fellows = get_birthday_list(time());
+	if ( !empty($birthday_fellows) )
+	{
+		$template->assign_block_vars('switch_happy_birthday', array());
+	}
+	$template->assign_vars(array(
+		'HAPPY_BIRTHDAY_IMG' => $images['Happy_birthday'],
+		'L_HAPPY_BIRTHDAY' => $lang['Happy_birthday'],
+		'HAPPY_BIRTHDAY_FELLOWS' => $birthday_fellows,
+		)
+	);
+}
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/topic_review.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+	global $starttime;
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+	global $admin_level, $level_prior;
+//-- fin mod : profile cp --------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/index_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# at top of the file
+#
+<table width="100%" cellspacing="0" cellpadding="2" border="0" align="center">
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+<!-- mod : profile cp -->
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full lines are longer
+#
+	{TOTAL_USERS_ONLINE} &nbsp; [ {L_WHOSONLINE_ADMIN} ] &nbsp; [ {L_WHOSONLINE_MOD} ]
+#
+#-----[ IN-LINE FIND ]---------------------------------------- 
+#
+[ {L_WHOSONLINE_ADMIN} ] &nbsp; [ {L_WHOSONLINE_MOD} ]
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{L_WHOSONLINE}
+#
+#-----[ FIND ]------------------------------------------------
+#
+<!-- BEGIN switch_user_logged_out -->
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+<!-- BEGIN switch_happy_birthday -->
+<br />
+<table width="100%" cellpadding="3" cellspacing="1" border="0" class="forumline">
+  <tr>
+	<td class="catHead" colspan="2" height="28"><span class="cattitle">{L_HAPPY_BIRTHDAY}</span></td>
+  </tr>
+  <tr>
+	<td class="row1" align="center" valign="middle"><img src="{HAPPY_BIRTHDAY_IMG}" alt="{L_HAPPY_BIRTHDAY}" /></td>
+	<td class="row1" align="left" width="100%"><span class="gensmall">&nbsp;{HAPPY_BIRTHDAY_FELLOWS}&nbsp;</span></td>
+  </tr>
+</table>
+<!-- END switch_happy_birthday -->
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/overall_header.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# at top of the file
+#
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+<!-- mod : profile cp -->
+#
+#-----[ FIND ]------------------------------------------------
+#
+.helpline { background-color: {T_TR_COLOR2}; border-style: none; }
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+/*-- mod : profile cp --*/
+.foundercolor, a.foundercolor, a.foundercolor:link, a.foundercolor:active, a.foundercolor:visited {
+	color: #FE00FE;
+	font-weight: bold;
+}
+a.foundercolor:hover {
+	color:	#FF0000;
+	text-decoration: underline;
+}
+
+.admincolor, a.admincolor, a.admincolor:link, a.admincolor:active, a.admincolor:visited {
+	color: {T_FONTCOLOR3};
+	font-weight: bold;
+}
+a.admincolor:hover {
+	color:	{T_BODY_HLINK};
+	text-decoration: underline;
+}
+
+.modcolor, a.modcolor, a.modcolor:link, a.modcolor:active, a.modcolor:visited {
+	color: {T_FONTCOLOR2};
+	font-weight: bold;
+}
+a.modcolor:hover {
+	color:	{T_BODY_HLINK};
+	text-decoration: underline;
+}
+
+.usercolor, a.usercolor, a.usercolor:link, a.usercolor:active, a.usercolor:visited {
+	color : {T_BODY_LINK};
+	font-weight: bold;
+}
+a.usercolor:hover {
+	color: {T_BODY_HLINK};
+	text-decoration: underline;
+}
+/*-- fin mod : profile cp --*/
+#
+#-----[ FIND ]------------------------------------------------
+#
+<!-- END switch_enable_pm_popup -->
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+<!-- BEGIN birthday_popup -->
+<script language="Javascript" type="text/javascript">
+<!--
+	window.open('{birthday_popup.U_BIRTHDAY_POPUP}', '_phpbbbirthday', 'HEIGHT=225,resizable=yes,WIDTH=400');
+//-->
+</script>
+<!-- END birthday_popup -->
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/privmsgs_read_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+<table cellspacing="2" cellpadding="2" border="0" align="center">
+  <tr> 
+	<td valign="middle">{INBOX_IMG}</td>
+	<td valign="middle"><span class="cattitle">{INBOX} &nbsp;</span></td>
+	<td valign="middle">{SENTBOX_IMG}</td>
+	<td valign="middle"><span class="cattitle">{SENTBOX} &nbsp;</span></td>
+	<td valign="middle">{OUTBOX_IMG}</td>
+	<td valign="middle"><span class="cattitle">{OUTBOX} &nbsp;</span></td>
+	<td valign="middle">{SAVEBOX_IMG}</td>
+	<td valign="middle"><span class="cattitle">{SAVEBOX}</span></td>
+  </tr>
+</table>
+
+<br clear="all" />
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+<!-- mod : profile cp -->
+#
+#-----[ FIND ]------------------------------------------------
+#
+<form method="post" action="{S_PRIVMSGS_ACTION}">
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+<table cellpadding="0" cellspacing="10" border="0" width="100%">
+<form method="post" action="{S_PRIVMSGS_ACTION}">
+<tr>
+	<td valign="top" align="center">
+#
+#-----[ FIND ]------------------------------------------------
+#
+	  <td valign="middle">{REPLY_PM_IMG}</td>
+	  <td width="100%"><span class="nav">&nbsp;<a href="{U_INDEX}" class="nav">{L_INDEX}</a></span></td>
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	  <td valign="middle">{REPLY_PM_IMG}</td>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full line is longer
+#
+{MESSAGE_FROM}
+#
+#-----[ IN-LINE FIND ]---------------------------------------- 
+#
+{MESSAGE_FROM}
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{AUTHOR_PANEL}
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full line is longer
+#
+{MESSAGE_TO}
+#
+#-----[ IN-LINE FIND ]---------------------------------------- 
+#
+{MESSAGE_TO}
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{DEST_PANEL}
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full lines are longer
+#
+			<td valign="middle" nowrap="nowrap">{PROFILE_IMG}
+			  {WWW_IMG} {AIM_IMG} {YIM_IMG} {MSN_IMG}
+
+		if ( navigator.userAgent.
+			document.write(
+		else
+			document.write(
+
+		  //--></script>
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			<td valign="middle" nowrap="nowrap">{BUTTONS_PANEL}</td>
+#
+#-----[ FIND ]------------------------------------------------
+#
+</form>
+
+<table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+  <tr> 
+	<td valign="top" align="right"><span class="gensmall">{JUMPBOX}</span></td>
+  </tr>
+</table>
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	</td>
+</tr>
+</form>
+</table>
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/subSilver.cfg
+#
+#-----[ FIND ]------------------------------------------------
+#
+<?php
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+//-- mod : topics list -----------------------------------------------------------------------------
+//-- mod : profile cp ------------------------------------------------------------------------------
+#
+#-----[ FIND ]------------------------------------------------
+#
+?>
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-- mod : profile cp ------------------------------------------------------------------------------
+//-- add
+$images['icon_visible']			= "$current_template_images/icon_visible.gif";
+$images['icon_not_visible']		= "$current_template_images/icon_not_visible.gif";
+$images['icon_offline']			= "$current_template_images/icon_offline.gif";
+$images['icon_hidden']			= "$current_template_images/icon_hidden.gif";
+$images['icon_online']			= "$current_template_images/icon_online.gif";
+$images['icon_birthday']		= "$current_template_images/icon_birthday.gif";
+$images['Happy_birthday']		= "$current_template_images/happy_birthday.gif";
+
+$images['icon_friend_add']		= "$current_template_images/{LANG}/icon_friend_add.gif";
+$images['icon_friend_remove']	= "$current_template_images/{LANG}/icon_friend_remove.gif";
+$images['icon_ignore_add']		= "$current_template_images/{LANG}/icon_ignore_add.gif";
+$images['icon_ignore_remove']	= "$current_template_images/{LANG}/icon_ignore_remove.gif";
+
+$images['up_arrow']				= "$current_template_images/icon_up_arrow.gif";
+$images['down_arrow']			= "$current_template_images/icon_down_arrow.gif";
+$images['next_arrow']			= "$current_template_images/next.gif";
+$images['spacer']				= "$current_template_images/spacer.gif";
+
+// control images
+$alphabet = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789';
+for ($i_alphabet=0; $i_alphabet < strlen($alphabet); $i_alphabet++)
+{
+	$let_alphabet = $alphabet[$i_alphabet];
+	$let_alphabet_f	= $let_alphabet;
+	if ( strtoupper($let_alphabet) == $let_alphabet ) $let_alphabet_f .= $let_alphabet;
+	$key_alphabet = 'alphabet_' . $let_alphabet;
+	$ico_alphabet = 'alpha_' . $let_alphabet_f . '.gif';
+	$images[$key_alphabet] = "$current_template_images/profilcp/" . $ico_alphabet;
+}
+$images['tz_-12'] = "$current_template_images/profilcp/gmt_-12.gif";
+$images['tz_-11'] = "$current_template_images/profilcp/gmt_-11.gif";
+$images['tz_-10'] = "$current_template_images/profilcp/gmt_-10.gif";
+$images['tz_-9'] = "$current_template_images/profilcp/gmt_-9.gif";
+$images['tz_-8'] = "$current_template_images/profilcp/gmt_-8.gif";
+$images['tz_-7'] = "$current_template_images/profilcp/gmt_-7.gif";
+$images['tz_-6'] = "$current_template_images/profilcp/gmt_-6.gif";
+$images['tz_-5'] = "$current_template_images/profilcp/gmt_-5.gif";
+$images['tz_-4'] = "$current_template_images/profilcp/gmt_-4.gif";
+$images['tz_-3.5'] = "$current_template_images/profilcp/gmt_-3,5.gif";
+$images['tz_-3'] = "$current_template_images/profilcp/gmt_-3.gif";
+$images['tz_-2'] = "$current_template_images/profilcp/gmt_-2.gif";
+$images['tz_-1'] = "$current_template_images/profilcp/gmt_-1.gif";
+$images['tz_0'] = "$current_template_images/profilcp/gmt_0.gif";
+$images['tz_1'] = "$current_template_images/profilcp/gmt_1.gif";
+$images['tz_2'] = "$current_template_images/profilcp/gmt_2.gif";
+$images['tz_3'] = "$current_template_images/profilcp/gmt_3.gif";
+$images['tz_3.5'] = "$current_template_images/profilcp/gmt_3,5.gif";
+$images['tz_4'] = "$current_template_images/profilcp/gmt_4.gif";
+$images['tz_4.5'] = "$current_template_images/profilcp/gmt_4,5.gif";
+$images['tz_5'] = "$current_template_images/profilcp/gmt_5.gif";
+$images['tz_5.45'] = "$current_template_images/profilcp/gmt_5,45.gif";
+$images['tz_5.5'] = "$current_template_images/profilcp/gmt_5,5.gif";
+$images['tz_6'] = "$current_template_images/profilcp/gmt_6.gif";
+$images['tz_6.5'] = "$current_template_images/profilcp/gmt_6,5.gif";
+$images['tz_7'] = "$current_template_images/profilcp/gmt_7.gif";
+$images['tz_8'] = "$current_template_images/profilcp/gmt_8.gif";
+$images['tz_8.5'] = "$current_template_images/profilcp/gmt_8,5.gif";
+$images['tz_9'] = "$current_template_images/profilcp/gmt_9.gif";
+$images['tz_9.5'] = "$current_template_images/profilcp/gmt_9,5.gif";
+$images['tz_10'] = "$current_template_images/profilcp/gmt_10.gif";
+$images['tz_11'] = "$current_template_images/profilcp/gmt_11.gif";
+$images['tz_12'] = "$current_template_images/profilcp/gmt_12.gif";
+$images['tz_13'] = "$current_template_images/profilcp/gmt_13.gif";
+//-- fin mod : profile cp --------------------------------------------------------------------------
+
+//-- mod : topics list -----------------------------------------------------------------------------
+//-- add
+$images['folder_global_announce']			= "$current_template_images/folder_announce.gif";
+$images['folder_global_announce_new']		= "$current_template_images/folder_announce_new.gif";
+$images['folder_global_announce_own']		= "$current_template_images/folder_announce_own.gif";
+$images['folder_global_announce_new_own']	= "$current_template_images/folder_announce_new_own.gif";
+$images['folder_own']						= "$current_template_images/folder_own.gif";
+$images['folder_new_own']					= "$current_template_images/folder_new_own.gif";
+$images['folder_hot_own']					= "$current_template_images/folder_hot_own.gif";
+$images['folder_hot_new_own']				= "$current_template_images/folder_new_hot_own.gif";
+$images['folder_locked_own']				= "$current_template_images/folder_lock_own.gif";
+$images['folder_locked_new_own']			= "$current_template_images/folder_lock_new_own.gif";
+$images['folder_sticky_own']				= "$current_template_images/folder_sticky_own.gif";
+$images['folder_sticky_new_own']			= "$current_template_images/folder_sticky_new_own.gif";
+$images['folder_announce_own']				= "$current_template_images/folder_announce_own.gif";
+$images['folder_announce_new_own']			= "$current_template_images/folder_announce_new_own.gif";
+//-- fin mod : topics list -------------------------------------------------------------------------
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/subSilver.css
+#
+#-----[ FIND ]------------------------------------------------
+#
+# at top of the file
+#
+/*
+  The original subSilver Theme for phpBB version 2+
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+/*-- mod : profile cp --*/
+#
+#-----[ FIND ]------------------------------------------------
+#
+.helpline { background-color: #DEE3E7; border-style: none; }
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+/*-- mod : profile cp --*/
+.foundercolor, a.foundercolor, a.foundercolor:link, a.foundercolor:active, a.foundercolor:visited {
+	color: #FE00FE;
+	font-weight: bold;
+}
+a.foundercolor:hover {
+	color:	#FF0000;
+	text-decoration: underline;
+}
+
+.admincolor, a.admincolor, a.admincolor:link, a.admincolor:active, a.admincolor:visited {
+	color: #FFA34F;
+	font-weight: bold;
+}
+a.admincolor:hover {
+	color:	#FF0000;
+	text-decoration: underline;
+}
+
+.modcolor, a.modcolor, a.modcolor:link, a.modcolor:active, a.modcolor:visited {
+	color: #006600;
+	font-weight: bold;
+}
+a.modcolor:hover {
+	color:	#008000;
+	text-decoration: underline;
+}
+
+.usercolor, a.usercolor, a.usercolor:link, a.usercolor:active, a.usercolor:visited {
+	color : #000000;
+	font-weight: bold;
+}
+a.usercolor:hover {
+	color: #DD6900;
+	text-decoration: underline;
+}
+/*-- fin mod : profile cp --*/
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/viewonline_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# at top of the file
+#
+<table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+# 
+<!-- mod : profile cp -->
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is a partial search : the full line is longer
+#
+<a href="{reg_user_row.U_USER_PROFILE}" class="gen">{reg_user_row.USERNAME}</a>
+#
+#-----[ IN-LINE FIND ]---------------------------------------- 
+#
+<a href="{reg_user_row.U_USER_PROFILE}" class="gen">{reg_user_row.USERNAME}</a>
+#
+#-----[ IN-LINE REPLACE WITH ]--------------------------------
+#
+{reg_user_row.USERNAME}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/viewtopic_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# at top of the file
+#
+<table width="100%" cellspacing="2" cellpadding="2" border="0">
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+<!-- mod : profile cp -->
+<script language="JavaScript" type="text/javascript">
+<!--
+function ref(object)
+{
+	if (document.getElementById)
+	{
+		return document.getElementById(object);
+	}
+	else if (document.all)
+	{
+		return eval('document.all.' + object);
+	}
+	else
+	{
+		return false;
+	}
+}
+
+function toggle(pobject)
+{
+	object = ref('post_' + pobject);
+
+	if( !object.style )
+	{
+		return false;
+	}
+
+	if( object.style.display == 'none' )
+	{
+		object.style.display = '';
+	}
+	else
+	{
+		object.style.display = 'none';
+	}
+}
+//-->
+</script>
+#
+#-----[ FIND ]------------------------------------------------
+#
+	<!-- BEGIN postrow -->
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	<!-- BEGIN switch_buddy_ignore -->
+	<tbody id="post_{postrow.POST_ID}" style="display:none">
+	<!-- END switch_buddy_ignore -->
+#
+#-----[ FIND ]------------------------------------------------
+#
+		<td width="150" align="left" valign="top" class="{postrow.ROW_CLASS}"><span class="name"><a name="{postrow.U_POST_ID}"></a><b>{postrow.POSTER_NAME}</b></span><br /><span class="postdetails">{postrow.POSTER_RANK}<br />{postrow.RANK_IMAGE}{postrow.POSTER_AVATAR}<br /><br />{postrow.POSTER_JOINED}<br />{postrow.POSTER_POSTS}<br />{postrow.POSTER_FROM}</span><br /></td>
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+		<td width="150" align="left" valign="top" class="{postrow.ROW_CLASS}"><a name="{postrow.U_POST_ID}"></a>{postrow.AUTHOR_PANEL}</td>
+#
+#-----[ FIND ]------------------------------------------------
+#
+# this is partial search : the full lines are longer
+#
+	<tr>
+		<td class="{postrow.ROW_CLASS}"
+		<td class="{postrow.ROW_CLASS}"
+			<tr>
+				<td valign="middle" nowrap="nowrap">{postrow.PROFILE_IMG}
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1
+		document.write(
+	else
+		document.write(
+
+				//--></script><noscript>{postrow.ICQ_IMG}</noscript></td>
+			</tr>
+		</table></td>
+	</tr>
+#
+#-----[ REPLACE WITH ]----------------------------------------
+#
+	<!-- BEGIN switch_no_buddy_ignore -->
+	<tr>
+		<td class="{postrow.ROW_CLASS}" width="150" align="left" valign="middle"><span class="nav"><a href="#top" class="nav">{L_BACK_TO_TOP}</a></span></td>
+		<td class="{postrow.ROW_CLASS}" width="100%" height="28" valign="bottom" nowrap="nowrap"><table cellspacing="0" cellpadding="0" border="0" height="18" width="18"><tr>{postrow.BUTTONS_PANEL}</tr></table></td>
+	</tr>
+	<!-- END switch_no_buddy_ignore -->
+	<!-- BEGIN switch_buddy_ignore -->
+	</tbody>
+	<!-- END switch_buddy_ignore -->
+	<!-- BEGIN switch_buddy_ignore -->
+	<tr>
+		<td class="{postrow.ROW_CLASS}" width="150" align="left" valign="middle"><span class="nav"><a href="#top" class="nav">{L_BACK_TO_TOP}</a></span></td>
+		<td class="{postrow.ROW_CLASS}" width="100%">
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td width="100%"><a href="#" onClick="toggle('{postrow.POST_ID}'); return false;" class="postdetails">{L_IGNORE_CHOOSEN} </a></td>
+				<td align="rigth">{postrow.IGNORE_IMG}</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<!-- END switch_buddy_ignore -->
+#
+#-----[ OPEN ]------------------------------------------------
+#
+templates/subSilver/admin/ranks_edit_body.tpl
+#
+#-----[ FIND ]------------------------------------------------
+#
+# at top of the file
+#
+<h1>{L_RANKS_TITLE}</h1>
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+<!-- mod : profile cp -->
+#
+#-----[ FIND ]------------------------------------------------
+#
+		<td class="row2"><input class="post" type="text" name="title" size="35" maxlength="40" value="{RANK}" /></td>
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+		<td class="row2">
+			<table cellpadding="2" cellspacing="1" border="0" width="100%">
+			<tr>
+				<td align="right" nowrap="nowrap"><span class="gen"><b>{L_RANK_DEFAULT}:</b></td>
+				<td width="100%"><input class="post" type="text" name="title_default" size="35" maxlength="85" value="{RANK_DEFAULT}" /></span></td>
+			</tr>
+			<tr>
+				<td align="right" nowrap="nowrap"><span class="gen"><b>{L_RANK_MALE}:</b></td>
+				<td width="100%"><input class="post" type="text" name="title_male" size="35" maxlength="85" value="{RANK_MALE}" /></span></td>
+			</tr>
+			<tr>
+				<td align="right" nowrap="nowrap"><span class="gen"><b>{L_RANK_FEMALE}:</b></td>
+				<td width="100%"><input class="post" type="text" name="title_female" size="35" maxlength="85" value="{RANK_FEMALE}" /></span></td>
+			</tr>
+			</table>
+		</td>
+#
+#-----[ SAVE/CLOSE ALL FILES ]--------------------------------
+#
+# EoM

@@ -1,0 +1,165 @@
+<HTML>
+<HEAD>
+  <!-- Created with AOLpress/2.0 -->
+  <TITLE>Mys' BotMakeing</TITLE>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#ffffff" LINK="#ffffff" VLINK="#ffffff">
+<CENTER>
+  <P>
+  <CENTER>
+    <TABLE BORDER CELLSPACING="0" CELLPADDING="0" ALIGN="Center" BORDERCOLOR="blue">
+      <TR>
+	<TD BGCOLOR=#0000ff><P ALIGN=Center>
+	  <BIG>Signs</BIG></TD>
+      </TR>
+      <TR>
+	<TD><P ALIGN=Center>
+	  To make a&nbsp;sign you&nbsp;need 2 triggers
+	  <P ALIGN=Center>
+	  First set up the signs to make a noise in your&nbsp;DS
+	  <P ALIGN=Center>
+	  Then load your bot, Upload your dream, and take your&nbsp;bot in
+	  <P ALIGN=Center>
+	  go to the sign and bump it intel you see the patterns on the bots&nbsp;screen
+	  <P ALIGN=Center>
+	  it will look like:
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000"> A BBB CCC D EEE</FONT>
+	  <P ALIGN=Center>
+	  A=this tells the bot its a sound it will allays be 7<BR>
+	  BBB=this is where the furry is standing<BR>
+	  CCC=this is where the sign is<BR>
+	  D&amp;EEE=these are not needed
+	  <P ALIGN=Center>
+	  you don't need D&amp;EEE so well replace them with *
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">7 BBB CCC *</FONT>
+	  <P ALIGN=Center>
+	  BBB is where the furry is standing and we need the bot to look at the&nbsp;furry
+	  standing&nbsp;there
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">7 (*) CCC *</FONT>
+	  <P ALIGN=Center>
+	  and CCC is left the&nbsp;same
+	  <P ALIGN=Center>
+	  you should now have something&nbsp;that looks like this (CCC will be different
+	  for every sign)
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000"><FONT COLOR="#008000">7 (*) </FONT>' 0 *</FONT>
+	  <P ALIGN=Center>
+	  This is your pattern
+	  <P ALIGN=Center>
+	  now you need the command
+	  <P ALIGN=Center>
+	  you only&nbsp;want the bot to read the data for the sign that was hit so
+	  enable it with
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">#T+ listen1</FONT>
+	  <P ALIGN=Center>
+	  and you want the bot to look at the furry bumping the sign
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">l &nbsp;%1</FONT> &nbsp; (l[twospaces]%1)
+	  <P ALIGN=Center>
+	  when you add then together it will look like this
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000"><FONT COLOR="#008000">#T+ listen</FONT>1;l
+	  &nbsp;%1</FONT>
+	  <P ALIGN=Center>
+	  This is your command
+	  <P>
+	  <CENTER>
+	    <TABLE BORDER CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>Class:</TD>
+		<TD>sign1</TD>
+	      </TR>
+	      <TR>
+		<TD>Pattern:</TD>
+		<TD><FONT COLOR="#ffffff">7 (*) ' 0 *</FONT></TD>
+	      </TR>
+	      <TR>
+		<TD>Command:</TD>
+		<TD><FONT COLOR="#ffffff">#T+ listen1;l &nbsp;%1 </FONT></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	  <P ALIGN=Center>
+	  That is the first trigger now well make the second one
+	  <P ALIGN=Center>
+	  The class for the second one is listen1 cause the first trigger enables it
+	  with #T+ listen1
+	  <P ALIGN=Center>
+	  The first one makes&nbsp;the bot look at the furry so the furry sees
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">((You see Mys'.)</FONT>
+	  <P ALIGN=Center>
+	  after all the decoding so zMUD can read&nbsp;it and adding the (*) so we
+	  can whisper to the furry it looks&nbsp;like
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">{((}You see (*).{)}</FONT>
+	  <P ALIGN=Center>
+	  This is your pattern
+	  <P ALIGN=Center>
+	  in the command we want to shut off listen1 so when&nbsp;the next sign is
+	  hit it wont read this signs info
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">#T- listen1</FONT>
+	  <P ALIGN=Center>
+	  and we want the bot&nbsp;to whisper to the furry
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">wh %1 what the sign&nbsp;says</FONT>
+	  <P ALIGN=Center>
+	  adding them together will look like
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000">#T- listen1;wh %1 what the sign&nbsp;says</FONT>
+	  <P ALIGN=Center>
+	  This is your command
+	  <P>
+	  <CENTER>
+	    <TABLE BORDER CELLPADDING="2" ALIGN="Center">
+	      <TR>
+		<TD>Class:</TD>
+		<TD>listen1</TD>
+	      </TR>
+	      <TR>
+		<TD>Pattern:</TD>
+		<TD><FONT COLOR="#ffffff">{((}You see (*).{)}</FONT></TD>
+	      </TR>
+	      <TR>
+		<TD>Command:</TD>
+		<TD><FONT COLOR="#ffffff">#T- listen1;wh %1 what the sign&nbsp;says</FONT></TD>
+	      </TR>
+	    </TABLE>
+	  </CENTER>
+	  <P ALIGN=Center>
+	  on the listen triggers you have to disable them and the&nbsp;sign triggers
+	  will enable&nbsp;them
+	  <P ALIGN=Center>
+	  <IMG WIDTH="372" HEIGHT="126" SRC="signtriger.gif">
+	  <P ALIGN=Center>
+	  click the&nbsp;"Disable Class" button in the upper right corner
+	  <P ALIGN=Center>
+	  and un check the "Enable when loaded" in the lower&nbsp;right corner
+	  <P ALIGN=Center>
+	    <HR WIDTH="50%" COLOR="blue">
+	  <P ALIGN=Center>
+	  When you have more then one sign zMUD will start deleting your listen triggers
+	  cause the patterns are the same
+	  <P ALIGN=Center>
+	  just add a $ to the&nbsp;end of each of them
+	  <P ALIGN=Center>
+	  <FONT COLOR="#008000"> Sign 1: {((}You see (*).{)}<BR>
+	  Sign 2: {((}You see (*).{)}$<BR>
+	  Sign 3: {((}You see (*).{)}$$</FONT></TD>
+      </TR>
+      <TR>
+	<TD BGCOLOR=#0000ff><P ALIGN=Center>
+	  Created By Mys'</TD>
+      </TR>
+    </TABLE>
+  </CENTER>
+  <P>
+  &nbsp;&nbsp;
+  <P>
+ </CENTER>
+</BODY></HTML>

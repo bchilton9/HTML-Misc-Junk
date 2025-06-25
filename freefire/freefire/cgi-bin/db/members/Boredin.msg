@@ -1,0 +1,3 @@
+cyrdan|Buddy List|05/29/04 - 20:17:41|User cyrdan. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=cyrdan>cyrdan</a>|1085879861
+Sinnuster|Re: message boards|05/05/04 - 10:10:16|Try now and let me know how it works. &nbsp; u2 were set to friend status and i changed to member.<br><br>sorry bout that. &nbsp;alot of new members lately.|1083769782|aicon2|1|1
+admin|Welcome To Freefire!!|05/03/04 - 11:39:14|Welcome to Freefire. Please feel free to look around, Use the forms and messaging system. As of right now your account is set as friend. Once you are verified a a member of Freefire your account will be changed.||1|1

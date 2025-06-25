@@ -1,0 +1,5 @@
+ <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" class=cat>
+<TR><TD><P ALIGN=right>
+You are not logged in<BR>
+<A HREF=http://www.eqguilded.com class=menu>Click here to login/Signup</A>
+</TD></TR></TABLE>

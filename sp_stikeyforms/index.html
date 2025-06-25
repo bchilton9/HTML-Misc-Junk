@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+  <STYLE>
+<!--
+.drag{position:relative;cursor:hand}
+-->
+</STYLE>
+  <SCRIPT language="JavaScript1.2">
+<!--
+
+var dragapproved=false
+var z,x,y
+function move(){
+if (event.button==1&&dragapproved){
+z.style.pixelLeft=temp1+event.clientX-x
+z.style.pixelTop=temp2+event.clientY-y
+return false
+}
+}
+function drags(){
+if (!document.all)
+return
+if (event.srcElement.className=="drag"){
+dragapproved=true
+z=event.srcElement
+temp1=z.style.pixelLeft
+temp2=z.style.pixelTop
+x=event.clientX
+y=event.clientY
+document.onmousemove=move
+}
+}
+document.onmousedown=drags
+document.onmouseup=new Function("dragapproved=false")
+//-->
+</SCRIPT>
+  <TITLE>South Park Sticky Forms</TITLE>
+</HEAD>
+<BODY BGCOLOR="#000000" TEXT="#ffffff">
+<Center>
+<B>Step 1:</B> Chose a background from the list!<BR>
+<B>Step 2:</B> Click and drag the pictures from below to the backgroung!<BR>
+Once you have finished you can save your picture by hiting "Print screen" on your keybord<BR>
+Then open your favert image edator and hit ctrl-c then save!
+<P>
+<P>
+<FORM name="dynamicselector">
+  <TABLE border="0" width="100%" cellspacing="0" cellpadding="0" height="178">
+    <TR>
+      <TD width="35%" valign="top" align="left">
+<CENTER>Backgrounds:<BR>
+	<SELECT name="dynamicselector2" size="4" onChange="generateimage(this.options[this.selectedIndex].value)">
+	<OPTION value="bgbboard.gif">Class Room 
+	<OPTION value="bgtown.gif">Town 
+	<OPTION value="bgschool.gif">School 
+	<OPTION value="bgcaferm.gif">Cafatera 
+	<OPTION value="bgcafe.gif">Cafatera 
+	<OPTION value="bgmayors.gif">Mayors Office 
+	<OPTION value="bggayals.gif">Big gay Al 
+	<OPTION value="bgfbalfd.gif">Ball Feld 
+	<OPTION value="bgcarths.gif">Cartmens house
+	<OPTION value="bgclass.gif">Classrom 
+	<OPTION value="busstop.gif">Bus Stop 
+	<OPTION value="bgstage.gif">Stage 
+	<OPTION value="boatempt.gif">Boat </SELECT> 
+<script>
+function generateimage(which){
+if (document.all){
+dynamic3.innerHTML='<center>Loading image...</center>'
+dynamic3.innerHTML='<img src="'+which+'">'
+}
+else if (document.layers){
+document.dynamic1.document.dynamic2.document.write('<img src="'+which+'">')
+document.dynamic1.document.dynamic2.document.close()
+}
+else
+alert('You need NS 4 or IE 4 to view the images!')
+}
+</script>
+</td>
+</TR>
+<TR>
+<td width="65%" valign="top" align="left"><CENTER><ilayer id="dynamic1" width=100% height=178><layer id="dynamic2" width=100% height=178><div id="dynamic3"></div></layer></ilayer></td>
+</tr>
+</table>
+</form>
+<P ALIGN=Center>
+<CENTER>
+  <TABLE BORDER="0" CELLPADDING="2" ALIGN="Center">
+    <TR>
+      <TD><P ALIGN=Center>
+	<IMG SRC="people/Cartman.gif" WIDTH="69" HEIGHT="65" CLASS="drag"></TD>
+      <TD><IMG SRC="people/BackKyle.gif" WIDTH="52" HEIGHT="63" CLASS="drag"></TD>
+      <TD><IMG SRC="people/sbn1.gif" WIDTH="44" HEIGHT="68" CLASS="drag"></TD>
+      <TD><IMG SRC="people/Kennyback.gif" WIDTH="46" HEIGHT="63" CLASS="drag"></TD>
+      <TD><IMG SRC="people/hff3.gif" WIDTH="92" HEIGHT="140" CLASS="drag"></TD>
+      <TD><IMG SRC="people/ifn1.gif" WIDTH="32" HEIGHT="32" CLASS="drag"></TD>
+      <TD><IMG SRC="people/gsd1.gif" WIDTH="80" HEIGHT="94" CLASS="drag"></TD>
+      <TD><IMG SRC="people/sczlbut2.gif" WIDTH="51" HEIGHT="71" CLASS="drag"></TD>
+    </TR>
+    <TR>
+      <TD><IMG SRC="people/cbn1.gif" WIDTH="69" HEIGHT="65" CLASS="drag"></TD>
+      <TD><IMG SRC="people/Kyle.gif" WIDTH="52" HEIGHT="63" CLASS="drag"></TD>
+      <TD><IMG SRC="people/Stan.gif" WIDTH="44" HEIGHT="68" CLASS="drag"></TD>
+      <TD><IMG SRC="people/kennydead.gif" WIDTH="69" HEIGHT="39" CLASS="drag"></TD>
+      <TD><IMG SRC="people/hff2.gif" WIDTH="142" HEIGHT="140" CLASS="drag"></TD>
+      <TD><IMG SRC="people/ift1.gif" WIDTH="32" HEIGHT="38" CLASS="drag"></TD>
+      <TD></TD>
+      <TD><IMG SRC="people/rplayer.gif" WIDTH="44" HEIGHT="44" CLASS="drag"></TD>
+    </TR>
+    <TR>
+      <TD><IMG SRC="people/cff1.gif" WIDTH="60" HEIGHT="47" CLASS="drag"></TD>
+      <TD><IMG SRC="people/Kylepush.gif" WIDTH="52" HEIGHT="63" CLASS="drag"></TD>
+      <TD></TD>
+      <TD><IMG SRC="people/kfh1.gif" WIDTH="46" HEIGHT="46" CLASS="drag"></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD><IMG SRC="people/poofs.gif" WIDTH="21" HEIGHT="27" CLASS="drag"></TD>
+    </TR>
+    <TR>
+      <TD><IMG SRC="people/cfs1.gif" WIDTH="69" HEIGHT="66" CLASS="drag"></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD><IMG SRC="people/Kenny.gif" WIDTH="46" HEIGHT="63" CLASS="drag"></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD><IMG SRC="people/bplayer.gif" WIDTH="44" HEIGHT="44" CLASS="drag"></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD><IMG SRC="people/kfd1.gif" WIDTH="46" HEIGHT="63" CLASS="drag"></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD><IMG SRC="people/football.gif" WIDTH="23" HEIGHT="12" CLASS="drag"></TD>
+    </TR>
+    <TR>
+      <TD></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD><IMG SRC="people/kfb1.gif" WIDTH="46" HEIGHT="28" CLASS="drag"></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD></TD>
+      <TD></TD>
+    </TR>
+  </TABLE>
+</CENTER>
+<P>
+</BODY></HTML>

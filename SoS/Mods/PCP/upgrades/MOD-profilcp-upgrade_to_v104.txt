@@ -1,0 +1,943 @@
+############################################################## 
+## MOD Title: Profile Control Panel - update v 1.0.3 to v 1.0.4
+## MOD Author: Ptirhiik < ptirhiik@clanmckeen.com > (Pierre) http://rpgnet.clanmckeen.com
+## MOD Description:
+##		upgrade the Profile Control Panel from v 1.0.3 beta to v 1.0.4 - RC
+## MOD Version: 1.0.4 - RC
+## 
+## Installation Level: Easy
+## Installation Time: 30 Minutes
+## Files To Edit:
+##		profilcp/profile.php
+##		includes/functions.php
+##		profilcp/functions_profile.php
+##		profilcp/profilcp_board_config.php
+##		profilcp/profilcp_buddy.php
+##		profilcp/profilcp_email.php
+##		profilcp/profilcp_home.php
+##		profilcp/profilcp_privmsg.php
+##		profilcp/profilcp_profil_avatar.php
+##		profilcp/profilcp_profil_signature.php
+##		profilcp/profilcp_public_base.php
+##		profilcp/profilcp_public_groups.php
+##		profilcp/profilcp_sendpassword.php
+##		profilcp/def/def_userfields.php
+##
+## Included Files:
+##		profilcp/def/def_userfuncs.php
+##
+##		admin/admin_pcp_classesfields.php
+##		admin/admin_pcp_tableslinked.php
+##		admin/admin_pcp_userfields.php
+##		admin/admin_pcp_usermaps.php
+##		admin/admin_pcp_valueslist.php
+##		includes/functions_admin_pcp.php
+##		language/lang_english/lang_extend_pcp_management.php
+##		profilcp/def/def_userfields_phpbb.php
+##		templates/subSilver/admin/pcp_classesfields_body.tpl
+##		templates/subSilver/admin/pcp_classesfields_edit_body.tpl
+##		templates/subSilver/admin/pcp_confirm_body.tpl
+##		templates/subSilver/admin/pcp_tableslinked_body.tpl
+##		templates/subSilver/admin/pcp_tableslinked_edit_body.tpl
+##		templates/subSilver/admin/pcp_userfields_body.tpl
+##		templates/subSilver/admin/pcp_userfields_def.tpl
+##		templates/subSilver/admin/pcp_userfields_edit_body.tpl
+##		templates/subSilver/admin/pcp_userfields_edit_sqldef_body.tpl
+##		templates/subSilver/admin/pcp_userfields_sql_body.tpl
+##		templates/subSilver/admin/pcp_usermaps_body.tpl
+##		templates/subSilver/admin/pcp_usermaps_def.tpl
+##		templates/subSilver/admin/pcp_usermaps_edit_body.tpl
+##		templates/subSilver/admin/pcp_valueslist_body.tpl
+##		templates/subSilver/admin/pcp_valueslist_edit_body.tpl
+##
+##		mod-lang_settings/admin_lang_extend.php
+##		mod-lang_settings/lang_extend_mac.php
+##		mod-lang_settings/lang_extend.php
+##		mod-lang_settings/lang_extend_lang_extend.php
+##		mod-lang_settings/lang_extend_body.tpl
+##		mod-lang_settings/lang_extend_def.tpl
+##		mod-lang_settings/lang_extend_key_body.tpl
+##		mod-lang_settings/lang_extend_pack_body.tpl
+##		mod-lang_settings/lang_extend_search_body.tpl
+##
+############################################################## 
+## For Security Purposes, Please Check: http://www.phpbb.com/mods/ for the 
+## latest version of this MOD. Downloading this MOD from other sites could cause malicious code 
+## to enter into your phpBB Forum. As such, phpBB will not offer support for MOD's not offered 
+## in our MOD-Database, located at: http://www.phpbb.com/mods/ 
+############################################################## 
+## Author Notes: 
+##
+##	DELETE those files :
+##
+##		delete profilcp/profilcp_profil.php 
+##		delete profilcp/profilcp_public.php
+##
+##
+##	CHMOD 666 to apply :
+##
+##		profilcp/def/def_userfields.php
+##		profilcp/def/def_usermaps.php
+##
+##	NB.: After installing the mod and CHMODing those files, 
+##		- go to the Administration Panel,
+##		- choose PCP/Fields definition, choose any fields, hit submit, 
+##		- choose PCP/Maps definition, choose any map, hit edit, hit submit.
+##		This will regenerate the def_userfields and def_usermaps files to their last version
+##
+##
+##	COPY to each of your language installed directories (ie: languages/lang_english/) and
+##	CHMOD 666 those files :
+##		COPY mod-lang_settings/lang_extend.php TO language/lang_*/lang_extend.php
+## 
+############################################################## 
+## MOD History: 
+## 
+##   2003-10-18 - Version 1.0.4 - RC
+##      - add the ability to disallow SID checking, using a constant,
+##	- fix the use of the global admin setting in the buddy/memberlist,
+##	- enhance panel/sub-panel recognition in menu (works entirely as plug-ins now),
+##	- add the ability to create field links with constant text or image,
+##	- add the ability to create/edit/delete fields in the admin configuration panel, including database creation,
+##	- add the ability to manage the input and output of a field in the admin configuration panel,
+##	- add the ability to create/edit language keys
+## 
+############################################################## 
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+##############################################################
+#
+#-----[ COPY ]------------------------------------------------
+#
+# PCP : basic functions
+#
+copy profilcp/def/def_userfuncs.php to profilcp/def/def_userfuncs.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+# PCP : administration
+#
+copy admin/admin_pcp_classesfields.php to admin/admin_pcp_classesfields.php
+copy admin/admin_pcp_tableslinked.php to admin/admin_pcp_tableslinked.php
+copy admin/admin_pcp_userfields.php to admin/admin_pcp_userfields.php
+copy admin/admin_pcp_usermaps.php to admin/admin_pcp_usermaps.php
+copy admin/admin_pcp_valueslist.php to admin/admin_pcp_valueslist.php
+copy includes/functions_admin_pcp.php to includes/functions_admin_pcp.php
+copy language/lang_english/lang_extend_pcp_management.php to language/lang_english/lang_extend_pcp_management.php
+copy profilcp/def/def_userfields_phpbb.php to profilcp/def/def_userfields_phpbb.php
+#
+#-----[ COPY ]------------------------------------------------
+#
+copy templates/subSilver/admin/pcp_classesfields_body.tpl to templates/subSilver/admin/pcp_classesfields_body.tpl
+copy templates/subSilver/admin/pcp_classesfields_edit_body.tpl to templates/subSilver/admin/pcp_classesfields_edit_body.tpl
+copy templates/subSilver/admin/pcp_confirm_body.tpl to templates/subSilver/admin/pcp_confirm_body.tpl
+copy templates/subSilver/admin/pcp_tableslinked_body.tpl to templates/subSilver/admin/pcp_tableslinked_body.tpl
+copy templates/subSilver/admin/pcp_tableslinked_edit_body.tpl to templates/subSilver/admin/pcp_tableslinked_edit_body.tpl
+copy templates/subSilver/admin/pcp_userfields_body.tpl to templates/subSilver/admin/pcp_userfields_body.tpl
+copy templates/subSilver/admin/pcp_userfields_def.tpl to templates/subSilver/admin/pcp_userfields_def.tpl
+copy templates/subSilver/admin/pcp_userfields_edit_body.tpl to templates/subSilver/admin/pcp_userfields_edit_body.tpl
+copy templates/subSilver/admin/pcp_userfields_edit_sqldef_body.tpl to templates/subSilver/admin/pcp_userfields_edit_sqldef_body.tpl
+copy templates/subSilver/admin/pcp_userfields_sql_body.tpl to templates/subSilver/admin/pcp_userfields_sql_body.tpl
+copy templates/subSilver/admin/pcp_usermaps_body.tpl to templates/subSilver/admin/pcp_usermaps_body.tpl
+copy templates/subSilver/admin/pcp_usermaps_def.tpl to templates/subSilver/admin/pcp_usermaps_def.tpl
+copy templates/subSilver/admin/pcp_usermaps_edit_body.tpl to templates/subSilver/admin/pcp_usermaps_edit_body.tpl
+copy templates/subSilver/admin/pcp_valueslist_body.tpl to templates/subSilver/admin/pcp_valueslist_body.tpl
+copy templates/subSilver/admin/pcp_valueslist_edit_body.tpl to templates/subSilver/admin/pcp_valueslist_edit_body.tpl
+#
+#-----[ COPY ]------------------------------------------------
+#
+# mod: lang_settings : lang extension management
+#
+copy mod-lang_settings/admin_lang_extend.php to admin/admin_lang_extend.php
+copy mod-lang_settings/lang_extend_mac.php to includes/lang_extend_mac.php
+copy mod-lang_settings/lang_extend.php to language/lang_english/lang_extend.php
+copy mod-lang_settings/lang_extend_lang_extend.php to language/lang_english/lang_extend_lang_extend.php
+copy mod-lang_settings/lang_extend_body.tpl to templates/subSilver/admin/lang_extend_body.tpl
+copy mod-lang_settings/lang_extend_def.tpl to templates/subSilver/admin/lang_extend_def.tpl
+copy mod-lang_settings/lang_extend_key_body.tpl to templates/subSilver/admin/lang_extend_key_body.tpl
+copy mod-lang_settings/lang_extend_pack_body.tpl to templates/subSilver/admin/lang_extend_pack_body.tpl
+copy mod-lang_settings/lang_extend_search_body.tpl to templates/subSilver/admin/lang_extend_search_body.tpl
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profile.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.8 - 21/09/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.9 - 17/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+array_multisort( $module['sort'], $module['mode'], $module['shortcut'], $module['url'], $module['page_title'], $module['sub'] );
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+for ($i=0; $i < count($module['sub']); $i++)
+{
+	if ( !empty($module['sub'][$i]) )
+	{
+		@array_multisort( $module['sub'][$i]['sort'], $module['sub'][$i]['mode'], $module['sub'][$i]['shortcut'], $module['sub'][$i]['url'], $module['sub'][$i]['page_title'] );
+	}
+}
+@array_multisort( $module['sort'], $module['mode'], $module['shortcut'], $module['url'], $module['page_title'], $module['sub'] );
+#
+#-----[ FIND ]------------------------------------------------
+#
+	if ( ($sid != $userdata['session_id']) && ($set == '') && !$no_header )
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	if ( ($sid != $userdata['session_id']) && ($set == '') && !$no_header && !defined('NO_SID'))
+#
+#-----[ FIND ]------------------------------------------------
+#
+	include( $phpbb_root_path . "./profilcp/" . $module['url'][$curopt] );
+	if (!$error && !$no_header)
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	if ( !empty($module['url'][$curopt]) && empty($module['sub'][$curopt]['url'][$cur_subopt]) )
+	{
+		@include( $phpbb_root_path . './profilcp/' . $module['url'][$curopt] );
+	}
+	if ( !empty($module['sub'][$curopt]['url'][$cur_subopt]) )
+	{
+		include( $phpbb_root_path . './profilcp/' . $module['sub'][$curopt]['url'][$cur_subopt] );
+	}
+	if (!$error && !$no_header)
+#
+#-----[ FIND ]------------------------------------------------
+#
+		$template->assign_block_vars('opt', array());
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+		$link = append_sid("./profile.$phpEx?mode=" . $module['mode'][$i] . ( ($view_userdata['user_id'] != ANONYMOUS) ? '&' . POST_USERS_URL . '=' . $view_userdata['user_id'] : '') );
+		if ( count($module['sub'][$i]['mode']) == 1 )
+		{
+			// only one sub-module
+			$link = append_sid("./profile.$phpEx?mode=" . $module['mode'][$i] . "&sub=" . $module['sub'][$i]['mode'][0] . ( ($view_userdata['user_id'] != ANONYMOUS) ? '&' . POST_USERS_URL . '=' . $view_userdata['user_id'] : '') );
+		}
+#
+#-----[ FIND ]------------------------------------------------
+#
+			'U_SHORTCUT'	=> append_sid("./profile.$phpEx?mode=" . $module['mode'][$i] . ( ($view_userdata['user_id'] != ANONYMOUS) ? '&' . POST_USERS_URL . '=' . $view_userdata['user_id'] : '') ),
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			'U_SHORTCUT'	=> $link,
+#
+#-----[ FIND ]------------------------------------------------
+#
+	if ( $cur_subopt >= 0 )
+	{
+		$nb_opt = count($module['sub'][$curopt]['shortcut']);
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	if ( ($cur_subopt >= 0) && (count($module['sub'][$curopt]['mode']) > 1) )
+	{
+		$nb_opt = count($module['sub'][$curopt]['shortcut']);
+#
+#-----[ FIND ]------------------------------------------------
+#
+	// module
+	include( $phpbb_root_path . "./profilcp/" . $module['url'][$curopt] );
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	// module
+	if ( !empty($module['url'][$curopt]) && empty($module['sub'][$curopt]['url'][$cur_subopt]) )
+	{
+		@include( $phpbb_root_path . './profilcp/' . $module['url'][$curopt] );
+	}
+	if ( !empty($module['sub'][$curopt]['url'][$cur_subopt]) )
+	{
+		@include( $phpbb_root_path . './profilcp/' . $module['sub'][$curopt]['url'][$cur_subopt] );
+	}
+
+#
+#-----[ OPEN ]------------------------------------------------
+#
+includes/functions.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- add
+	// check for admin part
+	$lang_extend_admin = defined('IN_ADMIN');
+
+	// get the english settings
+	if ( ($board_config['default_lang'] != 'english') && !defined('LANG_EXTEND_DONE') )
+	{
+		$dir = @opendir($phpbb_root_path . 'language/lang_english');
+		while( $file = @readdir($dir) )
+		{
+			if( preg_match("/^lang_extend_.*?\." . $phpEx . "$/", $file) )
+			{
+				include_once($phpbb_root_path . 'language/lang_english/' . $file);
+			}
+		}
+		// include the personalisations
+		@include_once($phpbb_root_path . 'language/lang_english/lang_extend.' . $phpEx);
+		@closedir($dir);
+	}
+
+	// get the user settings
+	if ( !empty($board_config['default_lang']) && !defined('LANG_EXTEND_DONE') )
+	{
+		$dir = @opendir($phpbb_root_path . 'language/lang_' . $board_config['default_lang']);
+		while( $file = @readdir($dir) )
+		{
+			if( preg_match("/^lang_extend_.*?\." . $phpEx . "$/", $file) )
+			{
+				include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/' . $file);
+			}
+		}
+		// include the personalisations
+		@include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/lang_extend.' . $phpEx);
+		@closedir($dir);
+	}
+	define('LANG_EXTEND_DONE', true);
+//-- fin mod : language settings -------------------------------------------------------------------
+
+	//
+	// Set up style
+	//
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- add
+	include($phpbb_root_path . './includes/lang_extend_mac.' . $phpEx);
+//-- fin mod : language settings -------------------------------------------------------------------
+
+	//
+	// Set up style
+	//
+#
+#-----[ FIND ]------------------------------------------------
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- add
+			// check for admin part
+			$lang_extend_admin = defined('IN_ADMIN');
+
+			// get the english settings
+			if ( ($board_config['default_lang'] != 'english') && !defined('LANG_EXTEND_DONE') )
+			{
+				$dir = @opendir($phpbb_root_path . 'language/lang_english');
+				while( $file = @readdir($dir) )
+				{
+					if( preg_match("/^lang_extend_.*?\." . $phpEx . "$/", $file) )
+					{
+						include_once($phpbb_root_path . 'language/lang_english/' . $file);
+					}
+				}
+				// include the personalisations
+				@include_once($phpbb_root_path . 'language/lang_english/lang_extend.' . $phpEx);
+				@closedir($dir);
+			}
+
+			// get the user settings
+			if ( !empty($board_config['default_lang']) && !defined('LANG_EXTEND_DONE') )
+			{
+				$dir = @opendir($phpbb_root_path . 'language/lang_' . $board_config['default_lang']);
+				while( $file = @readdir($dir) )
+				{
+					if( preg_match("/^lang_extend_.*?\." . $phpEx . "$/", $file) )
+					{
+						include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/' . $file);
+					}
+				}
+				// include the personalisations
+				@include_once($phpbb_root_path . 'language/lang_' . $board_config['default_lang'] . '/lang_extend.' . $phpEx);
+				@closedir($dir);
+			}
+			define('LANG_EXTEND_DONE', true);
+//-- fin mod : language settings -------------------------------------------------------------------
+
+		}
+
+		if ( empty($template) )
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//-- mod : language settings -----------------------------------------------------------------------
+//-- add
+			include($phpbb_root_path . './includes/lang_extend_mac.' . $phpEx);
+//-- fin mod : language settings -------------------------------------------------------------------
+
+		}
+
+		if ( empty($template) )
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/functions_profile.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.1.0 - 10/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.1.1 - 17/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+?>
+#
+#-----[ BEFORE, ADD ]-----------------------------------------
+#
+//-------------------------------------------
+//
+//	menu service function
+//
+//-------------------------------------------
+function pcp_set_menu($mode, $sort='', $url='', $shortcut='', $page_title='')
+{
+	global $lang;
+	global $module;
+
+	// get the menu idx
+	$idx = count($module['mode']);
+	$new = false;
+	$found = false;
+	for ( $i = 0; $i < count($module['mode']); $i++ )
+	{
+		$found = ( $module['mode'][$i] == $mode );
+		if ( $found )
+		{
+			$idx = $i;
+			break;
+		}
+	}
+
+	// init
+	if ( !$found )
+	{
+		$module['sort'][$idx]			= '';
+		$module['url'][$idx]			= '';
+		$module['shortcut'][$idx]		= '';
+		$module['page_title'][$idx]		= '';
+		$module['sub'][$idx]			= array();
+	}
+
+	// add it
+	$module['mode'][$idx]			= $mode;
+	$module['sort'][$idx]			= empty($module['sort'][$idx]) ? $sort : $module['sort'][$idx];
+	$module['url'][$idx]			= empty($module['url'][$idx]) ? basename($url) : $module['url'][$idx];
+	$module['shortcut'][$idx]		= empty($module['shortcut'][$idx]) ? $lang[$shortcut] : $module['shortcut'][$idx];
+	$module['page_title'][$idx]		= empty($module['page_title'][$idx]) ? $lang[$page_title] : $module['page_title'][$idx];
+
+	return $idx;
+}
+
+function pcp_set_sub_menu($mode, $sub_mode, $sub_sort='', $sub_url='', $sub_shortcut='', $sub_page_title='' )
+{
+	global $lang;
+	global $module;
+
+	// ensure the main menu exists
+	$idx = pcp_set_menu($mode);
+
+	// check if the sub_menu exists
+	$sub_idx = count($module['sub'][$idx]['mode']);
+	$found = false;
+	for ( $i = 0; $i < count($module['sub'][$idx]['mode']); $i++ )
+	{
+		$found = ( $module['sub'][$idx]['mode'][$i] == $sub_mode );
+		if ( $found )
+		{
+			$sub_idx = $i;
+			break;
+		}
+	}
+
+	// init
+	if ( !$found )
+	{
+		$module['sub'][$idx]['sort'][$sub_idx]			= '';
+		$module['sub'][$idx]['url'][$sub_idx]			= '';
+		$module['sub'][$idx]['shortcut'][$sub_idx]		= '';
+		$module['sub'][$idx]['page_title'][$sub_idx]	= '';
+	}
+
+	// add it
+	$module['sub'][$idx]['mode'][$sub_idx]			= $sub_mode;
+	$module['sub'][$idx]['sort'][$sub_idx]			= empty($module['sub'][$idx]['sort'][$sub_idx]) ? $sub_sort : $module['sub'][$idx]['sort'][$sub_idx];
+	$module['sub'][$idx]['url'][$sub_idx]			= empty($module['sub'][$idx]['url'][$sub_idx]) ? basename($sub_url) : $module['sub'][$idx]['url'][$sub_idx];
+	$module['sub'][$idx]['shortcut'][$sub_idx]		= empty($module['sub'][$idx]['shortcut'][$sub_idx]) ? $lang[$sub_shortcut] : $module['sub'][$idx]['shortcut'][$sub_idx];
+	$module['sub'][$idx]['page_title'][$sub_idx]	= empty($module['sub'][$idx]['page_title'][$sub_idx]) ? $lang[$sub_page_title] : $module['sub'][$idx]['page_title'][$sub_idx];
+}
+
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_board_config.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version			: 1.0.4 - 26/09/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version			: 1.0.5 - 17/10/2003
+ *
+#
+#-----[ FIND ]------------------------------------------------
+#
+if ( !empty($setmodules) ) return;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+if ( !empty($setmodules) )
+{
+	pcp_set_menu('profil', 40, '', 'profilcp_profil_shortcut', 'profilcp_profil_pagetitle' );
+	pcp_set_sub_menu('profil', 'profile_prefer', 10, __FILE__, 'profilcp_prefer_shortcut', 'profilcp_prefer_pagetitle' );
+	pcp_set_sub_menu('profil', 'Preferences', 20, __FILE__, 'Preferences', 'Preferences' );
+	return;
+}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_buddy.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version			: 1.1.9 - 03/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version			: 1.2.0 - 17/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$sub_modules = array();
+
+	$sub_modules['mode'][] = 'friend';
+	$sub_modules['shortcut'][] = $lang['profilcp_buddy_friend_shortcut'];
+	$sub_modules['page_title'][] = $lang['profilcp_buddy_friend_pagetitle'];
+
+	$sub_modules['mode'][] = 'ignore';
+	$sub_modules['shortcut'][] = $lang['profilcp_buddy_ignore_shortcut'];
+	$sub_modules['page_title'][] = $lang['profilcp_buddy_ignore_pagetitle'];
+
+	$sub_modules['mode'][] = 'memberlist';
+	$sub_modules['shortcut'][] = $lang['profilcp_buddy_list_shortcut'];
+	$sub_modules['page_title'][] = $lang['profilcp_buddy_list_pagetitle'];
+
+	$file = basename(__FILE__);
+	$module['sort'][] = 70;
+	$module['url'][] = $file;
+
+	$module['mode'][] = 'buddy';
+	$module['shortcut'][] = $lang['profilcp_buddy_shortcut'];
+	$module['page_title'][] = $lang['profilcp_buddy_pagetitle'];
+	$module['sub'][] = $sub_modules;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	pcp_set_menu('buddy', 70, __FILE__, 'profilcp_buddy_shortcut', 'profilcp_buddy_pagetitle' );
+	pcp_set_sub_menu('buddy', 'friend', 10, __FILE__, 'profilcp_buddy_friend_shortcut', 'profilcp_buddy_friend_pagetitle' );
+	pcp_set_sub_menu('buddy', 'ignore', 20, __FILE__, 'profilcp_buddy_ignore_shortcut', 'profilcp_buddy_ignore_pagetitle' );
+	pcp_set_sub_menu('buddy', 'memberlist', 30, __FILE__, 'profilcp_buddy_list_shortcut', 'profilcp_buddy_list_pagetitle' );
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_email.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	revision			: 1.0.2 - 21/09/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	revision			: 1.0.3 - 18/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+			if ($sid == '' || $sid != $userdata['session_id'])
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+			if ( ($sid == '' || $sid != $userdata['session_id']) && !define('NO_SID') )
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_home.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.3 - 26/09/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.4 - 17/10/2003
+ *
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$file = basename(__FILE__);
+	$module['mode'][] = 'home';
+	$module['sort'][] = 20;
+	$module['url'][] = $file;
+	$module['shortcut'][] = $lang['profilcp_index_shortcut'];
+	$module['page_title'][] = $lang['profilcp_index_pagetitle'];
+	$module['sub'][] = array();
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	pcp_set_menu('home', 20, __FILE__, 'profilcp_index_shortcut', 'profilcp_index_pagetitle' );
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_privmsg.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.4 - 07/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.5 - 17/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	$sub_modules = array();
+
+	$sub_modules['mode'][] = 'inbox';
+	$sub_modules['shortcut'][] = $lang['Inbox'];
+	$sub_modules['page_title'][] = $lang['Inbox'];
+
+	$sub_modules['mode'][] = 'outbox';
+	$sub_modules['shortcut'][] = $lang['Outbox'];
+	$sub_modules['page_title'][] = $lang['Outbox'];
+
+	$sub_modules['mode'][] = 'sentbox';
+	$sub_modules['shortcut'][] = $lang['Sentbox'];
+	$sub_modules['page_title'][] = $lang['Sentbox'];
+
+	$sub_modules['mode'][] = 'savebox';
+	$sub_modules['shortcut'][] = $lang['Savebox'];
+	$sub_modules['page_title'][] = $lang['Savebox'];
+
+	$module['mode'][] = 'privmsg';
+	$module['sort'][] = 80;
+	$module['url'][] = basename(__FILE__);
+	$module['shortcut'][] = $lang['Private_Messaging'];
+	$module['page_title'][] = $lang['Private_Messaging'];
+	$module['sub'][] = $sub_modules;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	pcp_set_menu('privmsg', 80, __FILE__, 'Private_Messaging', 'Private_Messaging' );
+	pcp_set_sub_menu('privmsg', 'inbox', 10, __FILE__, 'Inbox', 'Inbox' );
+	pcp_set_sub_menu('privmsg', 'outbox', 20, __FILE__, 'Outbox', 'Outbox' );
+	pcp_set_sub_menu('privmsg', 'savebox', 30, __FILE__, 'Savebox', 'Savebox' );
+#
+#-----[ FIND ]------------------------------------------------
+#
+	if ($sid == '' || $sid != $userdata['session_id'])
+	{
+		message_die(GENERAL_ERROR, 'Invalid_session');
+	}
+
+	if ( isset($mark_list) && !is_array($mark_list) )
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	if ( ($sid == '' || $sid != $userdata['session_id']) && !defined('NO_SID') )
+	{
+		message_die(GENERAL_ERROR, 'Invalid_session');
+	}
+
+	if ( isset($mark_list) && !is_array($mark_list) )
+#
+#-----[ FIND ]------------------------------------------------
+#
+	if ($sid == '' || $sid != $userdata['session_id'])
+	{
+		message_die(GENERAL_ERROR, 'Invalid_session');
+	}
+	
+	if (sizeof($mark_list))
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	if ( ($sid == '' || $sid != $userdata['session_id']) && !defined('NO_SID') )
+	{
+		message_die(GENERAL_ERROR, 'Invalid_session');
+	}
+	
+	if (sizeof($mark_list))
+#
+#-----[ FIND ]------------------------------------------------
+#
+		if ($sid == '' || $sid != $userdata['session_id'])
+		{
+			message_die(GENERAL_ERROR, 'Invalid_session');
+		}
+
+		if ( !empty($HTTP_POST_VARS['username']) )
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+		if ( ($sid == '' || $sid != $userdata['session_id']) && !defined('NO_SID') )
+		{
+			message_die(GENERAL_ERROR, 'Invalid_session');
+		}
+
+		if ( !empty($HTTP_POST_VARS['username']) )
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_profil_avatar.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.2 - 10/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.3 - 17/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+if ( !empty($setmodules) ) return;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+if ( !empty($setmodules) )
+{
+	if ( $board_config['allow_avatar_upload'] || $board_config['allow_avatar_remote'] || $board_config['allow_avatar_local'] )
+	{
+		pcp_set_sub_menu('profil', 'avatar', 30, __FILE__, 'profilcp_avatar_shortcut', 'profilcp_avatar_pagetitle' );
+	}
+	return;
+}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_profil_signature.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.2 - 26/09/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.3 - 17/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+if ( !empty($setmodules) ) return;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+if ( !empty($setmodules) )
+{
+	if ($board_config['allow_sig'])
+	{
+		pcp_set_sub_menu('profil', 'signature', 30, __FILE__, 'profilcp_signature_shortcut', 'profilcp_signature_pagetitle' );
+	}
+	return;
+}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_public_base.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.6 - 04/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.7 - 15/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+if ( !empty($setmodules) ) return;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+if ( !empty($setmodules) )
+{
+	pcp_set_menu('viewprofile', 10, '', 'profilcp_public_shortcut', 'profilcp_public_pagetitle' );
+	pcp_set_sub_menu('viewprofile', 'base', 10, __FILE__, 'profilcp_public_base_shortcut', 'profilcp_public_base_pagetitle' );
+	return;
+}
+#
+#-----[ FIND ]------------------------------------------------
+#
+	if ( substr($map_name, 0, strlen($map_base)) == $map_base )
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	if ( (substr($map_name, 0, strlen($map_base)) == $map_base) && ( !empty($map_data['title']) || !empty($map_data['fields']) ) )
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_public_groups.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	version				: 1.0.3 - 05/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	version				: 1.0.4 - 17/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+if ( !empty($setmodules) ) return;
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+if ( !empty($setmodules) )
+{
+	pcp_set_sub_menu('viewprofile', 'groups', 20, __FILE__, 'profilcp_public_groups_shortcut', 'profilcp_public_groups_pagetitle' );
+	return;
+}
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/profilcp_sendpassword.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+ *	revision			: 1.0.1 - 10/10/2003
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+ *	revision			: 1.0.2 - 18/10/2003
+#
+#-----[ FIND ]------------------------------------------------
+#
+	if ($sid == '' || $sid != $userdata['session_id'])
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+	if ( ($sid == '' || $sid != $userdata['session_id']) && !defined('NO_SID') )
+#
+#-----[ OPEN ]------------------------------------------------
+#
+profilcp/def/def_userfields.php
+#
+#-----[ FIND ]------------------------------------------------
+#
+//--------------------------------------------------------------------------------------------------
+//
+// $classes_fields array
+//
+//		key = name of the class,
+//
+//			admin_field		: the users table field set by the admin to restrict the class display,
+//			user_field		: the users table field set by the user (preferences) to restrict the class display,
+//			sql_def			: sql definition of the condition field
+//
+//--------------------------------------------------------------------------------------------------
+$classes_fields = array(
+	'generic' => array(
+		'admin_field'	=> '',
+		'user_field'	=> '',
+		'sql_def'		=> '',
+	),
+	'viewonline' => array(
+		'admin_field'	=> '',
+		'user_field'	=> 'user_allow_viewonline',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ([BUDDY_MY].buddy_ignore <> 1 or [BUDDY_MY].buddy_ignore IS NULL) AND ( [BUDDY_OF].buddy_visible = 1 OR [USERS].user_allow_viewonline = 1 OR ([USERS].user_allow_viewonline = 2 AND [BUDDY_OF].buddy_ignore = 0) )',
+	),
+	'email' => array(
+		'admin_field'	=> 'user_allow_email',
+		'user_field'	=> 'user_viewemail',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ([BUDDY_MY].buddy_ignore <> 1 or [BUDDY_MY].buddy_ignore IS NULL) AND [USERS].user_allow_email = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR [USERS].user_viewemail = 1 OR ([USERS].user_viewemail = 2 AND [BUDDY_OF].buddy_ignore = 0) )',
+	),
+	'pm' => array(
+		'admin_field'	=> 'user_allow_pm',
+		'user_field'	=> 'user_viewpm',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ([BUDDY_MY].buddy_ignore <> 1 or [BUDDY_MY].buddy_ignore IS NULL) AND [USERS].user_allow_pm = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR [USERS].user_viewpm = 1 OR ([USERS].user_viewpm = 2 AND [BUDDY_OF].buddy_ignore = 0) )',
+	),
+	'webdisplay' => array(
+		'admin_field'	=> 'user_allow_website',
+		'user_field'	=> 'user_viewwebsite',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ([BUDDY_MY].buddy_ignore <> 1 or [BUDDY_MY].buddy_ignore IS NULL) AND [USERS].user_allow_website = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR [USERS].user_viewwebsite = 1 OR ([USERS].user_viewwebsite = 2 AND [BUDDY_OF].buddy_ignore = 0) )',
+	),
+	'messangers' => array(
+		'admin_field'	=> 'user_allow_messanger',
+		'user_field'	=> '',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ([BUDDY_MY].buddy_ignore <> 1 or [BUDDY_MY].buddy_ignore IS NULL) AND [USERS].user_allow_messanger = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR [USERS].user_viewmessanger = 1 OR ([USERS].user_viewmessanger = 2 AND [BUDDY_OF].buddy_ignore = 0) )',
+	),
+	'real' => array(
+		'admin_field'	=> 'user_allow_real',
+		'user_field'	=> 'user_viewreal',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ([BUDDY_MY].buddy_ignore <> 1 or [BUDDY_MY].buddy_ignore IS NULL) AND [USERS].user_allow_real = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR [USERS].user_viewreal = 1 OR ([USERS].user_viewreal = 2 AND [BUDDY_OF].buddy_ignore = 0) )',
+	),
+#
+#-----[ REPLACE WITH ]---------------------------------------- 
+#
+//--------------------------------------------------------------------------------------------------
+//
+// $classes_fields array
+//
+//		key = name of the class,
+//
+//			config_field	: the config table field set by the admin to restrict the class display to everybody
+//			admin_field		: the users table field set by the admin to restrict the class display to a particular user,
+//			user_field		: the users table field set by the user (preferences) to restrict the class display,
+//			sql_def			: sql definition of the condition field
+//
+//--------------------------------------------------------------------------------------------------
+$classes_fields = array(
+	'email' => array(
+		'config_field'	=> 'allow_viewemail',
+		'admin_field'	=> 'user_allow_email',
+		'user_field'	=> 'user_viewemail',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ( ( [BUDDY_MY].buddy_ignore <> 1 OR [BUDDY_MY].buddy_ignore IS NULL ) AND ( [board.allow_viewemail] <> 0 OR [board.allow_viewemail_over] <> 1 ) AND [USERS].user_allow_email = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR ( [USERS].user_viewemail = 1 OR ([board.allow_viewemail] = 1 AND [board.allow_viewemail_over] = 1) ) OR ( [BUDDY_OF].buddy_ignore = 0 AND ( [USERS].user_viewemail = 2 OR ([board.allow_viewemail] = 2 AND [board.allow_viewemail_over] = 1) ) ) ) )',
+	),
+	'generic' => array(
+		'config_field'	=> '',
+		'admin_field'	=> '',
+		'user_field'	=> '',
+		'sql_def'		=> '',
+	),
+	'messangers' => array(
+		'config_field'	=> 'allow_viewmessengers',
+		'admin_field'	=> 'user_allow_messanger',
+		'user_field'	=> 'user_viewmessanger ',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ( ( [BUDDY_MY].buddy_ignore <> 1 OR [BUDDY_MY].buddy_ignore IS NULL ) AND ( [board.allow_viewmessengers] <> 0 OR [board.allow_viewmessengers_over] <> 1 ) AND [USERS].user_allow_messanger = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR ( [USERS].user_viewmessanger  = 1 OR ([board.allow_viewmessengers] = 1 AND [board.allow_viewmessengers_over] = 1) ) OR ( [BUDDY_OF].buddy_ignore = 0 AND ( [USERS].user_viewmessanger  = 2 OR ([board.allow_viewmessengers] = 2 AND [board.allow_viewmessengers_over] = 1) ) ) ) )',
+	),
+	'pm' => array(
+		'config_field'	=> 'allow_viewpm',
+		'admin_field'	=> 'user_allow_pm',
+		'user_field'	=> 'user_viewpm',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ( ( [BUDDY_MY].buddy_ignore <> 1 OR [BUDDY_MY].buddy_ignore IS NULL ) AND ( [board.allow_viewpm] <> 0 OR [board.allow_viewpm_over] <> 1 ) AND [USERS].user_allow_pm = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR ( [USERS].user_viewpm = 1 OR ([board.allow_viewpm] = 1 AND [board.allow_viewpm_over] = 1) ) OR ( [BUDDY_OF].buddy_ignore = 0 AND ( [USERS].user_viewpm = 2 OR ([board.allow_viewpm] = 2 AND [board.allow_viewpm_over] = 1) ) ) ) )',
+	),
+	'real' => array(
+		'config_field'	=> 'allow_viewreal',
+		'admin_field'	=> 'user_allow_real',
+		'user_field'	=> 'user_viewreal',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ( ( [BUDDY_MY].buddy_ignore <> 1 OR [BUDDY_MY].buddy_ignore IS NULL ) AND ( [board.allow_viewreal] <> 0 OR [board.allow_viewreal_over] <> 1 ) AND [USERS].user_allow_real = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR ( [USERS].user_viewreal = 1 OR ([board.allow_viewreal] = 1 AND [board.allow_viewreal_over] = 1) ) OR ( [BUDDY_OF].buddy_ignore = 0 AND ( [USERS].user_viewreal = 2 OR ([board.allow_viewreal] = 2 AND [board.allow_viewreal_over] = 1) ) ) ) )',
+	),
+	'viewonline' => array(
+		'config_field'	=> 'allow_viewonline',
+		'admin_field'	=> '',
+		'user_field'	=> 'user_allow_viewonline',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ( ( [BUDDY_MY].buddy_ignore <> 1 OR [BUDDY_MY].buddy_ignore IS NULL ) AND ( [board.allow_viewonline] <> 0 OR [board.allow_viewonline_over] <> 1 ) AND ( [BUDDY_OF].buddy_visible = 1 OR ( [USERS].user_allow_viewonline = 1 OR ([board.allow_viewonline] = 1 AND [board.allow_viewonline_over] = 1) ) OR ( [BUDDY_OF].buddy_ignore = 0 AND ( [USERS].user_allow_viewonline = 2 OR ([board.allow_viewonline] = 2 AND [board.allow_viewonline_over] = 1) ) ) ) )',
+	),
+	'webdisplay' => array(
+		'config_field'	=> 'allow_viewwebsite',
+		'admin_field'	=> 'user_allow_website',
+		'user_field'	=> 'user_viewwebsite',
+		'sql_def'		=> '[USERS].user_id = [view.user_id] OR ( ( [BUDDY_MY].buddy_ignore <> 1 OR [BUDDY_MY].buddy_ignore IS NULL ) AND ( [board.allow_viewwebsite] <> 0 OR [board.allow_viewwebsite_over] <> 1 ) AND [USERS].user_allow_website = 1 AND ( [BUDDY_OF].buddy_visible = 1 OR ( [USERS].user_viewwebsite = 1 OR ([board.allow_viewwebsite] = 1 AND [board.allow_viewwebsite_over] = 1) ) OR ( [BUDDY_OF].buddy_ignore = 0 AND ( [USERS].user_viewwebsite = 2 OR ([board.allow_viewwebsite] = 2 AND [board.allow_viewwebsite_over] = 1) ) ) ) )',
+	),
+#
+#-----[ SAVE/CLOSE ALL FILES ]--------------------------------
+#
+# EoM

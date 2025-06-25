@@ -1,0 +1,2 @@
+Briadorn|Buddy List|05/15/04 - 15:47:01|User Briadorn. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=Briadorn>Briadorn</a>|1084654021
+Lumi|Welcome To Freefire!!|04/05/04 - 19:53:25|Welcome to Freefire. Please feel free to look around, Use the forms and messaging system. As of right now your account is set as friend. Once you are verified a a member of Freefire your account will be changed.||1|1

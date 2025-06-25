@@ -1,0 +1,2 @@
+Sulidin|Buddy List|05/10/04 - 23:48:44|User Sulidin. has added you to there Buddy List. View Profile of <a href=http://www.eqguilded.com/freefire/cgi-bin/index.cgi?action=viewprofile&username=Sulidin>Sulidin</a>|1084250924
+admin|Welcome To Freefire!!|05/05/04 - 07:30:39|Welcome to Freefire. Please feel free to look around, Use the forms and messaging system. As of right now your account is set as friend. Once you are verified a a member of Freefire your account will be changed.||1

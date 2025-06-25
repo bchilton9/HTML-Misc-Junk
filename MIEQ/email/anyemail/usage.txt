@@ -1,0 +1,196 @@
+[Netbula LLC]
+ Introduction             [Image] AnyEmail Setup Guide
+
+ [Image]                  Setup Usage Config
+ Advantages
+ [Image] User             [Image] Setup and installation
+ Guide
+ [Image] FAQ [Image]       It is simple, because the software does more
+ [Image]
+                          AnyEmail setup is very simple, because it has only two
+ Anyemail in              things to set in the script.
+ Action
+ [Image] Live                * Path to perl version 5.
+ Demo                          By default, the first line of AnyEmail.cgi script
+ [Image]                       is
+ DownLoad                      #!/usr/bin/perl
+ [Image]
+                               You must replace it with the path to perl 5 on
+                               your system , such as /usr/local/bin/perl., if it
+                               is different from the default. Ask your system
+                               administrator is in doubt.
+
+                             * SMTP server name.
+                               This is the server through which email is sent. By
+                               default, it is localhost, which is the machine
+                               where the CGI script is running. You may need to
+                               change it to the SMTP server of your choice. If
+                               your web server is www.yourname.com, the SMTP
+                               server is usually yourname.com.
+                             * Sendmail command
+                               If you do not have access to a SMTP server, then
+                               you can use the sendmail command. To tell AnyEmail
+                               to use sendmail, you set the $use_sendmail to 1.
+                               You may also need to change the $sendmail_cmd
+                               according to
+
+                             * $fix_cgi_url: if you are installing on an MS IIS
+                               server, you must set the $fix_cgi_url to the full
+                               url of the anyemail script. For example:
+                               $fix_cgi_url="http://netbula.com/scripts/anyemail.plx";
+                             * $icon_location
+                               This is the URL of the directory where the image
+                               icons are located. By default, this is
+                               http://icon.anyboard.net, you should copy the
+                               image icons to your web server and set this URL
+                               accordingly.
+                             * $anyemaildir
+                               This is a diretory for storing optional data for
+                               AnyEmail, such as mailing lists, log files,
+                               configuration files, etc.
+
+                          After the above changes, you must install AnyEmail as a
+                          CGI script. How to do it depends on your web server.
+                          Consult your web server's FAQ on this.
+
+                          Optional POP3 settings
+
+                          $fixed_pop_server
+                               This is used to set a default POP3 server, when
+                               this is set, user don't have to enter the full
+                               email address. For example, if $fixed_pop_server
+                               is set to netbula.com, to retrieve email for
+                               support@netbula.com, one only need to enter
+                               support in the login window.
+                          $use_fixed_popserver_only
+                               When this is set to 1, a user can only access
+                               email from the POP3 server specified in the
+                               $fixed_pop_server.
+                          $non_changeable_from_address
+                               When this is set to 1, the user can not change the
+                               from address in the send message form.
+                          $fixed_return_domain
+                               If only user account is entered in the login
+                               window, the return address is set to
+                               userid@$fixed_return_domain. For example, if
+                               $fixed_return_domain is set to netbula.com, and
+                               $fixed_pop_server is set to pop3.netbula.com, and
+                               user entered support in the login window, then
+                               email is retrieved from pop3.netbula.com and
+                               return address for outgoing email is set to
+                               support@netbula.com.
+
+                          %email_to_pop3_map
+                               This variables allows you set a map to map email
+                               domain address to POP3 servers, so user do not
+                               have to enter the POP3 server name when the email
+                               domain and POP3 address does not match.
+
+
+                          Other settings
+
+                               $broke_pathinfo
+                               Some web servers (such as IIS) does not suppor the
+                               PATHINFO, the result is a server error when user
+                               trying to view attachments using AnyEmail. In this
+                               case you should set $broke_pathinfo = 1;
+
+
+
+                          [Image] AnyEmail Usage
+
+                          Now, you can read and send email through AnyEmail.
+
+                          Access email from your POP3 account
+
+                          To read email, AnyEmail needs to login to the POP3
+                          server with your userid and password and retrieve
+                          messages. In most cases, the POP3 server's name is the
+                          same as the domain name in your email address. For
+                          example, for support@netbula.com, the user account is
+                          support, and the POP3 server is netbula.com. To read
+                          messages, simply enter the email address
+                          (support@netbula.com) and the password into the login
+                          form.
+
+                          In the case when the POP3 server is different than the
+                          domain name in the email address, enter the POP3 server
+                          name after the email address, separated by a /. For
+                          instance, suppose the POP3 server for
+                          support@netbula.com is pop3.netbula.com, the Email
+                          field should be entered as
+
+                                   support@netbula.com->pop3.netbula.com
+
+                          AnyEmail stores the email addresses you have accessed
+                          on your computer, next time when you use AnyEmail, you
+                          don't have to enter the address again, instead you can
+                          select it from the addresses in the drop-down list on
+                          the right hand side of the login screen. Once logged in
+                          successfully, you will be brought to a page like this
+
+                          [Anyemail main interface]
+                          Click here for detail
+
+                          The messages are listed in reverse order of the time
+                          (with most recent ones on the top), clicking on a
+                          header will sort the list based on the header field. To
+                          read a message, simply click on the subject of the
+                          message. Click on the sender address allows you to see
+                          the full header of the message.
+
+                          To delete messages, check on the boxes left to the
+                          subjects, and then click on the X graphic, the checked
+                          messages will be deleted immediately.
+
+                          Send/forward/reply to email
+
+                          The send email form looks like the following
+
+                          [Send email form]
+                          click here for detail
+
+                          The meaning of the fields are obvious. To send an
+                          attachment along with an email message, click the
+                          Browse button and select a file to be attached.
+
+                          When you are forwarding a message, the original message
+                          is not included in the message box. AnyEmail knows you
+                          are forwarding the message, it will get the message
+                          from the POP3 server and send it directly to the SMTP
+                          server.
+
+                          [Image] Configurations
+
+                          AnyEmail has various configuration parameters to set
+                          the look & feel of the interface. These are changed by
+                          setting the variables inside the script.
+
+
+
+                          Look & feel settings
+
+                          The meaning of following are rather obvious
+
+                          $show_reply_form_on_msg display reply form after
+                          message body
+
+                          $dont_show_title Don't show email address in title
+
+                          $exit_msg The html code sent when user logs out.
+                          Default directs user to netbula.com.
+
+                          @bgcols =qw("#ffffff" "#dcf4f8"); Background colors of
+                          message list line
+
+                          $form_color= qq("#cccccc"); background of the compose
+                          form
+
+                          $cmd_pane_color= qq("#ccccff"); #background of the
+                          command pane
+
+                          $low_pane_color= qq("#ffffff"); background of the
+                          message window
+
+                          $bar_bg_color=qq("#eeeeff"); background of the command
+                          bar

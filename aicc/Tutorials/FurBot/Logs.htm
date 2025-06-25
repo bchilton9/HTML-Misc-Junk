@@ -1,0 +1,41 @@
+<html>
+<link rel="stylesheet" href="Style.css">
+<head>
+  <title>FurBot Logs</title>
+</head>
+<body>
+<center><font class="tText">Logs With FurBot</font></center>
+<p>
+<font class="bText">
+While reading this tutorial you will hopefully learn  how to use a Log to
+store information. The example in this book stores names  of members of a
+guild. We start by adding an Action and naming it <i>Add Member</i>.  Change
+your If statment to look like the following: <i>If * Whispers me join</i>
+.  Now when anyone whispers the bot 'join' this Action will be triggered.<br>
+<br>
+Now add a statment to the Then box. Choose <i>$LOG: Register (add) record 
+#1 to file #2</i> from the pulldown menu. Type <i>[player]</i> in the first
+box and  type <i>members.txt</i> in the second textbox. Click Update. When
+FurBot creates  a file such as a log it creates the file in the same folder
+as your Furcadia  client (Furcadia.exe) so if you want to look at the file
+you can find it there. Add another statment to the Then box and choose <i>
+Whisper back #1</i> from the pulldown menu. Type <i>You are now a member.</i>
+ in the small textbox. This is a precautionary step to make sure you know
+that the trigger was set off.   
+<p>Click Update. Click Update again. Add another Action and name it <i>Remove 
+ Member</i>. Change your If statement to look like the following: <i>If *
+Whispers  me retire</i>. Now when anyone whispers the bot <i>retire</i> this
+Action will be triggered. Now add a statment to the Then box. Choose <i>$LOG:
+Remove record #1 from file #2</i> from the pulldown menu. Type <i>[player]</i>
+ in the first textbox and type <i>members.txt</i> in the second textbox.
+</p>
+<p>Add yet another statement to the Then box and choose <i>Whisper back #1</i>
+  from the pulldown menu. Type <i>You are no longer a member.</i> in the
+small textbox. Click Update. Click Update again, then Close and Save your
+bot! Now when anyone whispers <i>join</i> to your bot, and they are not already
+a member, the bot will add their name to <i>members.txt</i>. When anyone
+whispers your bot <i>retire</i>, and they are a member, the bot will remove
+their name from <i>members.txt</i>.
+</font>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<HTML>
+<HEAD>
+<TITLE>Random Quote Script Demo</TITLE>
+<BODY>
+<CENTER>
+<B>Random Quote Script Demo</B>
+<P>
+<HR>
+<SMALL><I>Quote:</I></SMALL><BR>
+<!--#include virtual="quote.cgi" -->
+<HR>
+<P>
+Reload page to see another random quote!
+</BODY>
+</HTML>

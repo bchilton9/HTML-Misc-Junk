@@ -1,0 +1,92 @@
+BODY
+{
+    COLOR: #000000;
+    BACKGROUND-COLOR: #ffffff
+}
+A
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+A:visited
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.skill
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    BORDER-LEFT: medium none;
+    COLOR: #000000;
+    BORDER-BOTTOM: medium none;
+    BACKGROUND-COLOR: #5d605d
+}
+.news
+{
+    BORDER-RIGHT: blue ridge;
+    BORDER-TOP: blue ridge;
+    BORDER-LEFT: blue ridge;
+    BORDER-BOTTOM: blue ridge
+}
+.table
+{
+    BORDER-RIGHT: blue outset;
+    PADDING-RIGHT: 4px;
+    BORDER-TOP: blue outset;
+    PADDING-LEFT: 4px;
+    PADDING-BOTTOM: 4px;
+    BORDER-LEFT: blue outset;
+    COLOR: #000000;
+    PADDING-TOP: 4px;
+    BORDER-BOTTOM: blue outset
+}
+.frame
+{
+    BORDER-RIGHT: lightgoldenrodyellow thick inset;
+    BORDER-TOP: lightgoldenrodyellow thick inset;
+    BORDER-LEFT: lightgoldenrodyellow thick inset;
+    COLOR: white;
+    BORDER-BOTTOM: lightgoldenrodyellow thick inset;
+    BACKGROUND-COLOR: black
+}
+A.vist
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A.vist:link
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A.vist:active
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A.vist:visited
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A.vist:hover
+{
+    COLOR: silver;
+    TEXT-DECORATION: underline
+}
+A:link
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+A:active
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    COLOR: gray;
+    TEXT-DECORATION: underline
+}

@@ -1,0 +1,1 @@
+Lumi|Welcome To Freefire!!|04/11/04 - 17:19:37|Welcome to Freefire. Please feel free to look around, Use the forms and messaging system. As of right now your account is set as friend. Once you are verified a a member of Freefire your account will be changed.|

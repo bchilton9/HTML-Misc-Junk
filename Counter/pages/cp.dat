@@ -1,0 +1,10 @@
+This is your control Pannel
+<HR>
+<A HREF="?do=page&page=addnew">Add New Counter</A>
+<HR>
+Curent Counters:<BR>
+<CENTER>
+  <TABLE BORDER BORDERCOLOR="blue" CELLPADDING="2" ALIGN="Center" WIDTH="75%">
+!!counters!!
+  </TABLE>
+</CENTER>

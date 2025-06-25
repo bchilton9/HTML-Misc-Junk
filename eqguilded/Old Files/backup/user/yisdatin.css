@@ -1,0 +1,65 @@
+#body
+ {
+     BACKGROUND-IMAGE: url(http://www.eqguilded.com/images/profilebg.jpg)
+ }
+ #wraper
+ {
+ }
+ #name
+ {
+     BORDER-RIGHT: double;
+     BORDER-TOP: double;
+     FONT-SIZE: xx-large;
+     BORDER-LEFT: double;
+     BORDER-BOTTOM: green;
+     BACKGROUND-COLOR: white;
+     TEXT-ALIGN: center
+ }
+ #lvlclassrace
+ {
+     BORDER-RIGHT: double;
+     BORDER-TOP: medium none;
+     BORDER-LEFT: double;
+     BORDER-BOTTOM: double;
+     BACKGROUND-COLOR: white;
+     TEXT-ALIGN: center
+ }
+ #sendmsg
+ {
+     TEXT-ALIGN: center
+ }
+ A#link
+ {
+     COLOR: black;
+     BACKGROUND-COLOR: white
+ }
+ A#link:hover
+ {
+     COLOR: white;
+     BACKGROUND-COLOR: black
+ }
+ #other1
+ {
+     DISPLAY: none
+ }
+ #other2
+ {
+     DISPLAY: none
+ }
+ #other3
+ {
+     DISPLAY: none
+ }
+ #other4
+ {
+     DISPLAY: none
+ }
+ #other5
+ {
+     DISPLAY: none
+ }
+ #other6
+ {
+     DISPLAY: none
+ }
+

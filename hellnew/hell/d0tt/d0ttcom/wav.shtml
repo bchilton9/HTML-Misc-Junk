@@ -1,0 +1,175 @@
+<HTML>
+<HEAD>
+  <TITLE>DØTT.com: Funny Wavs</TITLE>
+<STYLE>
+     body {cursor: se-resize}
+     A:link {cursor: sw-resize}
+     A:visited {cursor: sw-resize}
+     input {cursor: sw-resize}
+</STYLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff" TEXT="#000000" LINK="#000000" VLINK="#000000">
+<TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+  <TR>
+    <TD><TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+	  <TD><IMG SRC=http://www.d0tt.com/logo.jpg WIDTH=237 HEIGHT=65></TD>
+	  <TD ALIGN=right WIDTH=100%><A HREF=http://www.d0tt.com/ads.shtml><IMG SRC="http://www.d0tt.com/ads.jpg"></A><!--#exec cgi="/cgi-bin/ban/ads.pl" --></TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD><TABLE BORDER=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+	  <TD><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% BGCOLOR="#808080">
+	      <TR>
+		<TD><IMG SRC=http://www.d0tt.com/blueleft.gif WIDTH=16 HEIGHT=25></TD>
+		<TD WIDTH=100%><P ALIGN=Right>
+		  <B> D&Oslash;TT.com: Wavs</B></TD>
+		<TD><IMG SRC=http://www.d0tt.com/blueright.gif WIDTH=16 HEIGHT=25></TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+	<TR>
+	  <TD><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	      <TR>
+		<TD WIDTH=120><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100% BGCOLOR="#c0c0c0">
+		    <TR>
+		      <TD><IMG SRC=http://www.d0tt.com/redleft.gif WIDTH=16 HEIGHT=25></TD>
+		      <TD Width=100%><CENTER>
+			  <B>Wavs</B>
+			</CENTER>
+		      </TD>
+		      <TD><IMG SRC=http://www.d0tt.com/redright.gif WIDTH=16 HEIGHT=25></TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+		<TD><CENTER>
+		    <B>Funny Wavs!!</B>
+		  </CENTER>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD VALIGN=Top><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	<TR>
+	  <TD width=140 VALIGN=Top><BR>
+	    <TABLE BORDER=2 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+	      <TR>
+		<TD VALIGN=Top><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=2 WIDTH=100%>
+		    <TR>
+		      <TD VALIGN=Top BGCOLOR="#808080"><SMALL><B>D&Oslash;TT.com</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><!--#exec cgi="/cgi-bin/ssi/con.cgi" --></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Sub Domains</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><SMALL><A HREF=http://www.d0tt.com/domain.shtml#reg>Register
+			for a domain!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/domain.shtml#edit>Edit existing
+			domain!</A></SMALL><BR>
+			<SMALL><A HREF=http://www.d0tt.com/domain.shtml#Lost>Lost your
+			password?</A></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Links</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><!--#exec cgi="/cgi-bin/ssi/links.cgi" --></A></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#808080"><!--#exec cgi="/cgi-bin/midi/midi.cgi" --></TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	  <TD VALIGN=Top><CENTER>
+	    
+
+<script language="JavaScript1.2">
+<!--
+var head="display:''"
+function doit(header){
+var head=header.style
+if (head.display=="none")
+head.display=""
+else
+head.display="none"
+}
+//-->
+</script>
+<U><B><h3 style="cursor:hand" onClick="doit(document.all[this.sourceIndex+1])">FUNNY WAVS</h3></B></U>
+<span style="display:none" style=&{head};>
+<b><a href="wavs/song015.wav">Cleen Song</a></b><br>
+<b><a href="wavs/mib.wav">Men in brown</b></a><BR>
+<b><a href="wavs/killsdam.wav">Kill Sadamn</b></a><BR>
+<b><a href="wavs/kidshigh.wav">Kids are getin High</b></a><BR>
+<b><a href="wavs/deval.wav">Deavl went to jmaka</b></a><BR>
+<b><a href="wavs/woman.wav">The woman song</b></a><BR>
+</span>
+<U><B><h3 style="cursor:hand" onClick="doit(document.all[this.sourceIndex+1])">PG-13 - WAVS</h3></B></U>
+<span style="display:none" style=&{head};>
+<b><a href="wavs/cinderalla.wav">Snow wight and the 7 notty dorfs</a></b><br>
+<b><a href="wavs/song013.wav">Pubic Hair</a></b><br>
+<b><a href="wavs/song004.wav">3 inch tool</b></a><BR>
+<b><a href="wavs/masterbater.wav">Masterbater</b></a><BR>
+<b><a href="wavs/sexisdandy.wav">Sex is dandy</b></a><BR>
+<b><a href="wavs/strokin.wav">Storken</b></a><BR>
+<b><a href="wavs/dicksnowman.wav">Who put the dick on the snow man</b></a><BR>
+</span>
+<P>
+</TD>
+	  <TD WIDTH="130" VALIGN="Top"><BR><TABLE BORDER CELLSPACING="0" CELLPADDING="0">
+	      <TR>
+		<TD VALIGN=Top><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2">
+		    <TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Advertisments</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><!--#exec cgi="/cgi-bin/ban/ban.pl" --></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Search</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><CENTER><FORM METHOD=POST ACTION="http://www.d0tt.com/cgi-bin/websearch.pl">
+			  <INPUT TYPE="text" NAME="terms" SIZE="15"><BR>
+			  <INPUT TYPE=SUBMIT VALUE="Search">
+			</FORM>
+		      </TD>
+		    </TR>
+		      <TD BGCOLOR="#808080"><SMALL><B>Send this site</B></SMALL></TD>
+		    </TR>
+		    <TR>
+		      <TD BGCOLOR="#afafaf"><FORM ACTION="http://www.d0tt.com/cgi-bin/sendasite.cgi" METHOD="POST">
+  <INPUT TYPE="text" NAME="to" VALUE="There E-Mail" SIZE="15"><BR>
+  <INPUT TYPE="text" NAME="from" VALUE="Your E-Mail" SIZE="15"><BR>
+  <INPUT TYPE="text" NAME="name" VALUE="Your Name" SIZE="15"><BR>
+  <INPUT TYPE="text" NAME="comment" VALUE="Comments" SIZE="15"><BR>
+  <CENTER><INPUT TYPE=submit VALUE="Send">
+</FORM>
+		      </TD>
+		    </TR>
+		  </TABLE>
+		</TD>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</BODY></HTML>

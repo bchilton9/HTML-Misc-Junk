@@ -1,0 +1,204 @@
+<STYLE>
+BODY
+{
+    COLOR: black;
+    TEXT-ALIGN: center
+}
+#wrapper
+{
+    WIDTH: 670px;
+    TEXT-ALIGN: center
+}
+#heading
+{
+    BORDER-RIGHT: black double;
+    BACKGROUND-POSITION: left center;
+    BORDER-TOP: black double;
+    BACKGROUND-IMAGE: url(http://www.eqguilded.com/guildlogo.gif);
+    BORDER-LEFT: black double;
+    WIDTH: 100%;
+    BORDER-BOTTOM: black thin solid;
+    BACKGROUND-REPEAT: no-repeat;
+    TOP: 50%;
+    HEIGHT: 75px;
+    BACKGROUND-COLOR: #c78bff;
+    TEXT-ALIGN: right
+}
+#menuboxborder
+{
+    BORDER-RIGHT: white;
+    BORDER-TOP: white;
+    BORDER-LEFT: white;
+    WIDTH: 220px;
+    PADDING-TOP: 10px;
+    BORDER-BOTTOM: white;
+    HEIGHT: 100%;
+    TEXT-ALIGN: left
+}
+#loged
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+A#menubox
+{
+    FONT-SIZE: smaller;
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#menubox:link
+{
+    FONT-SIZE: smaller;
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#menubox:visited
+{
+    FONT-SIZE: smaller;
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#menubox:hover
+{
+    FONT-SIZE: smaller;
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: none
+}
+#raidpoints
+{
+    FONT-SIZE: smaller;
+    COLOR: white
+}
+#links
+{
+    BORDER-RIGHT: black double;
+    BORDER-TOP: black;
+    BORDER-LEFT: black double;
+    BORDER-BOTTOM: black double;
+    BACKGROUND-COLOR: gray
+}
+A#link
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#link:link
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#link:visited
+{
+    COLOR: white;
+    TEXT-DECORATION: none
+}
+A#link:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-DECORATION: none
+}
+#content
+{
+    COLOR: black
+}
+#news
+{
+}
+#newsname
+{
+    FONT-WEIGHT: bolder;
+    COLOR: black
+}
+#newstext
+{
+    BORDER-RIGHT: inset;
+    BORDER-TOP: inset;
+    BORDER-LEFT: inset;
+    WIDTH: 300px;
+    COLOR: black;
+    BORDER-BOTTOM: inset;
+    HEIGHT: 150px;
+    BACKGROUND-COLOR: white
+}
+#admin
+{
+}
+#adminhr
+{
+    WIDTH: 75%;
+    COLOR: blue
+}
+A#adminlink
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+A#adminlink:link
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+A#adminlink:visited
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+A#adminlink:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: gray;
+    TEXT-DECORATION: none
+}
+#rostertable
+{
+    BORDER-RIGHT: black double;
+    BORDER-TOP: black double;
+    BORDER-LEFT: black double;
+    WIDTH: 650px;
+    BORDER-BOTTOM: black double;
+    BACKGROUND-COLOR: white
+}
+#rostertext
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: larger;
+    COLOR: black;
+    TEXT-ALIGN: center
+}
+A#rostername
+{
+    COLOR: black;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+A#rostername:link
+{
+    COLOR: black;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+A#rostername:visited
+{
+    COLOR: black;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+A#rostername:hover
+{
+    COLOR: white;
+    BACKGROUND-COLOR: black;
+    TEXT-ALIGN: center;
+    TEXT-DECORATION: none
+}
+#rostertext2
+{
+    COLOR: black;
+    TEXT-ALIGN: center
+}
+#rosterhr
+{
+    COLOR: black
+}
+</STYLE>

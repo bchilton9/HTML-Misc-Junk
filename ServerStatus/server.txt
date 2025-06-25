@@ -1,0 +1,54 @@
+#!/usr/bin/perl
+
+################################################################
+##                                                            ##
+##                 Created by Keny Misspeller                 ##
+##                    65 Gnome Magician                       ##
+##                      of Druzzil Ro                         ##
+##                                                            ##
+##              Poor Gnomes Copyright May, 2004               ##
+##                                                            ##
+##         This program is free and has no warranty           ##
+##                                                            ##
+## This program will display the status of Everquest's Server ##
+##  Based on the status at Sony's web site on your web site.  ##
+##                                                            ##
+################################################################
+
+## URL to Sony's server status page
+
+$url = "http://eqlive.station.sony.com/support/network_status.jsp";
+
+## Servers to display status on
+## To add a server add in the name on the list don't forget the marks.
+## Server name must be EXALTY how it is on the server status page.
+## (NOTE: Check the name carefully. Tallon Zek server has a space on the end of it)
+
+@servers = ('Chat Server', 'Druzzil Ro');
+
+###########################
+## NO NEED TO EDIT BELOW ##
+###########################
+
+use CGI qw(param);
+use LWP::Simple;
+
+$page = get($url);
+
+print "Content-type: text/html\n\n";
+
+print "<TABLE BORDER=0 CELLPADDING=2><TR><TD><B>Server</B></TD><TD><B>Status</B></TD></TR>";
+
+foreach $name(@servers) {
+
+    ## This line will need to be changed if Sony changes the server status page.
+    $page =~ /<td><span class="statusName">$name<\/span><\/td>\n<td width="10"><img src="\/images\/spacer.gif" border="0" width="10" height="10"><\/td>\n<td align="right"><span class="statusUp">(.*?)<\/span><\/td>/i;
+
+    if ($1 eq "DOWN") { $color = "red"; }
+    else { $color = "green"; }
+
+    print "<TR><TD>$name</TD><TD><CENTER><FONT COLOR=$color>$1</FONT></CENTER></TD></TR>";
+
+}
+
+print "</TABLE>";

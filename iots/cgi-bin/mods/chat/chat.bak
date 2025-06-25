@@ -1,0 +1,1401 @@
+#!/usr/bin/perl
+
+# Autologout needs to print logout/close window msg to autologout person.
+require "./chat.pl";
+%data = &get_data();
+
+
+$adminname = "Admin";
+$idle_time_min = $idle_timeout;
+$idle_timeout = $idle_timeout * 60;
+$cgi_url = $url_of_chat_cgi;
+$header = $chat_window_header;
+$footer = $chat_window_footer;
+if($chat_in_new_window eq "yes"){ 
+$js_functions = "
+<script language=Javascript>
+function chat_newWin () {
+
+  var color;
+  var t_color = document.chatLoginForm.color;
+  if(t_color[0].checked){color = t_color[0].value;}
+  if(t_color[1].checked){color = t_color[1].value;}
+  if(t_color[2].checked){color = t_color[2].value;}
+  if(t_color[3].checked){color = t_color[3].value;}
+  if(t_color[4].checked){color = t_color[4].value;}
+  if(t_color[5].checked){color = t_color[5].value;}
+  if(t_color[6].checked){color = t_color[6].value;}
+  if(t_color[7].checked){color = t_color[7].value;}
+  if(t_color[8].checked){color = t_color[8].value;}
+  if(t_color[9].checked){color = t_color[9].value;}
+  var CHTurl = '$cgi_url?Login=' + document.chatLoginForm.Login.value; 
+      CHTurl += '&Password=' + document.chatLoginForm.Password.value;
+      CHTurl += '&FA=Login&color=' + color;
+  window.open(CHTurl,'chatWin','width=$chat_window_width,height=$chat_window_height,toolbar=no,scrollbars=no,resizable=yes,status=no,directories=no,menubar=no,location=no');
+
+top.window.close();
+
+  return false;
+
+}
+</script>
+";
+
+
+$login_cgi_url = "onSubmit=\"return chat_newWin();\"";
+$target = "chatWin"; 
+
+}
+else{ $target = "cwindow"; }
+# Turn debugging off if we're printing the frameset for the chat. Otherwise
+# we have problems showing it.
+if($data{'FA'} eq "Login"){$debugging = 0;}
+if($data{'Login'} eq "$admin_login" && $data{'Password'} eq "$admin_password"){
+   $i_am_admin = 1;
+   }
+&process_lang;
+$msg_debug1 = &trans_subst($msg_debug1,"%OPERATINGSYSTEM%",$^O);
+&debug("$msg_debug1") if $^O ne "";
+$msg_debug2 = &trans_subst($msg_debug2,"%SERVERSOFTWARE%",$ENV{'SERVER_SOFTWARE'});
+&debug("$msg_debug2") if $ENV{'SERVER_SOFTWARE'} ne "";
+unless(-f $path_to_chat_file){
+  $msg_debug3 = &trans_subst($msg_debug3,"%PATH_TO_CHAT_FILE%",$path_to_chat_file);
+  &debug("$msg_debug3");
+  }
+unless(-f $path_to_active_users){
+  $msg_debug4 = &trans_subst($msg_debug4,"%PATH_TO_ACTIVE_USERS%",$path_to_active_users);
+  &debug("$msg_debug4");
+  }
+if($log_all_chats eq "yes"){
+   unless(-d $log_directory){
+      $msg_debug5 = &trans_subst($msg_debug5,"%LOG_DIRECTORY%",$log_directory);
+      &debug("$msg_debug5");
+      $log_all_chats = "no";
+   }
+}
+
+# If you remove this link, without replacing it with a similar
+# HTML comment (as above in the Licensing section) you are in violation
+# of the license for this program. No, I don't have the resources to
+# enforce this, and I know that some people will remove it anyway.
+# But honestly, since you didn't have to pay for this, is the link
+# really too much to ask? :)
+
+
+$msg_debug6 = &trans_subst($msg_debug6, "%PATH_TO_ACTIVE_USERS", $path_to_active_users);
+$msg_debug7 = &trans_subst($msg_debug7, "%PATH_TO_ACTIVE_USERS", $path_to_active_users);
+$msg_debug8 = &trans_subst($msg_debug8, "%PATH_TO_CHAT_FILE", $path_to_chat_file);
+$msg_debug9 = &trans_subst($msg_debug9, "%PATH_TO_CHAT_FILE", $path_to_chat_file);
+
+#$login = $data{'Login'}; 
+#$password = $data{'Password'}; 
+#if($disable_special_characters_in_login == 1){
+# Take out all non-word characters
+#   $ok_login_chars = 'A-Za-z0-9-_.';
+#  $login =~ s/[^$ok_login_chars]//g;
+#   }
+#else {
+# Take out just characters that will mess up the program.
+# Thanks to James Brown for the bug report and regexp. :-)
+#   $login =~ s/[()|\[\]']//g;
+#   $login =~ s/\"/&quot;/g;
+#   $login =~ s/>/&gt;/g; $login =~ s/</&lt;/g;
+#   }
+$time = time + ($server_time_offset * 60 * 60);
+
+# Handle sound, if any.
+
+if($play_sound_when_entering eq "yes" && $url_of_sound_file =~ /http:\/\//){
+   $embedsnd = "<embed src=\"$url_of_sound_file\" AUTOSTART=\"true\" HIDDEN=\"true\">";
+   }
+
+
+if($ENV{'REMOTE_HOST'} ne ""){ $remotehost = $ENV{'REMOTE_HOST'}; }
+else { $remotehost = $ENV{'REMOTE_ADDR'}; }
+
+# This just updates the number of users frame...
+if($data{'FA'} eq "ShowUsers"){
+   &show_users_online;
+   exit();
+   }
+elsif($data{'FA'} eq "Logout"){
+   &logout;
+   }
+elsif($data{'FA'} eq "Register"){
+   &register;
+   }
+elsif($data{'FA'} eq "Login"){
+   # Check if they are banned.
+   &check_banned_ip;
+   &authenticate;
+   &print_frameset;
+   }
+elsif($data{'FA'} eq "ChatMenu"){
+   # Check if they are banned.
+   &check_banned_ip;
+   &authenticate;
+   &print_chat_menu;
+   }
+elsif($data{'FA'} eq "LoginScreen"){
+   # Check if they are banned.
+   #&check_banned_ip;
+   &loginscreen;
+   }
+elsif($data{'FA'} eq "Talk"){
+   # Check if they are banned.
+   &check_banned_ip;
+   &authenticate;
+   &talk;
+   }
+else {
+   # Print a default error message.
+   &pct;
+   print "$header
+          Error: Invalid action
+          $footer";
+   exit();
+}
+sub print_chat_menu {
+  $msg_text3 = &trans_subst($msg_text3,"%LOGIN%",$login);
+  &pct;
+  print "$form_window_header
+	<center>
+        <table border=0 cellpadding=0 cellspacing=3 class=\"pagetable\" WIDTH=100%>
+	 <tr>
+	  <td colspan=2>
+	   <B>$msg_text3</B></td></tr>
+	   <base target=\"listen\">
+	  <tr><td valign=top>
+
+         <form name=TalkForm onSubmit=\"document.TalkForm.Sez.value=document.TalkForm.Sez2.value;document.TalkForm.Sez2.value='';document.TalkForm.Sez2.focus();\" action=\"$url_of_chat_cgi\" method=\"POST\">
+	   <input type=hidden name=Login value=\"$login\">
+	   <input type=hidden name=Password value=\"$password\">
+	   <input type=hidden name=FA value=Talk>
+	   <input type=hidden name=color value=\"$data{'color'}\">
+
+	   <input type=text name=\"Sez2\" size=45><input class='button' tabindex=1 type=\"submit\" value=\"Send\">
+
+	   <input type=hidden name=\"Sez\" size=45>
+<input class='button' type=reset value=\"$msg_text5\">
+	     
+</form>
+</td>
+	  <td align=right>
+
+	   <table border=0>
+	    <tr>
+	     <form target=$target action=\"$url_of_chat_cgi\" method=\"POST\">
+	     <td>
+	      <base target=\"$target\">
+	      <input type=hidden name=Login value=\"$data{'Login'}\">
+	      <input type=hidden name=Logout value=\"yes\">
+	      <input type=hidden name=FA value=\"Logout\">
+	      <input type=hidden name=color value=\"$data{'color'}\">
+	      <input class='button' type=submit value=\"$msg_text1\"></td>
+	     </form>
+	    </tr>
+	   </table>
+<P>
+	  </td>
+	 </tr>
+	</table>
+	$form_window_footer";
+
+exit();
+}
+
+
+sub loginscreen {
+
+  &pct;
+  print "$form_window_header
+        $msg
+        $js_functions
+	<base target=$target> 
+	<form name=chatLoginForm $login_cgi_url action=\"$url_of_chat_cgi\" method=\"POST\">
+	<CENTER>
+        <table border=0>
+	<tr><td><b>$msg_text14 $username</b></td>
+        <td><input type=hidden name=Login value=$login size=25></td></tr>
+<!--	<tr><td><b>$msg_text56</b></td>//-->
+        <td><input type=hidden name=Password value=$password size=25></td></tr>
+        </table>
+	$msg_text15
+	<table border=0>
+  <tr>
+   <td bgcolor=#000000>&nbsp;<input type=radio name=color value=000000 CHECKED>&nbsp;</td>
+   <td bgcolor=#B5A642>&nbsp;<input type=radio name=color value=B5A642>&nbsp;
+   </td>
+   <td bgcolor=#5c3317>&nbsp;<input type=radio name=color value=5c3317>&nbsp;
+   </td>
+   <td bgcolor=#FF00FF>&nbsp;<input type=radio name=color value=FF00FF>&nbsp;
+   </td>
+   <td bgcolor=#800080>&nbsp;<input type=radio name=color value=800080>&nbsp;
+   </td>
+   <td bgcolor=#004080>&nbsp;<input type=radio name=color value=004080>&nbsp;
+   </td>
+   <td bgcolor=#008080>&nbsp;<input type=radio name=color value=008080>&nbsp;
+   </td>
+   <td bgcolor=#FF7F00>&nbsp;<input type=radio name=color value=FF7F00>&nbsp;
+   </td>
+   <td bgcolor=#FF0000>&nbsp;<input type=radio name=color value=FF0000>&nbsp;
+   </td>
+   <td bgcolor=#0000FF>&nbsp;<input type=radio name=color value=0000FF>&nbsp;
+   </td>
+   </tr>
+<TR>
+<td colspan=10><CENTER>
+<input type=hidden name=FA value=Login>
+<input class='button' type=submit value=\"$msg_text16\">
+</TD>
+</TR>
+   </table>
+
+</form>
+   $form_window_footer";
+   exit();
+}
+
+sub talk {
+
+  &get_date('',$time_format);
+  $data{'Sez'} =~ s/^\s+//g; $data{'Sez'} =~ s/\s+$//g;
+  $data{'Sez2'} =~ s/^\s+//g; $data{'Sez2'} =~ s/\s+$//g;
+  if($data{'Sez'} eq ""){$data{'Sez'} = $data{'Sez2'};}
+
+  open(CHATTERS, "<$path_to_active_users") || 
+    &debug("$msg_debug6 $!");
+    $ison = (grep(/^$login\|/, <CHATTERS>))[0];
+  close(CHATTERS);
+  $ison =~ s/\s+$//g;
+  if($ison ne ""){ $loggedin = 1; }
+  if($loggedin != 1){
+  # If not, add to chatters. 
+     open(CHATTERS, ">>$path_to_active_users") || 
+     &debug("$msg_debug7 $!");
+     if($^O !~ /win/i){
+       flock(CHATTERS, 2);
+       }
+     else {
+       binmode(CHATTERS);
+       }
+       seek(CHATTERS, 0, 2);
+       
+     print CHATTERS "$login|$remotehost|$time|$data{'color'}\n";
+       
+     if($^O !~ /win/i){ flock(CHATTERS, 8); }
+     close(CHATTERS);
+     
+     }
+  # If so, update time.
+  else {
+       ($f_login,$f_remote,$f_time,$f_color) = split(/\|/, $ison);
+        $time = time + ($server_time_offset * 60 * 60);
+	open(CHATTERS, "+<$path_to_active_users") ||
+	  &debug("$msg_debug7 $!");
+        if($^O !~ /win/i){
+	 flock(CHATTERS, 2);
+	 }
+        else{
+          binmode(CHATTERS);
+          }
+	@chatters = <CHATTERS>;
+        
+	foreach $chatter (@chatters){
+          $chatter =~ s/\s+$//g;
+          if($chatter =~ /^$f_login\|/){
+             $nchatter .= "$f_login|$f_remote|$time|$f_color\n";
+             }
+          else {
+             $nchatter .= "$chatter\n";
+             }
+          }
+	truncate(CHATTERS, length($nchatter));
+	# Rewind to the beginning of the file...
+	seek(CHATTERS, 0, 0);
+	print CHATTERS $nchatter;
+	close(CHATTERS);
+        &check_idle_timeouts;
+  }
+  if($data{'Sez'} eq ""){$text = "&lt;$msg_text6&gt;";} 
+  elsif($data{'Sez'} eq "/1"){$text = "$msg_text81";} 
+    elsif($data{'Sez'} eq "/2"){$text = "$msg_text82";} 
+      elsif($data{'Sez'} eq "/3"){$text = "$msg_text83";} 
+        elsif($data{'Sez'} eq "/4"){$text = "$msg_text84";} 
+          elsif($data{'Sez'} eq "/5"){$text = "$msg_text85";} 
+            elsif($data{'Sez'} eq "/6"){$text = "$msg_text86";} 
+              elsif($data{'Sez'} eq "/7"){$text = "$msg_text87";} 
+                elsif($data{'Sez'} eq "/8"){$text = "$msg_text88";} 
+                  elsif($data{'Sez'} eq "/9"){$text = "$msg_text89";} 
+  else { $text = $data{'Sez'}; }
+  if($loggedin != 1){
+    if($show_user_address eq "yes"){
+       $msg_text18 = &trans_subst($msg_text18,"%REMOTEHOST%",$remotehost); 
+       $text = "&lt;$msg_text18.$embedsnd&gt; $text";
+       }
+    else{ 
+       $text = "&lt;$msg_text19.$embedsnd&gt; $text"; 
+       }
+    }
+  # Add to chat file.
+
+  &write_to_chat_file($login,$remotehost,$text,"");
+  
+  # Now display it...
+  # Get the contents of that file into a variable.  Could also have used
+  # $file = `cat list.html`; but it's better to avoid this, as it doesn't
+  # work on all systems if the systems don't have "cat".
+
+  open(FILE, "<$path_to_chat_file") || 
+  &debug("$msg_debug8 $!"); 
+  &pct;
+  while(<FILE>){ print;} 
+  close(FILE); 
+  $/="\n";
+  exit();
+}
+
+
+
+sub get_date {
+
+   my($testtime,$timefmt,$twodigityear);
+   if($_[0] eq ""){$testtime = time + ($server_time_offset * 60 * 60);}
+   else{$testtime = $_[0];}
+   if($_[1] ne ""){$timefmt = $_[1];}
+   else {$timefmt = "MM/DD/YY HH:MN:SS";}
+
+   my ($sec,$min,$hour,$mday,$mon,$year) = (localtime($testtime))[0,1,2,3,4,5];
+   $mon = $mon + 1;
+   if ($hour < 10) { $hour = "0$hour"; }
+   if ($min < 10) { $min = "0$min"; }
+   if ($sec < 10) { $sec = "0$sec"; }
+   $year += 1900; $twodigityear = $year; $twodigityear =~ s/(\d\d)(\d\d)/$2/;
+   $timefmt =~ s/MM/$mon/g; $timefmt =~ s/DD/$mday/g; 
+   $timefmt =~ s/YYYY/$year/g;
+   $timefmt =~ s/YY/$twodigityear/g;
+   $timefmt =~ s/HH/$hour/g;
+   $timefmt =~ s/MN/$min/g;
+   $timefmt =~ s/SS/$sec/g;
+   $date = "$timefmt";
+   $date;
+}
+
+sub show_users_online {
+
+&pct;
+
+&check_idle_timeouts;
+
+print "<HTML>
+<HEAD>
+<META HTTP-EQUIV=\"PRAGMA\" CONTENT=\"NO-CACHE\">
+<META HTTP-EQUIV=Refresh Content=\"15;URL=$url_of_chat_cgi?FA=ShowUsers\">
+<META HTTP-EQUIV=\"Expires\" CONTENT=\"0\">
+<link rel=stylesheet href=$themesurl/$usertheme/style.css type=text/css>
+ </head>\n<body class=\"pagetable\">
+<CENTER>
+
+";
+
+$users_online .= "<table border=1 class=menubackcolor>
+       <tr><th class=cat>$msg_text2</th><th class=cat>$msg_text7</th></tr>\n";
+
+open(FILE, "<$path_to_active_users") || 
+ &debug("$msg_debug6 $!");
+ @clines = <FILE>;
+ foreach $cline (@clines){
+
+   ($show_user,$show_remote_host,$time_on,$color)=split(/\|/, $cline);
+   ($show_user,$blah) = &check_badwords($show_user,"blah");
+   $date = &get_date($time_on,$time_format);
+   chomp($color);
+   $color =~ s/\s+$//g;
+   if ($show_user eq "admin") { $show_user = $adminname; }
+   $users_online .= "<tr><td class=cat><font color=\"#$color\">$show_user</font></td>
+	  <td><font size=-2><font color=\"#$color\">$date</font></font></td></tr>\n";
+   $found_users = $found_users + 1;
+	  }
+close(FILE);
+
+$users_online_header = "<html><head><link rel=stylesheet href=$themesurl/$usertheme/style.css type=text/css> </head>\n<body class=\"menutable\"></head>
+       $msg_text8<br><br>\n";
+  if($found_users == 0){
+     $users_online .= "<tr><td colspan=2 class=cat>$msg_text9</td></tr>\n";
+     if($clear_chatroom_when_empty == 1){
+          &clear_chatroom;
+       }
+     }
+  else{
+     if($found_users == 1){
+	$user_s = "$msg_text10";
+	}
+     else{
+	$user_s = "$msg_text11";
+        $user_s =~ s/%NUMUSERS%/$found_users/;
+	}
+     $kphdate = &get_date('',$time_format);
+
+
+     print "<html><head><title>$msg_text8</title><link rel=stylesheet href=$themesurl/$usertheme/style.css type=text/css> </head>\n<body class=\"menutable\">
+
+	    <tr><td colspan=2 class=cat><center>$user_s<br>
+	    $msg_text12: <br> $kphdate</center>
+	    </td></tr>\n";
+
+print "<P><a target=\"show\" href=\"$url_of_chat_cgi?FA=ShowUsers\"><font size=-1 COLOR=white>[&nbsp;$msg_text13&nbsp;]</font></a><P>";
+
+        }
+  $msg_text13 =~ s/\s+/&nbsp;/g;
+  print "$users_online</table></body></html>";
+
+}
+
+
+sub get_data {
+    local($string);
+
+    # get data
+    if ($ENV{'REQUEST_METHOD'} eq 'GET') {
+        $string = $ENV{'QUERY_STRING'};
+    }				
+    else { read(STDIN, $string, $ENV{'CONTENT_LENGTH'}); }
+
+    # split data into name=value pairs
+    @data = split(/&/, $string);
+   
+    # split into name=value pairs in associative array
+    foreach (@data) {
+	split(/=/, $_);
+	$_[0] =~ s/\+/ /g; # plus to space
+        $_[0] =~ s/%0D%0A%0D%0A/\n\n/g; #added by kristina make newlines?
+        $_[0] =~ s/%0a/newline/g;
+        $_[0] =~ s/\%00//g;
+	$_[0] =~ s/%(..)/pack("c", hex($1))/ge; # hex to alphanumeric
+	if(defined($data{$_[0]})){ 
+	   $data{$_[0]} .= "\0";
+	   $data{$_[0]} .= "$_[1]";
+	   }
+	else {
+	$data{"$_[0]"} = $_[1];
+	  }
+    }
+    # translate special characters
+    foreach (keys %data) {
+	$data{"$_"} =~ s/\+/ /g; # plus to space
+	$data{"$_"} =~ s/%(..)/pack("c", hex($1))/ge; # hex to alphanumeric
+        $data{"$_"} =~ s/\%00//g;
+    }
+
+    %data;			# return associative array of name=value
+}
+
+sub debug {
+
+if($debugging == 1){
+  &pct;
+  print "$msg_debug0: $_[0]<br>\n";
+  }
+}
+
+sub pct {
+# Just prints the mime header if we need to.
+  print "Content-type: text/html\n\n" if $pct != 1;
+  $pct = 1;
+
+}
+sub print_frameset {
+
+# Subroutine to just draw the frameset on login:
+# I need to have $login
+&pct;
+
+ open(CHATTERS, "<$path_to_active_users") || 
+ &debug("$msg_debug6 $!");
+ $isloggedon = (grep(/^$login\|/, <CHATTERS>))[0];
+ close(CHATTERS);
+
+if($login eq "" || $login =~ /^\s+$/){
+   $msg_text20 = &trans_subst($msg_text20,"%LOGIN%",$login);
+   $msg_text20 = &trans_subst($msg_text20,"%REFERER%",$ENV{'HTTP_REFERER'});
+   print "$header $msg_text20 $footer";
+   exit();
+   }
+elsif($isloggedon ne ""){
+   $msg_text21 = &trans_subst($msg_text21,"%LOGIN%",$login);
+   $msg_text21 = &trans_subst($msg_text21,"%REFERER%",$ENV{'HTTP_REFERER'});
+   print "$header $msg_text21 $footer";
+   exit();
+   }
+$encpw = encodepw($data{'Password'});
+print <<EOF;
+       <html>
+<head>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Begin
+function leave() {
+window.open('http://www.eqguilded.com/freefire/cgi-bin/mods/chat/chat.cgi?Login=$login&Logout=yes&FA=Logout','','toolbar=no,menubar=no,location=no,height=25,width=100');
+}
+// End -->
+</SCRIPT>
+
+<title>Chat!</title>
+</head>
+
+
+
+<FRAMESET rows="*,60" border=0 onUnload="leave()">
+  <FRAMESET cols="80%,*" border=0>
+    <FRAMESET ROWS="3%,97%" scrolling=no>
+      <FRAME SRC="http://www.eqguilded.com/freefire/blank.html" SCROLLING="No" NORESIZE>
+      <FRAMESET COLS="3%,97%" scrolling=no>
+	<FRAME SRC="http://www.eqguilded.com/freefire/blank.html" SCROLLING="No" NORESIZE>
+	<FRAME src="$url_of_chat_file" name="listen" scrolling=no>
+      </FRAMESET>
+    </FRAMESET>
+    <FRAME src="$ENV{'SCRIPT_NAME'}?FA=ShowUsers" name="show" scrolling=no>
+  </FRAMESET>
+  <FRAME src="$ENV{'SCRIPT_NAME'}?FA=ChatMenu&amp;Login=$login&amp;color=$data{'color'}&amp;Password=$encpw"
+  name="talk" scrolling=no>
+</FRAMESET>
+
+       $footer
+EOF
+
+
+#onUnload="window.location='$ENV{'SCRIPT_NAME'}?FA=Logout&Login=$login'"
+
+ open(CHATTERS, ">>$path_to_active_users") || 
+ &debug("$msg_debug7 $!");
+ if($^O !~ /win/i){flock(CHATTERS, 2);}
+ else{ binmode(CHATTERS);}
+ seek(CHATTERS, 0, 2); 
+
+ print CHATTERS "$login|$remotehost|$time|$data{'color'}\n";
+ if($^O !~ /win/i){flock(CHATTERS, 8); }
+ close(CHATTERS);
+ $msg_text18 = &trans_subst($msg_text18,"%REMOTEHOST%",$remotehost); 
+ if($show_user_address eq "yes"){
+    $text = "&lt;$msg_text18$embedsnd&gt;";
+    }
+ else{ $text = "&lt;$msg_text19$embedsnd&gt;"; }
+ &write_to_chat_file($login,$remotehost,"$text");
+
+       exit();
+
+}
+
+
+sub logout {
+
+ open(FILE, "+<$path_to_active_users") ||
+  &debug("$msg_debug6 $!"); 
+ binmode(FILE);
+  @lines = <FILE>;
+ if($^O !~ /win/i){flock(FILE, 2);}
+
+ foreach $line (@lines){
+   $line =~ s/\s+$//g;
+   if($line !~ /^$login\|/){
+      $nfile .= "$line\n";
+      }
+   }
+ truncate(FILE, length($nfile));
+ seek(FILE, 0, 0);
+ print FILE "$nfile";
+ close(FILE);
+ &write_to_chat_file($login,$remotehost,"&lt;$msg_text22&gt;") 
+  if $data{'color'} ne "";
+ if(length($nfile) == 0 && $clear_chatroom_when_empty == 1){
+   &clear_chatroom;
+   }
+
+ print "Location: $chat_goodbye_url\n\n";
+ exit();
+
+}
+
+sub write_to_chat_file {
+
+my($login) = $_[0];
+my($ip) = $_[1];
+my($message) = $_[2];
+my($js_stuff) = $_[3];
+my($text) = $_[2];
+my($date) = &get_date('',$time_format);
+
+if($play_sound_when_entering eq "yes" && $text =~ /\Q$embedsnd\E/){
+   $playsound = 1;
+   }
+
+  undef $/; 
+  open(FILE, "+<$path_to_chat_file") || 
+   &debug("$msg_debug9 $!");
+  # Try to open a file that holds the statements everyone has been making
+  # and lock it...
+  if($^O !~ /win/i){
+   flock(FILE, 2);
+   }
+  else{
+    binmode(FILE);
+    }
+
+ # We assume that there is <!-- Statement --> between each "statement" 
+ # because we put it there. :)
+
+    @entries = split("<!-- Statement -->", <FILE>); 
+
+# Now, we can get any entry in "@entries" by calling them by number.
+# this way, we can print only $number_of_chats_to_display to the file later.
+
+# Now, we've opened the file, but let's make sure it refreshes the next time.
+
+      $newhtml = "<HTML><HEAD><META HTTP-EQUIV=\"PRAGMA\" Content=\"NO-CACHE\">
+	     <META HTTP-EQUIV=Refresh Content=\"$refresh_time;URL=$url_of_chat_file\">
+	     $chat_window_header
+	     <!-- center><table border=1 width=100%>
+	     <tr><td --><!-- Statement -->";
+
+# Don't allow them to put in html code if we don't want them to...
+   if($disable_html == 1 && $playsound != 1){
+      $login =~ s/</&lt;/g; $login =~ s/>/&gt;/g;
+      $text =~ s/</&lt;/gs; $text =~ s/>/&gt;/gs;
+      }
+
+  $clogin = $login; $ctext = $text;
+
+if ($clogin eq "admin") { 
+$cshow = $adminname;
+ }
+else {
+$cshow = $clogin;
+}
+
+# Check for "bad words". :)
+  ($clogin,$ctext) = &check_badwords($clogin,$ctext);
+  
+# must get rid of " in the message...
+# Make their message in a happy color with date and stuff...
+# See if they did "/me" or "/login" and treat that accordingly.
+
+   if($ctext =~ /^\/me/i || $ctext =~ /^\/$login/i){
+      $ctext =~ s/^\/me//;
+      $ctext =~ s/^\/$login//;
+      $ctext = "[$date] <font color=\"#$data{'color'}\"><strong>$cshow $ctext</strong></font><br>";
+      }
+   elsif($ctext =~ /^\/$msg_text23/i){
+      $ctext =~ s/^\/$msg_text23//i;
+      $ctext =~ s/^\s+//ig;
+      $ctext =~ tr/[a-z]/[A-Z]/;
+      $msg_text24 = &trans_subst($msg_text24,'%LOGIN%',$clogin);
+      $ctext = "[$date] <font color=\"#$data{'color'}\"><strong>$msg_text24 \"$ctext\"</strong></font><br>";
+
+
+
+   }
+# Trying settings
+   elsif($ctext =~ /^\/$msg_text40/i){
+      $unique = $$;
+      $fname = $login; $fname =~ s/\W+//g;
+      if($show_settings_to_user == 1){
+      if($disable_special_characters_in_login == 1){$cdisspl = "$msg_text25";}
+      else{$cdisspl = "$msg_text26";}
+      if($disable_html == 1){ $cdisable_html = "$msg_text25"; }
+      else { $cdisable_html = "$msg_text26"; }
+      if($clear_chatroom_when_empty == 1){ $emptyout = "$msg_text26"; }
+      else { $emptyout = "$msg_text25"; }
+      if($log_all_chats eq "yes"){ $clogging = "$msg_text26"; }
+      else { $clogging = "$msg_text25"; }
+      if($show_user_address eq "yes"){ $showaddr = "$msg_text26"; }
+      else { $showaddr = "$msg_text25"; }
+      if($censor_chat == 1){$ccensor = "$msg_text26";}
+      else{$ccensor = "$msg_text25";}
+      $ctext = "\n<script language=\"JavaScript\">
+      write${unique}settingsto$fname();
+      function write${unique}settingsto$fname () {
+	if(parent.talk == null){return;}
+	if(parent.talk.document == null){return;}
+	if(parent.talk.document.TalkForm == null){return;}
+	if(parent.talk.document.TalkForm.Login == null){return;}
+      if(parent.talk.document.TalkForm.Login.value == \"$clogin\"){
+	document.write(\"<table border=0><tr><td colspan=2><strong>$msg_text27</strong></td></tr><tr><td><b>$msg_text28</b></td><td>$cdisable_html</td></tr><tr><td><b>$msg_text29</b></td><td>$number_of_chats_to_display</td></tr><tr><td><b>$msg_text30</b></td><td>$emptyout</td></tr><tr><td><b>$msg_text31</b></td><td>$clogging</td></tr><tr><td><b>$msg_text32</b></td><td>$refresh_time $msg_text33</td></tr><tr><td><b>$msg_text34</b></td><td>$idle_time_min $msg_text35</td></tr><tr><td><b>$msg_text36</b></td><td>$showaddr</td></tr><tr><td><b>$msg_text37</b></td><td>$cdisspl</td></tr><tr><td><b>$msg_text38</b></td><td>$ccensor</td></tr></table>\");
+       }
+       return;
+      }
+      </script>\n";
+      }
+      else {
+	$msg_text39 = &trans_subst($msg_text39,"%SETTINGS%",$msg_text40);
+        $ctext = "\n<script language=\"JavaScript\">
+        write${unique}settingsto$fname();
+        function write${unique}settingsto$fname () {
+	if(parent.talk == null){return;}
+	if(parent.talk.document == null){return;}
+	if(parent.talk.document.TalkForm == null){return;}
+	if(parent.talk.document.TalkForm.Login == null){return;}
+        if(parent.talk.document.TalkForm.Login.value == \"$clogin\"){
+	document.write(\"$msg_text39<br>\");
+         }
+        return;
+        }
+        </script>\n";
+        }
+      }
+   elsif($ctext =~ /^\/$msg_text57 /i){
+      &kick;
+   }
+   elsif ($ctext =~ /^\/$msg_text58 /){
+       $ctext =~ s/^\/$msg_text58 /\/$msg_text57 /;
+       &kick;
+        if($i_am_admin == 1 && $found_kickee_online == 1){
+           open(BIP, ">>$path_to_banned_ip_file") || &debug("$msg_debug13: $!");
+           if($^O !~ /win/){ flock(BIP, 2); }
+           print BIP "$iptb\n" if $iptb ne "";
+           print BIP "$tologin\n" if $tologin ne "";
+           close(BIP);
+           $ctext .= "[$date] <strong>$tologin:</strong><font size=-1 color=\"#$data{'color'}\">$msg_text66 ($iptb)</font><br>";
+           }
+     
+   }
+   elsif ($ctext =~ /^\/$msg_text59/){
+      $unique = $$;
+      if($i_am_admin == 1){
+          if($ctext eq "/$msg_text59"){
+		# Show them what names, addys are banned.
+		open(BIP, "<$path_to_banned_ip_file") || &debug("$msg_debug12: $!");
+		while(<BIP>){
+			chomp;
+			$banned .= "$_<br>";
+			}
+		close(BIP);
+       		$ctext = "\n<script language=\"JavaScript\">
+        	write${unique}${admin_login}msg();
+        	function write${unique}${admin_login}msg () {
+			if(parent.talk == null){return;}
+			if(parent.talk.document == null){return;}
+			if(parent.talk.document.TalkForm == null){return;}
+			if(parent.talk.document.TalkForm.Login == null){return;}
+        		if(parent.talk.document.TalkForm.Login.value == \"$admin_login\"){
+			document.write(\"<b>$msg_text67</b><br>$banned\");
+         		}
+        	return;
+        	}
+        	</script>\n";
+		}
+	else {
+		($unban,$pattern) = split(/\s+/, $ctext);
+		open(BIP, "+<$path_to_banned_ip_file") || &debug("$msg_debug13 $!");
+ 		if($^O !~ /win/i){flock(BIP, 2);}
+                else { binmode(BIP); }
+		@bips = <BIP>;
+		foreach $bip (@bips){
+			chomp($bip);
+			if($bip ne $pattern){
+				$newbipfile .= "$bip\n";
+				}
+			}
+		truncate(BIP, length($newbipfile));
+		seek(BIP, 0, 0);
+		print BIP $newbipfile;
+		close(BIP);
+       		$ctext = "\n<script language=\"JavaScript\">
+        	write${unique}${admin_login}msg();
+        	function write${unique}${admin_login}msg () {
+			if(parent.talk == null){return;}
+			if(parent.talk.document == null){return;}
+			if(parent.talk.document.TalkForm == null){return;}
+			if(parent.talk.document.TalkForm.Login == null){return;}
+        		if(parent.talk.document.TalkForm.Login.value == \"$admin_login\"){
+			document.write(\"<b>[SYSTEM: $pattern $msg_text68]</b><br>\");
+         		}
+        	return;
+        	}
+        	</script>\n";
+		}
+	  }
+
+   }
+
+      
+   elsif($ctext =~ /^\/msg/i || $ctext =~ /^\/$msg_text41/i){
+      $ctext =~ s/\"/\\\"/g;
+      $unique = $$;
+      $fname = $login; $fname =~ s/\W+//g;
+      $ctext =~ s/^\/msg//i;
+      $ctext =~ s/^\/$msg_text41//i;
+      $tologin = $ctext; 
+      $tologin =~ s/^\s+//g;$tologin =~ s/\s+$//g;
+      $tologin =~ s/(.*?)(\s+)(.*)/$1/;
+      $tomsg = $ctext; 
+      $tomsg =~ s/^\/msg $tologin//;
+      $tomsg =~ s/^\s+$tologin//;
+      $tomsg =~ s/^$tologin//;
+      $pvtmsgfrom = &trans_subst($msg_text42,"%LOGIN%",$clogin);
+      $pvtmsgto = &trans_subst($msg_text43,"%LOGIN%",$tologin);
+      $ctext = "\n<script language=\"JavaScript\">
+      write${unique}msg();
+      function write${unique}msg () {
+	if(parent.talk == null){return;}
+	if(parent.talk.document == null){return;}
+	if(parent.talk.document.TalkForm == null){return;}
+	if(parent.talk.document.TalkForm.Login == null){return;}
+        if(parent.talk.document.TalkForm.Login.value == \"$tologin\"){
+	  var text${unique} = \"<table border=0><tr><td>[$date] <font size=-1 color=\\\"#$data{'color'}\\\">\";
+	  text${unique} = text${unique} + \"<strong> \\[$pvtmsgfrom\\]\";
+	  text${unique} = text${unique} + \"$tomsg\";
+	  text${unique} = text${unique} + \"</strong></font></td></tr></table>\";
+	  document.write(text${unique});
+        }
+        if(parent.talk.document.TalkForm.Login.value == \"$clogin\"){
+	  var text${unique} = \"<table border=0><tr><td>[$date] <font size=-1 color=\\\"#$data{'color'}\\\">\";
+	  text${unique} = text${unique} + \"<strong> \\[$pvtmsgto\\]\";
+	  text${unique} = text${unique} + \"$tomsg\";
+	  text${unique} = text${unique} + \"</strong></font></td></tr></table>\";
+	document.write(text${unique});
+	}
+       return;
+      }
+      </script>";
+   }
+   elsif($ctext =~ /^\/$msg_text44/i){
+      $ctext =~ s/\"/\\\"/g;
+      $unique = $$;
+      $fname = $login; $fname =~ s/\W+//g;
+      $ctext =~ s/^\/$msg_text44//i;
+      $msg_text50 =~ s/\"/\\\"/g;
+      $lcmessagetext = lc($msg_text47);
+      $ucmessagetext = uc($msg_text47);
+      $msg_text51 =~ s/\"/\\\"/g;
+      if($i_am_admin == 1){
+	$adm_help_text = "<tr><td colspan=2 align=center><font size=-1><b>$msg_text65</b></td></tr><tr><td><b>/$msg_text58 &lt;login&gt;</b></td><td>$msg_text60</td></tr><tr><td><b>/$msg_text59</b></td><td>$msg_text61</td></tr><tr><td><b>/$msg_text59 &lt;$msg_text62&gt;</b></td><td>$msg_text63</td></tr><tr><td><b>/$msg_text57 &lt;login&gt;</b></td><td>$msg_text64</font></td></tr>";
+      }
+      $ctext = "\n<script language=\"JavaScript\">
+      write${unique}helpto$fname();
+      function write${unique}helpto$fname () {
+	if(parent.talk == null){return;}
+	if(parent.talk.document == null){return;}
+	if(parent.talk.document.TalkForm == null){return;}
+	if(parent.talk.document.TalkForm.Login == null){return;}
+      if(parent.talk.document.TalkForm.Login.value == \"$clogin\"){
+	document.write(\"<table border=1><tr><td colspan=2 align=center><font size=-1><strong>$msg_text45</strong></td></tr><tr><td width=45%><b>/$msg_text44</b></td><td>$msg_text46</td></tr><tr><td><b>/msg &lt;login&gt; &lt;$msg_text47&gt;</b><br>/$msg_text41 &lt;login&gt; &lt;$msg_text47&gt;</td><td>$msg_text48</td></tr><tr><td><b>/me &lt;$msg_text49&gt;</b></td><td>$msg_text50</td></tr><tr><td><b>/$login &lt;$msg_text49&gt;</b></td><td>$msg_text50</td></tr><tr><td><b>/$msg_text23 &lt;$msg_text47&gt;</b></td><td>$msg_text51 \\\"$ucmessagetext\\\"</td></tr><tr><td><b>/$msg_text40</b></td><td>$msg_text52</font></td></tr>$adm_help_text</font></table>\");
+       }
+       return;
+      }
+      </script>\n";
+   }
+   else {
+     $ctext = "[$date] <strong>$cshow:</strong><font size=-1 color=\"#$data{'color'}\"> <b> $ctext</b></font><br>";
+     }
+
+# Put the new info in.
+  if($new_chat_lines_on_top == 1){
+     $newhtml .= "$ctext";
+     $newhtml .= "<!-- Statement -->\n";
+     }
+
+  
+# Now, we're going to step through the previous entries, and print them
+# back to the file:
+
+  if($new_chat_lines_on_top == 0){
+     while($#entries >= $number_of_chats_to_display){
+        shift(@entries);
+        }
+     }
+# Starting with 1, until $i is equal to 10, add 1 to $i and keep looping...
+  for($i = 1; $i <= $number_of_chats_to_display; $i++){
+     if($entries[$i] !~ /$chat_window_footer/){
+	$entries[$i] =~ s/\Q$embedsnd\E//g;
+	$entries[$i] =~ s/\n//gs;
+	$newhtml .= "$entries[$i]<!-- Statement -->\n" if $entries[$i] ne "";
+	}
+  }
+  if($new_chat_lines_on_top == 0){
+     $newhtml .= $ctext;
+     $newhtml .= "<!-- Statement -->\n";
+     }
+  $newhtml .= "<!-- /td></tr></table -->$js_stuff\n$chat_window_footer";
+  truncate(FILE, length($newhtml));
+  seek(FILE, 0, 0);
+  print FILE $newhtml;
+  # Close the document cleanly.
+  close(FILE);
+  $/ = "\n";
+# Log it if they want a transcript...
+     &log("$ctext") if $log_all_chats eq "yes";  
+}
+
+sub clear_chatroom {
+
+  undef $/; 
+  open(FILE, "$path_to_chat_file") || 
+   &debug("$msg_debug8 $!");
+ # We assume that there is <!-- Statement --> between each "statement" 
+ # because we put it there. :)
+    @entries = split("<!-- Statement -->", <FILE>); 
+  close(FILE); 
+  $/ = "\n";
+  $i = 0;
+  foreach $entry (@entries){
+    if($entry =~ /table border/ && $entries[$i + 1] =~ /\Q$msg_text53\E/){
+      $already_cleared = 1;
+      last;
+      }
+    $i++;
+  }
+  if($already_cleared != 1){
+    
+# Now, we can get any entry in "@entries" by calling them by number.
+# this way, we can print only $number_of_chats_to_display to the file later.
+  $date = &get_date(time,$time_format);
+  # Try to open a file that holds the statements everyone has been making
+  # and lock it...
+  open(FILE, ">$path_to_chat_file") || 
+   &debug("$msg_debug9 $!");
+  if($^O !~ /win/i){
+   flock(FILE, 2);
+   }
+  else{
+    binmode(FILE);
+    }
+# Now, we've opened the file, but let's make sure it refreshes the next time.
+
+  print FILE "<HTML><HEAD>\n";
+#  print FILE "<script language=\"JavaScript\">
+#        top.window.close();
+#        </script>\n";
+   print FILE "<META HTTP-EQUIV=Pragma Content=\"No-Cache\">
+	     <META HTTP-EQUIV=Refresh Content=\"$refresh_time;URL=$url_of_chat_file\">
+	     $chat_window_header
+	     <center><table border=1 width=100%>
+	     <tr><td><!-- Statement -->";
+
+# Put the new info in.
+     print FILE "<b><i>$msg_text53</i></b>";
+     print FILE "<!-- Statement -->\n";
+
+  
+# Now, we're going to step through the previous entries, and print them
+# back to the file:
+
+# Starting with 1, until $i is equal to 10, add 1 to $i and keep looping...
+  for($i = 1; $i <= $number_of_chats_to_display; $i++){
+     if($entries[$i] !~ /$chat_window_footer/){
+	$entries[$i] =~ s/\n//gs;
+	print FILE "<br><!-- Statement -->\n";
+	}
+  }
+  # Close the document cleanly.
+  print FILE "</td></tr></table>$chat_window_footer";
+  close(FILE);
+  $/ = "\n";
+  }
+}
+
+sub check_idle_timeouts {
+
+# What the hey: let's check for people we should auto-timeout here
+# too.
+my $time = time + ($server_time_offset * 60 * 60);
+my($line, @chatters,$one,$two,$stuff);
+
+open(CHATTERS, "+<$path_to_active_users") || 
+ &debug("$msg_debug7 $!");
+if($^O !~ /win/i){
+ flock(CHATTERS, 2);
+ }
+else{
+ binmode(CHATTERS);
+ }
+ @chatters = <CHATTERS>;
+ foreach $line (@chatters){
+    $line =~ s/\s+$//g;
+    ($f_l,$f_rh,$f_t,$f_c) = split(/\|/, $line);
+    # New time is the time since they last spoke ($f_t) plus
+    # the idle_timeout.
+    $ntime = $f_t + $idle_timeout;
+    # If this is less than the real time, then they need to
+    # be cleared, otherwise ad them back to the file.
+     if(($f_t + $idle_timeout) >= $time){
+	 $one = $f_t + $idle_timeout; $two = $time;
+	 $stuff .= "$line\n";
+	 }
+     else{
+       $data{'color'} = $f_c;
+       chomp($f_c);
+       $js_header = "
+       <script language=\"JavaScript\">
+        writeTimeoutSettingsto$f_l();
+        function writeTimeoutSettingsto$f_l () {
+        if(parent.talk == null){return;}
+        if(parent.talk.document == null){return;}
+        if(parent.talk.document.TalkForm == null){return;}
+        if(parent.talk.document.TalkForm.Login == null){return;}
+        if(parent.talk.document.TalkForm.Login.value == \"$f_l\"){
+          $test = 1;
+        }
+        return;
+        }
+        </script>\n";
+       &write_to_chat_file($f_l,$f_rh,"&lt;$msg_text22 ($msg_text54).&gt;\n",$js_header);
+       }
+    }
+ truncate(CHATTERS, length($stuff));
+ seek(CHATTERS, 0, 0);
+ print CHATTERS $stuff;
+ close(CHATTERS);
+ if(length($stuff) == 0 && $clear_chatroom_when_empty == 1){
+   &clear_chatroom;
+   }
+ 
+}
+
+sub log {
+
+   $text = $_[0];
+   ($mday,$mon,$year) = (localtime(time + ($server_time_offset * 60 * 60)))[3,4,5];
+    $mon += 1; $year += 1900;
+   opendir(DIR, "$log_directory"); @files = readdir(DIR); closedir(DIR);
+   foreach $file (@files){
+     if(-f $file && $file =~ /^chat-log/){
+        $logsize += (stat($file))[7];
+	}
+     }
+   undef @files;
+	
+  if($type_of_log eq "daily"){ $file = "chat-log-$mday-$mon-$year.html"; }
+  elsif($type_of_log eq "monthly"){ $file = "chat-log-$mon-$year.html"; }
+  else{ $file = "chat-log.html";}
+
+  if($logsize <= $max_log_space){
+    open(FILE, ">>$log_directory/$file") || 
+      &debug("$msg_debug10 $!"); 
+    if($^O !~ /win/i){ flock(FILE, 2);}
+    else { binmode(FILE);}
+    seek(FILE, 0, 2); 
+    
+    print FILE "$text<br>\n";
+    close(FILE);
+    }
+}
+
+sub check_badwords {
+
+my($clogin,$ctext) = @_;
+
+  if($censor_chat == 1){
+  $/ = "\n";
+  $msg_debug11 = &trans_subst($msg_debug11,"%BADWORDS_FILE%",$badwords_file);
+  open(BW, "<$badwords_file") ||
+   &debug("$msg_debug11 $!");
+   @badwords = grep(!/^#/,<BW>);
+  close(BW);
+  foreach $badword (@badwords){
+    chomp($badword);
+    $clogin =~ s/$badword/$censored_msg/ig;
+    $ctext =~ s/$badword/$censored_msg/ig;
+    }
+   }
+$message = $ctext; 
+if ($enable_ubbc) { doubbc(); } 
+if ($enable_smile) { dosmilies(); } 
+$ctext = $message; 
+
+
+ my(@results) = ($clogin,$ctext);
+ @results;
+
+}
+
+sub check_banned_ip {
+ 
+ $msg_debug12 = &trans_subst($msg_debug12,"%BANNED_IP_FILE%",$path_to_banned_ip_file);
+ if($data{'Login'} eq $admin_login && $data{'Password'} eq $admin_password){
+   return;
+   }
+ open(BIP, "<$path_to_banned_ip_file") ||
+  &debug("$msg_debug12 $!");
+  @bips = grep(!/^#/,<BIP>);
+ close(BIP);
+ foreach $bip (@bips){
+   chomp($bip);
+   if($ENV{'REMOTE_HOST'} =~ /^$bip$/i || $ENV{'REMOTE_ADDR'} eq $bip ||
+      $data{'Login'} eq $bip){
+      &pct;
+      print "$chat_window_header
+	       <center><b>$msg_text55</b></center><br><br>
+	       $banned_message
+               <form>
+               <input type=button value=\"Close Window\" onClick=\"top.window.close();\">
+	       </form>
+	       $footer";
+               exit();
+      }
+
+   }
+
+}
+
+sub trans_subst {
+
+my ($text, $old, $new) = @_;
+$text =~ s/$old/$new/g;
+$text;
+
+
+}
+
+sub process_lang {
+
+open(LANG, "<$path_to_language_file") || 
+ &die_usefully("Could not open language file $path_to_language_file. 
+		Server error: $!");
+ @langtext = grep(!/^#/, <LANG>);
+close(LANG);
+foreach $textbit (@langtext){
+   chomp($textbit);
+   $msgnum = $textbit;
+   $msgnum =~ s/\:.*$//;
+   $msgtext = $textbit;
+   $msgtext =~ s/^(.*?)(:)(.*)$/$3/;
+   $msgtext =~ s/^\s+//g;
+   $msgtext =~ s/\s+$//g;
+   if($msgnum !~ /^msg_(text|debug)\d{1,2}/){next;}
+   else { $$msgnum = $msgtext; }
+#   print "\$$msgnum $msgtext\n\n";
+   }
+
+
+}
+
+sub die_usefully {
+
+ &pct;
+ print "<br><br>Fatal Error: $_[0]<br>";
+ exit();
+
+}
+
+sub register {
+
+use CGI::Carp qw(fatalsToBrowser);
+&pct;
+$login = $data{'login'};
+$pw1 = $data{'password1'};
+$pw2 = $data{'password2'};
+if($data{'FA2'} eq "Addme"){
+
+  # We will only accept letters, numbers, dash, dot, and underscore in
+  # logins.
+  $ok_login_chars = 'A-Za-z0-9-_.';
+  if($login =~ /[^$ok_login_chars]/){
+      $msg = "<b>Error: Logins may only contain letters, numbers, and the
+      -, ., and _ characters. Please choose a different login.</b><br>";
+      $data{'FA2'} = "";
+      &register;
+      }
+  # Anything there?
+  if($login eq "" || $pw1 eq "" || $pw2 eq ""){
+      $msg = "<b>Error: Please choose a username and password.</b><br>";
+      $data{'FA2'} = "";
+      &register;
+      }
+  if($pw1 eq "" || $pw2 eq "" || $pw1 ne $pw2){
+      $msg = "<b>Error: Passwords don't match. 
+               Please re-type your password.</b><br>";
+      $data{'FA2'} = "";
+      &register;
+      }
+
+    
+  # Add the user to the file
+  open(RF, "+<$registered_users") ||
+    &debug("Could not open registered users file for writing: $!");
+  # Bomb out if we couldn't open the file.
+  if($!){ 
+     &pct;
+     print "$header<br>Error: Could not register you. Please contact the
+            webmaster.$footer";
+     exit();
+     }
+  if($opsys eq "unix"){ flock(RF, 2); }
+  else { binmode(RF); }
+  $testuser = (grep(/^$login\|/i, <RF>))[0];
+  if($testuser ne ""){
+      $msg = "<b>Error: Username $login is taken. Please try again.</b><br>";
+      $data{'FA2'} = "";
+      &register;
+      }
+  seek(RF, 0, 2);
+  print RF "$login|" . crypt($pw1, $$.time) . "\n";
+  close(RF);
+  $msg = "<b>$login successfully registered!</b><br>";  
+  &loginscreen;
+  exit();
+  }
+
+print "$header
+       $msg
+       <form method=POST action=$cgi_url>
+       <table border=0>
+       <tr><td>
+       Please choose a login name: 
+       </td><td>
+       <input type=text name=login>
+       </td></tr><tr><td>
+       Please choose a password:
+       </td><td>
+       <input type=password name=password1>
+       </td></tr><tr><td>
+       Type the password again:
+       </td><td>
+       <input type=password name=password2>
+       </td></tr>
+       <input type=hidden name=FA value=\"Register\">
+       <input type=hidden name=FA2 value=\"Addme\">
+       <tr><td><input class='button' type=submit value=\"Register!\"></td></tr>
+       </table></form>
+       $footer";
+exit();
+
+}
+
+sub authenticate {
+}
+
+sub old_autheticate {
+ &pct;
+ $login = $data{'Login'};
+ $pw = $data{'Password'};
+ $ok_login_chars = 'A-Za-z0-9-_.';
+ if($login =~ /[^$ok_login_chars]/){
+     $msg = "<b>Error: Logins may only contain letters, numbers, and the -, ., and
+            _ characters. </b> [<a href=$cgi_url?FA=Register>Register</a>]<br>";
+     &loginscreen;
+     exit();
+     }
+ $! = "";   
+ if($login eq "$admin_login" && $pw eq "$admin_password"){
+   $i_am_admin = 1;
+   return 1;
+   }
+ open(RF, "<$registered_users") ||
+   &debug("Could not open registered users file: $!");
+  if($!){
+     print "$header
+            <b>Error: Cannot access the password database. Please
+             contact the webmaster. $! '$registered_users' </b>
+             [<a href=$cgi_url?FA=Register>Register</a>]
+            $footer";
+     exit();
+     }
+  $stuff = (grep(/^$login\|/, <RF>))[0];
+  ($t_login,$t_pw) = split(/\|/, $stuff);
+  chomp($t_pw);
+  if($t_login ne $login  || crypt($pw, $t_pw) ne $t_pw){
+     $msg = "<b>Error: Username or password incorrect.</b> [<a href=$cgi_url?FA=Register>Register</a>]<br>";
+     &loginscreen;
+     exit();
+     }
+   
+}
+
+sub encodepw {
+
+	
+  $_[0] =~ s/([^A-Za-z0-9-_])/uc sprintf("%%%02x",ord($1))/eg; 
+  $_[0];
+
+}
+
+sub admin_menu {
+ # Nope. None of this is implemented. Maybe someday, though. :-)
+ #$admin_login = "admin";
+ #$admin_password = "hungry";
+ # Ban user  (select from users online) /ban username
+ # Ban user by ip /ban username
+ # Ban user by username (not online) Can't ban if they're not online.
+ # Un-ban
+ # Delete user
+ # Change user pw
+ # Configure chat
+}
+
+sub kick {
+
+if($i_am_admin == 1){
+ 	$ctext =~ s/\"/\\\"/g;
+      	$unique = $$;
+      	$fname = $login; $fname =~ s/\W+//g;
+      	$ctext =~ s/^\/$msg_text57//i;
+      	$tologin = $ctext;
+      	$tologin =~ s/^\s+//g;$tologin =~ s/\s+$//g;
+      	$tologin =~ s/(.*?)(\s+)(.*)/$1/;
+      	$tologin =~ s/\W+//;
+        # Get their host from the chatters.txt file
+        open(CT, "<$path_to_active_users");
+	   ($user_to_ban) = (grep(/^$tologin\|/, <CT>))[0];
+           ($utb,$iptb,$ctb) = split(/\|/, $user_to_ban);
+        close(CT);
+        if($tologin eq $admin_login){ 
+       		$ctext = "[$date] <strong>$tologin:</strong><font color=\"#$data{'color'}\"> <b> $msg_text6</b></font><br>";
+ 		return;
+		}
+      	open(CT, "+<$path_to_active_users") ||
+        &debug("$msg_debug6 $!");
+        binmode(CT);
+          @lines = <CT>;
+        if($^O !~ /win/i){flock(CT, 2);}
+
+        foreach $line (@lines){
+           	$line =~ s/\s+$//g;
+           	if($line !~ /^$tologin\|/){
+              		$nfile .= "$line\n";
+              		}
+           	else {
+              		$found_kickee_online = 1;
+              		}
+           	}
+         truncate(CT, length($nfile));
+         seek(CT, 0, 0);
+         print CT "$nfile";
+         close(CT);
+         if($found_kickee_online == 1){
+
+     		$ctext = "\n<script language=\"JavaScript\">
+      		write${unique}${tologin}kickOff();
+      		function write${unique}${tologin}kickOff () {
+        		if(parent.talk == null){return;}
+        		if(parent.talk.document == null){return;}
+        		if(parent.talk.document.TalkForm == null){return;}
+        		if(parent.talk.document.TalkForm.Login == null){return;}
+        		if(parent.talk.document.TalkForm.Login.value == \"$tologin\"){
+          		top.window.close();
+        		}
+       			return;
+      		}
+      		</script>";
+
+       		$ctext .= "[$date] <strong>$tologin:</strong><font color=\"#$data{'color'}\"> <b> $msg_text69</b></font><br>";
+            	} # is logged on and has been kicked.
+         else {
+                $ctext = "\n<script language=\"JavaScript\">
+              	write${unique}${admin_login}msg();
+              	function write${unique}${admin_login}msg () {
+                	if(parent.talk == null){return;}
+                	if(parent.talk.document == null){return;}
+                	if(parent.talk.document.TalkForm == null){return;}
+                	if(parent.talk.document.TalkForm.Login == null){return;}
+                	if(parent.talk.document.TalkForm.Login.value == \"$admin_login\"){
+                	document.write(\"<b>[SYSTEM: $tologin $msg_text70]</b><br>\");
+        		} // is not logged on
+       			return;
+      		}
+      		</script>";
+  		}
+	}
+   else { $ctext = ""; }
+
+}

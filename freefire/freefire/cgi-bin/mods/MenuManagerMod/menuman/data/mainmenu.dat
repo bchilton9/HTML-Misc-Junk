@@ -1,0 +1,12 @@
+1||$nav{'002'}|-public-||$themesurl/$usertheme/images/dot.gif
+2|topics|$nav{'004'}|-public-||$themesurl/$usertheme/images/dot.gif
+3|forum&board=|$nav{'003'}|-public-||$themesurl/$usertheme/images/dot.gif
+4|links|$nav{'005'}|-public-||$themesurl/$usertheme/images/dot.gif
+5|http://www.eqguilded.com/freefire/cgi-bin/mods/calendar/index.cgi?vsSD=1|Calendar|-public-||$themesurl/$usertheme/images/dot.gif
+6|http://www.eqguilded.com/freefire/cgi-bin/mods/apage/apage.cgi?f=charter.html|Charter/Rules|-public-||$themesurl/$usertheme/images/dot.gif
+7|http://www.eqguilded.com/freefire/cgi-bin/mods/usergallery/index.cgi|Gallery|-public-||$themesurl/$usertheme/images/dot.gif
+8|memberlist2|Roster|-public-||$themesurl/$usertheme/images/dot.gif
+9|http://www.eqguilded.com/freefire/cgi-bin/mods/showhtml/showhtml.pl?id=Bank|Guild Bank|-admin-,-member-,Guild Leader,Officer,Member||$themesurl/$usertheme/images/dot.gif
+10|http://www.eqguilded.com/freefire/cgi-bin/mods/flagging/chart.cgi|Flagging|-admin-,-member-,Guild Leader,Officer,Member,Friend|frameless|$themesurl/$usertheme/images/dot.gif
+11|http://www.eqguilded.com/freefire/cgi-bin/mods/chat/chat.cgi?FA=LoginScreen|Chat Room|-admin-,-member-,Guild Leader,Officer,Member,Friend|chat|$themesurl/$usertheme/images/dot.gif
+12|http://www.eqguilded.com/freefire/cgi-bin/mods/apage/apage.cgi?f=ts.html|Teamspeak|-admin-,-member-,Guild Leader,Officer,Member||$themesurl/$usertheme/images/dot.gif

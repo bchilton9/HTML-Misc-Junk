@@ -1,0 +1,9 @@
+$config_vers = ".4";
+$mod_name = "ShowHTML";
+$mod_vers = "0.0.5";
+$mod_desc = "ShowHTML Mod.";
+$mod_admin = "1";
+$admin_name = "admin.cgi";
+$lang_support = "0";
+$mod_lang = "english.dat";
+1;

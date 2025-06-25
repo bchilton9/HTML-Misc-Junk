@@ -1,0 +1,1 @@
+Ajia|hugs|05/06/04 - 04:29:59|I have missed you sorry been gone so much one of the computers got a bunch of viruses...I do still miss ya and luv ya though /hugs[color=Purple][/color][font=Verdana][/font][size=5][/size][imxkiss]|1083835718|Wenien|aicon2|1|1

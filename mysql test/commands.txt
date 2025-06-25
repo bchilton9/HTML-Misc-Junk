@@ -1,0 +1,33 @@
+my $db = DBI->connect("DBI:mysql:eqguild_guild:localhost","eqguild_guild","eqg");
+
+
+my $db = DBI->connect('dbi:mysql:dbname='.$config{'db_database'}.':host='.$config{'db_hostname'},$config{'db_username'},$config{'db_password'}) || &error("Can't connect to database: $DBI::errstr");
+
+			$db->do('DROP TABLE config');
+			$db->do('DROP TABLE users');
+			$db->do('DROP TABLE logins');
+
+			$db->do('CREATE TABLE config (name VARCHAR(20) NOT NULL,value text,PRIMARY KEY (name))');
+			$db->do('CREATE TABLE users (id INT UNSIGNED NOT NULL AUTO_INCREMENT,name VARCHAR(100) NOT NULL,password VARCHAR(100) NOT NULL,email VARCHAR(100) NOT NULL,date_created DATETIME NOT NULL,date_online DATETIME NOT NULL,PRIMARY KEY (id),UNIQUE (name),INDEX (email))');
+			$db->do('CREATE TABLE logins (id char(15) NOT NULL,user_id int UNSIGNED NOT NULL DEFAULT 0,ip varchar(15) NOT NULL,directory varchar(100) DEFAULT \'/\',date_online datetime NOT NULL,PRIMARY KEY (id),INDEX (user_id),INDEX (date_online))');
+
+			$db->disconnect;
+
+
+			my $db = DBI->connect('dbi:mysql:dbname='.$config{'db_database'}.':host='.$config{'db_hostname'},$config{'db_username'},$config{'db_password'}) || &error("Can't connect to database: $DBI::errstr");
+
+			my $insert = $db->prepare('REPLACE INTO config VALUES (?,?)');
+
+			$insert->execute('password',$cgi->param('password'));
+			$insert->execute('email',$cgi->param('email'));
+			$insert->execute('title',$cgi->param('title'));
+			$insert->execute('header','<font size="4">'.$cgi->param('title').'</font>');
+			$insert->execute('color',$cgi->param('color'));
+
+			$insert->execute('mheader_height',50);
+			$insert->execute('mheader_bgcolor','white');
+			$insert->execute('upload_fields',5);
+
+			$insert->finish;
+
+			$db->disconnect;

@@ -1,0 +1,104 @@
+.menutable
+{
+    BORDER-RIGHT: #114477 1px solid;
+    BORDER-TOP: #5588bb 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    BORDER-LEFT: #5588bb 1px solid;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #114477 1px solid;
+    FONT-FAMILY: arial, helvetica, geneva;
+    BACKGROUND-COLOR: #336699
+}
+.menubordercolor
+{
+    BORDER-RIGHT: #ffffff 1px solid;
+    BORDER-TOP: #666666 1px solid;
+    BORDER-LEFT: #666666 1px solid;
+    BORDER-BOTTOM: #ffffff 1px solid
+}
+.menubackcolor
+{
+    BORDER-RIGHT: #eeeeee 1px solid;
+    BORDER-TOP: #999999 1px solid;
+    BORDER-LEFT: #999999 1px solid;
+    BORDER-BOTTOM: #eeeeee 1px solid;
+    BACKGROUND-COLOR: #dddddd
+}
+.cat
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+.text
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.textsmall
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.texttitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #003399;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.time
+{
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: arial, helvetica, geneva
+}
+.maintable
+{
+    WIDTH: 100%
+}
+.maincontent
+{
+    WIDTH: 100%
+}
+A.menu:link
+{
+    COLOR: #003399;
+    FONT-FAMILY: Arial, geneva, helvetica;
+    TEXT-DECORATION: none
+}
+A.menu:active
+{
+    COLOR: #003399;
+    TEXT-DECORATION: underline
+}
+A.menu:visited
+{
+    COLOR: #003399;
+    TEXT-DECORATION: none
+}
+A.menu:hover
+{
+    COLOR: #003399;
+    FONT-FAMILY: Arial, geneva, helvetica;
+    TEXT-DECORATION: underline overline
+}
+.navbar
+{
+    COLOR: white;
+    FONT-FAMILY: Arial, helvetica, geneva;
+    TEXT-DECORATION: none
+}
+.bannerbox
+{
+    BORDER-RIGHT: thin inset;
+    BORDER-TOP: thin inset;
+    BORDER-LEFT: thin inset;
+    BORDER-BOTTOM: thin inset;
+    BACKGROUND-COLOR: #dddddd
+}

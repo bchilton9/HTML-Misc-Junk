@@ -1,0 +1,9 @@
+1|http://www.destinyeq2.com/cgi-bin/index.cgi?action=editprofile&username=$username|$nav{'016'}|-member-||$themesurl/$usertheme/images/dot.gif
+2|http://www.destinyeq2.com/cgi-bin/index.cgi?action=im|Messages|-public-||$themesurl/$usertheme/images/dot.gif
+3|http://www.destinyeq2.com/cgi-bin/mods/office/journal.cgi|Journal|-member-||$themesurl/$usertheme/images/dot.gif
+4|$scripturl/mods/menuman/admin/useradmin.cgi|Edit My Menu|-member-||$themesurl/$usertheme/images/dot.gif
+7|http://www.destinyeq2.com/cgi-bin/index.cgi?action=memberlist|$nav{'019'}|-member-||$themesurl/$usertheme/images/dot.gif
+8|http://www.destinyeq2.com/cgi-bin/index.cgi?action=admin&op=siteadmin|$nav{'042'}|-admin-||$themesurl/$usertheme/images/dot.gif
+10|http://www.destinyeq2.com/cgi-bin/index.cgi?action=stats|Statistics|-admin-,Guild Leader,Officer||$themesurl/$usertheme/images/dot.gif
+11|http://www.destinyeq2.com/cgi-bin/index.cgi?action=postnews|Write News|-admin-,Guild Leader,Officer||$themesurl/$usertheme/images/dot.gif
+13|http://www.destinyeq2.com/cgi-bin/index.cgi?action=logout|$nav{'034'}|-member-,Guild Leader,Officer,Member,Recruit,Friend||$themesurl/$usertheme/images/dot.gif

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>MUSHclient 102 - Wildcards</title>
+   
+</head>
+ <body background="http://members.iinet.net.au/~garydep/images/furbgnd.gif" link="#9070ff" vlink="#300090" text="#000000" bgcolor="#ffffff" alink="#0000ee">
+<h3>
+<p>MUSHclient 102 - Wildcards  </p>
+<p>Wildcards are symbols that represent a group of characters or a single 
+character in your trigger.  The * represents a group of characters and the 
+? represents a single character. The trigger that  will be made in this tutorial 
+will be the *. We are going to make a simple bar bot. Click on the  Triggers 
+button, then click Add. Type the following in the Trigger textbox:  </p>
+<p>(* orders *  </p>
+<p>When someone says, does, or whispers anything, an open parentheses is placed
+at the beginning  of what they say, do, or whisper. The first * represents 
+the Furres name and the second * represents  what the Furre ordered. With 
+this trigger, the bot responds to anyone that orders something.  </p>
+<p>Example: (Red|Dragon orders a root beer  </p>
+<p>In the Send box, type the following:  </p>
+<p><i>:gives %1 %2</i>  </p>
+<p>%1 represents the first * in the Trigger textbox which in this case is 
+the Furre's name. <br>
+ %2 represents the second * which in this case is what the furre ordered.
+  </p>
+<p>So if Red|Dragon orders a root beer then what the bot sends would like 
+the following:  </p>
+<p>Example: BotName gives Red|Dragon a root beer  </p>
+<p>Click OK and close the Triggers window. You now have your first trigger 
+using wildcards!  </p>
+<p><a href="MC103.html">Click here to go to MUSHclient 103 - Basic Scripting</a>
+</p>
+</h3>
+</body>
+</html>
