@@ -1,4 +1,0 @@
-general
-member
-officer
-other

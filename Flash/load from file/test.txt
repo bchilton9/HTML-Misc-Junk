@@ -1,2 +1,0 @@
-&var1_titre=Byron
-&var1_list=France,Suisse,Italie,Espagne,Allemagne,Belgique,USA,Japon,Chine,Argentine&status=1& 
